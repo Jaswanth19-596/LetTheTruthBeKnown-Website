@@ -1,0 +1,206 @@
+.about-hero {
+  background: linear-gradient(180deg, #0f1a0f 0%, var(--bg-primary) 100%);
+}
+
+.about-hero::before {
+  background: 
+    radial-gradient(circle at 30% 50%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(212, 165, 116, 0.08) 0%, transparent 40%);
+}
+
+/* Mission Section */
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+}
+
+.mission-content h2 {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.mission-content p {
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.8;
+}
+
+.mission-verse {
+  padding: var(--spacing-lg);
+  background: rgba(212, 165, 116, 0.1);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+.mission-verse p {
+  font-style: italic;
+  margin-bottom: var(--spacing-sm);
+}
+
+.mission-verse span {
+  color: var(--accent-gold);
+  font-size: var(--font-size-sm);
+}
+
+.mission-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mission-icon-text {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+  color: var(--bg-primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Values Section */
+.values-section {
+  background: var(--bg-secondary);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.value-card {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 165, 116, 0.3);
+}
+
+.value-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.value-card h4 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.value-card p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* Offer Section */
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.offer-item {
+  padding: var(--spacing-xl);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+}
+
+.offer-item:hover {
+  border-color: rgba(212, 165, 116, 0.3);
+}
+
+.offer-number {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--accent-gold);
+  margin-bottom: var(--spacing-md);
+}
+
+.offer-item h4 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.offer-item p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* About CTA */
+.about-cta .cta-card {
+  text-align: center;
+  padding: var(--spacing-3xl);
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-2xl);
+}
+
+.about-cta h2 {
+  margin-bottom: var(--spacing-md);
+}
+
+.about-cta p {
+  margin-bottom: var(--spacing-xl);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .offer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .mission-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .mission-image {
+    order: -1;
+  }
+
+  .mission-icon {
+    width: 150px;
+    height: 150px;
+    font-size: 4rem;
+  }
+
+  .mission-verse {
+    text-align: left;
+  }
+
+  .values-grid,
+  .offer-grid {
+    grid-template-columns: 1fr;
+  }
+}

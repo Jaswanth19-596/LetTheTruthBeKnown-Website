@@ -1,0 +1,225 @@
+/* ===== Page Hero - Solar System Theme ===== */
+.page-hero {
+  padding: 140px 0 80px;
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse 40% 30% at 80% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 20% 60%, rgba(30, 58, 95, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.page-hero-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-content h1 {
+  font-size: var(--font-size-5xl);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: -0.02em;
+}
+
+.page-hero-content p {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+}
+
+/* ===== Filter Section ===== */
+.filter-section {
+  padding: var(--spacing-xl) 0;
+  border-bottom: 1px solid var(--glass-border);
+  position: sticky;
+  top: 70px;
+  background: rgba(3, 7, 18, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+}
+
+.filter-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.2), transparent);
+}
+
+.language-tabs {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lang-tab {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.lang-tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.1), transparent);
+  transition: left 0.4s ease;
+}
+
+.lang-tab:hover::before {
+  left: 100%;
+}
+
+.lang-tab:hover {
+  border-color: var(--sun-gold);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.lang-tab.active {
+  background: var(--gradient-sun);
+  border-color: transparent;
+  color: var(--bg-primary);
+  box-shadow: 0 5px 25px rgba(245, 158, 11, 0.3);
+}
+
+/* ===== Tracts Grid ===== */
+.tracts-grid {
+  padding-top: var(--spacing-2xl);
+}
+
+/* ===== Info Section ===== */
+.info-section {
+  padding-bottom: var(--spacing-3xl);
+}
+
+.info-card {
+  display: flex;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-2xl);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.03), rgba(30, 58, 95, 0.03));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-sun);
+}
+
+.info-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  background: var(--gradient-sun);
+  border-radius: var(--radius-xl);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-glow);
+}
+
+.info-content h3 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.info-content p {
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.8;
+}
+
+.info-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.info-list li {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.info-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--sun-gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--sun-gold);
+}
+
+@media (max-width: 768px) {
+  .page-hero-content h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .filter-section {
+    top: 60px;
+    padding: var(--spacing-md) 0;
+  }
+
+  .language-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: var(--spacing-sm);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .lang-tab {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .info-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-icon {
+    margin: 0 auto;
+  }
+
+  .info-list {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+}
