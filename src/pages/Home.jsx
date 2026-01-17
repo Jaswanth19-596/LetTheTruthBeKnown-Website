@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { getAssetUrl } from '../config/assets';
 import './Home.css';
 
 const Home = () => {
@@ -176,7 +177,7 @@ const Home = () => {
             <div className="video-sidebar">
               <div className="video-card small reveal-right delay-200 hover-lift">
                 <div className="video-thumbnail">
-                  <img src="/downloads/24_79af5280.jpg" alt="Gospel Film" />
+                  <img src={getAssetUrl('downloads/24_79af5280.jpg')} alt="Gospel Film" />
                   <div className="play-icon animate-pulse">▶</div>
                 </div>
                 <div className="video-info">
@@ -187,7 +188,7 @@ const Home = () => {
               
               <div className="video-card small reveal-right delay-400 hover-lift">
                 <div className="video-thumbnail">
-                  <img src="/downloads/51affa96.jpg" alt="Pastor Message" />
+                  <img src={getAssetUrl('downloads/51affa96.jpg')} alt="Pastor Message" />
                   <div className="play-icon animate-pulse">▶</div>
                 </div>
                 <div className="video-info">

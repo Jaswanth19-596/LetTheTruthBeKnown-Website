@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from '../components/Card';
+import { getAssetUrl } from '../config/assets';
 import './StopTracts.css';
 
 const StopTracts = () => {
@@ -47,48 +48,48 @@ const StopTracts = () => {
       language: 'english',
       title: 'STOP! Tract - English',
       description: 'Eye-catching STOP tract to grab attention and share the gospel.',
-      image: '/downloads/1.png',
-      pdf: '/downloads/English_stoptrack.pdf'
+      image: getAssetUrl('downloads/1.png'),
+      pdf: getAssetUrl('downloads/English_stoptrack.pdf')
     },
     {
       id: 2,
       language: 'swahili',
       title: 'STOP! Tract - Swahili',
       description: 'Kiswahili version of the STOP tract.',
-      image: '/downloads/2.png',
-      pdf: '/downloads/Kiswahilii_stoptrack.pdf'
+      image: getAssetUrl('downloads/2.png'),
+      pdf: getAssetUrl('downloads/Kiswahilii_stoptrack.pdf')
     },
     {
       id: 3,
       language: 'luo',
       title: 'STOP! Tract - Luo',
       description: 'Luo language version.',
-      image: '/downloads/3.png',
-      pdf: '/downloads/LuoStop.pdf'
+      image: getAssetUrl('downloads/3.png'),
+      pdf: getAssetUrl('downloads/LuoStop.pdf')
     },
     {
       id: 4,
       language: 'kalenjin',
       title: 'STOP! Tract - Kalenjin',
       description: 'Kalenjin language version.',
-      image: '/downloads/4.png',
-      pdf: '/downloads/KenyaKalinjin_stoptrack.pdf'
+      image: getAssetUrl('downloads/4.png'),
+      pdf: getAssetUrl('downloads/KenyaKalinjin_stoptrack.pdf')
     },
     {
       id: 5,
       language: 'kisii',
       title: 'STOP! Tract - Kisii',
       description: 'Kisii language version.',
-      image: '/downloads/5.png',
-      pdf: '/downloads/Kisii_stoptrack.pdf'
+      image: getAssetUrl('downloads/5.png'),
+      pdf: getAssetUrl('downloads/Kisii_stoptrack.pdf')
     },
     {
       id: 6,
       language: 'maasai',
       title: 'STOP! Tract - Maasai',
       description: 'Maasai language version.',
-      image: '/downloads/6.png',
-      pdf: '/downloads/Masai_stoptrack.pdf'
+      image: getAssetUrl('downloads/6.png'),
+      pdf: getAssetUrl('downloads/Masai_stoptrack.pdf')
     },
   ];
 

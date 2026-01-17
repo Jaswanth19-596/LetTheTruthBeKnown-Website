@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Card from '../components/Card';
+import { getAssetUrl } from '../config/assets';
 import './Resources.css';
 
 const Resources = () => {
@@ -28,41 +29,42 @@ const Resources = () => {
       window.removeEventListener('scroll', revealOnScroll);
     };
   }, []);
+
   const answerBooks = [
     {
       title: 'Answer Book 1: Soul Winning & Discipleship',
       description: 'Comprehensive guide to evangelism and discipling new believers.',
-      pdf: '/downloads/ANSWERS-Book-1-SOUL-WINNING-DISCIPLESHIP.pdf'
+      pdf: getAssetUrl('downloads/ANSWERS-Book-1-SOUL-WINNING-DISCIPLESHIP.pdf')
     },
     {
       title: 'Answer Book 2: Proofs of Christ, The Bible, God',
       description: 'Apologetics and evidence for the Christian faith.',
-      pdf: '/downloads/ANSWERS-Book-2-PROOFS-OF-CHRIST-THE-BIBLE-GOD.pdf'
+      pdf: getAssetUrl('downloads/ANSWERS-Book-2-PROOFS-OF-CHRIST-THE-BIBLE-GOD.pdf')
     },
     {
       title: 'Answer Book 3: Church Issues',
       description: 'Biblical answers to common church questions.',
-      pdf: '/downloads/ANSWERS-Book-3-CHURCH-ISSUES.pdf'
+      pdf: getAssetUrl('downloads/ANSWERS-Book-3-CHURCH-ISSUES.pdf')
     },
     {
       title: 'Answer Book 4: Christian Living',
       description: 'Practical guidance for daily Christian life.',
-      pdf: '/downloads/ANSWERS-Book-4-CHRISTIAN-LIVING.pdf'
+      pdf: getAssetUrl('downloads/ANSWERS-Book-4-CHRISTIAN-LIVING.pdf')
     },
     {
       title: 'Answer Book 5: False Doctrines Refuted',
       description: 'Biblical responses to common false teachings.',
-      pdf: '/downloads/ANSWERS-Book-5-FALSE-DOCTRINES-REFUTED.pdf'
+      pdf: getAssetUrl('downloads/ANSWERS-Book-5-FALSE-DOCTRINES-REFUTED.pdf')
     },
     {
       title: 'Answer Book 6: False Religions',
       description: 'Understanding and responding to world religions.',
-      pdf: '/downloads/ANSWERS-Book-6-FALSE-RELIGIONS.pdf'
+      pdf: getAssetUrl('downloads/ANSWERS-Book-6-FALSE-RELIGIONS.pdf')
     },
     {
       title: 'Answer Book 7: Important Sermons',
       description: 'Collection of essential sermon topics.',
-      pdf: '/downloads/ANSWERS-Book-7-IMPORTANT-SERMONS.pdf'
+      pdf: getAssetUrl('downloads/ANSWERS-Book-7-IMPORTANT-SERMONS.pdf')
     },
   ];
 
@@ -70,32 +72,32 @@ const Resources = () => {
     {
       title: 'Lessons on Tongues',
       description: 'Biblical study on the gift of tongues.',
-      image: '/downloads/Tongues-Second-Edition.png',
-      pdf: '/downloads/Lessons-on-Tongues-Second-Edition.pdf'
+      image: getAssetUrl('downloads/Tongues-Second-Edition.png'),
+      pdf: getAssetUrl('downloads/Lessons-on-Tongues-Second-Edition.pdf')
     },
     {
       title: 'ABCs of Christian Growth',
       description: 'Foundational principles for spiritual growth.',
-      image: '/downloads/ABC-1.png',
-      pdf: '/downloads/ABCs-of-Christian-Growth.pdf'
+      image: getAssetUrl('downloads/ABC-1.png'),
+      pdf: getAssetUrl('downloads/ABCs-of-Christian-Growth.pdf')
     },
     {
       title: 'ABCs of Christian Maturity',
       description: 'Advanced principles for mature believers.',
-      image: '/downloads/ABC-2.png',
-      pdf: '/downloads/ABCs-of-Christian-Maturity.pdf'
+      image: getAssetUrl('downloads/ABC-2.png'),
+      pdf: getAssetUrl('downloads/ABCs-of-Christian-Maturity.pdf')
     },
     {
       title: 'Know Your Bible Better',
       description: 'Study guide to understanding Scripture.',
-      image: '/downloads/2Know.png',
-      pdf: '/downloads/Know-Your-Bible-Better-New-revised.pdf'
+      image: getAssetUrl('downloads/2Know.png'),
+      pdf: getAssetUrl('downloads/Know-Your-Bible-Better-New-revised.pdf')
     },
     {
       title: 'Raising a Prince',
       description: 'Biblical parenting principles.',
-      image: '/downloads/cover-1.png',
-      pdf: '/downloads/RAISING-PRINCE-REVISED.pdf'
+      image: getAssetUrl('downloads/cover-1.png'),
+      pdf: getAssetUrl('downloads/RAISING-PRINCE-REVISED.pdf')
     },
   ];
 
