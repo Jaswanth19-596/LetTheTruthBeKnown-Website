@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import IntroScreen from './components/IntroScreen';
 import Home from './pages/Home';
 import GospelTracts from './pages/GospelTracts';
 import StopTracts from './pages/StopTracts';
@@ -14,27 +16,36 @@ import Contact from './pages/Contact';
 import './styles/index.css';
 
 function App() {
+  const [showIntro, setShowIntro] = useState(true);
+
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+  };
+
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="app">
-        <Navbar />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/gospel-tracts" element={<GospelTracts />} />
-            <Route path="/stop-tracts" element={<StopTracts />} />
-            <Route path="/discipleship" element={<Discipleship />} />
-            <Route path="/salvation-quiz" element={<SalvationQuiz />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/faqs" element={<FAQs />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <>
+      {showIntro && <IntroScreen onComplete={handleIntroComplete} />}
+      <Router>
+        <ScrollToTop />
+        <div className="app">
+          <Navbar />
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/gospel-tracts" element={<GospelTracts />} />
+              <Route path="/stop-tracts" element={<StopTracts />} />
+              <Route path="/discipleship" element={<Discipleship />} />
+              <Route path="/salvation-quiz" element={<SalvationQuiz />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/faqs" element={<FAQs />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </>
   );
 }
 
