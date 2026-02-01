@@ -155,16 +155,16 @@ const Home = () => {
         <div className="container">
           <div className="section-header text-center reveal">
             <span className="section-badge">Featured</span>
-            <h2>Watch & <span className="gradient-text-animated">Learn</span></h2>
+            <h2>The Truth of God.</h2>
           </div>
 
-          <div className="video-grid">
+          <div className="video-grid two-columns">
             <div className="video-card main reveal-left">
               <div className="video-wrapper hover-glow">
                 <iframe
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  src="https://player.vimeo.com/video/953975875"
                   title="Gospel Message"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
                 ></iframe>
               </div>
@@ -174,27 +174,18 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="video-sidebar">
-              <div className="video-card small reveal-right delay-200 hover-lift">
-                <div className="video-thumbnail">
-                  <img src={getAssetUrl('downloads/24_79af5280.jpg')} alt="Gospel Film" />
-                  <div className="play-icon animate-pulse">▶</div>
-                </div>
-                <div className="video-info">
-                  <h5>In Christ Alone</h5>
-                  <p>Worship & Praise</p>
-                </div>
+            <div className="video-card main reveal-right">
+              <div className="video-wrapper hover-glow">
+                <iframe
+                  src="https://player.vimeo.com/video/1019690956"
+                  title="Gospel Teaching"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
-              
-              <div className="video-card small reveal-right delay-400 hover-lift">
-                <div className="video-thumbnail">
-                  <img src={getAssetUrl('downloads/51affa96.jpg')} alt="Pastor Message" />
-                  <div className="play-icon animate-pulse">▶</div>
-                </div>
-                <div className="video-info">
-                  <h5>Bible Study</h5>
-                  <p>Teaching Series</p>
-                </div>
+              <div className="video-info">
+                <h4>Gospel Teaching</h4>
+                <p>Grow in your understanding of faith</p>
               </div>
             </div>
           </div>

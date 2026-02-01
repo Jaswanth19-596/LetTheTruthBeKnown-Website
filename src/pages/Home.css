@@ -399,6 +399,10 @@
   gap: var(--spacing-lg);
 }
 
+.video-grid.two-columns {
+  grid-template-columns: 1fr 1fr;
+}
+
 .video-card {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
