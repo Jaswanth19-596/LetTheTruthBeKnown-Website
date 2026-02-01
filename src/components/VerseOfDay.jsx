@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import './VerseOfDay.css';
+import WhatsAppShare from './WhatsAppShare';
 
 const VerseOfDay = () => {
   const { t, language } = useLanguage();
@@ -100,6 +101,7 @@ const VerseOfDay = () => {
             "{currentVerse.text}"
           </blockquote>
           <cite className="verse-reference">— {currentVerse.reference}</cite>
+          
           <div className="verse-actions">
             <button className="verse-btn" onClick={handleCopy}>
               {copied ? t('common.copied') : t('common.copy')}
@@ -108,6 +110,8 @@ const VerseOfDay = () => {
               {t('common.share')}
             </button>
           </div>
+
+          <WhatsAppShare verse={currentVerse.text} reference={currentVerse.reference} />
         </div>
       </div>
     </section>

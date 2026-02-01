@@ -22,6 +22,7 @@
     "downloadPdf": "Pakua PDF",
     "view": "Tazama",
     "share": "Shiriki",
+    "shareToWhatsApp": "Shiriki kwa WhatsApp",
     "copy": "Nakili",
     "copied": "Imenakiliwa!",
     "submit": "Wasilisha",
@@ -258,7 +259,20 @@
     "howToUse1": "Bure kupakua na kusambaza",
     "howToUse2": "PDF za ubora wa juu",
     "howToUse3": "Zinapatikana katika lugha nyingi",
-    "howToUse4": "Uwasilishaji wa injili ulio wazi"
+    "howToUse4": "Uwasilishaji wa injili ulio wazi",
+    "tracts": {
+      "english": "Kiingereza",
+      "swahili": "Kiswahili",
+      "french": "Kifaransa",
+      "luo": "Kiluo",
+      "kikuyu": "Kikuyu",
+      "kalenjin": "Kalenjin",
+      "kisii": "Kisii",
+      "arabic": "Kiarabu",
+      "amharic": "Kiamhari",
+      "maasai": "Kimaasai",
+      "kamba": "Kikamba"
+    }
   },
   "stopTractsPage": {
     "badge": "Vijitabu vya Simama",

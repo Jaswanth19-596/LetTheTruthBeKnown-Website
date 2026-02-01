@@ -22,6 +22,7 @@
     "downloadPdf": "Télécharger PDF",
     "view": "Voir",
     "share": "Partager",
+    "shareToWhatsApp": "Partager sur WhatsApp",
     "copy": "Copier",
     "copied": "Copié!",
     "submit": "Soumettre",
@@ -258,7 +259,20 @@
     "howToUse1": "Gratuit à télécharger et distribuer",
     "howToUse2": "PDFs de haute qualité",
     "howToUse3": "Disponible en plusieurs langues",
-    "howToUse4": "Présentation claire de l'évangile"
+    "howToUse4": "Présentation claire de l'évangile",
+    "tracts": {
+      "english": "Anglais",
+      "swahili": "Swahili",
+      "french": "Français",
+      "luo": "Luo",
+      "kikuyu": "Kikuyu",
+      "kalenjin": "Kalenjin",
+      "kisii": "Kisii",
+      "arabic": "Arabe",
+      "amharic": "Amharique",
+      "maasai": "Maasai",
+      "kamba": "Kamba"
+    }
   },
   "stopTractsPage": {
     "badge": "Tracts Stop",

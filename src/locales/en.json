@@ -24,6 +24,7 @@
     "downloadPdf": "Download PDF",
     "view": "View",
     "share": "Share",
+    "shareToWhatsApp": "Share to WhatsApp",
     "copy": "Copy",
     "copied": "Copied!",
     "submit": "Submit",
@@ -286,7 +287,20 @@
     "howToUse1": "Free to download and distribute",
     "howToUse2": "High-quality print-ready PDFs",
     "howToUse3": "Available in multiple languages",
-    "howToUse4": "Clear gospel presentation"
+    "howToUse4": "Clear gospel presentation",
+    "tracts": {
+      "english": "English",
+      "swahili": "Swahili",
+      "french": "French",
+      "luo": "Luo",
+      "kikuyu": "Kikuyu",
+      "kalenjin": "Kalenjin",
+      "kisii": "Kisii",
+      "arabic": "Arabic",
+      "amharic": "Amharic",
+      "maasai": "Maasai",
+      "kamba": "Kamba"
+    }
   },
   
   "stopTractsPage": {
