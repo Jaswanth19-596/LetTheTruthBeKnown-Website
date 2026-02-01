@@ -1,0 +1,98 @@
+/* Text-to-Speech Button Styles */
+.tts-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  
+  padding: var(--spacing-md) var(--spacing-lg);
+  min-height: 56px; /* Extra large for easy tapping */
+  min-width: 56px;
+  
+  background: var(--gradient-sun);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: var(--radius-full);
+  
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  
+  cursor: pointer;
+  
+  box-shadow: 
+    0 4px 20px rgba(245, 158, 11, 0.4),
+    0 8px 40px rgba(0, 0, 0, 0.3);
+  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tts-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 6px 30px rgba(245, 158, 11, 0.5),
+    0 12px 50px rgba(0, 0, 0, 0.4);
+}
+
+.tts-button:focus {
+  outline: 3px solid var(--sun-light);
+  outline-offset: 3px;
+}
+
+.tts-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.tts-button.speaking {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  animation: pulse-speaking 1.5s ease-in-out infinite;
+}
+
+.tts-button svg {
+  flex-shrink: 0;
+}
+
+.tts-label {
+  font-weight: 600;
+}
+
+@keyframes pulse-speaking {
+  0%, 100% {
+    box-shadow: 
+      0 4px 20px rgba(16, 185, 129, 0.4),
+      0 8px 40px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 4px 30px rgba(16, 185, 129, 0.6),
+      0 8px 50px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .tts-button {
+    bottom: 16px;
+    right: 16px;
+    padding: var(--spacing-md);
+    min-height: 56px;
+    min-width: 56px;
+  }
+  
+  .tts-label {
+    /* Show label on mobile for clarity */
+    display: inline;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .tts-button,
+  .tts-button.speaking {
+    animation: none;
+    transition: none;
+  }
+}

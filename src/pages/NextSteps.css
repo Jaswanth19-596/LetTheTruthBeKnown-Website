@@ -1,0 +1,265 @@
+/* Next Steps Page Styles */
+.next-steps-page {
+  min-height: 100vh;
+}
+
+/* Hero */
+.next-steps-hero {
+  padding: 160px 0 80px;
+  background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, transparent 100%);
+}
+
+.page-hero-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.page-hero-content h1 {
+  font-size: var(--font-size-5xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.page-hero-content p {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+}
+
+/* Progress Section */
+.progress-section {
+  padding: var(--spacing-xl) 0;
+}
+
+.progress-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.progress-header h3 {
+  font-size: var(--font-size-lg);
+  margin: 0;
+}
+
+.progress-count {
+  font-size: var(--font-size-sm);
+  color: var(--sun-gold);
+  font-weight: 600;
+}
+
+.progress-bar-container {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--gradient-sun);
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+}
+
+/* Steps Grid */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+}
+
+/* Step Card */
+.step-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.step-card:hover {
+  border-color: rgba(245, 158, 11, 0.3);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.step-card.completed {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, transparent 100%);
+}
+
+.step-card.completed .step-checkbox {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-color: #10b981;
+  color: white;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.step-checkbox {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--sun-gold);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.step-checkbox:hover {
+  background: rgba(245, 158, 11, 0.1);
+  transform: scale(1.1);
+}
+
+.step-number {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--sun-gold);
+}
+
+.step-header h3 {
+  font-size: var(--font-size-xl);
+  margin: 0;
+}
+
+.step-description {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.7;
+}
+
+.step-verse {
+  font-style: italic;
+  color: var(--sun-gold);
+  font-size: var(--font-size-sm);
+  border-left: 3px solid var(--sun-gold);
+  padding-left: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+}
+
+.step-tips {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0;
+}
+
+.step-tips li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.step-tips li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  stroke: var(--sun-gold);
+}
+
+.step-action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+/* Encouragement Section */
+.encouragement-section {
+  padding-bottom: var(--spacing-3xl);
+}
+
+.encouragement-card {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(30, 58, 95, 0.1) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-3xl);
+  text-align: center;
+}
+
+.encouragement-card h2 {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.encouragement-card > p {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.encouragement-card blockquote {
+  font-style: italic;
+  font-size: var(--font-size-lg);
+  color: var(--text-primary);
+  max-width: 700px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+.encouragement-card cite {
+  display: block;
+  margin-top: var(--spacing-sm);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--sun-gold);
+}
+
+.encouragement-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .next-steps-hero {
+    padding: 120px 0 60px;
+  }
+
+  .page-hero-content h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .step-card {
+    padding: var(--spacing-lg);
+  }
+
+  .encouragement-card {
+    padding: var(--spacing-xl);
+  }
+
+  .encouragement-actions {
+    flex-direction: column;
+  }
+
+  .encouragement-actions .btn {
+    width: 100%;
+  }
+}

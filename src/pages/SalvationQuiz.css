@@ -167,12 +167,9 @@
 }
 
 .score-number {
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-5xl, 3rem);
   font-weight: 700;
-  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #f59e0b;
 }
 
 .score-total {

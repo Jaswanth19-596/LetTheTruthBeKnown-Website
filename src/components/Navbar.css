@@ -30,12 +30,15 @@
 }
 
 .navbar-container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-lg);
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  gap: var(--spacing-md);
+  flex-wrap: nowrap;
   transition: padding 0.3s ease;
 }
 
@@ -48,6 +51,24 @@
   color: var(--text-primary);
   transition: all 0.3s ease;
   position: relative;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.navbar-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.navbar-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-shrink: 0;
 }
 
 .navbar-logo::before {
@@ -84,25 +105,37 @@
   box-shadow: var(--shadow-glow);
 }
 
-.navbar-menu {
+.nav-link {
   display: flex;
   align-items: center;
-  gap: var(--spacing-lg);
-}
-
-.nav-link {
+  gap: 6px;
   font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--text-secondary);
   transition: all 0.3s ease;
   position: relative;
-  padding: var(--spacing-xs) 0;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  min-height: 36px;
+  border-radius: var(--radius-sm);
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-icon svg {
+  width: 16px;
+  height: 16px;
+  transition: all 0.3s ease;
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: 0;
   left: 50%;
   width: 0;
   height: 2px;
@@ -115,11 +148,17 @@
 .nav-link:hover,
 .nav-link.active {
   color: var(--text-primary);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.nav-link:hover .nav-icon svg,
+.nav-link.active .nav-icon svg {
+  stroke: var(--sun-gold);
 }
 
 .nav-link.active::after,
 .nav-link:hover::after {
-  width: 100%;
+  width: 60%;
 }
 
 .nav-link:hover {
@@ -127,7 +166,10 @@
 }
 
 .nav-cta {
-  padding: var(--spacing-sm) var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--spacing-xs) var(--spacing-md);
   font-size: var(--font-size-sm);
   background: var(--gradient-sun);
   border-radius: var(--radius-full);
@@ -135,6 +177,12 @@
   font-weight: 600;
   box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
   transition: all 0.3s ease;
+}
+
+.nav-cta .nav-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--bg-primary);
 }
 
 .nav-cta:hover {

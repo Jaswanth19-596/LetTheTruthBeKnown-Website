@@ -98,6 +98,98 @@
   align-items: center;
 }
 
+/* Level Navigation Tabs */
+.levels-nav {
+  padding: var(--spacing-lg) 0;
+  background: rgba(3, 7, 18, 0.5);
+}
+
+.levels-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.level-tab {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.level-tab:hover {
+  border-color: var(--level-color, var(--sun-gold));
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.level-tab.active {
+  border-color: var(--level-color, var(--sun-gold));
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), transparent);
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+}
+
+.level-tab .level-number {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  border: 2px solid var(--level-color, var(--glass-border));
+  border-radius: 50%;
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--level-color, var(--text-secondary));
+  transition: all 0.3s ease;
+}
+
+.level-tab.active .level-number {
+  background: var(--level-color, var(--sun-gold));
+  border-color: var(--level-color, var(--sun-gold));
+  color: var(--bg-primary);
+}
+
+.level-tab .level-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.level-tab .level-title {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.level-tab .level-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* Books Section Header */
+.books-section .section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.books-section .section-header h2 {
+  font-size: var(--font-size-3xl);
+  margin: var(--spacing-md) 0;
+}
+
+.books-section .section-header > p {
+  color: var(--text-secondary);
+}
+
 .progress-step {
   display: flex;
   flex-direction: column;

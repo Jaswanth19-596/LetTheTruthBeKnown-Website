@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getAssetUrl } from '../config/assets';
+import { useLanguage } from '../context/LanguageContext';
+import VerseOfDay from '../components/VerseOfDay';
 import './Home.css';
 
 const Home = () => {
+  const { t } = useLanguage();
+
   // Scroll reveal effect
   useEffect(() => {
     const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
@@ -26,23 +30,23 @@ const Home = () => {
 
   const features = [
     {
-      title: 'Gospel Tracts',
-      description: "God's Simple Plan of Salvation available in 9+ languages",
+      title: t('home.feature1Title'),
+      description: t('home.feature1Desc'),
       link: '/gospel-tracts'
     },
     {
-      title: 'Stop! Tracts',
-      description: 'Eye-catching tracts perfect for sharing the gospel',
+      title: t('home.feature2Title'),
+      description: t('home.feature2Desc'),
       link: '/stop-tracts'
     },
     {
-      title: 'Discipleship',
-      description: '3 levels of growth materials for new believers',
+      title: t('home.feature3Title'),
+      description: t('home.feature3Desc'),
       link: '/discipleship'
     },
     {
-      title: 'Salvation Quiz',
-      description: 'Interactive quiz to examine your faith journey',
+      title: t('home.feature4Title'),
+      description: t('home.feature4Desc'),
       link: '/salvation-quiz'
     }
   ];
@@ -76,58 +80,60 @@ const Home = () => {
         <div className="hero-content">
           <div className="hero-badge animate-fadeInDown">
             <span className="badge-dot"></span>
-            Spreading Truth Across Nations
+            {t('home.badge')}
           </div>
           <h1 className="hero-title">
-            <span className="title-line animate-fadeInUp delay-100">Let the</span>
+            <span className="title-line animate-fadeInUp delay-100">{t('home.titleLine1')}</span>
             <span className="title-line animate-fadeInUp delay-200">
-              <span className="gradient-text-animated">Truth</span>
+              <span className="gradient-text-animated">{t('home.titleLine2')}</span>
             </span>
-            <span className="title-line animate-fadeInUp delay-300">be Known</span>
+            <span className="title-line animate-fadeInUp delay-300">{t('home.titleLine3')}</span>
           </h1>
           <p className="hero-subtitle animate-fadeIn delay-400">
-            Free gospel resources, tracts, and discipleship materials in multiple languages. 
-            Join us in spreading the Good News of Jesus Christ around the world.
+            {t('home.subtitle')}
           </p>
           <div className="hero-actions animate-fadeInUp delay-500">
             <Link to="/gospel-tracts" className="btn btn-primary hover-shine hover-lift">
-              <span>Browse Tracts</span>
+              <span>{t('home.browseTracts')}</span>
               <span className="btn-arrow">→</span>
             </Link>
             <Link to="/salvation-quiz" className="btn btn-secondary hover-glow">
-              Take the Quiz
+              {t('home.takeTheQuiz')}
             </Link>
           </div>
           
           <div className="hero-stats animate-fadeInUp delay-600">
             <div className="stat hover-lift">
               <span className="stat-number animate-pulse">9+</span>
-              <span className="stat-label">Languages</span>
+              <span className="stat-label">{t('home.statsLanguages')}</span>
             </div>
             <div className="stat hover-lift">
               <span className="stat-number animate-pulse">100+</span>
-              <span className="stat-label">Resources</span>
+              <span className="stat-label">{t('home.statsResources')}</span>
             </div>
             <div className="stat hover-lift">
               <span className="stat-number animate-pulse">3</span>
-              <span className="stat-label">Discipleship Levels</span>
+              <span className="stat-label">{t('home.statsDiscipleship')}</span>
             </div>
           </div>
         </div>
 
         <div className="scroll-indicator animate-bounce delay-700">
-          <span>Scroll</span>
+          <span>{t('home.scroll')}</span>
           <div className="scroll-arrow">↓</div>
         </div>
       </section>
+
+      {/* Verse of the Day */}
+      <VerseOfDay />
 
       {/* Features Section */}
       <section className="features section">
         <div className="container">
           <div className="section-header text-center reveal">
-            <span className="section-badge animate-pulseGlow">Our Resources</span>
-            <h2>Everything You Need to <span className="gradient-text-animated">Grow in Faith</span></h2>
-            <p>Free downloadable materials to help you share the gospel and disciple new believers</p>
+            <span className="section-badge animate-pulseGlow">{t('home.featuresTitle')}</span>
+            <h2>{t('home.featuresSubtitle1')} <span className="gradient-text-animated">{t('home.featuresSubtitle2')}</span></h2>
+            <p>{t('home.featuresDesc')}</p>
           </div>
 
           <div className="features-grid">
@@ -142,7 +148,7 @@ const Home = () => {
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
                 <span className="feature-link">
-                  Explore <span className="arrow">→</span>
+                  {t('common.explore')} <span className="arrow">→</span>
                 </span>
               </Link>
             ))}
@@ -154,8 +160,8 @@ const Home = () => {
       <section className="video-section section">
         <div className="container">
           <div className="section-header text-center reveal">
-            <span className="section-badge">Featured</span>
-            <h2>The Truth of God.</h2>
+            <span className="section-badge">{t('home.videoFeatured')}</span>
+            <h2>{t('home.videoTitle')}</h2>
           </div>
 
           <div className="video-grid two-columns">
@@ -169,8 +175,8 @@ const Home = () => {
                 ></iframe>
               </div>
               <div className="video-info">
-                <h4>The Gospel Message</h4>
-                <p>Learn about God's plan of salvation</p>
+                <h4>{t('home.videoGospelMessage')}</h4>
+                <p>{t('home.videoGospelDesc')}</p>
               </div>
             </div>
 
@@ -184,8 +190,8 @@ const Home = () => {
                 ></iframe>
               </div>
               <div className="video-info">
-                <h4>Gospel Teaching</h4>
-                <p>Grow in your understanding of faith</p>
+                <h4>{t('home.videoTeaching')}</h4>
+                <p>{t('home.videoTeachingDesc')}</p>
               </div>
             </div>
           </div>
@@ -198,15 +204,15 @@ const Home = () => {
           <div className="cta-card reveal-scale hover-glow">
             <div className="cta-bg-animation"></div>
             <div className="cta-content">
-              <h2>Ready to <span className="gradient-text-animated">Start Your Journey?</span></h2>
-              <p>Take our Salvation Quiz to examine your understanding of eternal life according to the Bible.</p>
+              <h2>{t('home.ctaTitle1')} <span className="gradient-text-animated">{t('home.ctaTitle2')}</span></h2>
+              <p>{t('home.ctaDesc')}</p>
               <Link to="/salvation-quiz" className="btn btn-primary hover-shine hover-lift">
-                Take the Salvation Quiz
+                {t('home.ctaButton')}
                 <span className="btn-arrow">→</span>
               </Link>
             </div>
             <div className="cta-image">
-              <div className="cta-icon-text morph-shape animate-float">Truth</div>
+              <div className="cta-icon-text morph-shape animate-float">{t('home.titleLine2')}</div>
               <div className="cta-rings">
                 <div className="ring ring-1"></div>
                 <div className="ring ring-2"></div>
@@ -221,4 +227,3 @@ const Home = () => {
 };
 
 export default Home;
-
