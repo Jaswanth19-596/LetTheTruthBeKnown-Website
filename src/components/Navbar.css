@@ -20,6 +20,10 @@
   background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.3), transparent);
 }
 
+.mobile-only {
+  display: none;
+}
+
 .navbar.scrolled {
   background: rgba(3, 7, 18, 0.95);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
@@ -63,12 +67,19 @@
   flex-shrink: 0;
 }
 
+/* Navbar Actions */
 .navbar-actions {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: var(--spacing-sm);
   flex-shrink: 0;
+}
+
+@media (max-width: 968px) {
+  .navbar-actions {
+    gap: 4px; /* Minimize gap on mobile */
+  }
 }
 
 .navbar-logo::before {
@@ -203,7 +214,7 @@
 .hamburger span {
   width: 24px;
   height: 2px;
-  background: var(--text-primary);
+  background: white; /* Ensure visibility on dark background */
   transition: all var(--transition-base);
   border-radius: 1px;
 }
@@ -228,21 +239,56 @@
     display: flex;
   }
 
+  .navbar-container,
+  .navbar.scrolled .navbar-container {
+    padding: var(--spacing-sm); /* Force consistent padding on mobile, even when scrolled */
+    gap: var(--spacing-sm);
+    width: 100%;
+    max-width: 100%;
+    /* overflow: hidden; Removed to allow dropdowns to be visible */
+  }
+
+  .navbar-logo {
+    font-size: var(--font-size-md);
+    max-width: 60%; /* Limit logo width further */
+    flex-shrink: 1; /* Allow logo to shrink */
+    min-width: 0; /* Enable flex item shrinking */
+  }
+
+  .navbar-logo .logo-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .navbar-actions {
+    flex-shrink: 0; /* Keep actions visible */
+    gap: 4px; /* Tighter gap for actions */
+  }
+
+  .logo-icon {
+    width: 28px; /* Slightly smaller icon */
+    height: 28px;
+    font-size: var(--font-size-md);
+    flex-shrink: 0;
+  }
+
   .navbar-menu {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 300px;
+    width: 280px; /* Slightly narrower for mobile */
     height: 100vh;
     background: linear-gradient(180deg, rgba(3, 7, 18, 0.98) 0%, rgba(10, 15, 28, 0.98) 100%);
     backdrop-filter: blur(30px);
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 100px var(--spacing-xl) var(--spacing-xl);
-    gap: var(--spacing-md);
+    padding: 80px var(--spacing-lg) var(--spacing-xl);
+    gap: var(--spacing-sm);
     transition: right var(--transition-base);
     border-left: 1px solid var(--glass-border);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
   }
 
   .navbar-menu::before {
@@ -260,13 +306,28 @@
   }
 
   .nav-link {
+    width: 100%;
     font-size: var(--font-size-lg);
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-md) var(--spacing-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separator for links */
   }
 
-  .nav-cta {
+  /* Hide the main header button on mobile */
+  .navbar-actions .navbar-cta {
+    display: none;
+  }
+  
+  /* Show mobile-only items */
+  .mobile-only {
+    display: flex !important;
+  }
+
+  .navbar-menu .navbar-cta {
     margin-top: var(--spacing-lg);
     width: 100%;
-    text-align: center;
+    justify-content: center;
+    background: var(--gradient-sun);
+    color: var(--bg-primary); 
+    display: flex; /* Ensure it's visible in menu if added there */
   }
 }

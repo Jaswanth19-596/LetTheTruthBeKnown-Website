@@ -172,7 +172,7 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Prevent horizontal scroll globally */
 }
 
 /* ===== Starfield Background ===== */
