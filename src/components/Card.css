@@ -229,3 +229,91 @@
 .resource-card.feature .resource-card-body {
   padding: 0;
 }
+
+/* View Icon - Eye styled */
+.view-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-sun);
+  border-radius: 50%;
+  color: var(--bg-primary);
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.4);
+}
+
+.resource-card:hover .view-icon {
+  transform: translateY(0) scale(1);
+}
+
+/* PDF Button Group */
+.pdf-button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: var(--spacing-md);
+}
+
+.pdf-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pdf-btn svg {
+  flex-shrink: 0;
+}
+
+.pdf-btn.view-btn {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--sun-gold);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.pdf-btn.view-btn:hover {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: rgba(245, 158, 11, 0.5);
+  transform: translateY(-2px);
+}
+
+.pdf-btn.download-btn {
+  background: #e63946;
+  color: #fff;
+}
+
+.pdf-btn.download-btn:hover {
+  background: #d62839;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.3);
+}
+
+/* PDF Card hover state */
+.pdf-card .resource-card-image {
+  cursor: pointer;
+}
+
+/* Mobile responsiveness for PDF buttons */
+@media (max-width: 480px) {
+  .pdf-button-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pdf-btn {
+    padding: 10px 14px;
+    font-size: 0.8rem;
+  }
+}
+

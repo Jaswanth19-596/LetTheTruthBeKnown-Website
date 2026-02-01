@@ -1,9 +1,12 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Card from '../components/Card';
+import PDFViewer from '../components/PDFViewer';
 import { getAssetUrl } from '../config/assets';
 import './Resources.css';
 
 const Resources = () => {
+  const [viewingPdf, setViewingPdf] = useState(null);
+
   // Scroll reveal effect
   useEffect(() => {
     const revealOnScroll = () => {
@@ -30,41 +33,49 @@ const Resources = () => {
     };
   }, []);
 
+  const handleView = (book) => {
+    setViewingPdf(book);
+  };
+
+  const handleDownload = (pdfUrl) => {
+    window.open(pdfUrl, '_blank');
+  };
+
   const answerBooks = [
     {
       title: 'Answer Book 1: Soul Winning & Discipleship',
       description: 'Comprehensive guide to evangelism and discipling new believers.',
-      pdf: getAssetUrl('downloads/ANSWERS-Book-1-SOUL-WINNING-DISCIPLESHIP.pdf')
+      pdf: getAssetUrl('downloads/answers/ANSWERS-Book-1-SOUL-WINNING-DISCIPLESHIP.pdf')
     },
     {
       title: 'Answer Book 2: Proofs of Christ, The Bible, God',
       description: 'Apologetics and evidence for the Christian faith.',
-      pdf: getAssetUrl('downloads/ANSWERS-Book-2-PROOFS-OF-CHRIST-THE-BIBLE-GOD.pdf')
+      pdf: getAssetUrl('downloads/answers/ANSWERS-Book-2-PROOFS-OF-CHRIST-THE-BIBLE-GOD.pdf')
     },
     {
       title: 'Answer Book 3: Church Issues',
       description: 'Biblical answers to common church questions.',
-      pdf: getAssetUrl('downloads/ANSWERS-Book-3-CHURCH-ISSUES.pdf')
+      pdf: getAssetUrl('downloads/answers/ANSWERS-Book-3-CHURCH-ISSUES.pdf')
     },
     {
       title: 'Answer Book 4: Christian Living',
       description: 'Practical guidance for daily Christian life.',
-      pdf: getAssetUrl('downloads/ANSWERS-Book-4-CHRISTIAN-LIVING.pdf')
+      pdf: getAssetUrl('downloads/answers/ANSWERS-Book-4-CHRISTIAN-LIVING.pdf')
     },
     {
       title: 'Answer Book 5: False Doctrines Refuted',
       description: 'Biblical responses to common false teachings.',
-      pdf: getAssetUrl('downloads/ANSWERS-Book-5-FALSE-DOCTRINES-REFUTED.pdf')
+      pdf: getAssetUrl('downloads/answers/ANSWERS-Book-5-FALSE-DOCTRINES-REFUTED.pdf')
     },
     {
       title: 'Answer Book 6: False Religions',
       description: 'Understanding and responding to world religions.',
-      pdf: getAssetUrl('downloads/ANSWERS-Book-6-FALSE-RELIGIONS.pdf')
+      pdf: getAssetUrl('downloads/answers/ANSWERS-Book-6-FALSE-RELIGIONS.pdf')
     },
     {
       title: 'Answer Book 7: Important Sermons',
       description: 'Collection of essential sermon topics.',
-      pdf: getAssetUrl('downloads/ANSWERS-Book-7-IMPORTANT-SERMONS.pdf')
+      pdf: getAssetUrl('downloads/answers/ANSWERS-Book-7-IMPORTANT-SERMONS.pdf')
     },
   ];
 
@@ -79,13 +90,13 @@ const Resources = () => {
       title: 'ABCs of Christian Growth',
       description: 'Foundational principles for spiritual growth.',
       image: getAssetUrl('downloads/ABC-1.png'),
-      pdf: getAssetUrl('downloads/ABCs-of-Christian-Growth.pdf')
+      pdf: getAssetUrl('downloads/courses/ABCs-of-Christian-Growth.pdf')
     },
     {
       title: 'ABCs of Christian Maturity',
       description: 'Advanced principles for mature believers.',
       image: getAssetUrl('downloads/ABC-2.png'),
-      pdf: getAssetUrl('downloads/ABCs-of-Christian-Maturity.pdf')
+      pdf: getAssetUrl('downloads/courses/ABCs-of-Christian-Maturity.pdf')
     },
     {
       title: 'Know Your Bible Better',
@@ -129,14 +140,29 @@ const Resources = () => {
                 <div className="book-content">
                   <h4>{book.title}</h4>
                   <p>{book.description}</p>
-                  <a 
-                    href={book.pdf} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="btn btn-outline"
-                  >
-                    Download PDF
-                  </a>
+                  <div className="book-actions">
+                    <button 
+                      className="btn btn-outline-small"
+                      onClick={() => handleView(book)}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                      </svg>
+                      View
+                    </button>
+                    <button 
+                      className="btn btn-primary-small"
+                      onClick={() => handleDownload(book.pdf)}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7,10 12,15 17,10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                      </svg>
+                      Download
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -166,8 +192,18 @@ const Resources = () => {
           </div>
         </div>
       </section>
+
+      {/* PDF Viewer Modal */}
+      {viewingPdf && (
+        <PDFViewer 
+          pdfUrl={viewingPdf.pdf} 
+          title={viewingPdf.title} 
+          onClose={() => setViewingPdf(null)} 
+        />
+      )}
     </div>
   );
 };
 
 export default Resources;
+

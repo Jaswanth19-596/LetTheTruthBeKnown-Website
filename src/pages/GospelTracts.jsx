@@ -51,7 +51,7 @@ const GospelTracts = () => {
       language: 'english',
       title: "God's Simple Plan of Salvation",
       description: 'The classic gospel tract explaining salvation through faith in Jesus Christ.',
-      image: getAssetUrl('downloads/Gods_simple_plan_of_salvation_english.png'),
+      image: getAssetUrl('downloads/gospel_tracks/Gods_simple_plan_of_salvation_english.png'),
       pdf: getAssetUrl('downloads/english.pdf')
     },
     {
@@ -59,7 +59,7 @@ const GospelTracts = () => {
       language: 'swahili',
       title: "Mpango Rahisi wa Mungu wa Wokovu",
       description: 'Kiswahili version of the salvation tract.',
-      image: getAssetUrl('downloads/Gods_simple_plan_for_salvation_swahili.png'),
+      image: getAssetUrl('downloads/gospel_tracks/Gods_simple_plan_for_salvation_swahili.png'),
       pdf: getAssetUrl('downloads/kiswahili.pdf')
     },
     {
@@ -67,56 +67,56 @@ const GospelTracts = () => {
       language: 'luo',
       title: "God's Simple Plan - Luo",
       description: 'Luo language version for Kenya.',
-      image: getAssetUrl('downloads/Gods_simple_plan_for_salvation_luo.png'),
-      pdf: getAssetUrl('downloads/Gods-Simple-Plan-Tract-Luo.pdf')
+      image: getAssetUrl('downloads/gospel_tracks/Gods_simple_plan_for_salvation_luo.png'),
+      pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Luo.pdf')
     },
     {
       id: 4,
       language: 'kikuyu',
       title: "God's Simple Plan - Kikuyu",
       description: 'Kikuyu language version for Kenya.',
-      image: getAssetUrl('downloads/Gods_simple_plan_for_salvation_kikuyu.png'),
-      pdf: getAssetUrl('downloads/Gods-Simple-Plan-Tract-Kikuyu.pdf')
+      image: getAssetUrl('downloads/gospel_tracks/Gods_simple_plan_for_salvation_kikuyu.png'),
+      pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Kikuyu.pdf')
     },
     {
       id: 5,
       language: 'kalenjin',
       title: "God's Simple Plan - Kalenjin",
       description: 'Kalenjin language version for Kenya.',
-      image: getAssetUrl('downloads/Gods_simple_plan_for_salvation_kalenjin.png'),
-      pdf: getAssetUrl('downloads/Gods-Simple-Plan-Tract-Kalenjin.pdf')
+      image: getAssetUrl('downloads/gospel_tracks/Gods_simple_plan_for_salvation_kalenjin.png'),
+      pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Kalenjin.pdf')
     },
     {
       id: 6,
       language: 'arabic',
       title: "God's Simple Plan - Arabic",
       description: 'Arabic language version.',
-      image: getAssetUrl('downloads/Gods_simple_plan_for_salvation_arabic.png'),
-      pdf: getAssetUrl('downloads/Gods-Simple-Plan-Tract-Arabic.pdf')
+      image: getAssetUrl('downloads/gospel_tracks/Gods_simple_plan_for_salvation_arabic.png'),
+      pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Arabic.pdf')
     },
     {
       id: 7,
       language: 'amharic',
       title: "God's Simple Plan - Amharic",
       description: 'Amharic language version for Ethiopia.',
-      image: getAssetUrl('downloads/Gods_simple_plan_for_salvation_amharic.png'),
-      pdf: getAssetUrl('downloads/Gods-Simple-Plan-Tract-Amharic.pdf')
+      image: getAssetUrl('downloads/gospel_tracks/Gods_simple_plan_for_salvation_amharic.png'),
+      pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Amharic.pdf')
     },
     {
       id: 8,
       language: 'maasai',
       title: "God's Simple Plan - Maasai",
       description: 'Maasai language version for Kenya/Tanzania.',
-      image: getAssetUrl('downloads/Gods_simple_plan_for_salvation_maasai.png'),
-      pdf: getAssetUrl('downloads/Gods-Simple-Plan-Tract-Maasai.pdf')
+      image: getAssetUrl('downloads/gospel_tracks/Gods_simple_plan_for_salvation_maasai.png'),
+      pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Maasai.pdf')
     },
     {
       id: 9,
       language: 'kamba',
       title: "God's Simple Plan - Kamba",
       description: 'Kamba language version for Kenya.',
-      image: getAssetUrl('downloads/cover.png'),
-      pdf: getAssetUrl('downloads/Gods-Simple-Plan-Tract-Kamba.pdf')
+      image: getAssetUrl('downloads/gospel_tracks/Gods_simple_plan_of_salvation_english.png'),
+      pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Kamba.pdf')
     },
   ];
 

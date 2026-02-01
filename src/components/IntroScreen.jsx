@@ -4,14 +4,11 @@ import './IntroScreen.css';
 function IntroScreen({ onComplete }) {
   const [timeLeft, setTimeLeft] = useState(60);
   const [isFading, setIsFading] = useState(false);
-  const [audioPlaying, setAudioPlaying] = useState(false);
-  const audioRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef(null);
   const timerRef = useRef(null);
 
   useEffect(() => {
-    // Try to start audio immediately
-    tryPlayAudio();
-
     // Start countdown timer immediately
     timerRef.current = setInterval(() => {
       setTimeLeft((prev) => {
@@ -28,43 +25,25 @@ function IntroScreen({ onComplete }) {
       if (timerRef.current) {
         clearInterval(timerRef.current);
       }
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
     };
   }, []);
 
-  const tryPlayAudio = () => {
-    if (audioRef.current && !audioPlaying) {
-      audioRef.current.volume = 0.7;
-      audioRef.current.play()
-        .then(() => {
-          setAudioPlaying(true);
-        })
-        .catch(e => {
-          console.log('Audio autoplay blocked, waiting for user interaction');
-        });
-    }
-  };
-
   const handleScreenClick = () => {
-    if (!audioPlaying) {
-      tryPlayAudio();
+    if (isMuted && videoRef.current) {
+      videoRef.current.muted = false;
+      setIsMuted(false);
     }
   };
 
   const handleTransition = () => {
     setIsFading(true);
-    // Fade out audio
-    if (audioRef.current) {
+    // Fade out video audio
+    if (videoRef.current && !videoRef.current.muted) {
       const fadeAudio = setInterval(() => {
-        if (audioRef.current && audioRef.current.volume > 0.1) {
-          audioRef.current.volume -= 0.1;
+        if (videoRef.current && videoRef.current.volume > 0.1) {
+          videoRef.current.volume -= 0.1;
         } else {
           clearInterval(fadeAudio);
-          if (audioRef.current) {
-            audioRef.current.pause();
-          }
         }
       }, 100);
     }
@@ -90,19 +69,17 @@ function IntroScreen({ onComplete }) {
       className={`intro-screen ${isFading ? 'fade-out' : ''}`}
       onClick={handleScreenClick}
     >
-      <audio
-        ref={audioRef}
-        src="/In Christ Alone - piano instrumental cover.mp3"
-        preload="auto"
-        autoPlay
-      />
-      
-      <div className="intro-image-container">
-        <img 
-          src="/intro_image.jpeg" 
-          alt="Let the Truth be Known" 
-          className="intro-image"
-        />
+      <div className="intro-video-container">
+        <video 
+          ref={videoRef}
+          className="intro-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/final_video.mp4" type="video/mp4" />
+        </video>
       </div>
 
       <div className="intro-text-overlay">
@@ -111,7 +88,7 @@ function IntroScreen({ onComplete }) {
         </h1>
       </div>
 
-      {!audioPlaying && (
+      {isMuted && (
         <div className="audio-hint">
           🔊 Tap anywhere for sound
         </div>
@@ -144,5 +121,6 @@ function IntroScreen({ onComplete }) {
 }
 
 export default IntroScreen;
+
 
 

@@ -529,6 +529,79 @@
   opacity: 0.5;
 }
 
+/* View Icon */
+.view-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-sun);
+  border-radius: 50%;
+  color: var(--bg-primary);
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.4);
+}
+
+.book-card:hover .view-icon {
+  transform: translateY(0) scale(1);
+}
+
+.book-cover {
+  cursor: pointer;
+}
+
+/* Book Actions */
+.book-actions {
+  display: flex;
+  gap: 8px;
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+}
+
+.book-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book-btn svg {
+  flex-shrink: 0;
+}
+
+.book-btn.view-btn {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--sun-gold);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.book-btn.view-btn:hover {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: rgba(245, 158, 11, 0.5);
+  transform: translateY(-2px);
+}
+
+.book-btn.download-btn {
+  background: #e63946;
+  color: #fff;
+}
+
+.book-btn.download-btn:hover {
+  background: #d62839;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.3);
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .books-grid {
@@ -592,4 +665,15 @@
     flex-direction: column;
     gap: var(--spacing-sm);
   }
+
+  .book-actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .book-btn {
+    padding: 8px 10px;
+    font-size: 0.75rem;
+  }
 }
+

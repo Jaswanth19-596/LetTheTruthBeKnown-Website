@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import './Discipleship.css';
 import { getAssetUrl } from '../config/assets';
+import PDFViewer from '../components/PDFViewer';
 
 const Discipleship = () => {
   const [activeLevel, setActiveLevel] = useState(1);
+  const [viewingPdf, setViewingPdf] = useState(null);
 
   // Scroll reveal effect - re-runs when activeLevel changes
   useEffect(() => {
@@ -31,6 +33,14 @@ const Discipleship = () => {
       window.removeEventListener('scroll', revealOnScroll);
     };
   }, [activeLevel]); // Re-run when level changes
+
+  const handleView = (book) => {
+    setViewingPdf(book);
+  };
+
+  const handleDownload = (pdfUrl) => {
+    window.open(pdfUrl, '_blank');
+  };
 
   const levels = [
     {
@@ -221,26 +231,22 @@ const Discipleship = () => {
 
           <div className="books-grid">
             {currentLevel.books.map((book, index) => (
-              <a 
-                href={book.pdf}
-                target="_blank"
-                rel="noopener noreferrer"
+              <div 
                 className={`book-card reveal`}
                 key={index}
                 style={{ transitionDelay: `${index * 0.05}s` }}
               >
-                <div className="book-cover">
+                <div className="book-cover" onClick={() => handleView(book)}>
                   <img src={book.cover} alt={book.title} />
                   <div className="book-shine"></div>
                   <div className="book-overlay">
-                    <div className="download-icon">
+                    <div className="view-icon">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="7,10 12,15 17,10"/>
-                        <line x1="12" y1="15" x2="12" y2="3"/>
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                        <circle cx="12" cy="12" r="3"/>
                       </svg>
                     </div>
-                    <span>Download PDF</span>
+                    <span>Click to View</span>
                   </div>
                 </div>
                 <div className="book-info">
@@ -249,7 +255,24 @@ const Discipleship = () => {
                   </span>
                   <h4>{book.title}</h4>
                 </div>
-              </a>
+                <div className="book-actions">
+                  <button className="book-btn view-btn" onClick={() => handleView(book)}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    View
+                  </button>
+                  <button className="book-btn download-btn" onClick={() => handleDownload(book.pdf)}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                      <polyline points="7,10 12,15 17,10"/>
+                      <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download
+                  </button>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -292,8 +315,18 @@ const Discipleship = () => {
           </div>
         </div>
       </section>
+
+      {/* PDF Viewer Modal */}
+      {viewingPdf && (
+        <PDFViewer 
+          pdfUrl={viewingPdf.pdf} 
+          title={viewingPdf.title} 
+          onClose={() => setViewingPdf(null)} 
+        />
+      )}
     </div>
   );
 };
 
 export default Discipleship;
+
