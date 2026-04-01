@@ -37,11 +37,11 @@ const Resources = () => {
   ];
 
   const otherResources = [
-    { title: 'Lessons on Tongues', description: 'Biblical study on tongues.', image: getAssetUrl('downloads/Tongues-Second-Edition.png'), pdf: getAssetUrl('downloads/Lessons-on-Tongues-Second-Edition.pdf') },
+    { title: 'Lessons on Tongues', description: 'Biblical study on tongues. (Content pending delivery from Peter)', image: getAssetUrl('downloads/Tongues-Second-Edition.png'), pdf: getAssetUrl('downloads/Lessons-on-Tongues-.pdf') },
     { title: 'ABCs of Christian Growth', description: 'Foundational principles.', image: getAssetUrl('downloads/ABC-1.png'), pdf: getAssetUrl('downloads/courses/ABCs-of-Christian-Growth.pdf') },
     { title: 'ABCs of Christian Maturity', description: 'Advanced principles.', image: getAssetUrl('downloads/ABC-2.png'), pdf: getAssetUrl('downloads/courses/ABCs-of-Christian-Maturity.pdf') },
     { title: 'Know Your Bible Better', description: 'Study guide to Scripture.', image: getAssetUrl('downloads/2Know.png'), pdf: getAssetUrl('downloads/Know-Your-Bible-Better-New-revised.pdf') },
-    { title: 'Raising a Prince', description: 'Biblical parenting.', image: getAssetUrl('downloads/cover-1.png'), pdf: getAssetUrl('downloads/RAISING-PRINCE-REVISED.pdf') },
+    { title: 'Raising Prince', description: 'Biblical parenting.', image: getAssetUrl('downloads/cover-1.png'), pdf: getAssetUrl('downloads/RAISING-PRINCE-REVISED.pdf') },
   ];
 
   return (
@@ -83,6 +83,51 @@ const Resources = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Featured Resources Section */}
+      <section className="featured-resources section" style={{ padding: '0 0 2rem 0' }}>
+        <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          
+          {/* Bible Hero Card */}
+          <div className="bible-hero hover-glow reveal" style={{ 
+            background: 'linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--secondary-rgb), 0.05) 100%)', 
+            borderRadius: '16px', border: '1px solid rgba(var(--primary-rgb), 0.2)', padding: '3rem', 
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem', flexWrap: 'wrap'
+          }}>
+            <div style={{ flex: '1 1 300px' }}>
+              <span className="section-badge" style={{ marginBottom: '1rem', display: 'inline-block' }}>{t('resourcesPage.bibleHighlight')}</span>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: '#fff' }}>{t('resourcesPage.bibleTitle')}</h2>
+              <h4 style={{ color: 'var(--primary-color)', marginBottom: '1.5rem', fontSize: '1.2rem' }}>{t('resourcesPage.bibleSubtitle')}</h4>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--text-light)', marginBottom: '2rem' }}>{t('resourcesPage.bibleDesc')}</p>
+              <a href="https://www.bible.com/versions/1-kjv-king-james-version" target="_blank" rel="noopener noreferrer" className="btn btn-primary hover-shine" style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
+                {t('resourcesPage.bibleReadButton')} →
+              </a>
+            </div>
+          </div>
+
+          {/* GBBC Card */}
+          <div className="gbbc-hero hover-glow reveal" style={{ 
+            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%)', 
+            borderRadius: '16px', border: '1px solid rgba(16, 185, 129, 0.2)', padding: '3rem', 
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem', flexWrap: 'wrap'
+          }}>
+            <div style={{ flex: '1 1 300px' }}>
+              <span className="section-badge" style={{ marginBottom: '1rem', display: 'inline-block', background: 'rgba(16, 185, 129, 0.2)', color: '#10b981', border: 'none' }}>{t('resourcesPage.gbbcAdvanced')}</span>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: '#fff' }}>{t('gbbc.title')}</h2>
+              <h4 style={{ color: '#10b981', marginBottom: '1.5rem', fontSize: '1.2rem' }}>{t('resourcesPage.gbbcAdvancedSubtitle')}</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'grid', gridTemplateColumns: 'minmax(200px, 1fr) minmax(200px, 1fr)', gap: '1rem', color: 'var(--text-light)' }}>
+                <li>✓ {t('gbbc.feature1')}</li>
+                <li>✓ {t('gbbc.feature3')}</li>
+                <li>✓ {t('gbbc.feature4')}</li>
+              </ul>
+              <a href={`https://${t('gbbc.website')}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary hover-glow" style={{ background: '#10b981', padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
+                {t('gbbc.visitCta')} →
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
 

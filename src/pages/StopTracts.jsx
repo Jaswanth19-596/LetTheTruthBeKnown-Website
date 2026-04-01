@@ -35,12 +35,12 @@ const StopTracts = () => {
   ];
 
   const tracts = [
-    { id: 1, language: 'english', title: 'STOP! Tract - English', description: 'Eye-catching STOP tract to grab attention.', image: getAssetUrl('downloads/1.png'), pdf: getAssetUrl('downloads/English_stoptrack.pdf') },
-    { id: 2, language: 'swahili', title: 'STOP! Tract - Swahili', description: 'Kiswahili version.', image: getAssetUrl('downloads/2.png'), pdf: getAssetUrl('downloads/Kiswahilii_stoptrack.pdf') },
-    { id: 3, language: 'luo', title: 'STOP! Tract - Luo', description: 'Luo language version.', image: getAssetUrl('downloads/3.png'), pdf: getAssetUrl('downloads/LuoStop.pdf') },
-    { id: 4, language: 'kalenjin', title: 'STOP! Tract - Kalenjin', description: 'Kalenjin version.', image: getAssetUrl('downloads/4.png'), pdf: getAssetUrl('downloads/KenyaKalinjin_stoptrack.pdf') },
-    { id: 5, language: 'kisii', title: 'STOP! Tract - Kisii', description: 'Kisii version.', image: getAssetUrl('downloads/5.png'), pdf: getAssetUrl('downloads/Kisii_stoptrack.pdf') },
-    { id: 6, language: 'maasai', title: 'STOP! Tract - Maasai', description: 'Maasai version.', image: getAssetUrl('downloads/6.png'), pdf: getAssetUrl('downloads/Masai_stoptrack.pdf') },
+    { id: 1, language: 'english', title: 'STOP! Tract - English', description: 'Eye-catching STOP tract to grab attention.', image: getAssetUrl('downloads/stoptracts-icon.png'), pdf: getAssetUrl('downloads/English_stoptrack.pdf') },
+    { id: 2, language: 'swahili', title: 'STOP! Tract - Swahili', description: 'Kiswahili version.', image: getAssetUrl('downloads/stoptracts-icon.png'), pdf: getAssetUrl('downloads/Kiswahilii_stoptrack.pdf') },
+    { id: 3, language: 'luo', title: 'STOP! Tract - Luo', description: 'Luo language version.', image: getAssetUrl('downloads/stoptracts-icon.png'), pdf: getAssetUrl('downloads/LuoStop.pdf') },
+    { id: 4, language: 'kalenjin', title: 'STOP! Tract - Kalenjin', description: 'Kalenjin version.', image: getAssetUrl('downloads/stoptracts-icon.png'), pdf: getAssetUrl('downloads/KenyaKalinjin_stoptrack.pdf') },
+    { id: 5, language: 'kisii', title: 'STOP! Tract - Kisii', description: 'Kisii version.', image: getAssetUrl('downloads/stoptracts-icon.png'), pdf: getAssetUrl('downloads/Kisii_stoptrack.pdf') },
+    { id: 6, language: 'maasai', title: 'STOP! Tract - Maasai', description: 'Maasai version.', image: getAssetUrl('downloads/stoptracts-icon.png'), pdf: getAssetUrl('downloads/Masai_stoptrack.pdf') },
   ];
 
   const filteredTracts = activeLanguage === 'all' ? tracts : tracts.filter(tract => tract.language === activeLanguage);

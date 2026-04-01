@@ -160,6 +160,71 @@ const Home = () => {
       <section className="video-section section">
         <div className="container">
           <div className="section-header text-center reveal">
+            <span className="section-badge">{t('home.introSectionTitle')}</span>
+            <h2>{t('home.introSectionTitle')}</h2>
+          </div>
+          <div className="intro-content reveal" style={{ maxWidth: '1000px', margin: '0 auto', background: 'rgba(255, 255, 255, 0.02)', padding: '3rem', borderRadius: '24px', border: '1px solid rgba(255, 255, 255, 0.05)', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '300px', height: '300px', background: 'var(--primary-color)', opacity: '0.05', filter: 'blur(50px)', borderRadius: '50%' }}></div>
+            
+            <div className="intro-text" style={{ fontSize: '1.15rem', lineHeight: '1.9', color: 'var(--text-light)', position: 'relative', zIndex: 1 }}>
+              <p style={{ marginBottom: '1.5rem' }}>{t('home.introP1')}</p>
+              <p style={{ marginBottom: '1.5rem' }}>{t('home.introP2')}</p>
+              <p style={{ marginBottom: '1.5rem' }}>{t('home.introP3')}</p>
+              <p style={{ marginBottom: '1.5rem' }}>{t('home.introP4')}</p>
+              <p style={{ marginBottom: '2.5rem' }}>{t('home.introP5')}</p>
+              
+              <div style={{ textAlign: 'center', paddingTop: '2rem', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                <p style={{ fontWeight: 'bold', fontStyle: 'italic', fontSize: '1.4rem', color: 'transparent', WebkitBackgroundClip: 'text', backgroundClip: 'text', backgroundImage: 'linear-gradient(to right, var(--primary-color), var(--secondary-color))' }}>
+                  {t('home.introVerse')}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* God's Will Section */}
+      <section className="gods-will-section section" style={{ position: 'relative' }}>
+        <div style={{ position: 'absolute', bottom: '10%', left: '-5%', width: '400px', height: '400px', background: 'var(--secondary-color)', opacity: '0.05', filter: 'blur(60px)', borderRadius: '50%', pointerEvents: 'none' }}></div>
+        
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+           <div className="section-header text-center reveal">
+            <span className="section-badge">{t('home.godsWillTitle')}</span>
+            <h2>God's <span className="gradient-text-animated">Will</span> & His <span className="gradient-text-animated">Promise</span></h2>
+          </div>
+          
+          <div className="intro-content reveal" style={{ maxWidth: '900px', margin: '0 auto', fontSize: '1.15rem', lineHeight: '1.8', textAlign: 'center' }}>
+              <p style={{ marginBottom: '1.5rem', color: 'var(--text-light)' }}>{t('home.godsWillP1')}</p>
+              
+              <div className="verse-highlight hover-glow animate-float" style={{ margin: '3rem auto', padding: '2.5rem 3rem', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '16px', position: 'relative', display: 'inline-block' }}>
+                <span style={{ position: 'absolute', top: '-10px', left: '20px', fontSize: '5rem', color: 'var(--primary-color)', opacity: 0.2, lineHeight: 1, fontFamily: 'serif' }}>"</span>
+                <p style={{ fontStyle: 'italic', fontSize: '1.25rem', position: 'relative', zIndex: 2 }}>{t('home.godsWillV1')}</p>
+              </div>
+
+              <p style={{ marginBottom: '1rem', fontWeight: '500' }}>{t('home.godsWillP2')}</p>
+              <p style={{ marginBottom: '3rem', color: 'var(--text-light)' }}>{t('home.godsWillP3')}</p>
+              
+              <div className="verses-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', textAlign: 'left' }}>
+                <div className="home-verse-card hover-lift hover-shine" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)', padding: '1.5rem', borderRadius: '14px', borderLeft: '4px solid var(--primary-color)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                  <p style={{ fontStyle: 'italic', fontSize: '1rem', color: 'var(--text-light)' }}>{t('home.godsWillV2')}</p>
+                </div>
+                
+                <div className="home-verse-card hover-lift hover-shine" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)', padding: '1.5rem', borderRadius: '14px', borderLeft: '4px solid var(--primary-color)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                  <p style={{ fontStyle: 'italic', fontSize: '1rem', color: 'var(--text-light)' }}>{t('home.godsWillV3')}</p>
+                </div>
+                
+                <div className="home-verse-card hover-lift hover-shine" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)', padding: '1.5rem', borderRadius: '14px', borderLeft: '4px solid var(--primary-color)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                  <p style={{ fontStyle: 'italic', fontSize: '1rem', color: 'var(--text-light)' }}>{t('home.godsWillV4')}</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className="video-section section">
+        <div className="container">
+          <div className="section-header text-center reveal">
             <span className="section-badge">{t('home.videoFeatured')}</span>
             <h2>{t('home.videoTitle')}</h2>
           </div>
@@ -168,9 +233,9 @@ const Home = () => {
             <div className="video-card main reveal-left">
               <div className="video-wrapper hover-glow">
                 <iframe
-                  src="https://player.vimeo.com/video/953975875"
+                  src="https://www.youtube.com/embed/Trw5FVDQmiA"
                   title="Gospel Message"
-                  allow="autoplay; fullscreen; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
               </div>
@@ -217,6 +282,58 @@ const Home = () => {
                 <div className="ring ring-1"></div>
                 <div className="ring ring-2"></div>
                 <div className="ring ring-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Thank You Section */}
+      <section className="thank-you-section section">
+        <div className="container" style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div className="reveal" style={{ 
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%)',
+            borderTop: '2px solid var(--primary-color)',
+            padding: '4rem 3rem',
+            borderRadius: '24px 24px 0 0',
+            boxShadow: '0 -10px 30px rgba(0,0,0,0.1)'
+          }}>
+            <h2 style={{ marginBottom: '3rem', fontSize: '2.5rem', letterSpacing: '4px', textAlign: 'center' }} className="gradient-text-animated">
+              {t('thankYou.title')}
+            </h2>
+            
+            <div style={{ fontSize: '1.15rem', lineHeight: '1.9', color: 'var(--text-light)', display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
+              <p>{t('thankYou.p1')}</p>
+              <p>{t('thankYou.p2')}</p>
+              
+              <div style={{ padding: '1.5rem', borderLeft: '4px solid var(--secondary-color)', background: 'rgba(255,255,255,0.02)', borderRadius: '0 8px 8px 0' }}>
+                <p>{t('thankYou.p3')}</p>
+              </div>
+              
+              <p style={{ fontStyle: 'italic', color: 'var(--primary-color)', fontWeight: 'bold' }}>{t('thankYou.p4')}</p>
+              
+              <div style={{ padding: '1.5rem', borderLeft: '4px solid var(--secondary-color)', background: 'rgba(255,255,255,0.02)', borderRadius: '0 8px 8px 0' }}>
+                <p>{t('thankYou.p5')}</p>
+              </div>
+              
+              <p>{t('thankYou.p6')}</p>
+              
+              <div style={{ padding: '1.8rem', borderLeft: '4px solid var(--primary-color)', background: 'linear-gradient(90deg, rgba(var(--primary-rgb), 0.1) 0%, transparent 100%)', borderRadius: '0 8px 8px 0' }}>
+                <p style={{ fontWeight: '500', fontSize: '1.25rem' }}>{t('thankYou.p7')}</p>
+              </div>
+              
+              <p>{t('thankYou.p8')}</p>
+              
+              <div className="home-verse-card hover-glow" style={{ margin: '2rem 0', padding: '2.5rem', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                <p style={{ fontStyle: 'italic', marginBottom: '1.5rem', fontSize: '1.1rem' }}>{t('thankYou.verse')}</p>
+                <p style={{ fontWeight: 'bold', textAlign: 'right', color: 'var(--primary-color)' }}>{t('thankYou.verseRef')}</p>
+              </div>
+              
+              <div style={{ marginTop: '2rem', textAlign: 'right' }}>
+                <p style={{ fontStyle: 'italic' }}>{t('thankYou.signoffMessage')}</p>
+                <p style={{ fontStyle: 'italic', marginBottom: '1rem' }}>{t('thankYou.signoffService')}</p>
+                <p style={{ fontWeight: 'bold', fontSize: '1.4rem', color: 'transparent', backgroundClip: 'text', WebkitBackgroundClip: 'text', backgroundImage: 'linear-gradient(to right, var(--primary-color), var(--secondary-color))' }}>{t('thankYou.signoffName')}</p>
+                <p style={{ fontSize: '1rem', color: 'var(--text-light)', letterSpacing: '2px', textTransform: 'uppercase', marginTop: '0.2rem' }}>{t('thankYou.signoffTitle')}</p>
               </div>
             </div>
           </div>

@@ -103,13 +103,13 @@ const SalvationQuiz = () => {
                   {isSaved ? (
                     <>
                       <a href="/next-steps" className="btn btn-primary">{t('salvationQuiz.whatsNext')} →</a>
-                      <a href="/gospel-tracts" className="btn btn-secondary">{t('salvationQuiz.readGospelTracts')}</a>
+                      <a href="/gospel-tracts" className="btn btn-secondary" style={{ border: '2px solid var(--primary-color)', fontWeight: 'bold' }}>{t('salvationQuiz.referGospelTracts', 'Refer Gospel Tracts')}</a>
                     </>
                   ) : (
-                    <>
-                      <button className="btn btn-primary" onClick={resetQuiz}>{t('salvationQuiz.takeAgain')}</button>
-                      <a href="/gospel-tracts" className="btn btn-secondary">{t('salvationQuiz.readGospelTracts')}</a>
-                    </>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center', width: '100%' }}>
+                      <button className="btn btn-secondary" onClick={resetQuiz} style={{ width: '100%' }}>{t('salvationQuiz.takeAgain')}</button>
+                      <a href="/gospel-tracts" className="btn btn-primary hover-glow animate-pulse" style={{ width: '100%' }}>{t('salvationQuiz.referGospelTracts', 'Refer Gospel Tracts')}</a>
+                    </div>
                   )}
                 </div>
               </div>
@@ -121,6 +121,9 @@ const SalvationQuiz = () => {
       {!showResults && (
         <section className="quiz-info section">
           <div className="container">
+            <div style={{ textAlign: 'center', marginBottom: '2rem', fontStyle: 'italic', color: 'var(--primary-color)' }}>
+              <p>{t('salvationQuiz.privateInterpretationVerse')}</p>
+            </div>
             <div className="info-grid">
               <div className="info-item">
                 <h4>{t('salvationQuiz.featureBibleBased')}</h4>

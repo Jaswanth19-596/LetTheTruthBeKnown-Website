@@ -47,9 +47,11 @@ const Discipleship = () => {
         { title: 'Christian Growth', cover: getAssetUrl('downloads/discipleship/level2-book1-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book1.pdf') },
         { title: 'Christian Maturity', cover: getAssetUrl('downloads/discipleship/level2-book2-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book2.pdf') },
         { title: 'The Bible', cover: getAssetUrl('downloads/discipleship/level2-book3-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book3.pdf') },
-        { title: 'The New Testament Church', cover: getAssetUrl('downloads/discipleship/level2-book4-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book4.pdf') },
-        { title: 'Soul Winning', cover: getAssetUrl('downloads/discipleship/level2-book5-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book5.pdf') },
-        { title: 'Christian Stewardship', cover: getAssetUrl('downloads/discipleship/level2-book6-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book6.pdf') },
+        { title: 'The New Testament Church', cover: getAssetUrl('downloads/discipleship/book_04-new_testament-church_cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book4.pdf') },
+        { title: 'Forgiveness', cover: getAssetUrl('downloads/discipleship/book-05-forgiveness_cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book5.pdf') },
+        { title: 'Financial Stewardship', cover: getAssetUrl('downloads/discipleship/book-06-financial_stewardshipcover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book6.pdf') },
+        { title: 'Judgment Seat of Christ', cover: getAssetUrl('downloads/discipleship/book-07-judgment_seat_of_christ_cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book7.pdf') },
+        { title: 'God\'s Will for Your Life', cover: getAssetUrl('downloads/discipleship/book-08-Gods_will_for_your_life_cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book8.pdf') },
       ]
     },
     {
@@ -58,12 +60,14 @@ const Discipleship = () => {
       subtitleKey: 'discipleship.level3Subtitle',
       color: '#8b5cf6',
       books: [
-        { title: 'Bible Doctrines', cover: getAssetUrl('downloads/discipleship/level3-book1-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book1.pdf') },
-        { title: 'Church History', cover: getAssetUrl('downloads/discipleship/level3-book2-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book2.pdf') },
-        { title: 'Hermeneutics', cover: getAssetUrl('downloads/discipleship/level3-book3-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book3.pdf') },
-        { title: 'Homiletics', cover: getAssetUrl('downloads/discipleship/level3-book4-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book4.pdf') },
-        { title: 'Pastoral Theology', cover: getAssetUrl('downloads/discipleship/level3-book5-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book5.pdf') },
-        { title: 'Missions', cover: getAssetUrl('downloads/discipleship/level3-book6-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book6.pdf') },
+        { title: 'Grace', cover: getAssetUrl('downloads/discipleship/level-03-book-1-grace-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book1.pdf') },
+        { title: 'Practical Christian Living', cover: getAssetUrl('downloads/discipleship/level-03-book-2-practical-christian-living-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book2.pdf') },
+        { title: 'Sanctification', cover: getAssetUrl('downloads/discipleship/level-03-book-6-sanctification-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book3.pdf') },
+        { title: 'Victory Over Sin', cover: getAssetUrl('downloads/discipleship/level-03-book-4-victory-over-sin-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book4.pdf') },
+        { title: 'Jesus Christ', cover: getAssetUrl('downloads/discipleship/level-03-book-5-jesus-christ-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book5.pdf') },
+        { title: 'Creation', cover: getAssetUrl('downloads/discipleship/level-03-book-6-creation-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book6.pdf') },
+        { title: 'Spiritual Gifts', cover: getAssetUrl('downloads/discipleship/level-03-book-7-spiritual-gifts-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book7.pdf') },
+        { title: 'Our Spiritual Armor', cover: getAssetUrl('downloads/discipleship/level-03-book-8-our-spiritual-armor-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book8.pdf') },
       ]
     }
   ];
@@ -140,6 +144,37 @@ const Discipleship = () => {
 
 
       {viewingPdf && <PDFViewer pdfUrl={viewingPdf.pdf} title={viewingPdf.title} onClose={() => setViewingPdf(null)} />}
+      {/* GBBC Advanced Studies Section */}
+      <section className="gbbc-section reveal" style={{ marginTop: '4rem', padding: '4rem 0', background: 'linear-gradient(to right, rgba(16, 185, 129, 0.05), rgba(59, 130, 246, 0.05))', borderRadius: '16px', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '15px', right: '15px' }}>
+          <span style={{ background: 'var(--primary-color)', color: 'white', padding: '0.4rem 1rem', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('resourcesPage.gbbcAdvanced')}</span>
+        </div>
+        <div className="container" style={{ textAlign: 'center', maxWidth: '900px' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', background: 'linear-gradient(to right, #fff, #aaa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{t('gbbc.title')}</h2>
+          <h4 style={{ fontSize: '1.2rem', color: 'var(--primary-color)', marginBottom: '3rem', letterSpacing: '2px', textTransform: 'uppercase' }}>{t('gbbc.subtitle')}</h4>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+            {['feature1', 'feature2', 'feature3', 'feature4'].map((ft, idx) => (
+              <div key={idx} className="hover-lift hover-shine" style={{ background: 'rgba(255,255,255,0.03)', padding: '1.5rem', borderRadius: '12px', borderTop: '3px solid var(--primary-color)', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
+                <p style={{ fontWeight: '500', color: 'var(--text-light)', margin: 0 }}>{t(`gbbc.${ft}`)}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div style={{ background: 'rgba(239, 68, 68, 0.05)', borderLeft: '4px solid #ef4444', padding: '1.5rem', borderRadius: '0 8px 8px 0', marginBottom: '3rem', textAlign: 'left' }}>
+            <p style={{ color: '#fca5a5', fontStyle: 'italic', margin: 0, fontSize: '0.95rem', lineHeight: '1.6' }}>{t('gbbc.notice')}</p>
+          </div>
+          
+          <div className="home-verse-card" style={{ padding: '2rem', background: 'rgba(255,255,255,0.02)', borderRadius: '15px', marginBottom: '3rem', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'left' }}>
+            <p style={{ fontStyle: 'italic', marginBottom: '1.5rem', color: 'var(--text-light)', lineHeight: '1.8' }}>{t('gbbc.verse')}</p>
+            <p style={{ fontWeight: 'bold', color: 'var(--primary-color)' }}>{t('gbbc.verseRef')}</p>
+          </div>
+          
+          <a href={`https://${t('gbbc.website')}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary hover-glow" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
+            {t('gbbc.visitCta')} →
+          </a>
+        </div>
+      </section>
     </div>
   );
 };
