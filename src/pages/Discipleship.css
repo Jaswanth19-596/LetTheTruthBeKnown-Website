@@ -8,7 +8,7 @@
 .discipleship-hero {
   position: relative;
   padding: 140px 0 80px;
-  background: linear-gradient(180deg, #030712 0%, var(--bg-primary) 100%);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   overflow: hidden;
 }
 
@@ -101,7 +101,7 @@
 /* Level Navigation Tabs */
 .levels-nav {
   padding: var(--spacing-lg) 0;
-  background: rgba(3, 7, 18, 0.5);
+  background: var(--bg-tertiary);
 }
 
 .levels-tabs {
@@ -430,9 +430,9 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(3, 7, 18, 0.95) 0%,
-    rgba(3, 7, 18, 0.6) 50%,
-    rgba(3, 7, 18, 0.3) 100%
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
   );
   display: flex;
   flex-direction: column;
@@ -468,7 +468,7 @@
 .book-overlay span {
   font-size: var(--font-size-sm);
   font-weight: 600;
-  color: white;
+  color: var(--primary-color);
   transform: translateY(20px);
   opacity: 0;
   transition: all 0.4s ease 0.1s;

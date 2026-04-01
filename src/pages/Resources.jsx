@@ -92,15 +92,16 @@ const Resources = () => {
           
           {/* Bible Hero Card */}
           <div className="bible-hero hover-glow reveal" style={{ 
-            background: 'linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--secondary-rgb), 0.05) 100%)', 
-            borderRadius: '16px', border: '1px solid rgba(var(--primary-rgb), 0.2)', padding: '3rem', 
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem', flexWrap: 'wrap'
+            background: 'var(--bg-secondary)', 
+            borderRadius: '16px', border: '1px solid var(--glass-border)', padding: '3rem', 
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem', flexWrap: 'wrap',
+            boxShadow: 'var(--shadow-md)'
           }}>
             <div style={{ flex: '1 1 300px' }}>
               <span className="section-badge" style={{ marginBottom: '1rem', display: 'inline-block' }}>{t('resourcesPage.bibleHighlight')}</span>
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: '#fff' }}>{t('resourcesPage.bibleTitle')}</h2>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{t('resourcesPage.bibleTitle')}</h2>
               <h4 style={{ color: 'var(--primary-color)', marginBottom: '1.5rem', fontSize: '1.2rem' }}>{t('resourcesPage.bibleSubtitle')}</h4>
-              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--text-light)', marginBottom: '2rem' }}>{t('resourcesPage.bibleDesc')}</p>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--text-secondary)', marginBottom: '2rem' }}>{t('resourcesPage.bibleDesc')}</p>
               <a href="https://www.bible.com/versions/1-kjv-king-james-version" target="_blank" rel="noopener noreferrer" className="btn btn-primary hover-shine" style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
                 {t('resourcesPage.bibleReadButton')} →
               </a>
@@ -109,20 +110,21 @@ const Resources = () => {
 
           {/* GBBC Card */}
           <div className="gbbc-hero hover-glow reveal" style={{ 
-            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%)', 
-            borderRadius: '16px', border: '1px solid rgba(16, 185, 129, 0.2)', padding: '3rem', 
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem', flexWrap: 'wrap'
+            background: 'var(--bg-primary)', 
+            borderRadius: '16px', border: '1px solid var(--glass-border)', padding: '3rem', 
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem', flexWrap: 'wrap',
+            boxShadow: 'var(--shadow-md)'
           }}>
             <div style={{ flex: '1 1 300px' }}>
-              <span className="section-badge" style={{ marginBottom: '1rem', display: 'inline-block', background: 'rgba(16, 185, 129, 0.2)', color: '#10b981', border: 'none' }}>{t('resourcesPage.gbbcAdvanced')}</span>
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: '#fff' }}>{t('gbbc.title')}</h2>
-              <h4 style={{ color: '#10b981', marginBottom: '1.5rem', fontSize: '1.2rem' }}>{t('resourcesPage.gbbcAdvancedSubtitle')}</h4>
-              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'grid', gridTemplateColumns: 'minmax(200px, 1fr) minmax(200px, 1fr)', gap: '1rem', color: 'var(--text-light)' }}>
+              <span className="section-badge" style={{ marginBottom: '1rem', display: 'inline-block', background: 'rgba(15, 61, 89, 0.1)', color: 'var(--primary-color)', border: 'none' }}>{t('resourcesPage.gbbcAdvanced')}</span>
+              <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{t('gbbc.title')}</h2>
+              <h4 style={{ color: 'var(--primary-color)', marginBottom: '1.5rem', fontSize: '1.2rem' }}>{t('resourcesPage.gbbcAdvancedSubtitle')}</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'grid', gridTemplateColumns: 'minmax(200px, 1fr) minmax(200px, 1fr)', gap: '1rem', color: 'var(--text-secondary)' }}>
                 <li>✓ {t('gbbc.feature1')}</li>
                 <li>✓ {t('gbbc.feature3')}</li>
                 <li>✓ {t('gbbc.feature4')}</li>
               </ul>
-              <a href={`https://${t('gbbc.website')}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary hover-glow" style={{ background: '#10b981', padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
+              <a href={`https://${t('gbbc.website')}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary hover-glow" style={{ background: 'var(--primary-color)', padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
                 {t('gbbc.visitCta')} →
               </a>
             </div>

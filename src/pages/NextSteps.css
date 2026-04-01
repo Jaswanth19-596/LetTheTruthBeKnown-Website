@@ -57,7 +57,7 @@
 
 .progress-bar-container {
   height: 8px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-primary);
   border-radius: var(--radius-full);
   overflow: hidden;
 }

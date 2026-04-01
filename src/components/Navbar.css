@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(3, 7, 18, 0.8);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid transparent;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -25,8 +25,8 @@
 }
 
 .navbar.scrolled {
-  background: rgba(3, 7, 18, 0.95);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
 }
 
 .navbar.scrolled .navbar-container {
@@ -214,7 +214,7 @@
 .hamburger span {
   width: 24px;
   height: 2px;
-  background: white; /* Ensure visibility on dark background */
+  background: var(--primary-color); /* Visible on light background */
   transition: all var(--transition-base);
   border-radius: 1px;
 }
@@ -279,7 +279,7 @@
     right: -100%;
     width: 280px; /* Slightly narrower for mobile */
     height: 100vh;
-    background: linear-gradient(180deg, rgba(3, 7, 18, 0.98) 0%, rgba(10, 15, 28, 0.98) 100%);
+    background: var(--bg-primary);
     backdrop-filter: blur(30px);
     flex-direction: column;
     align-items: flex-start;
@@ -309,7 +309,7 @@
     width: 100%;
     font-size: var(--font-size-lg);
     padding: var(--spacing-md) var(--spacing-sm);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separator for links */
+    border-bottom: 1px solid var(--glass-border); /* Separator for links */
   }
 
   /* Hide the main header button on mobile */

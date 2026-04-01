@@ -163,17 +163,17 @@ const Home = () => {
             <span className="section-badge">{t('home.introSectionTitle')}</span>
             <h2>{t('home.introSectionTitle')}</h2>
           </div>
-          <div className="intro-content reveal" style={{ maxWidth: '1000px', margin: '0 auto', background: 'rgba(255, 255, 255, 0.02)', padding: '3rem', borderRadius: '24px', border: '1px solid rgba(255, 255, 255, 0.05)', boxShadow: '0 20px 40px rgba(0,0,0,0.2)', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '300px', height: '300px', background: 'var(--primary-color)', opacity: '0.05', filter: 'blur(50px)', borderRadius: '50%' }}></div>
+          <div className="intro-content reveal" style={{ maxWidth: '1000px', margin: '0 auto', background: 'var(--bg-primary)', padding: '3rem', borderRadius: '24px', border: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-lg)', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '300px', height: '300px', background: 'var(--primary-color)', opacity: '0.03', filter: 'blur(50px)', borderRadius: '50%' }}></div>
             
-            <div className="intro-text" style={{ fontSize: '1.15rem', lineHeight: '1.9', color: 'var(--text-light)', position: 'relative', zIndex: 1 }}>
+            <div className="intro-text" style={{ fontSize: '1.15rem', lineHeight: '1.9', color: 'var(--text-secondary)', position: 'relative', zIndex: 1 }}>
               <p style={{ marginBottom: '1.5rem' }}>{t('home.introP1')}</p>
               <p style={{ marginBottom: '1.5rem' }}>{t('home.introP2')}</p>
               <p style={{ marginBottom: '1.5rem' }}>{t('home.introP3')}</p>
               <p style={{ marginBottom: '1.5rem' }}>{t('home.introP4')}</p>
               <p style={{ marginBottom: '2.5rem' }}>{t('home.introP5')}</p>
               
-              <div style={{ textAlign: 'center', paddingTop: '2rem', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
+              <div style={{ textAlign: 'center', paddingTop: '2rem', borderTop: '1px solid var(--glass-border)' }}>
                 <p style={{ fontWeight: 'bold', fontStyle: 'italic', fontSize: '1.4rem', color: 'transparent', WebkitBackgroundClip: 'text', backgroundClip: 'text', backgroundImage: 'linear-gradient(to right, var(--primary-color), var(--secondary-color))' }}>
                   {t('home.introVerse')}
                 </p>
@@ -185,7 +185,7 @@ const Home = () => {
 
       {/* God's Will Section */}
       <section className="gods-will-section section" style={{ position: 'relative' }}>
-        <div style={{ position: 'absolute', bottom: '10%', left: '-5%', width: '400px', height: '400px', background: 'var(--secondary-color)', opacity: '0.05', filter: 'blur(60px)', borderRadius: '50%', pointerEvents: 'none' }}></div>
+        <div style={{ position: 'absolute', bottom: '10%', left: '-5%', width: '400px', height: '400px', background: 'var(--secondary-color)', opacity: '0.03', filter: 'blur(60px)', borderRadius: '50%', pointerEvents: 'none' }}></div>
         
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
            <div className="section-header text-center reveal">
@@ -196,7 +196,7 @@ const Home = () => {
           <div className="intro-content reveal" style={{ maxWidth: '900px', margin: '0 auto', fontSize: '1.15rem', lineHeight: '1.8', textAlign: 'center' }}>
               <p style={{ marginBottom: '1.5rem', color: 'var(--text-light)' }}>{t('home.godsWillP1')}</p>
               
-              <div className="verse-highlight hover-glow animate-float" style={{ margin: '3rem auto', padding: '2.5rem 3rem', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '16px', position: 'relative', display: 'inline-block' }}>
+              <div className="verse-highlight hover-glow animate-float" style={{ margin: '3rem auto', padding: '2.5rem 3rem', background: 'var(--bg-secondary)', border: '1px solid var(--glass-border)', borderRadius: '16px', position: 'relative', display: 'inline-block' }}>
                 <span style={{ position: 'absolute', top: '-10px', left: '20px', fontSize: '5rem', color: 'var(--primary-color)', opacity: 0.2, lineHeight: 1, fontFamily: 'serif' }}>"</span>
                 <p style={{ fontStyle: 'italic', fontSize: '1.25rem', position: 'relative', zIndex: 2 }}>{t('home.godsWillV1')}</p>
               </div>
@@ -205,16 +205,16 @@ const Home = () => {
               <p style={{ marginBottom: '3rem', color: 'var(--text-light)' }}>{t('home.godsWillP3')}</p>
               
               <div className="verses-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', textAlign: 'left' }}>
-                <div className="home-verse-card hover-lift hover-shine" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)', padding: '1.5rem', borderRadius: '14px', borderLeft: '4px solid var(--primary-color)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                  <p style={{ fontStyle: 'italic', fontSize: '1rem', color: 'var(--text-light)' }}>{t('home.godsWillV2')}</p>
+                <div className="home-verse-card hover-lift" style={{ background: 'var(--bg-primary)', padding: '1.5rem', borderRadius: '14px', borderLeft: '4px solid var(--primary-color)', borderTop: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-sm)' }}>
+                  <p style={{ fontStyle: 'italic', fontSize: '1rem', color: 'var(--text-secondary)' }}>{t('home.godsWillV2')}</p>
                 </div>
                 
-                <div className="home-verse-card hover-lift hover-shine" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)', padding: '1.5rem', borderRadius: '14px', borderLeft: '4px solid var(--primary-color)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                  <p style={{ fontStyle: 'italic', fontSize: '1rem', color: 'var(--text-light)' }}>{t('home.godsWillV3')}</p>
+                <div className="home-verse-card hover-lift" style={{ background: 'var(--bg-primary)', padding: '1.5rem', borderRadius: '14px', borderLeft: '4px solid var(--primary-color)', borderTop: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-sm)' }}>
+                  <p style={{ fontStyle: 'italic', fontSize: '1rem', color: 'var(--text-secondary)' }}>{t('home.godsWillV3')}</p>
                 </div>
                 
-                <div className="home-verse-card hover-lift hover-shine" style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)', padding: '1.5rem', borderRadius: '14px', borderLeft: '4px solid var(--primary-color)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                  <p style={{ fontStyle: 'italic', fontSize: '1rem', color: 'var(--text-light)' }}>{t('home.godsWillV4')}</p>
+                <div className="home-verse-card hover-lift" style={{ background: 'var(--bg-primary)', padding: '1.5rem', borderRadius: '14px', borderLeft: '4px solid var(--primary-color)', borderTop: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-sm)' }}>
+                  <p style={{ fontStyle: 'italic', fontSize: '1rem', color: 'var(--text-secondary)' }}>{t('home.godsWillV4')}</p>
                 </div>
               </div>
           </div>
@@ -292,11 +292,11 @@ const Home = () => {
       <section className="thank-you-section section">
         <div className="container" style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div className="reveal" style={{ 
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%)',
-            borderTop: '2px solid var(--primary-color)',
+            background: 'var(--bg-secondary)',
+            borderTop: '3px solid var(--primary-color)',
             padding: '4rem 3rem',
             borderRadius: '24px 24px 0 0',
-            boxShadow: '0 -10px 30px rgba(0,0,0,0.1)'
+            boxShadow: 'var(--shadow-lg)'
           }}>
             <h2 style={{ marginBottom: '3rem', fontSize: '2.5rem', letterSpacing: '4px', textAlign: 'center' }} className="gradient-text-animated">
               {t('thankYou.title')}
@@ -306,13 +306,13 @@ const Home = () => {
               <p>{t('thankYou.p1')}</p>
               <p>{t('thankYou.p2')}</p>
               
-              <div style={{ padding: '1.5rem', borderLeft: '4px solid var(--secondary-color)', background: 'rgba(255,255,255,0.02)', borderRadius: '0 8px 8px 0' }}>
+              <div style={{ padding: '1.5rem', borderLeft: '4px solid var(--secondary-color)', background: 'var(--bg-primary)', borderRadius: '0 8px 8px 0', boxShadow: 'var(--shadow-sm)' }}>
                 <p>{t('thankYou.p3')}</p>
               </div>
               
               <p style={{ fontStyle: 'italic', color: 'var(--primary-color)', fontWeight: 'bold' }}>{t('thankYou.p4')}</p>
               
-              <div style={{ padding: '1.5rem', borderLeft: '4px solid var(--secondary-color)', background: 'rgba(255,255,255,0.02)', borderRadius: '0 8px 8px 0' }}>
+              <div style={{ padding: '1.5rem', borderLeft: '4px solid var(--secondary-color)', background: 'var(--bg-primary)', borderRadius: '0 8px 8px 0', boxShadow: 'var(--shadow-sm)' }}>
                 <p>{t('thankYou.p5')}</p>
               </div>
               
@@ -324,7 +324,7 @@ const Home = () => {
               
               <p>{t('thankYou.p8')}</p>
               
-              <div className="home-verse-card hover-glow" style={{ margin: '2rem 0', padding: '2.5rem', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)' }}>
+              <div className="home-verse-card hover-glow" style={{ margin: '2rem 0', padding: '2.5rem', background: 'var(--bg-primary)', borderRadius: '16px', border: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-md)' }}>
                 <p style={{ fontStyle: 'italic', marginBottom: '1.5rem', fontSize: '1.1rem' }}>{t('thankYou.verse')}</p>
                 <p style={{ fontWeight: 'bold', textAlign: 'right', color: 'var(--primary-color)' }}>{t('thankYou.verseRef')}</p>
               </div>

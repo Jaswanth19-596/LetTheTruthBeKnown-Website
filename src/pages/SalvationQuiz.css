@@ -1,11 +1,11 @@
 .quiz-hero {
-  background: linear-gradient(180deg, #1a0f1a 0%, var(--bg-primary) 100%);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
 .quiz-hero::before {
   background: 
-    radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 30%, rgba(212, 165, 116, 0.08) 0%, transparent 40%);
+    radial-gradient(circle at 50% 50%, rgba(15, 61, 89, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(205, 161, 83, 0.05) 0%, transparent 40%);
 }
 
 /* Quiz Card */
@@ -39,7 +39,7 @@
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent-gold), var(--accent-amber));
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
   border-radius: var(--radius-full);
   transition: width 0.5s ease;
 }
@@ -61,8 +61,8 @@
   align-items: flex-start;
   gap: var(--spacing-md);
   padding: var(--spacing-lg);
-  background: rgba(212, 165, 116, 0.1);
-  border-left: 4px solid var(--accent-gold);
+  background: var(--bg-tertiary);
+  border-left: 4px solid var(--secondary-color);
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   text-align: left;
 }
@@ -136,8 +136,8 @@
 }
 
 .results-card.unsaved {
-  border-color: rgba(244, 162, 97, 0.5);
-  background: linear-gradient(135deg, rgba(244, 162, 97, 0.1), var(--glass-bg));
+  border-color: rgba(205, 161, 83, 0.5);
+  background: linear-gradient(135deg, rgba(205, 161, 83, 0.1), var(--glass-bg));
 }
 
 .results-icon {
@@ -155,7 +155,7 @@
 }
 
 .results-card.unsaved .results-title {
-  color: var(--accent-amber);
+  color: var(--secondary-color);
 }
 
 .results-score {
@@ -169,7 +169,7 @@
 .score-number {
   font-size: var(--font-size-5xl, 3rem);
   font-weight: 700;
-  color: #f59e0b;
+  color: var(--secondary-color);
 }
 
 .score-total {
@@ -204,7 +204,7 @@
 }
 
 .results-verse span {
-  color: var(--accent-gold);
+  color: var(--secondary-color);
   font-size: var(--font-size-sm);
 }
 

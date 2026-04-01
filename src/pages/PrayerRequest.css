@@ -64,7 +64,7 @@
 .form-group select,
 .form-group textarea {
   padding: var(--spacing-md);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-primary);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   color: var(--text-primary);

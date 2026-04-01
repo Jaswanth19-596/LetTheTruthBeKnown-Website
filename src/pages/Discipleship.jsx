@@ -145,28 +145,28 @@ const Discipleship = () => {
 
       {viewingPdf && <PDFViewer pdfUrl={viewingPdf.pdf} title={viewingPdf.title} onClose={() => setViewingPdf(null)} />}
       {/* GBBC Advanced Studies Section */}
-      <section className="gbbc-section reveal" style={{ marginTop: '4rem', padding: '4rem 0', background: 'linear-gradient(to right, rgba(16, 185, 129, 0.05), rgba(59, 130, 246, 0.05))', borderRadius: '16px', position: 'relative', overflow: 'hidden' }}>
+      <section className="gbbc-section reveal" style={{ marginTop: '4rem', padding: '4rem 0', background: 'var(--bg-secondary)', borderRadius: '16px', position: 'relative', overflow: 'hidden', border: '1px solid var(--glass-border)' }}>
         <div style={{ position: 'absolute', top: '15px', right: '15px' }}>
           <span style={{ background: 'var(--primary-color)', color: 'white', padding: '0.4rem 1rem', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('resourcesPage.gbbcAdvanced')}</span>
         </div>
         <div className="container" style={{ textAlign: 'center', maxWidth: '900px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', background: 'linear-gradient(to right, #fff, #aaa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{t('gbbc.title')}</h2>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{t('gbbc.title')}</h2>
           <h4 style={{ fontSize: '1.2rem', color: 'var(--primary-color)', marginBottom: '3rem', letterSpacing: '2px', textTransform: 'uppercase' }}>{t('gbbc.subtitle')}</h4>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
             {['feature1', 'feature2', 'feature3', 'feature4'].map((ft, idx) => (
-              <div key={idx} className="hover-lift hover-shine" style={{ background: 'rgba(255,255,255,0.03)', padding: '1.5rem', borderRadius: '12px', borderTop: '3px solid var(--primary-color)', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
-                <p style={{ fontWeight: '500', color: 'var(--text-light)', margin: 0 }}>{t(`gbbc.${ft}`)}</p>
+              <div key={idx} className="hover-lift hover-shine" style={{ background: 'var(--bg-primary)', padding: '1.5rem', borderRadius: '12px', borderTop: '3px solid var(--primary-color)', boxShadow: 'var(--shadow-sm)' }}>
+                <p style={{ fontWeight: '500', color: 'var(--text-secondary)', margin: 0 }}>{t(`gbbc.${ft}`)}</p>
               </div>
             ))}
           </div>
           
           <div style={{ background: 'rgba(239, 68, 68, 0.05)', borderLeft: '4px solid #ef4444', padding: '1.5rem', borderRadius: '0 8px 8px 0', marginBottom: '3rem', textAlign: 'left' }}>
-            <p style={{ color: '#fca5a5', fontStyle: 'italic', margin: 0, fontSize: '0.95rem', lineHeight: '1.6' }}>{t('gbbc.notice')}</p>
+            <p style={{ color: '#b91c1c', fontStyle: 'italic', margin: 0, fontSize: '0.95rem', lineHeight: '1.6' }}>{t('gbbc.notice')}</p>
           </div>
           
-          <div className="home-verse-card" style={{ padding: '2rem', background: 'rgba(255,255,255,0.02)', borderRadius: '15px', marginBottom: '3rem', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'left' }}>
-            <p style={{ fontStyle: 'italic', marginBottom: '1.5rem', color: 'var(--text-light)', lineHeight: '1.8' }}>{t('gbbc.verse')}</p>
+          <div className="home-verse-card" style={{ padding: '2rem', background: 'var(--bg-primary)', borderRadius: '15px', marginBottom: '3rem', border: '1px solid var(--glass-border)', textAlign: 'left', boxShadow: 'var(--shadow-sm)' }}>
+            <p style={{ fontStyle: 'italic', marginBottom: '1.5rem', color: 'var(--text-secondary)', lineHeight: '1.8' }}>{t('gbbc.verse')}</p>
             <p style={{ fontWeight: 'bold', color: 'var(--primary-color)' }}>{t('gbbc.verseRef')}</p>
           </div>
           

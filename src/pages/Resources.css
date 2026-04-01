@@ -1,5 +1,5 @@
 .resources-hero {
-  background: linear-gradient(180deg, #030712 0%, var(--bg-primary) 100%);
+  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   position: relative;
 }
 
@@ -8,8 +8,8 @@
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse 50% 40% at 80% 30%, rgba(245, 158, 11, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse 40% 50% at 20% 70%, rgba(30, 58, 95, 0.05) 0%, transparent 50%);
+    radial-gradient(ellipse 50% 40% at 80% 30%, rgba(15, 61, 89, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 50% at 20% 70%, rgba(205, 161, 83, 0.04) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -47,7 +47,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--gradient-sun);
+  background: var(--primary-color);
   transform: scaleX(0);
   transition: transform 0.4s ease;
 }
@@ -63,7 +63,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.03), transparent);
+  background: linear-gradient(90deg, transparent, rgba(15, 61, 89, 0.05), transparent);
   transition: left 0.6s ease;
   pointer-events: none;
 }
@@ -73,11 +73,9 @@
 }
 
 .answer-book-card:hover {
-  border-color: rgba(245, 158, 11, 0.3);
+  border-color: rgba(15, 61, 89, 0.3);
   transform: translateX(8px) translateY(-4px);
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.4),
-    0 0 40px rgba(245, 158, 11, 0.1);
+  box-shadow: var(--shadow-lg);
 }
 
 .book-number {
@@ -86,10 +84,10 @@
   justify-content: center;
   width: 90px;
   min-height: 100%;
-  background: var(--gradient-sun);
+  background: var(--primary-color);
   font-size: var(--font-size-3xl);
   font-weight: 800;
-  color: var(--bg-primary);
+  color: #fff;
   flex-shrink: 0;
   transition: transform 0.3s ease;
   position: relative;
@@ -99,7 +97,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, transparent 50%);
 }
 
 .answer-book-card:hover .book-number {
@@ -121,7 +119,7 @@
 }
 
 .answer-book-card:hover .book-content h4 {
-  color: var(--sun-gold);
+  color: var(--primary-color);
 }
 
 .book-content p {
@@ -135,17 +133,17 @@
   padding: var(--spacing-sm) var(--spacing-lg);
   font-size: var(--font-size-sm);
   background: transparent;
-  border: 2px solid var(--sun-gold);
-  color: var(--sun-gold);
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
   border-radius: var(--radius-lg);
   transition: all 0.3s ease;
 }
 
 .book-content .btn:hover {
-  background: var(--sun-gold);
-  color: var(--bg-primary);
+  background: var(--secondary-color);
+  color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 /* Book Actions */
@@ -171,26 +169,26 @@
 }
 
 .btn-outline-small {
-  background: rgba(245, 158, 11, 0.15);
-  color: var(--sun-gold);
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: var(--bg-secondary);
+  color: var(--secondary-color);
+  border: 1px solid var(--glass-border);
 }
 
 .btn-outline-small:hover {
-  background: rgba(245, 158, 11, 0.25);
-  border-color: rgba(245, 158, 11, 0.5);
+  background: var(--bg-tertiary);
+  border-color: var(--secondary-color);
   transform: translateY(-2px);
 }
 
 .btn-primary-small {
-  background: #e63946;
+  background: var(--primary-color);
   color: #fff;
 }
 
 .btn-primary-small:hover {
-  background: #d62839;
+  background: var(--primary-color);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 @media (max-width: 768px) {
