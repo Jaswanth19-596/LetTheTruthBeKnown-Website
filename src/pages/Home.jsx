@@ -57,24 +57,6 @@ const Home = () => {
       <section className="hero">
         <div className="hero-bg">
           <div className="hero-gradient"></div>
-          <div className="hero-orbs">
-            <div className="orb orb-1"></div>
-            <div className="orb orb-2"></div>
-            <div className="orb orb-3"></div>
-          </div>
-          <div className="hero-particles">
-            {[...Array(30)].map((_, i) => (
-              <div key={i} className="particle" style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${5 + Math.random() * 10}s`,
-                width: `${2 + Math.random() * 4}px`,
-                height: `${2 + Math.random() * 4}px`
-              }}></div>
-            ))}
-          </div>
-          <div className="hero-grid-lines"></div>
         </div>
         
         <div className="hero-content">
