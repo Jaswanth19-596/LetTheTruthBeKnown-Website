@@ -1,21 +1,53 @@
+/* ===== Salvation Quiz - Ancient Israel Theme ===== */
 .quiz-hero {
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  background:
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-light) 50%, var(--bg-primary) 100%);
+  position: relative;
 }
 
 .quiz-hero::before {
-  background: 
-    radial-gradient(circle at 50% 50%, rgba(15, 61, 89, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 30%, rgba(205, 161, 83, 0.05) 0%, transparent 40%);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(184, 134, 11, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(30, 58, 95, 0.05) 0%, transparent 40%);
 }
 
-/* Quiz Card */
+/* Decorative scroll edges */
+.quiz-hero::after {
+  content: '📜';
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  opacity: 0.15;
+}
+
+/* Quiz Card - Parchment scroll */
 .quiz-card {
   max-width: 700px;
   margin: 0 auto;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-2xl);
+  background:
+    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 100%);
+  border: 3px solid var(--gold);
+  border-radius: var(--radius-xl);
   padding: var(--spacing-2xl);
+  box-shadow:
+    var(--shadow-xl),
+    inset 0 0 40px rgba(184, 134, 11, 0.03);
+  position: relative;
+}
+
+/* Scroll roll decoration */
+.quiz-card::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 15%;
+  right: 15%;
+  height: 10px;
+  background: linear-gradient(90deg, var(--sand), var(--parchment), var(--sand));
+  border-radius: 5px;
+  box-shadow: inset 0 2px 3px rgba(44, 24, 16, 0.1);
 }
 
 /* Progress */
@@ -24,6 +56,7 @@
 }
 
 .progress-text {
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
   margin-bottom: var(--spacing-sm);
@@ -32,14 +65,15 @@
 
 .progress-bar {
   height: 8px;
-  background: var(--bg-tertiary);
+  background: var(--bg-stone);
   border-radius: var(--radius-md);
   overflow: hidden;
+  border: 1px solid var(--glass-border);
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(90deg, var(--temple-blue), var(--gold), var(--scarlet));
   border-radius: var(--radius-full);
   transition: width 0.5s ease;
 }
@@ -51,9 +85,11 @@
 }
 
 .quiz-question h2 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-2xl);
   margin-bottom: var(--spacing-xl);
   line-height: 1.4;
+  color: var(--text-primary);
 }
 
 .quiz-verse {
@@ -61,18 +97,21 @@
   align-items: flex-start;
   gap: var(--spacing-md);
   padding: var(--spacing-lg);
-  background: var(--bg-tertiary);
-  border-left: 4px solid var(--secondary-color);
+  background: var(--glass-bg);
+  border-left: 4px solid var(--gold);
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   text-align: left;
+  box-shadow: var(--shadow-sm);
 }
 
 .verse-icon {
   font-size: 1.5rem;
   flex-shrink: 0;
+  color: var(--gold);
 }
 
 .quiz-verse p {
+  font-family: var(--font-family);
   font-style: italic;
   color: var(--text-secondary);
   font-size: var(--font-size-sm);
@@ -90,30 +129,37 @@
   flex: 1;
   max-width: 200px;
   padding: var(--spacing-lg) var(--spacing-xl);
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-lg);
   font-weight: 600;
-  border-radius: var(--radius-xl);
-  transition: all var(--transition-base);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  letter-spacing: 0.03em;
+  border: 2px solid transparent;
 }
 
 .answer-btn.yes {
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: white;
+  background: var(--gradient-olive);
+  color: var(--parchment-light);
+  border-color: var(--olive-dark);
+  box-shadow: var(--shadow-md);
 }
 
 .answer-btn.yes:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(107, 123, 60, 0.3);
 }
 
 .answer-btn.no {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  color: white;
+  background: var(--parchment);
+  color: var(--scarlet);
+  border-color: var(--sand);
 }
 
 .answer-btn.no:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(139, 21, 56, 0.2);
+  border-color: var(--scarlet);
 }
 
 /* Results */
@@ -123,21 +169,23 @@
 }
 
 .results-card {
-  background: var(--glass-bg);
-  border: 2px solid var(--glass-border);
-  border-radius: var(--radius-2xl);
+  background:
+    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 100%);
+  border: 3px solid var(--glass-border);
+  border-radius: var(--radius-xl);
   padding: var(--spacing-3xl);
   text-align: center;
+  box-shadow: var(--shadow-lg);
 }
 
 .results-card.saved {
-  border-color: rgba(16, 185, 129, 0.5);
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), var(--glass-bg));
+  border-color: var(--olive);
+  background: linear-gradient(135deg, rgba(107, 123, 60, 0.1), var(--glass-bg));
 }
 
 .results-card.unsaved {
-  border-color: rgba(205, 161, 83, 0.5);
-  background: linear-gradient(135deg, rgba(205, 161, 83, 0.1), var(--glass-bg));
+  border-color: var(--gold);
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.1), var(--glass-bg));
 }
 
 .results-icon {
@@ -146,16 +194,18 @@
 }
 
 .results-title {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-3xl);
   margin-bottom: var(--spacing-lg);
+  letter-spacing: 0.02em;
 }
 
 .results-card.saved .results-title {
-  color: #10b981;
+  color: var(--olive);
 }
 
 .results-card.unsaved .results-title {
-  color: var(--secondary-color);
+  color: var(--gold);
 }
 
 .results-score {
@@ -167,17 +217,20 @@
 }
 
 .score-number {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-5xl, 3rem);
   font-weight: 700;
-  color: var(--secondary-color);
+  color: var(--gold);
 }
 
 .score-total {
+  font-family: var(--font-family);
   font-size: var(--font-size-2xl);
   color: var(--text-secondary);
 }
 
 .results-percentage {
+  font-family: var(--font-family);
   font-size: var(--font-size-lg);
   color: var(--text-secondary);
   margin-bottom: var(--spacing-xl);
@@ -188,24 +241,43 @@
 }
 
 .results-message p {
+  font-family: var(--font-family);
   line-height: 1.8;
+  color: var(--text-secondary);
 }
 
 .results-verse {
   padding: var(--spacing-lg);
-  background: var(--bg-tertiary);
+  background: var(--glass-bg);
   border-radius: var(--radius-lg);
   margin-bottom: var(--spacing-xl);
+  border: 1px solid var(--glass-border);
+  position: relative;
+}
+
+.results-verse::before {
+  content: '"';
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  font-family: 'Times New Roman', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  opacity: 0.3;
 }
 
 .results-verse p {
+  font-family: var(--font-family);
   font-style: italic;
   margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
 }
 
 .results-verse span {
-  color: var(--secondary-color);
+  color: var(--gold);
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-sm);
+  letter-spacing: 0.05em;
 }
 
 .results-actions {
@@ -226,8 +298,16 @@
   text-align: center;
   padding: var(--spacing-xl);
   background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 .info-item .info-icon {
@@ -236,13 +316,17 @@
 }
 
 .info-item h4 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
 }
 
 .info-item p {
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
+  line-height: 1.7;
 }
 
 @media (max-width: 768px) {
@@ -272,5 +356,9 @@
 
   .results-actions .btn {
     width: 100%;
+  }
+
+  .quiz-hero::after {
+    display: none;
   }
 }

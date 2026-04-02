@@ -1,44 +1,70 @@
-/* ===== Let the Truth be Known - Solar System Theme ===== */
-/* A Celestial Design Representing God's Majestic Creation */
+/* ===== Let the Truth be Known - Ancient Israel Theme ===== */
+/* A Biblical Design Evoking Jesus' Time in the Holy Land */
+/* Galilean Simplicity • Temple Grandeur • Desert Mysticism • Parchment Manuscript */
 
-/* CSS Custom Properties - Cosmic Color Palette */
+/* CSS Custom Properties - Biblical Color Palette */
 :root {
-  /* Core Theme Colors: Classic Ministry */
-  --primary-color: #7f1d1d; /* Deep Crimson */
-  --primary-rgb: 127, 29, 29;
-  --secondary-color: #b45309; /* Classic Gold */
-  --secondary-rgb: 180, 83, 9;
-  
-  /* Backgrounds: Warm Ivory & White */
-  --bg-primary: #ffffff;
-  --bg-secondary: #fdfbf7;
-  --bg-tertiary: #f4f1ea;
-  --bg-card: #ffffff;
-  
-  /* Legible Typography Colors */
-  --text-primary: #1c1917;
-  --text-secondary: #57534e;
-  --text-muted: #a8a29e;
-  
-  /* Standardizing Old Cosmic Variables to New Formats to prevent visual breakage */
-  --sun-gold: var(--secondary-color);
-  --sun-amber: #be9247;
-  --sun-light: #dfc181;
-  --sun-glow: rgba(205, 161, 83, 0.2);
-  
-  /* Gradients - Subtle & Formal */
-  --gradient-sun: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
-  --gradient-gold: linear-gradient(135deg, #b45309 0%, #d97706 100%);
-  --gradient-space: linear-gradient(180deg, #ffffff 0%, #fdfbf7 100%);
-  
-  /* UI/Card Effects */
-  --glass-bg: rgba(255, 255, 255, 0.95);
-  --glass-border: rgba(0, 0, 0, 0.08); /* Dark subtle border for light cards */
-  --glass-highlight: rgba(0, 0, 0, 0.03);
+  /* Temple Colors - Royal & Divine */
+  --temple-blue: #1e3a5f;
+  --temple-blue-dark: #152a45;
+  --temple-blue-light: #2d4a6e;
+  --scarlet: #8B1538;
+  --scarlet-dark: #6b1029;
+  --gold: #B8860B;
+  --gold-light: #d4a017;
+  --gold-dark: #8b6914;
+
+  /* Parchment & Earth Tones */
+  --parchment-light: #F5E6D3;
+  --parchment: #E8D5B8;
+  --parchment-dark: #d4c4a8;
+  --sand: #D4B896;
+  --sand-dark: #c4a880;
+  --terracotta: #A0522D;
+  --olive: #6B7B3C;
+  --olive-dark: #4a5629;
+
+  /* Text Colors - Sepia Ink */
+  --text-primary: #2C1810;
+  --text-secondary: #5C4033;
+  --text-muted: #8B7355;
+  --text-light: #A89070;
+
+  /* Background Gradients */
+  --bg-primary: #FAF5EE;
+  --bg-secondary: #F2E8DA;
+  --bg-tertiary: #E8DCC8;
+  --bg-card: #FFFDF8;
+  --bg-stone: #E2D8C6;
+
+  /* UI & Gradients */
+  --glass-bg: rgba(255, 253, 248, 0.97);
+  --glass-border: rgba(44, 24, 16, 0.12);
+  --glass-highlight: rgba(184, 134, 11, 0.08);
+
+  /* New Theme Variables */
+  --primary-color: var(--temple-blue);
+  --secondary-color: var(--gold);
+  --accent-color: var(--scarlet);
+
+  --sun-gold: var(--gold);
+  --sun-amber: #c9a227;
+  --sun-light: #d9b84a;
+  --sun-glow: rgba(184, 134, 11, 0.15);
+
+  /* Biblical Gradients */
+  --gradient-temple: linear-gradient(135deg, var(--temple-blue) 0%, var(--temple-blue-dark) 100%);
+  --gradient-gold: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  --gradient-parchment: linear-gradient(180deg, var(--parchment-light) 0%, var(--parchment) 100%);
+  --gradient-olive: linear-gradient(135deg, var(--olive) 0%, var(--olive-dark) 100%);
+  --gradient-sun: linear-gradient(135deg, var(--scarlet) 0%, var(--temple-blue) 100%);
+  --gradient-desert: linear-gradient(180deg, var(--sand) 0%, var(--terracotta) 100%);
 
   /* Typography */
-  --font-family-heading: 'Merriweather', 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-heading: 'Cinzel', 'Lora', 'Times New Roman', serif;
+  --font-family: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -59,7 +85,7 @@
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
 
-  /* Border Radius - Structured & Classic */
+  /* Border Radius - Ancient Stone-like */
   --radius-sm: 2px;
   --radius-md: 4px;
   --radius-lg: 6px;
@@ -67,18 +93,18 @@
   --radius-2xl: 12px;
   --radius-full: 9999px;
 
-  /* Shadows - Formal & Grounded */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
-  --shadow-glow: var(--shadow-md); /* Remapped isolated glows to standard realistic shadows */
-  --shadow-sun: var(--shadow-lg);
+  /* Shadows - Weathered Stone */
+  --shadow-sm: 0 1px 3px rgba(44, 24, 16, 0.08);
+  --shadow-md: 0 4px 12px rgba(44, 24, 16, 0.12);
+  --shadow-lg: 0 8px 24px rgba(44, 24, 16, 0.15);
+  --shadow-xl: 0 16px 40px rgba(44, 24, 16, 0.2);
+  --shadow-inset: inset 0 2px 4px rgba(44, 24, 16, 0.1);
+  --shadow-glow: 0 0 20px rgba(184, 134, 11, 0.3);
 
   /* Transitions */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
 }
 
 /* ===== Reset & Base ===== */
@@ -96,8 +122,6 @@ html {
 }
 
 /* ===== Accessibility Utilities ===== */
-
-/* Skip Navigation Link - Hidden until focused */
 .skip-link {
   position: absolute;
   top: -100px;
@@ -105,22 +129,22 @@ html {
   transform: translateX(-50%);
   z-index: 9999;
   padding: var(--spacing-md) var(--spacing-xl);
-  background: var(--gradient-sun);
-  color: var(--bg-primary);
+  background: var(--gradient-temple);
+  color: var(--parchment-light);
   font-weight: 600;
   border-radius: var(--radius-lg);
   text-decoration: none;
   box-shadow: var(--shadow-lg);
-  transition: top 0.3s ease;
+  transition: top var(--transition-base);
+  border: 2px solid var(--gold);
 }
 
 .skip-link:focus {
   top: 10px;
-  outline: 3px solid var(--sun-light);
+  outline: 3px solid var(--gold);
   outline-offset: 3px;
 }
 
-/* Screen Reader Only - Visually hidden but accessible */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -133,18 +157,15 @@ html {
   border: 0;
 }
 
-/* Focus Visible Styles for Keyboard Navigation */
 :focus-visible {
-  outline: 3px solid var(--sun-gold);
+  outline: 3px solid var(--gold);
   outline-offset: 3px;
 }
 
-/* Remove outline for mouse users but keep for keyboard */
 :focus:not(:focus-visible) {
   outline: none;
 }
 
-/* Ensure buttons have minimum touch target (44px) */
 button,
 .btn,
 a.btn {
@@ -152,7 +173,6 @@ a.btn {
   min-width: 44px;
 }
 
-/* Reduced motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -164,33 +184,42 @@ a.btn {
   }
 }
 
+/* ===== Body - Ancient Parchment Background ===== */
 body {
   font-family: var(--font-family);
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.7;
   min-height: 100vh;
-  overflow-x: hidden; /* Prevent horizontal scroll globally */
+  overflow-x: hidden;
+  position: relative;
 }
 
-/* ===== Minimal Clean Background ===== */
-/* Removed star twinkling effect for formal readable layout */
+/* Parchment texture overlay */
 body::before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: min(100vh, 800px);
-  background: 
-    radial-gradient(ellipse at 50% 0%, rgba(15, 61, 89, 0.05) 0%, transparent 60%);
-  z-index: -2;
+  height: 100%;
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(232, 213, 184, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(184, 134, 11, 0.05) 0%, transparent 40%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
   pointer-events: none;
+  z-index: 0;
 }
 
 a {
-  color: inherit;
+  color: var(--temple-blue);
   text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--scarlet);
 }
 
 img {
@@ -214,13 +243,13 @@ input, textarea {
   font-family: inherit;
 }
 
-/* ===== Typography ===== */
+/* ===== Typography - Biblical Letterforms ===== */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
   font-weight: 700;
   line-height: 1.3;
   color: var(--text-primary);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
 }
 
 h1 { font-size: var(--font-size-5xl); }
@@ -232,7 +261,7 @@ h6 { font-size: var(--font-size-lg); }
 
 p {
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 /* ===== Layout ===== */
@@ -241,33 +270,75 @@ p {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
+  position: relative;
+  z-index: 1;
 }
 
 .section {
   padding: var(--spacing-3xl) 0;
+  position: relative;
 }
 
-/* ===== Buttons ===== */
+/* ===== Decorative Dividers - Olive Branch Patterns ===== */
+.olive-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-2xl) 0;
+  color: var(--olive);
+  opacity: 0.6;
+}
+
+.olive-divider::before,
+.olive-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--olive), transparent);
+}
+
+.column-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) 0;
+}
+
+.column-divider::before,
+.column-divider::after {
+  content: '⛬';
+  font-size: var(--font-size-xl);
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+/* ===== Buttons - Temple & Galilean Style ===== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-md) var(--spacing-xl);
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-base);
   font-weight: 600;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   transition: all var(--transition-base);
   text-decoration: none;
   position: relative;
-  overflow: hidden;
+  letter-spacing: 0.05em;
+  border: 2px solid transparent;
 }
 
 .btn-primary {
-  background: var(--primary-color);
-  color: #ffffff;
-  border: none;
-  box-shadow: var(--shadow-sm);
+  background: var(--gradient-temple);
+  color: var(--parchment-light);
+  border-color: var(--temple-blue-dark);
+  box-shadow:
+    var(--shadow-md),
+    inset 0 1px 0 rgba(255,255,255,0.1);
 }
 
 .btn-primary::before {
@@ -285,40 +356,54 @@ p {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  background: #154e71;
+  box-shadow:
+    var(--shadow-lg),
+    0 0 20px rgba(30, 58, 95, 0.3);
+  background: var(--temple-blue);
 }
 
 .btn-secondary {
-  background: var(--bg-primary);
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  background: var(--parchment);
+  color: var(--temple-blue);
+  border-color: var(--sand);
 }
 
 .btn-secondary:hover {
-  background: var(--bg-secondary);
+  background: var(--parchment-light);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
+.btn-gold {
+  background: var(--gradient-gold);
+  color: var(--text-primary);
+  border-color: var(--gold-dark);
+  box-shadow: var(--shadow-md), 0 0 15px rgba(184, 134, 11, 0.2);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), 0 0 25px rgba(184, 134, 11, 0.3);
+}
+
 .btn-outline {
   background: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
+  color: var(--temple-blue);
+  border: 2px solid var(--temple-blue);
 }
 
 .btn-outline:hover {
-  background: var(--primary-color);
-  color: #ffffff;
+  background: var(--temple-blue);
+  color: var(--parchment-light);
   box-shadow: var(--shadow-md);
 }
 
-/* ===== Cards ===== */
+/* ===== Cards - Parchment Manuscript Style ===== */
 .card {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
   transition: all var(--transition-base);
   position: relative;
@@ -330,8 +415,8 @@ p {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: var(--primary-color);
+  height: 4px;
+  background: var(--gradient-gold);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--transition-base);
@@ -339,7 +424,7 @@ p {
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-xl), 0 0 30px rgba(184, 134, 11, 0.1);
 }
 
 .card:hover::before {
@@ -361,31 +446,35 @@ p {
 .text-center { text-align: center; }
 .text-gradient,
 .gradient-text {
-  background: var(--gradient-sun);
+  background: var(--gradient-temple);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .text-muted { color: var(--text-muted); }
+.text-gold { color: var(--gold); }
+.text-scarlet { color: var(--scarlet); }
+.text-blue { color: var(--temple-blue); }
 
-/* ===== Section Badge ===== */
+/* ===== Section Badge - Biblical Label ===== */
 .section-badge {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-sm) var(--spacing-lg);
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  background: rgba(184, 134, 11, 0.1);
+  border: 1px solid rgba(184, 134, 11, 0.3);
   border-radius: var(--radius-full);
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-xs);
   font-weight: 600;
-  color: var(--sun-gold);
+  color: var(--gold);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   margin-bottom: var(--spacing-lg);
 }
 
-/* ===== Animations ===== */
+/* ===== Animations - Ancient Ink Appearing ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
@@ -396,43 +485,40 @@ p {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+@keyframes scrollReveal {
+  from { opacity: 0; transform: translateY(40px) rotate(0.5deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0deg); }
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
+@keyframes gentlePulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
 }
 
-@keyframes orbit {
-  from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
-}
-
-@keyframes slowRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes sunPulse {
-  0%, 100% { 
-    box-shadow: 0 0 20px rgba(15, 61, 89, 0.1), 0 0 40px rgba(15, 61, 89, 0.05);
-    transform: scale(1);
+@keyframes candleFlicker {
+  0%, 100% {
+    opacity: 0.9;
+    text-shadow: 0 0 10px rgba(184, 134, 11, 0.5);
   }
-  50% { 
-    box-shadow: 0 0 30px rgba(15, 61, 89, 0.15), 0 0 60px rgba(15, 61, 89, 0.1);
-    transform: scale(1.02);
+  25% {
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(184, 134, 11, 0.7);
+  }
+  50% {
+    opacity: 0.85;
+    text-shadow: 0 0 8px rgba(184, 134, 11, 0.4);
+  }
+  75% {
+    opacity: 0.95;
+    text-shadow: 0 0 12px rgba(184, 134, 11, 0.6);
   }
 }
 
 /* Animation Classes */
 .animate-fadeIn { animation: fadeIn 0.8s ease forwards; }
-.animate-float { animation: float 6s ease-in-out infinite; }
-.animate-pulse { animation: pulse 3s ease-in-out infinite; }
-.animate-orbit { animation: orbit 20s linear infinite; }
-.animate-rotate { animation: slowRotate 60s linear infinite; }
+.animate-float { animation: gentlePulse 4s ease-in-out infinite; }
+.animate-pulse { animation: gentlePulse 3s ease-in-out infinite; }
+.animate-reveal { animation: scrollReveal 1s ease forwards; }
 
 /* Scroll Reveal */
 .reveal {
@@ -488,21 +574,21 @@ p {
 
 /* Hover Effects */
 .hover-lift {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .hover-lift:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(184, 134, 11, 0.15);
 }
 
 .hover-glow {
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
 .hover-glow:hover {
   box-shadow: var(--shadow-glow);
-  border-color: var(--sun-gold);
+  border-color: var(--gold);
 }
 
 /* ===== Responsive ===== */
@@ -517,34 +603,72 @@ p {
     --font-size-4xl: 2rem;
     --font-size-3xl: 1.5rem;
   }
-  
-  .grid-4, .grid-3, .grid-2 { 
-    grid-template-columns: 1fr; 
+
+  .grid-4, .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
   }
-  
+
   .container {
     padding: 0 var(--spacing-md);
   }
-  
+
   .section {
     padding: var(--spacing-2xl) 0;
   }
 }
 
-/* ===== Scrollbar ===== */
+/* ===== Scrollbar - Ancient Bronze ===== */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: var(--parchment);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gradient-gold);
+  background: linear-gradient(180deg, var(--gold) 0%, var(--gold-dark) 100%);
   border-radius: var(--radius-full);
+  border: 2px solid var(--parchment);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--sun-gold);
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 100%);
+}
+
+/* ===== Selection - Parchment Highlight ===== */
+::selection {
+  background: rgba(184, 134, 11, 0.3);
+  color: var(--text-primary);
+}
+
+/* ===== Stone Texture Background ===== */
+.stone-texture {
+  background-image:
+    linear-gradient(135deg, rgba(226, 216, 198, 0.5) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4c4a8' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ===== Temple Curtain Pattern ===== */
+.temple-pattern {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 20px,
+      rgba(30, 58, 95, 0.03) 20px,
+      rgba(30, 58, 95, 0.03) 21px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 20px,
+      rgba(184, 134, 11, 0.02) 20px,
+      rgba(184, 134, 11, 0.02) 21px
+    );
+}
+
+/* ===== Linen Weave Texture ===== */
+.linen-texture {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d4c4a8' fill-opacity='0.07'%3E%3Cpath d='M0 40h40V0H0v40zmM1 1h38v38H1V1z'/%3E%3Cpath d='M0 40V0l40 40V0L0 40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }

@@ -1,4 +1,4 @@
-/* Language Toggle Styles */
+/* ===== Language Toggle - Stone Tablet Style ===== */
 .language-toggle {
   position: relative;
 }
@@ -8,19 +8,22 @@
   align-items: center;
   gap: var(--spacing-xs);
   padding: var(--spacing-xs) var(--spacing-sm);
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-full);
+  background: var(--parchment);
+  border: 1px solid var(--sand);
+  border-radius: var(--radius-md);
   color: var(--text-secondary);
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-sm);
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .language-btn:hover {
-  background: rgba(245, 158, 11, 0.1);
-  border-color: var(--sun-gold);
+  background: var(--parchment-light);
+  border-color: var(--gold);
   color: var(--text-primary);
+  box-shadow: var(--shadow-md);
 }
 
 .lang-flag {
@@ -36,25 +39,38 @@
 
 .lang-arrow {
   transition: transform 0.2s ease;
+  color: var(--text-muted);
 }
 
 .lang-arrow.open {
   transform: rotate(180deg);
 }
 
-/* Dropdown */
+/* Dropdown - Parchment scroll */
 .language-dropdown {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  min-width: 160px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--glass-border);
+  min-width: 180px;
+  background: var(--parchment-light);
+  border: 2px solid var(--gold);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xs);
   box-shadow: var(--shadow-xl);
   z-index: 100;
   animation: fadeIn 0.2s ease;
+}
+
+/* Decorative top bar */
+.language-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 20px;
+  right: 20px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 2px;
 }
 
 @keyframes fadeIn {
@@ -78,6 +94,7 @@
   border: none;
   border-radius: var(--radius-md);
   color: var(--text-secondary);
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -85,13 +102,14 @@
 }
 
 .language-option:hover {
-  background: rgba(245, 158, 11, 0.1);
+  background: rgba(184, 134, 11, 0.1);
   color: var(--text-primary);
 }
 
 .language-option.active {
-  background: rgba(245, 158, 11, 0.15);
-  color: var(--sun-gold);
+  background: rgba(184, 134, 11, 0.15);
+  color: var(--gold);
+  font-weight: 600;
 }
 
 .language-option .lang-name {
@@ -99,7 +117,7 @@
 }
 
 .language-option svg {
-  color: var(--sun-gold);
+  color: var(--gold);
 }
 
 /* Mobile */
@@ -107,5 +125,6 @@
   .language-dropdown {
     right: auto;
     left: 0;
+    min-width: 200px;
   }
 }

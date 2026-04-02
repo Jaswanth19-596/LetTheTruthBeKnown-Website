@@ -1,4 +1,4 @@
-/* Prayer Request Page Styles */
+/* ===== Prayer Request Page - Ancient Israel Theme ===== */
 .prayer-request-page {
   min-height: 100vh;
 }
@@ -6,7 +6,19 @@
 /* Hero */
 .prayer-hero {
   padding: 160px 0 80px;
-  background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, transparent 100%);
+  background:
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-light) 50%, var(--bg-primary) 100%);
+  position: relative;
+}
+
+/* Candle glow effect */
+.prayer-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(184, 134, 11, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 30% 70%, rgba(30, 58, 95, 0.05) 0%, transparent 40%);
 }
 
 /* Grid Layout */
@@ -15,24 +27,49 @@
   grid-template-columns: 2fr 1fr;
   gap: var(--spacing-2xl);
   align-items: start;
+  position: relative;
+  z-index: 1;
 }
 
-/* Form Card */
+/* Form Card - Parchment scroll style */
 .prayer-form-card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-2xl);
+  background:
+    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 100%);
+  border: 3px solid var(--gold);
+  border-radius: var(--radius-xl);
   padding: var(--spacing-2xl);
+  box-shadow:
+    var(--shadow-xl),
+    inset 0 0 40px rgba(184, 134, 11, 0.03);
+  position: relative;
+}
+
+/* Scroll roll top */
+.prayer-form-card::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 15%;
+  right: 15%;
+  height: 10px;
+  background: linear-gradient(90deg, var(--sand), var(--parchment), var(--sand));
+  border-radius: 5px;
+  box-shadow: inset 0 2px 3px rgba(44, 24, 16, 0.1);
 }
 
 .prayer-form-card h2 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-2xl);
   margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
 }
 
 .form-intro {
+  font-family: var(--font-family);
   color: var(--text-secondary);
   margin-bottom: var(--spacing-xl);
+  line-height: 1.7;
 }
 
 /* Form Styles */
@@ -55,9 +92,11 @@
 }
 
 .form-group label {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--text-primary);
+  letter-spacing: 0.02em;
 }
 
 .form-group input,
@@ -65,11 +104,11 @@
 .form-group textarea {
   padding: var(--spacing-md);
   background: var(--bg-primary);
-  border: 1px solid var(--glass-border);
+  border: 2px solid var(--glass-border);
   border-radius: var(--radius-md);
   color: var(--text-primary);
+  font-family: var(--font-family);
   font-size: var(--font-size-base);
-  font-family: inherit;
   transition: all 0.3s ease;
 }
 
@@ -77,8 +116,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--sun-gold);
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
 }
 
 .form-group input:disabled,
@@ -91,6 +130,7 @@
 .form-group textarea {
   resize: vertical;
   min-height: 150px;
+  font-style: italic;
 }
 
 /* Checkbox */
@@ -103,13 +143,15 @@
   align-items: center;
   gap: var(--spacing-sm);
   cursor: pointer;
+  font-family: var(--font-family);
   font-weight: normal !important;
+  color: var(--text-secondary);
 }
 
 .checkbox-label input[type="checkbox"] {
   width: 20px;
   height: 20px;
-  accent-color: var(--sun-gold);
+  accent-color: var(--gold);
 }
 
 /* Button */
@@ -118,14 +160,16 @@
 }
 
 .form-note {
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
-  color: var(--text-tertiary);
+  color: var(--text-muted);
   text-align: center;
   margin-top: var(--spacing-md);
+  font-style: italic;
 }
 
 .form-note a {
-  color: var(--sun-gold);
+  color: var(--gold);
 }
 
 /* Info Sidebar */
@@ -137,29 +181,57 @@
 
 .info-card {
   background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .info-card h3 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
 }
 
 .info-card p {
+  font-family: var(--font-family);
   color: var(--text-secondary);
   font-size: var(--font-size-sm);
+  line-height: 1.7;
 }
 
 .scripture-card {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, transparent 100%);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  background:
+    linear-gradient(135deg, rgba(184, 134, 11, 0.08) 0%, var(--glass-bg) 100%);
+  border: 2px solid var(--gold);
   border-radius: var(--radius-xl);
   padding: var(--spacing-xl);
+  position: relative;
+}
+
+/* Quote decoration */
+.scripture-card::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-family: 'Times New Roman', serif;
+  font-size: 3rem;
+  color: var(--gold);
+  opacity: 0.3;
+  line-height: 1;
 }
 
 .scripture-card blockquote {
+  font-family: var(--font-family);
   font-style: italic;
   color: var(--text-primary);
   font-size: var(--font-size-base);
@@ -168,9 +240,11 @@
 }
 
 .scripture-card cite {
-  color: var(--sun-gold);
+  font-family: var(--font-family-heading);
+  color: var(--gold);
   font-style: normal;
   font-weight: 600;
+  letter-spacing: 0.03em;
 }
 
 /* Success Card */
@@ -178,43 +252,66 @@
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
-  background: var(--glass-bg);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background:
+    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 100%);
+  border: 3px solid var(--olive);
   border-radius: var(--radius-2xl);
   padding: var(--spacing-3xl);
+  box-shadow: var(--shadow-xl);
+  position: relative;
 }
 
 .success-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: var(--gradient-olive);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto var(--spacing-xl);
   font-size: var(--font-size-3xl);
-  color: white;
+  color: var(--parchment-light);
+  border: 3px solid var(--gold);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(107, 123, 60, 0.3);
 }
 
 .success-card h2 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-2xl);
   margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
 }
 
 .success-card > p {
+  font-family: var(--font-family);
   color: var(--text-secondary);
   margin-bottom: var(--spacing-xl);
+  line-height: 1.7;
 }
 
 .success-verse {
-  background: rgba(16, 185, 129, 0.05);
+  background: var(--glass-bg);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
   margin-bottom: var(--spacing-xl);
+  border: 1px solid var(--glass-border);
+  position: relative;
+}
+
+.success-verse::before {
+  content: '"';
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  font-family: 'Times New Roman', serif;
+  font-size: 2.5rem;
+  color: var(--olive);
+  opacity: 0.3;
 }
 
 .success-verse blockquote {
+  font-family: var(--font-family);
   font-style: italic;
   color: var(--text-primary);
   margin: 0 0 var(--spacing-md) 0;
@@ -222,7 +319,8 @@
 }
 
 .success-verse cite {
-  color: #10b981;
+  font-family: var(--font-family-heading);
+  color: var(--olive);
   font-style: normal;
   font-weight: 600;
 }

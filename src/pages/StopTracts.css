@@ -1,24 +1,50 @@
+/* ===== Stop Tracts Page - Ancient Israel Theme ===== */
 .stop-hero {
-  background: linear-gradient(180deg, #1a0f0f 0%, var(--bg-primary) 100%);
+  background:
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-light) 50%, var(--bg-primary) 100%);
+  position: relative;
+}
+
+/* Warning/attention decorative pattern */
+.stop-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(139, 21, 56, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(184, 134, 11, 0.05) 0%, transparent 40%);
 }
 
 .stop-badge {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.1)) !important;
-  color: #f87171 !important;
-}
-
-.stop-hero::before {
-  background: 
-    radial-gradient(circle at 50% 30%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(212, 165, 116, 0.08) 0%, transparent 40%);
+  background:
+    linear-gradient(135deg, rgba(139, 21, 56, 0.15), rgba(139, 21, 56, 0.1)) !important;
+  color: var(--scarlet) !important;
+  border-color: var(--scarlet) !important;
 }
 
 /* Why Section */
 .why-section {
-  background: var(--bg-secondary);
+  background:
+    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 100%);
+  border: 2px solid var(--glass-border);
   border-radius: var(--radius-2xl);
   margin: 0 var(--spacing-lg);
   margin-bottom: var(--spacing-3xl);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+/* Gold top bar */
+.why-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--scarlet), var(--gold), var(--scarlet));
+  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
 }
 
 .why-grid {
@@ -30,6 +56,17 @@
 .why-card {
   text-align: center;
   padding: var(--spacing-xl);
+  background: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.why-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 .why-icon {
@@ -40,19 +77,24 @@
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: var(--gradient-temple);
+  border: 2px solid var(--gold);
   border-radius: var(--radius-lg);
+  color: var(--parchment-light);
 }
 
 .why-card h4 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
 }
 
 .why-card p {
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
+  line-height: 1.7;
 }
 
 @media (max-width: 1024px) {

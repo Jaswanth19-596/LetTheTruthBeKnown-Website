@@ -1,4 +1,4 @@
-/* ===== Discipleship Page - Solar System Theme ===== */
+/* ===== Discipleship Page - Ancient Israel Theme ===== */
 
 .discipleship-page {
   min-height: 100vh;
@@ -8,10 +8,22 @@
 .discipleship-hero {
   position: relative;
   padding: 140px 0 80px;
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  background:
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-light) 50%, var(--bg-primary) 100%);
   overflow: hidden;
 }
 
+/* Parchment texture overlay */
+.discipleship-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  pointer-events: none;
+}
+
+/* Decorative elements */
 .hero-bg-elements {
   position: absolute;
   inset: 0;
@@ -19,7 +31,7 @@
   pointer-events: none;
 }
 
-/* Celestial Orbs */
+/* Temple glow orbs */
 .hero-orb {
   position: absolute;
   border-radius: 50%;
@@ -29,38 +41,38 @@
 .hero-orb-1 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(184, 134, 11, 0.12) 0%, transparent 70%);
   top: -10%;
   right: 10%;
-  animation: sunPulse 8s ease-in-out infinite;
+  animation: gentlePulse 8s ease-in-out infinite;
 }
 
 .hero-orb-2 {
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle, rgba(148, 163, 184, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(30, 58, 95, 0.08) 0%, transparent 70%);
   top: 50%;
   left: 5%;
-  animation: float 12s ease-in-out infinite;
+  animation: gentleFloat 12s ease-in-out infinite;
 }
 
 .hero-orb-3 {
   width: 150px;
   height: 150px;
-  background: radial-gradient(circle, rgba(30, 58, 95, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(107, 123, 60, 0.08) 0%, transparent 70%);
   bottom: 20%;
   right: 20%;
-  animation: float 10s ease-in-out infinite reverse;
+  animation: gentleFloat 10s ease-in-out infinite reverse;
 }
 
-@keyframes sunPulse {
+@keyframes gentlePulse {
   0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
+  50% { opacity: 1; transform: scale(1.05); }
 }
 
-@keyframes float {
+@keyframes gentleFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-15px); }
 }
 
 .page-hero-content {
@@ -70,15 +82,21 @@
 }
 
 .page-hero-content h1 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-5xl);
   margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
 }
 
 .page-hero-content > p {
+  font-family: var(--font-family);
   font-size: var(--font-size-lg);
   color: var(--text-secondary);
   max-width: 600px;
   margin: 0 auto var(--spacing-2xl);
+  font-style: italic;
+  line-height: 1.8;
 }
 
 /* Progress Bar */
@@ -101,7 +119,10 @@
 /* Level Navigation Tabs */
 .levels-nav {
   padding: var(--spacing-lg) 0;
-  background: var(--bg-tertiary);
+  background:
+    linear-gradient(180deg, var(--parchment-light) 0%, var(--parchment) 100%);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .levels-tabs {
@@ -118,22 +139,23 @@
   padding: var(--spacing-md) var(--spacing-xl);
   background: var(--glass-bg);
   border: 2px solid var(--glass-border);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   cursor: pointer;
   transition: all 0.3s ease;
   min-width: 200px;
+  box-shadow: var(--shadow-sm);
 }
 
 .level-tab:hover {
-  border-color: var(--level-color, var(--sun-gold));
+  border-color: var(--level-color, var(--gold));
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(184, 134, 11, 0.15);
 }
 
 .level-tab.active {
-  border-color: var(--level-color, var(--sun-gold));
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), transparent);
-  box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+  border-color: var(--level-color, var(--gold));
+  background: rgba(184, 134, 11, 0.08);
+  box-shadow: var(--shadow-lg), 0 0 25px rgba(184, 134, 11, 0.2);
 }
 
 .level-tab .level-number {
@@ -145,6 +167,7 @@
   background: var(--glass-bg);
   border: 2px solid var(--level-color, var(--glass-border));
   border-radius: 50%;
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-xl);
   font-weight: 800;
   color: var(--level-color, var(--text-secondary));
@@ -152,9 +175,10 @@
 }
 
 .level-tab.active .level-number {
-  background: var(--level-color, var(--sun-gold));
-  border-color: var(--level-color, var(--sun-gold));
-  color: var(--bg-primary);
+  background: var(--level-color, var(--gold));
+  border-color: var(--level-color, var(--gold));
+  color: var(--parchment-light);
+  box-shadow: var(--shadow-md);
 }
 
 .level-tab .level-info {
@@ -165,12 +189,14 @@
 }
 
 .level-tab .level-title {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-base);
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .level-tab .level-subtitle {
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
 }
@@ -179,15 +205,30 @@
 .books-section .section-header {
   text-align: center;
   margin-bottom: var(--spacing-2xl);
+  position: relative;
+}
+
+.books-section .section-header::after {
+  content: '✧';
+  display: block;
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-top: var(--spacing-lg);
+  opacity: 0.4;
 }
 
 .books-section .section-header h2 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-3xl);
   margin: var(--spacing-md) 0;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
 }
 
 .books-section .section-header > p {
+  font-family: var(--font-family);
   color: var(--text-secondary);
+  font-style: italic;
 }
 
 .progress-step {
@@ -209,13 +250,15 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-xl);
   font-weight: 800;
   background: var(--glass-bg);
-  border: 2px solid var(--glass-border);
+  border: 3px solid var(--glass-border);
   color: var(--text-secondary);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s ease;
   position: relative;
+  box-shadow: var(--shadow-sm);
 }
 
 .step-circle::after {
@@ -228,30 +271,31 @@
 }
 
 .progress-step.active .step-circle {
-  background: var(--gradient-sun);
-  border-color: var(--sun-gold);
-  color: var(--bg-primary);
-  box-shadow: 0 0 40px rgba(245, 158, 11, 0.4);
+  background: var(--gradient-temple);
+  border-color: var(--gold);
+  color: var(--parchment-light);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(30, 58, 95, 0.3);
   transform: scale(1.1);
 }
 
 .progress-step.active .step-circle::after {
-  border-color: rgba(245, 158, 11, 0.2);
+  border-color: rgba(184, 134, 11, 0.2);
 }
 
 .progress-step.completed .step-circle {
-  background: var(--gradient-sun);
-  border-color: var(--sun-gold);
-  color: var(--bg-primary);
+  background: var(--gradient-gold);
+  border-color: var(--gold);
+  color: var(--text-primary);
 }
 
 .progress-step:hover .step-circle {
-  border-color: var(--sun-gold);
+  border-color: var(--gold);
   transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(245, 158, 11, 0.3);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(184, 134, 11, 0.2);
 }
 
 .step-label {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--text-secondary);
@@ -264,20 +308,21 @@
 
 .progress-connector {
   width: 80px;
-  height: 2px;
-  background: var(--glass-border);
+  height: 3px;
+  background: var(--parchment);
   margin: 0 var(--spacing-xs);
   margin-bottom: var(--spacing-xl);
   border-radius: 2px;
   position: relative;
   overflow: hidden;
+  border: 1px solid var(--sand);
 }
 
 .progress-connector::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--gradient-sun);
+  background: linear-gradient(90deg, var(--temple-blue), var(--gold), var(--scarlet));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s ease;
@@ -302,29 +347,34 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-xs) var(--spacing-lg);
-  background: rgba(180, 83, 9, 0.1); /* Gold base */
-  border: 1px solid rgba(180, 83, 9, 0.2);
-  border-radius: var(--radius-sm);
+  background: rgba(184, 134, 11, 0.1);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-md);
   margin-bottom: var(--spacing-md);
 }
 
 .level-badge .level-number {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-sm);
   font-weight: 700;
-  color: var(--secondary-color);
+  color: var(--gold);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 .level-header h2 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-4xl);
   margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
 }
 
 .level-header > p {
+  font-family: var(--font-family);
   font-size: var(--font-size-lg);
   color: var(--text-secondary);
   margin-bottom: var(--spacing-lg);
+  font-style: italic;
 }
 
 .book-count {
@@ -332,21 +382,24 @@
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-sm) var(--spacing-lg);
-  background: var(--bg-primary);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--gold);
+  box-shadow: var(--shadow-sm);
 }
 
 .book-count .count {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-xl);
   font-weight: 800;
-  background: var(--gradient-sun);
+  background: var(--gradient-gold);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .book-count .label {
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
 }
@@ -361,36 +414,35 @@
 .book-card {
   display: block;
   background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s ease;
   text-decoration: none;
   position: relative;
+  box-shadow: var(--shadow-md);
 }
 
-.book-card::after {
+.book-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: var(--gradient-sun);
+  height: 4px;
+  background: linear-gradient(90deg, var(--temple-blue), var(--gold), var(--scarlet), var(--gold), var(--temple-blue));
   transform: scaleX(0);
   transition: transform 0.4s ease;
 }
 
-.book-card:hover::after {
+.book-card:hover::before {
   transform: scaleX(1);
 }
 
 .book-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  border-color: rgba(245, 158, 11, 0.3);
-  box-shadow: 
-    0 30px 60px rgba(0, 0, 0, 0.4),
-    0 0 50px rgba(245, 158, 11, 0.1);
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-xl), 0 0 30px rgba(184, 134, 11, 0.15);
 }
 
 .book-cover {
@@ -403,20 +455,21 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.6s ease;
 }
 
 .book-card:hover .book-cover img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
+/* Parchment overlay effect */
 .book-shine {
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(232, 213, 184, 0.2), transparent);
   transition: left 0.6s ease;
   pointer-events: none;
 }
@@ -430,8 +483,8 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 255, 255, 0.6) 50%,
+    rgba(245, 230, 211, 0.95) 0%,
+    rgba(245, 230, 211, 0.6) 50%,
     transparent 100%
   );
   display: flex;
@@ -453,12 +506,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gradient-sun);
+  background: var(--gradient-gold);
   border-radius: 50%;
-  color: var(--bg-primary);
+  color: var(--text-primary);
   transform: translateY(20px) scale(0.8);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 40px rgba(245, 158, 11, 0.4);
+  transition: all 0.4s ease;
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(184, 134, 11, 0.3);
+  border: 2px solid var(--gold-dark);
 }
 
 .book-card:hover .download-icon {
@@ -466,9 +520,10 @@
 }
 
 .book-overlay span {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-sm);
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--temple-blue);
   transform: translateY(20px);
   opacity: 0;
   transition: all 0.4s ease 0.1s;
@@ -489,10 +544,11 @@
 }
 
 .book-index {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-xs);
   font-weight: 800;
-  color: var(--sun-gold);
-  background: rgba(245, 158, 11, 0.1);
+  color: var(--gold);
+  background: rgba(184, 134, 11, 0.1);
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--radius-sm);
   letter-spacing: 1px;
@@ -500,6 +556,7 @@
 }
 
 .book-info h4 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-base);
   font-weight: 600;
   color: var(--text-primary);
@@ -508,7 +565,7 @@
 }
 
 .book-card:hover .book-info h4 {
-  color: var(--sun-gold);
+  color: var(--temple-blue);
 }
 
 /* Journey CTA */
@@ -517,19 +574,37 @@
 }
 
 .journey-card {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.03), rgba(30, 58, 95, 0.03));
-  border: 1px solid var(--glass-border);
+  background:
+    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 100%);
+  border: 3px solid var(--gold);
   border-radius: var(--radius-2xl);
   padding: var(--spacing-3xl);
   text-align: center;
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Temple pattern overlay */
+.journey-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 100px,
+      rgba(30, 58, 95, 0.02) 100px,
+      rgba(30, 58, 95, 0.02) 101px
+    );
+  pointer-events: none;
 }
 
 .journey-card:hover {
-  border-color: rgba(245, 158, 11, 0.3);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), var(--shadow-glow);
+  border-color: var(--temple-blue);
+  box-shadow: var(--shadow-xl), 0 0 30px rgba(30, 58, 95, 0.15);
 }
 
 .journey-bg-glow {
@@ -538,7 +613,7 @@
   left: 50%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(184, 134, 11, 0.08) 0%, transparent 60%);
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
@@ -549,14 +624,19 @@
 }
 
 .journey-content h3 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-3xl);
   margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
 }
 
 .journey-content > p {
+  font-family: var(--font-family);
   max-width: 600px;
   margin: 0 auto var(--spacing-2xl);
   color: var(--text-secondary);
+  line-height: 1.8;
 }
 
 .journey-steps {
@@ -573,15 +653,16 @@
   gap: var(--spacing-md);
   padding: var(--spacing-md) var(--spacing-lg);
   background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-lg);
   transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .journey-step:hover {
-  border-color: var(--sun-gold);
+  border-color: var(--gold);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--shadow-lg);
 }
 
 .journey-step .step-number {
@@ -590,11 +671,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gradient-sun);
+  background: var(--gradient-temple);
   border-radius: 50%;
+  font-family: var(--font-family-heading);
   font-weight: 800;
   font-size: var(--font-size-lg);
-  color: var(--bg-primary);
+  color: var(--parchment-light);
+  border: 1px solid var(--gold);
 }
 
 .step-content {
@@ -605,18 +688,20 @@
 }
 
 .step-title {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-base);
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .step-desc {
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
 }
 
 .step-arrow {
-  color: var(--sun-gold);
+  color: var(--gold);
   font-size: var(--font-size-xl);
   opacity: 0.5;
 }
@@ -628,12 +713,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gradient-sun);
+  background: var(--gradient-temple);
   border-radius: 50%;
-  color: var(--bg-primary);
+  color: var(--parchment-light);
   transform: translateY(20px) scale(0.8);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 40px rgba(245, 158, 11, 0.4);
+  transition: all 0.4s ease;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--gold);
 }
 
 .book-card:hover .view-icon {
@@ -658,13 +744,14 @@
   justify-content: center;
   gap: 6px;
   padding: 10px 12px;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 0.8rem;
   font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.3s ease;
+  letter-spacing: 0.02em;
 }
 
 .book-btn svg {
@@ -672,26 +759,28 @@
 }
 
 .book-btn.view-btn {
-  background: rgba(245, 158, 11, 0.15);
-  color: var(--sun-gold);
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: rgba(184, 134, 11, 0.15);
+  color: var(--gold);
+  border: 1px solid rgba(184, 134, 11, 0.3);
 }
 
 .book-btn.view-btn:hover {
-  background: rgba(245, 158, 11, 0.25);
-  border-color: rgba(245, 158, 11, 0.5);
+  background: rgba(184, 134, 11, 0.25);
+  border-color: var(--gold);
   transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .book-btn.download-btn {
-  background: #e63946;
-  color: #fff;
+  background: var(--scarlet);
+  color: var(--parchment-light);
+  border: 1px solid var(--scarlet-dark);
 }
 
 .book-btn.download-btn:hover {
-  background: #d62839;
+  background: var(--scarlet-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.3);
+  box-shadow: var(--shadow-lg), 0 0 15px rgba(139, 21, 56, 0.3);
 }
 
 /* Responsive */
@@ -699,7 +788,7 @@
   .books-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  
+
   .progress-connector {
     width: 50px;
   }
@@ -768,4 +857,3 @@
     font-size: 0.75rem;
   }
 }
-

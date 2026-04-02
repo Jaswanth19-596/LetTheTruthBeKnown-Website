@@ -1,30 +1,45 @@
+/* ===== Footer - Ancient Parchment & Olive ===== */
 .footer {
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-  border-top: 1px solid var(--glass-border);
+  background:
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 50%, var(--bg-stone) 100%);
+  border-top: 3px solid var(--gold);
   margin-top: auto;
   position: relative;
   overflow: hidden;
 }
 
+/* Temple pattern overlay */
 .footer::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--sun-gold), transparent);
+  bottom: 0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 100px,
+      rgba(30, 58, 95, 0.02) 100px,
+      rgba(30, 58, 95, 0.02) 101px
+    );
+  pointer-events: none;
 }
 
+/* Olive branch decorations */
 .footer::after {
-  content: '';
+  content: '🌿 ✝ 🌿';
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.03) 0%, transparent 70%);
-  pointer-events: none;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  background: var(--parchment);
+  padding: 0 var(--spacing-xl);
+  letter-spacing: 0.5em;
+  color: var(--olive);
+  opacity: 0.6;
 }
 
 .footer-container {
@@ -46,38 +61,45 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-lg);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--spacing-md);
+  letter-spacing: 0.02em;
 }
 
 .footer-logo .logo-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: var(--gradient-sun);
+  width: 40px;
+  height: 40px;
+  background: var(--gradient-temple);
   border-radius: var(--radius-md);
   font-size: var(--font-size-lg);
-  box-shadow: var(--shadow-glow);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--temple-blue-dark);
 }
 
 .footer-description {
   color: var(--text-secondary);
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
-  line-height: 1.7;
-  max-width: 300px;
+  line-height: 1.8;
+  max-width: 320px;
+  font-style: italic;
 }
 
 .footer-heading {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-base);
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--spacing-lg);
   position: relative;
   display: inline-block;
+  letter-spacing: 0.05em;
 }
 
 .footer-heading::after {
@@ -85,9 +107,9 @@
   position: absolute;
   bottom: -8px;
   left: 0;
-  width: 30px;
+  width: 40px;
   height: 2px;
-  background: var(--gradient-sun);
+  background: var(--gold);
   border-radius: 1px;
 }
 
@@ -99,71 +121,110 @@
 
 .footer-links a {
   color: var(--text-secondary);
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
+  padding-left: 0;
 }
 
 .footer-links a::before {
-  content: '';
+  content: '✦';
   position: absolute;
-  left: -15px;
+  left: -18px;
   top: 50%;
   transform: translateY(-50%);
-  width: 0;
-  height: 2px;
-  background: var(--sun-gold);
-  transition: width 0.3s ease;
+  color: var(--gold);
+  font-size: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: var(--sun-gold);
-  padding-left: 8px;
+  color: var(--gold);
+  padding-left: 12px;
 }
 
 .footer-links a:hover::before {
-  width: 10px;
+  opacity: 1;
 }
 
 .footer-newsletter p {
   color: var(--text-secondary);
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
   margin-bottom: var(--spacing-md);
+  line-height: 1.7;
 }
 
 .footer-newsletter .btn {
   width: 100%;
   padding: var(--spacing-sm) var(--spacing-md);
-  background: var(--gradient-sun);
-  color: var(--bg-primary);
-  border: none;
-  border-radius: var(--radius-lg);
+  background: var(--gradient-gold);
+  color: var(--text-primary);
+  border: 1px solid var(--gold-dark);
+  font-family: var(--font-family-heading);
   font-weight: 600;
+  letter-spacing: 0.03em;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .footer-newsletter .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+  box-shadow: var(--shadow-lg), 0 0 15px rgba(184, 134, 11, 0.3);
 }
 
 .footer-bottom {
   padding-top: var(--spacing-xl);
   border-top: 1px solid var(--glass-border);
   text-align: center;
+  position: relative;
+}
+
+.footer-bottom::before {
+  content: '❧';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--parchment);
+  padding: 0 var(--spacing-md);
+  color: var(--olive);
+  font-size: 1.2rem;
 }
 
 .footer-bottom p {
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
 }
 
 .footer-verse {
   font-style: italic;
-  color: var(--sun-gold) !important;
+  color: var(--gold) !important;
   margin-top: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+}
+
+/* Decorative grape vine corners */
+.footer-decoration-left,
+.footer-decoration-right {
+  position: absolute;
+  bottom: 0;
+  font-size: 3rem;
+  color: var(--olive);
+  opacity: 0.15;
+}
+
+.footer-decoration-left {
+  left: 20px;
+}
+
+.footer-decoration-right {
+  right: 20px;
+  transform: scaleX(-1);
 }
 
 @media (max-width: 968px) {
@@ -174,6 +235,11 @@
 
   .footer-brand {
     grid-column: span 2;
+  }
+
+  .footer-decoration-left,
+  .footer-decoration-right {
+    display: none;
   }
 }
 

@@ -1,12 +1,32 @@
-/* ===== Page Hero - Solar System Theme ===== */
+/* ===== Page Hero - Ancient Israel Theme ===== */
 .page-hero {
   padding: 140px 0 80px;
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  background:
+    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-light) 50%, var(--bg-primary) 100%);
   position: relative;
   overflow: hidden;
 }
 
-/* Removed cosmic background elements for Classic Theme */
+/* Decorative pillars */
+.page-hero::before,
+.page-hero::after {
+  content: '⛬';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 8rem;
+  color: var(--gold);
+  opacity: 0.08;
+}
+
+.page-hero::before {
+  left: 5%;
+}
+
+.page-hero::after {
+  right: 5%;
+  transform: translateY(-50%) scaleX(-1);
+}
 
 .page-hero-content {
   text-align: center;
@@ -17,24 +37,40 @@
 }
 
 .page-hero-content h1 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-5xl);
   margin-bottom: var(--spacing-md);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
 }
 
 .page-hero-content p {
+  font-family: var(--font-family);
   font-size: var(--font-size-lg);
   color: var(--text-secondary);
+  font-style: italic;
 }
 
-/* ===== Filter Section ===== */
+/* ===== Filter Section - Stone Tablet Style ===== */
 .filter-section {
   padding: var(--spacing-xl) 0;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 2px solid var(--gold);
   position: sticky;
   top: 70px;
-  background: var(--bg-primary);
+  background:
+    linear-gradient(180deg, var(--bg-primary) 0%, var(--parchment-light) 100%);
   z-index: 100;
+}
+
+/* Parchment scroll edge */
+.filter-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--sand), var(--gold));
 }
 
 .language-tabs {
@@ -46,36 +82,51 @@
 
 .lang-tab {
   padding: var(--spacing-sm) var(--spacing-lg);
-  background: var(--bg-primary);
-  border: 1px solid var(--glass-border);
+  background: var(--parchment);
+  border: 2px solid var(--sand);
   border-radius: var(--radius-md);
   color: var(--text-secondary);
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-sm);
   font-weight: 500;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  letter-spacing: 0.02em;
 }
 
-/* Removed tab shine animation for Classic Theme */
-
 .lang-tab:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+  border-color: var(--gold);
+  color: var(--temple-blue);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-md), 0 0 15px rgba(184, 134, 11, 0.15);
 }
 
 .lang-tab.active {
-  background: var(--primary-color);
-  border-color: transparent;
-  color: #fff;
-  box-shadow: var(--shadow-sm);
+  background: var(--gradient-temple);
+  border-color: var(--temple-blue-dark);
+  color: var(--parchment-light);
+  box-shadow:
+    var(--shadow-md),
+    0 0 20px rgba(30, 58, 95, 0.2);
 }
 
 /* ===== Tracts Grid ===== */
 .tracts-grid {
   padding-top: var(--spacing-2xl);
+  position: relative;
+}
+
+/* Decorative divider */
+.tracts-grid::before {
+  content: '🌿 ✦ 🌿';
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--olive);
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.4;
+  letter-spacing: 0.5em;
 }
 
 /* ===== Info Section ===== */
@@ -87,21 +138,24 @@
   display: flex;
   gap: var(--spacing-xl);
   padding: var(--spacing-2xl);
-  background: var(--bg-primary);
-  border: 1px solid var(--glass-border);
+  background:
+    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 100%);
+  border: 2px solid var(--glass-border);
   border-radius: var(--radius-xl);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-md);
 }
 
+/* Gold top bar */
 .info-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: var(--primary-color);
+  height: 4px;
+  background: linear-gradient(90deg, var(--temple-blue), var(--gold), var(--scarlet));
 }
 
 .info-icon {
@@ -111,21 +165,29 @@
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
-  background: var(--primary-color);
-  color: #fff;
-  border-radius: var(--radius-xl);
+  background: var(--gradient-temple);
+  color: var(--parchment-light);
+  border-radius: var(--radius-lg);
   flex-shrink: 0;
-  box-shadow: var(--shadow-sm);
+  box-shadow:
+    var(--shadow-md),
+    0 0 20px rgba(30, 58, 95, 0.2);
+  border: 2px solid var(--gold);
 }
 
 .info-content h3 {
+  font-family: var(--font-family-heading);
   font-size: var(--font-size-2xl);
   margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
 }
 
 .info-content p {
+  font-family: var(--font-family);
   margin-bottom: var(--spacing-lg);
   line-height: 1.8;
+  color: var(--text-secondary);
 }
 
 .info-list {
@@ -136,6 +198,7 @@
 
 .info-list li {
   color: var(--text-secondary);
+  font-family: var(--font-family);
   font-size: var(--font-size-sm);
   display: flex;
   align-items: center;
@@ -143,18 +206,22 @@
 }
 
 .info-list li::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background: var(--primary-color);
-  border-radius: 50%;
+  content: '✧';
+  width: 16px;
+  height: 16px;
+  color: var(--gold);
   flex-shrink: 0;
-  box-shadow: 0 0 8px rgba(15, 61, 89, 0.2);
+  font-size: 10px;
 }
 
 @media (max-width: 768px) {
   .page-hero-content h1 {
     font-size: var(--font-size-3xl);
+  }
+
+  .page-hero::before,
+  .page-hero::after {
+    display: none;
   }
 
   .filter-section {
