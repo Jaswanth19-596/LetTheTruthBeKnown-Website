@@ -270,57 +270,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Thank You Section */}
-      <section className="thank-you-section section">
-        <div className="container" style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <div className="reveal" style={{ 
-            background: 'var(--bg-secondary)',
-            borderTop: '3px solid var(--primary-color)',
-            padding: '4rem 3rem',
-            borderRadius: '24px 24px 0 0',
-            boxShadow: 'var(--shadow-lg)'
-          }}>
-            <h2 style={{ marginBottom: '3rem', fontSize: '2.5rem', letterSpacing: '4px', textAlign: 'center' }} className="gradient-text-animated">
-              {t('thankYou.title')}
-            </h2>
-            
-            <div style={{ fontSize: '1.15rem', lineHeight: '1.9', color: 'var(--text-light)', display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
-              <p>{t('thankYou.p1')}</p>
-              <p>{t('thankYou.p2')}</p>
-              
-              <div style={{ padding: '1.5rem', borderLeft: '4px solid var(--secondary-color)', background: 'var(--bg-primary)', borderRadius: '0 8px 8px 0', boxShadow: 'var(--shadow-sm)' }}>
-                <p>{t('thankYou.p3')}</p>
-              </div>
-              
-              <p style={{ fontStyle: 'italic', color: 'var(--primary-color)', fontWeight: 'bold' }}>{t('thankYou.p4')}</p>
-              
-              <div style={{ padding: '1.5rem', borderLeft: '4px solid var(--secondary-color)', background: 'var(--bg-primary)', borderRadius: '0 8px 8px 0', boxShadow: 'var(--shadow-sm)' }}>
-                <p>{t('thankYou.p5')}</p>
-              </div>
-              
-              <p>{t('thankYou.p6')}</p>
-              
-              <div style={{ padding: '1.8rem', borderLeft: '4px solid var(--primary-color)', background: 'linear-gradient(90deg, rgba(var(--primary-rgb), 0.1) 0%, transparent 100%)', borderRadius: '0 8px 8px 0' }}>
-                <p style={{ fontWeight: '500', fontSize: '1.25rem' }}>{t('thankYou.p7')}</p>
-              </div>
-              
-              <p>{t('thankYou.p8')}</p>
-              
-              <div className="home-verse-card hover-glow" style={{ margin: '2rem 0', padding: '2.5rem', background: 'var(--bg-primary)', borderRadius: '16px', border: '1px solid var(--glass-border)', boxShadow: 'var(--shadow-md)' }}>
-                <p style={{ fontStyle: 'italic', marginBottom: '1.5rem', fontSize: '1.1rem' }}>{t('thankYou.verse')}</p>
-                <p style={{ fontWeight: 'bold', textAlign: 'right', color: 'var(--primary-color)' }}>{t('thankYou.verseRef')}</p>
-              </div>
-              
-              <div style={{ marginTop: '2rem', textAlign: 'right' }}>
-                <p style={{ fontStyle: 'italic' }}>{t('thankYou.signoffMessage')}</p>
-                <p style={{ fontStyle: 'italic', marginBottom: '1rem' }}>{t('thankYou.signoffService')}</p>
-                <p style={{ fontWeight: 'bold', fontSize: '1.4rem', color: 'transparent', backgroundClip: 'text', WebkitBackgroundClip: 'text', backgroundImage: 'linear-gradient(to right, var(--primary-color), var(--secondary-color))' }}>{t('thankYou.signoffName')}</p>
-                <p style={{ fontSize: '1rem', color: 'var(--text-light)', letterSpacing: '2px', textTransform: 'uppercase', marginTop: '0.2rem' }}>{t('thankYou.signoffTitle')}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

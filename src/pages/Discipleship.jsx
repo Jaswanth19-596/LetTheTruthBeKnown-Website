@@ -30,7 +30,7 @@ const Discipleship = () => {
       level: 1,
       titleKey: 'discipleship.level1Title',
       subtitleKey: 'discipleship.level1Subtitle',
-      color: '#10b981',
+      color: 'var(--temple-blue)',
       books: [
         { title: 'Assurance of Salvation', cover: getAssetUrl('downloads/discipleship/level1-book1-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1-book1.pdf') },
         { title: 'Prayer', cover: getAssetUrl('downloads/discipleship/level1-book2-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1-book2.pdf') },
@@ -42,7 +42,7 @@ const Discipleship = () => {
       level: 2,
       titleKey: 'discipleship.level2Title',
       subtitleKey: 'discipleship.level2Subtitle',
-      color: '#3b82f6',
+      color: 'var(--gold)',
       books: [
         { title: 'Christian Growth', cover: getAssetUrl('downloads/discipleship/level2-book1-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book1.pdf') },
         { title: 'Christian Maturity', cover: getAssetUrl('downloads/discipleship/level2-book2-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book2.pdf') },
@@ -58,7 +58,7 @@ const Discipleship = () => {
       level: 3,
       titleKey: 'discipleship.level3Title',
       subtitleKey: 'discipleship.level3Subtitle',
-      color: '#8b5cf6',
+      color: 'var(--scarlet)',
       books: [
         { title: 'Grace', cover: getAssetUrl('downloads/discipleship/level-03-book-1-grace-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book1.pdf') },
         { title: 'Practical Christian Living', cover: getAssetUrl('downloads/discipleship/level-03-book-2-practical-christian-living-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book2.pdf') },

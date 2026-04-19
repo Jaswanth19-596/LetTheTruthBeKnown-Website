@@ -85,7 +85,7 @@ const SalvationQuiz = () => {
           ) : (
             <div className="quiz-results">
               <div className={`results-card ${isSaved ? 'saved' : 'unsaved'}`}>
-                <div className="results-icon">{isSaved ? '✝️' : '⚠️'}</div>
+                <div className="results-icon">{isSaved ? '✓' : '⚠️'}</div>
                 <h2 className="results-title">{isSaved ? t('salvationQuiz.saved') : t('salvationQuiz.notSaved')}</h2>
                 <div className="results-score">
                   <span className="score-number">{score}</span>

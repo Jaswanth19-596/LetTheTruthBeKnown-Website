@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import './VerseOfDay.css';
-import WhatsAppShare from './WhatsAppShare';
 
 const VerseOfDay = () => {
   const { t, language } = useLanguage();
@@ -111,7 +110,6 @@ const VerseOfDay = () => {
             </button>
           </div>
 
-          <WhatsAppShare verse={currentVerse.text} reference={currentVerse.reference} />
         </div>
       </div>
     </section>
