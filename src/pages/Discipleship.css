@@ -731,14 +731,8 @@
 }
 
 /* Book Actions */
-.book-actions {
-  display: flex;
-  gap: 8px;
-  padding: 0 var(--spacing-lg) var(--spacing-lg);
-}
-
 .book-btn {
-  flex: 1;
+  width: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -753,6 +747,7 @@
   transition: all 0.3s ease;
   letter-spacing: 0.02em;
 }
+
 
 .book-btn svg {
   flex-shrink: 0;
