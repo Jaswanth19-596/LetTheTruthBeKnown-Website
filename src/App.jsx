@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import IntroScreen from './components/IntroScreen';
 import TextToSpeech from './components/TextToSpeech';
+import LanguageToggle from './components/LanguageToggle';
 import Home from './pages/Home';
 import GospelTracts from './pages/GospelTracts';
 import StopTracts from './pages/StopTracts';
@@ -58,6 +59,8 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          {/* Floating left-edge language selector */}
+          <LanguageToggle />
           {/* Text-to-Speech Button for Illiterate Users */}
           <TextToSpeech />
         </div>

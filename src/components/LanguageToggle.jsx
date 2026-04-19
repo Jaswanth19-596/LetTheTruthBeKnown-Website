@@ -5,62 +5,56 @@ import './LanguageToggle.css';
 const LanguageToggle = () => {
   const { language, setLanguage, availableLanguages } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const ref = useRef(null);
 
   const currentLang = availableLanguages.find(l => l.code === language) || availableLanguages[0];
 
+  // Close on outside click
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
+    const handler = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setIsOpen(false);
     };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
   }, []);
 
-  const handleSelect = (langCode) => {
-    setLanguage(langCode);
-    setIsOpen(false);
-  };
-
   return (
-    <div className="language-toggle" ref={dropdownRef}>
-      <button 
-        className="language-btn"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}
+    <div className="lang-floating" ref={ref}>
+      {/* Trigger pill */}
+      <button
+        className="lang-trigger"
+        onClick={() => setIsOpen(o => !o)}
         aria-label="Select language"
+        aria-expanded={isOpen}
       >
-        <span className="lang-flag">{currentLang.flag}</span>
-        <span className="lang-code">{currentLang.code.toUpperCase()}</span>
-        <svg 
-          className={`lang-arrow ${isOpen ? 'open' : ''}`}
-          width="12" 
-          height="12" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2"
+        <span className="lang-globe">🌐</span>
+        <span className="lang-current-flag">{currentLang.flag}</span>
+        <span className="lang-current-code">{currentLang.code.toUpperCase()}</span>
+        <svg
+          className={`lang-caret ${isOpen ? 'open' : ''}`}
+          width="11" height="11" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" strokeWidth="2.5"
         >
-          <polyline points="6 9 12 15 18 9"></polyline>
+          <polyline points="6 9 12 15 18 9"/>
         </svg>
       </button>
 
+      {/* Dropdown — opens to the right */}
       {isOpen && (
-        <div className="language-dropdown">
+        <div className="lang-menu">
+          <p className="lang-menu-label">Select Language</p>
           {availableLanguages.map((lang) => (
             <button
               key={lang.code}
-              className={`language-option ${lang.code === language ? 'active' : ''}`}
-              onClick={() => handleSelect(lang.code)}
+              className={`lang-option ${lang.code === language ? 'active' : ''}`}
+              onClick={() => { setLanguage(lang.code); setIsOpen(false); }}
             >
               <span className="lang-flag">{lang.flag}</span>
               <span className="lang-name">{lang.name}</span>
+              <span className="lang-native">{lang.nativeName}</span>
               {lang.code === language && (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <polyline points="20 6 9 17 4 12"></polyline>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <polyline points="20 6 9 17 4 12"/>
                 </svg>
               )}
             </button>

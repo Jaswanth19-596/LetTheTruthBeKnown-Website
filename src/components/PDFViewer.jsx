@@ -1,31 +1,26 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import './PDFViewer.css';
 
 const PDFViewer = ({ pdfUrl, title, onClose }) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  // Lock body scroll when modal is open — prevents page scrolling behind modal
+  // Lock body scroll when modal is open
   useEffect(() => {
-    const previousOverflow = document.body.style.overflow;
+    const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
+    return () => { document.body.style.overflow = prev; };
   }, []);
 
   // Close on Escape key
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
   }, [onClose]);
 
-  const getViewerUrl = (url) => {
-    const encodedUrl = encodeURIComponent(url);
-    return `https://docs.google.com/viewer?url=${encodedUrl}&embedded=true`;
-  };
+  const getViewerUrl = (url) =>
+    `https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`;
 
   const handleDownload = () => {
     const a = document.createElement('a');
@@ -38,19 +33,20 @@ const PDFViewer = ({ pdfUrl, title, onClose }) => {
     document.body.removeChild(a);
   };
 
-  const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) onClose();
-  };
-
-  return (
-    <div className="pdf-viewer-backdrop" onClick={handleBackdropClick}>
+  // Render via portal directly into document.body so no parent
+  // stacking context (navbar, transforms, etc.) can clip the z-index
+  return createPortal(
+    <div
+      className="pdf-viewer-backdrop"
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
       <div className="pdf-viewer-container" onClick={(e) => e.stopPropagation()}>
-        {/* Header */}
+        {/* Header — always visible, never scrolls */}
         <div className="pdf-viewer-header">
           <h3 className="pdf-viewer-title">{title || 'PDF Document'}</h3>
           <div className="pdf-viewer-actions">
             <button className="pdf-action-btn download-btn" onClick={handleDownload}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7,10 12,15 17,10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
@@ -66,7 +62,7 @@ const PDFViewer = ({ pdfUrl, title, onClose }) => {
           </div>
         </div>
 
-        {/* PDF Content */}
+        {/* PDF iframe */}
         <div className="pdf-viewer-content">
           {isLoading && (
             <div className="pdf-loading">
@@ -82,7 +78,8 @@ const PDFViewer = ({ pdfUrl, title, onClose }) => {
           />
         </div>
       </div>
-    </div>
+    </div>,
+    document.body   // ← portal target: bypasses ALL parent stacking contexts
   );
 };
 
