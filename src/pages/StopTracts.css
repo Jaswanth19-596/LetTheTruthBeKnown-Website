@@ -16,10 +16,11 @@
 }
 
 .stop-badge {
-  background:
-    linear-gradient(135deg, rgba(139, 21, 56, 0.15), rgba(139, 21, 56, 0.1)) !important;
-  color: var(--scarlet) !important;
-  border-color: var(--scarlet) !important;
+  background: #c0141480 !important;
+  color: #ff4444 !important;
+  border-color: #ff2222 !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
 }
 
 /* Why Section */

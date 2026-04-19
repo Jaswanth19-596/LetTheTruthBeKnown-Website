@@ -62,10 +62,10 @@ const Discipleship = () => {
       books: [
         { title: 'Grace', cover: getAssetUrl('downloads/discipleship/level-03-book-1-grace-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book1.pdf') },
         { title: 'Practical Christian Living', cover: getAssetUrl('downloads/discipleship/level-03-book-2-practical-christian-living-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book2.pdf') },
-        { title: 'Sanctification', cover: getAssetUrl('downloads/discipleship/level-03-book-6-sanctification-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book3.pdf') },
-        { title: 'Victory Over Sin', cover: getAssetUrl('downloads/discipleship/level-03-book-4-victory-over-sin-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book4.pdf') },
+        { title: 'Hermeneutics', cover: getAssetUrl('downloads/discipleship/level-03-book-6-sanctification-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book3.pdf') },
+        { title: 'Homiletics', cover: getAssetUrl('downloads/discipleship/level-03-book-4-victory-over-sin-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book4.pdf') },
         { title: 'Jesus Christ', cover: getAssetUrl('downloads/discipleship/level-03-book-5-jesus-christ-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book5.pdf') },
-        { title: 'Creation', cover: getAssetUrl('downloads/discipleship/level-03-book-6-creation-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book6.pdf') },
+        { title: 'Missions', cover: getAssetUrl('downloads/discipleship/level-03-book-6-creation-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book6.pdf') },
         { title: 'Spiritual Gifts', cover: getAssetUrl('downloads/discipleship/level-03-book-7-spiritual-gifts-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book7.pdf') },
         { title: 'Our Spiritual Armor', cover: getAssetUrl('downloads/discipleship/level-03-book-8-our-spiritual-armor-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book8.pdf') },
       ]

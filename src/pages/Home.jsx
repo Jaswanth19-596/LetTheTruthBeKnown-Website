@@ -138,7 +138,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Video Section */}
+      {/* Introduction Section */}
       <section className="video-section section">
         <div className="container">
           <div className="section-header text-center reveal">
@@ -178,9 +178,9 @@ const Home = () => {
           <div className="intro-content reveal" style={{ maxWidth: '900px', margin: '0 auto', fontSize: '1.15rem', lineHeight: '1.8', textAlign: 'center' }}>
               <p style={{ marginBottom: '1.5rem', color: 'var(--text-light)' }}>{t('home.godsWillP1')}</p>
               
-              <div className="verse-highlight hover-glow animate-float" style={{ margin: '3rem auto', padding: '2.5rem 3rem', background: 'var(--bg-secondary)', border: '1px solid var(--glass-border)', borderRadius: '16px', position: 'relative', display: 'inline-block' }}>
+              <div className="verse-highlight hover-glow animate-float" style={{ margin: '3rem auto', padding: '2.5rem 3rem', background: 'var(--bg-secondary)', border: '1px solid var(--glass-border)', borderRadius: '16px', position: 'relative', display: 'inline-block', whiteSpace: 'nowrap' }}>
                 <span style={{ position: 'absolute', top: '-10px', left: '20px', fontSize: '5rem', color: 'var(--primary-color)', opacity: 0.2, lineHeight: 1, fontFamily: 'serif' }}>"</span>
-                <p style={{ fontStyle: 'italic', fontSize: '1.25rem', position: 'relative', zIndex: 2 }}>{t('home.godsWillV1')}</p>
+                <p style={{ fontStyle: 'italic', fontSize: '1.25rem', position: 'relative', zIndex: 2, whiteSpace: 'normal' }}>{t('home.godsWillV1')}</p>
               </div>
 
               <p style={{ marginBottom: '1rem', fontWeight: '500' }}>{t('home.godsWillP2')}</p>
@@ -203,7 +203,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Video Section */}
+      {/* Featured Videos Section */}
       <section className="video-section section">
         <div className="container">
           <div className="section-header text-center reveal">
