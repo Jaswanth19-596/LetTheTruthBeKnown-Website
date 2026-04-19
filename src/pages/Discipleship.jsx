@@ -32,10 +32,10 @@ const Discipleship = () => {
       subtitleKey: 'discipleship.level1Subtitle',
       color: 'var(--temple-blue)',
       books: [
-        { title: 'Assurance of Salvation', cover: getAssetUrl('downloads/discipleship/level1-book1-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1-book1.pdf') },
-        { title: 'Prayer', cover: getAssetUrl('downloads/discipleship/level1-book2-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1-book2.pdf') },
-        { title: 'The Church', cover: getAssetUrl('downloads/discipleship/level1-book3-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1-book3.pdf') },
-        { title: 'The Word of God', cover: getAssetUrl('downloads/discipleship/level1-book4-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1-book4.pdf') },
+        { title: 'Assurance of Salvation', cover: getAssetUrl('downloads/discipleship/level1/thumbnails/01-assurance-of-salvation-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1/books/01-assurance-of-salvation.pdf') },
+        { title: 'Prayer', cover: getAssetUrl('downloads/discipleship/level1/thumbnails/02-prayer-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1/books/02-prayer.pdf') },
+        { title: 'The Church', cover: getAssetUrl('downloads/discipleship/level1/thumbnails/03-the-church-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1/books/03-the-church.pdf') },
+        { title: 'The Word of God', cover: getAssetUrl('downloads/discipleship/level1/thumbnails/04-the-word-of-god-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1/books/04-the-word-of-god.pdf') },
       ]
     },
     {
@@ -44,14 +44,14 @@ const Discipleship = () => {
       subtitleKey: 'discipleship.level2Subtitle',
       color: 'var(--gold)',
       books: [
-        { title: 'Christian Growth', cover: getAssetUrl('downloads/discipleship/level2-book1-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book1.pdf') },
-        { title: 'Christian Maturity', cover: getAssetUrl('downloads/discipleship/level2-book2-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book2.pdf') },
-        { title: 'The Bible', cover: getAssetUrl('downloads/discipleship/level2-book3-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book3.pdf') },
-        { title: 'The New Testament Church', cover: getAssetUrl('downloads/discipleship/book_04-new_testament-church_cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book4.pdf') },
-        { title: 'Forgiveness', cover: getAssetUrl('downloads/discipleship/book-05-forgiveness_cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book5.pdf') },
-        { title: 'Financial Stewardship', cover: getAssetUrl('downloads/discipleship/book-06-financial_stewardshipcover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book6.pdf') },
-        { title: 'Judgment Seat of Christ', cover: getAssetUrl('downloads/discipleship/book-07-judgment_seat_of_christ_cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book7.pdf') },
-        { title: 'God\'s Will for Your Life', cover: getAssetUrl('downloads/discipleship/book-08-Gods_will_for_your_life_cover.png'), pdf: getAssetUrl('downloads/discipleship/level2-book8.pdf') },
+        { title: 'Christian Growth', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/01-christian-growth-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/01-christian-growth.pdf') },
+        { title: 'Christian Maturity', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/02-christian-maturity-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/02-christian-maturity.pdf') },
+        { title: 'The Bible', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/03-the-bible-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/03-the-bible.pdf') },
+        { title: 'The New Testament Church', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/04-the-new-testament-church-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/04-the-new-testament-church.pdf') },
+        { title: 'Forgiveness', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/05-forgiveness-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/05-forgiveness.pdf') },
+        { title: 'Financial Stewardship', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/06-financial-stewardship-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/06-financial-stewardship.pdf') },
+        { title: 'Judgment Seat of Christ', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/07-judgment-seat-of-christ-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/07-judgment-seat-of-christ.pdf') },
+        { title: 'God\'s Will for Your Life', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/08-gods-will-for-your-life-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/08-gods-will-for-your-life.pdf') },
       ]
     },
     {
@@ -60,14 +60,14 @@ const Discipleship = () => {
       subtitleKey: 'discipleship.level3Subtitle',
       color: 'var(--scarlet)',
       books: [
-        { title: 'Grace', cover: getAssetUrl('downloads/discipleship/level-03-book-1-grace-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book1.pdf') },
-        { title: 'Practical Christian Living', cover: getAssetUrl('downloads/discipleship/level-03-book-2-practical-christian-living-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book2.pdf') },
-        { title: 'Hermeneutics', cover: getAssetUrl('downloads/discipleship/level-03-book-6-sanctification-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book3.pdf') },
-        { title: 'Homiletics', cover: getAssetUrl('downloads/discipleship/level-03-book-4-victory-over-sin-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book4.pdf') },
-        { title: 'Jesus Christ', cover: getAssetUrl('downloads/discipleship/level-03-book-5-jesus-christ-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book5.pdf') },
-        { title: 'Missions', cover: getAssetUrl('downloads/discipleship/level-03-book-6-creation-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book6.pdf') },
-        { title: 'Spiritual Gifts', cover: getAssetUrl('downloads/discipleship/level-03-book-7-spiritual-gifts-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book7.pdf') },
-        { title: 'Our Spiritual Armor', cover: getAssetUrl('downloads/discipleship/level-03-book-8-our-spiritual-armor-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3-book8.pdf') },
+        { title: 'Grace', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/01-grace-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/01-grace.pdf') },
+        { title: 'Practical Christian Living', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/02-practical-christian-living-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/02-practical-christian-living.pdf') },
+        { title: 'Hermeneutics', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/03-hermeneutics-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/03-hermeneutics.pdf') },
+        { title: 'Homiletics', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/04-homiletics-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/04-homiletics.pdf') },
+        { title: 'Jesus Christ', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/05-jesus-christ-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/05-jesus-christ.pdf') },
+        { title: 'Missions', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/06-missions-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/06-missions.pdf') },
+        { title: 'Spiritual Gifts', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/07-spiritual-gifts-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/07-spiritual-gifts.pdf') },
+        { title: 'Our Spiritual Armor', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/08-our-spiritual-armor-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/08-our-spiritual-armor.pdf') },
       ]
     }
   ];
