@@ -48,9 +48,9 @@ const GospelTracts = () => {
       language: t('gospelTractsPage.tracts.english'),
       code: 'en-US',
       flag: '🇬🇧',
-      title: 'God\'s Simple Plan of Salvation',
+      title: "God's Simple Plan of Salvation",
       description: 'The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."',
-      pdf: '/tracts/Gods_Simple_Plan_of_Salvation_English.pdf'
+      pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract.pdf")
     },
     {
       id: 2,
@@ -59,7 +59,7 @@ const GospelTracts = () => {
       flag: '🇰🇪',
       title: 'Mpango Rahisi wa Mungu wa Wokovu',
       description: 'Biblia inasema kuna njia moja tu ya kwenda Mbinguni. Yesu alisema: "Mimi ndimi njia, na kweli, na uzima; mtu haji kwa Baba, ila kwa njia ya mimi."',
-      pdf: '/tracts/Gods_Simple_Plan_of_Salvation_Swahili.pdf'
+      pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract -Kiswahili.pdf")
     },
     {
       id: 3,
@@ -70,13 +70,13 @@ const GospelTracts = () => {
       description: 'La Bible dit qu\'il n\'y a qu\'un seul chemin vers le Ciel. Jésus a dit: "Je suis le chemin, la vérité, et la vie. Nul ne vient au Père que par moi."',
       pdf: '/tracts/Gods_Simple_Plan_of_Salvation_French.pdf'
     },
-    { id: 4, language: t('gospelTractsPage.tracts.luo'), code: 'luo-KE', flag: '🇰🇪', title: "God's Simple Plan - Luo", description: 'Luo language version for Kenya. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Luo.pdf') },
-    { id: 5, language: t('gospelTractsPage.tracts.kikuyu'), code: 'ki-KE', flag: '🇰🇪', title: "God's Simple Plan - Kikuyu", description: 'Kikuyu language version for Kenya. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Kikuyu.pdf') },
-    { id: 6, language: t('gospelTractsPage.tracts.kalenjin'), code: 'kln-KE', flag: '🇰🇪', title: "God's Simple Plan - Kalenjin", description: 'Kalenjin language version for Kenya. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Kalenjin.pdf') },
-    { id: 7, language: t('gospelTractsPage.tracts.arabic'), code: 'ar-SA', flag: '🇸🇦', title: "God's Simple Plan - Arabic", description: 'Arabic language version. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Arabic.pdf') },
-    { id: 8, language: t('gospelTractsPage.tracts.amharic'), code: 'am-ET', flag: '🇪🇹', title: "God's Simple Plan - Amharic", description: 'Amharic language version for Ethiopia. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Amharic.pdf') },
-    { id: 9, language: t('gospelTractsPage.tracts.maasai'), code: 'mas-KE', flag: '🇰🇪', title: "God's Simple Plan - Maasai", description: 'Maasai language version for Kenya/Tanzania. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Maasai.pdf') },
-    { id: 10, language: t('gospelTractsPage.tracts.kamba'), code: 'kam-KE', flag: '🇰🇪', title: "God's Simple Plan - Kamba", description: 'Kamba language version for Kenya. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl('downloads/gospel_tracks/Gods-Simple-Plan-Tract-Kamba.pdf') },
+    { id: 4, language: t('gospelTractsPage.tracts.luo'), code: 'luo-KE', flag: '🇰🇪', title: "God's Simple Plan - Luo", description: 'Luo language version for Kenya. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Luo.pdf") },
+    { id: 5, language: t('gospelTractsPage.tracts.kikuyu'), code: 'ki-KE', flag: '🇰🇪', title: "God's Simple Plan - Kikuyu", description: 'Kikuyu language version for Kenya. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Kikuyu.pdf") },
+    { id: 6, language: t('gospelTractsPage.tracts.kalenjin'), code: 'kln-KE', flag: '🇰🇪', title: "God's Simple Plan - Kalenjin", description: 'Kalenjin language version for Kenya. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Kalenjin.pdf") },
+    { id: 7, language: t('gospelTractsPage.tracts.arabic'), code: 'ar-SA', flag: '🇸🇦', title: "God's Simple Plan - Arabic", description: 'Arabic language version. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Arabic.pdf") },
+    { id: 8, language: t('gospelTractsPage.tracts.amharic'), code: 'am-ET', flag: '🇪🇹', title: "God's Simple Plan - Amharic", description: 'Amharic language version for Ethiopia. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Amharic.pdf") },
+    { id: 9, language: t('gospelTractsPage.tracts.maasai'), code: 'mas-KE', flag: '🇰🇪', title: "God's Simple Plan - Maasai", description: 'Maasai language version for Kenya/Tanzania. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Maasai.pdf") },
+    { id: 10, language: t('gospelTractsPage.tracts.kamba'), code: 'kam-KE', flag: '🇰🇪', title: "God's Simple Plan - Kamba", description: 'Kamba language version for Kenya. The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Kamba.pdf") },
   ];
 
   const filteredTracts = activeLanguage === 'all' ? tracts : tracts.filter(tract => tract.language === t(`gospelTractsPage.tracts.${activeLanguage}`));

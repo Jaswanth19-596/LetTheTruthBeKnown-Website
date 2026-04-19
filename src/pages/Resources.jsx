@@ -27,13 +27,13 @@ const Resources = () => {
   const handleDownload = (pdfUrl) => window.open(pdfUrl, '_blank');
 
   const answerBooks = [
-    { title: 'Answer Book 1: Soul Winning & Discipleship', description: 'Comprehensive guide to evangelism.', pdf: getAssetUrl('downloads/answers/ANSWERS-Book-1-SOUL-WINNING-DISCIPLESHIP.pdf') },
-    { title: 'Answer Book 2: Proofs of Christ, The Bible, God', description: 'Apologetics and evidence for faith.', pdf: getAssetUrl('downloads/answers/ANSWERS-Book-2-PROOFS-OF-CHRIST-THE-BIBLE-GOD.pdf') },
-    { title: 'Answer Book 3: Church Issues', description: 'Biblical answers to church questions.', pdf: getAssetUrl('downloads/answers/ANSWERS-Book-3-CHURCH-ISSUES.pdf') },
-    { title: 'Answer Book 4: Christian Living', description: 'Practical guidance for daily life.', pdf: getAssetUrl('downloads/answers/ANSWERS-Book-4-CHRISTIAN-LIVING.pdf') },
-    { title: 'Answer Book 5: False Doctrines Refuted', description: 'Biblical responses to false teachings.', pdf: getAssetUrl('downloads/answers/ANSWERS-Book-5-FALSE-DOCTRINES-REFUTED.pdf') },
-    { title: 'Answer Book 6: False Religions', description: 'Understanding world religions.', pdf: getAssetUrl('downloads/answers/ANSWERS-Book-6-FALSE-RELIGIONS.pdf') },
-    { title: 'Answer Book 7: Important Sermons', description: 'Essential sermon topics.', pdf: getAssetUrl('downloads/answers/ANSWERS-Book-7-IMPORTANT-SERMONS.pdf') },
+    { title: 'Answer Book 1: Soul Winning & Discipleship', description: 'Comprehensive guide to evangelism.', pdf: getAssetUrl('downloads/answers/ANSWERS Book 1 - SOUL WINNING & DISCIPLESHIP.pdf') },
+    { title: 'Answer Book 2: Proofs of Christ, The Bible, God', description: 'Apologetics and evidence for faith.', pdf: getAssetUrl('downloads/answers/ANSWERS Book 2 - PROOFS OF CHRIST, THE BIBLE & GOD.pdf') },
+    { title: 'Answer Book 3: Church Issues', description: 'Biblical answers to church questions.', pdf: getAssetUrl('downloads/answers/ANSWERS Book 3 - CHURCH ISSUES.pdf') },
+    { title: 'Answer Book 4: Christian Living', description: 'Practical guidance for daily life.', pdf: getAssetUrl('downloads/answers/ANSWERS Book 4 - CHRISTIAN LIVING.pdf') },
+    { title: 'Answer Book 5: False Doctrines Refuted', description: 'Biblical responses to false teachings.', pdf: getAssetUrl('downloads/answers/ANSWERS Book 5 - FALSE DOCTRINES REFUTED.pdf') },
+    { title: 'Answer Book 6: False Religions', description: 'Understanding world religions.', pdf: getAssetUrl('downloads/answers/ANSWERS Book 6 - FALSE RELIGIONS.pdf') },
+    { title: 'Answer Book 7: Important Sermons', description: 'Essential sermon topics.', pdf: getAssetUrl('downloads/answers/ANSWERS Book 7 - IMPORTANT SERMONS.pdf') },
   ];
 
   const otherResources = [
