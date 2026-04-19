@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import LanguageToggle from './LanguageToggle';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -103,6 +104,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-actions">
+          <LanguageToggle />
           <Link to="/contact" className="btn btn-primary navbar-cta">
             <span className="nav-icon">{icons.contact}</span>
             {t('nav.contactUs')}
