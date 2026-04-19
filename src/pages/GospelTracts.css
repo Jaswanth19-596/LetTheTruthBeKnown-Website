@@ -51,67 +51,101 @@
   font-style: italic;
 }
 
-/* ===== Filter Section - Stone Tablet Style ===== */
-.filter-section {
-  padding: var(--spacing-xl) 0;
-  border-bottom: 2px solid var(--gold);
-  position: sticky;
-  top: 70px;
-  background:
-    linear-gradient(180deg, var(--bg-primary) 0%, var(--parchment-light) 100%);
-  z-index: 100;
+/* ===== Sidebar + Content Layout (shared by GospelTracts, StopTracts, Discipleship) ===== */
+.page-with-sidebar {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
 }
 
-/* Parchment scroll edge */
-.filter-section::before {
+/* ── Left sidebar ── */
+.filter-sidebar {
+  width: 190px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 80px;           /* sticks just below the navbar */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 20px;
+}
+
+.sidebar-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-light, #888);
+  padding: 0 12px 8px;
+  margin: 0;
+  border-bottom: 1px solid var(--glass-border);
+  margin-bottom: 6px;
+}
+
+.sidebar-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.sidebar-tab:hover {
+  background: rgba(200, 134, 10, 0.08);
+  color: var(--text-primary);
+  border-color: rgba(200, 134, 10, 0.2);
+}
+
+.sidebar-tab.active {
+  background: rgba(15, 61, 89, 0.15);
+  border-color: var(--primary-color, #0f3d59);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.sidebar-tab-flag {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.sidebar-tab-name {
+  flex: 1;
+  line-height: 1.3;
+}
+
+/* Divider between sidebar and content */
+.filter-sidebar::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--sand), var(--gold));
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--glass-border);
 }
 
-.language-tabs {
-  display: flex;
-  gap: var(--spacing-sm);
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.lang-tab {
-  padding: var(--spacing-sm) var(--spacing-lg);
-  background: var(--parchment);
-  border: 2px solid var(--sand);
-  border-radius: var(--radius-md);
-  color: var(--text-secondary);
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  letter-spacing: 0.02em;
-}
-
-.lang-tab:hover {
-  border-color: var(--gold);
-  color: var(--temple-blue);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md), 0 0 15px rgba(184, 134, 11, 0.15);
-}
-
-.lang-tab.active {
-  background: var(--gradient-temple);
-  border-color: var(--temple-blue-dark);
-  color: var(--parchment-light);
-  box-shadow:
-    var(--shadow-md),
-    0 0 20px rgba(30, 58, 95, 0.2);
+/* ── Main content area ── */
+.sidebar-content {
+  flex: 1;
+  min-width: 0;
+  padding-left: 32px;
 }
 
 /* ===== Tracts Grid ===== */
+
 .tracts-grid {
   padding-top: var(--spacing-2xl);
   position: relative;
@@ -224,22 +258,48 @@
     display: none;
   }
 
-  .filter-section {
-    top: 60px;
-    padding: var(--spacing-md) 0;
+  /* On mobile: sidebar collapses to a top horizontal scrollable strip */
+  .page-with-sidebar {
+    flex-direction: column;
+    padding: 20px 16px 60px;
+    gap: 0;
   }
 
-  .language-tabs {
-    justify-content: flex-start;
+  .filter-sidebar {
+    width: 100%;
+    flex-direction: row;
+    position: static;
+    padding-right: 0;
+    padding-bottom: 16px;
     overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: var(--spacing-sm);
     -webkit-overflow-scrolling: touch;
+    gap: 6px;
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: 20px;
   }
 
-  .lang-tab {
-    white-space: nowrap;
+  .filter-sidebar::after {
+    display: none;
+  }
+
+  .sidebar-label {
+    display: none; /* hide label in horizontal mode, wasted space */
+  }
+
+  .sidebar-tab {
     flex-shrink: 0;
+    white-space: nowrap;
+    padding: 8px 14px;
+    border-radius: 20px;
+    gap: 6px;
+  }
+
+  .sidebar-tab-name span:last-child {
+    display: none; /* hide subtitle on mobile */
+  }
+
+  .sidebar-content {
+    padding-left: 0;
   }
 
   .info-card {

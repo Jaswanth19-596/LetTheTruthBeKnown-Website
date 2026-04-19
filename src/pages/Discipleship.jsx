@@ -86,30 +86,31 @@ const Discipleship = () => {
         </div>
       </section>
 
-      <section className="levels-nav section">
-        <div className="container">
-          <div className="levels-tabs">
-            {levels.map((level) => (
-              <button
-                key={level.level}
-                className={`level-tab ${activeLevel === level.level ? 'active' : ''}`}
-                onClick={() => setActiveLevel(level.level)}
-                style={{ '--level-color': level.color }}
-              >
-                <span className="level-number">{level.level}</span>
-                <div className="level-info">
-                  <span className="level-title">{t(level.titleKey)}</span>
-                  <span className="level-subtitle">{t(level.subtitleKey)}</span>
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Sidebar + content layout */}
+      <div className="page-with-sidebar">
 
-      <section className="books-section section">
-        <div className="container">
-          <div className="section-header">
+        {/* ── Left sidebar: level tabs ── */}
+        <aside className="filter-sidebar">
+          <p className="sidebar-label">Level</p>
+          {levels.map((level) => (
+            <button
+              key={level.level}
+              className={`sidebar-tab ${activeLevel === level.level ? 'active' : ''}`}
+              onClick={() => setActiveLevel(level.level)}
+              style={{ '--level-color': level.color }}
+            >
+              <span className="sidebar-tab-flag" style={{ background: level.color + '20', color: level.color, borderRadius: '50%', width: '28px', height: '28px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', fontSize: '0.9rem', flexShrink: 0 }}>{level.level}</span>
+              <span className="sidebar-tab-name">
+                <span style={{ display: 'block', fontWeight: 700 }}>{t(level.titleKey)}</span>
+                <span style={{ display: 'block', fontSize: '0.75rem', opacity: 0.6 }}>{t(level.subtitleKey)}</span>
+              </span>
+            </button>
+          ))}
+        </aside>
+
+        {/* ── Main content ── */}
+        <main className="sidebar-content">
+          <div className="section-header" style={{ marginBottom: '1.5rem' }}>
             <span className="section-badge" style={{ background: currentLevel.color + '20', color: currentLevel.color }}>
               {t('common.level')} {activeLevel}
             </span>
@@ -143,42 +144,39 @@ const Discipleship = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
+          {/* GBBC Advanced Studies */}
+          <section className="gbbc-section reveal" style={{ marginTop: '4rem', padding: '3rem', background: 'var(--bg-secondary)', borderRadius: '16px', position: 'relative', overflow: 'hidden', border: '1px solid var(--glass-border)' }}>
+            <div style={{ position: 'absolute', top: '15px', right: '15px' }}>
+              <span style={{ background: 'var(--primary-color)', color: 'white', padding: '0.4rem 1rem', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('resourcesPage.gbbcAdvanced')}</span>
+            </div>
+            <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+              <h2 style={{ fontSize: '2rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{t('gbbc.title')}</h2>
+              <h4 style={{ fontSize: '1.1rem', color: 'var(--primary-color)', marginBottom: '2.5rem', letterSpacing: '2px', textTransform: 'uppercase' }}>{t('gbbc.subtitle')}</h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.2rem', marginBottom: '2.5rem' }}>
+                {['feature1', 'feature2', 'feature3', 'feature4'].map((ft, idx) => (
+                  <div key={idx} style={{ background: 'var(--bg-primary)', padding: '1.2rem', borderRadius: '12px', borderTop: '3px solid var(--primary-color)', boxShadow: 'var(--shadow-sm)' }}>
+                    <p style={{ fontWeight: '500', color: 'var(--text-secondary)', margin: 0 }}>{t(`gbbc.${ft}`)}</p>
+                  </div>
+                ))}
+              </div>
+              <div style={{ background: 'rgba(239, 68, 68, 0.05)', borderLeft: '4px solid #ef4444', padding: '1.5rem', borderRadius: '0 8px 8px 0', marginBottom: '2.5rem', textAlign: 'left' }}>
+                <p style={{ color: '#b91c1c', fontStyle: 'italic', margin: 0, fontSize: '0.95rem', lineHeight: '1.6' }}>{t('gbbc.notice')}</p>
+              </div>
+              <div className="home-verse-card" style={{ padding: '1.5rem', background: 'var(--bg-primary)', borderRadius: '15px', marginBottom: '2.5rem', border: '1px solid var(--glass-border)', textAlign: 'left' }}>
+                <p style={{ fontStyle: 'italic', marginBottom: '1rem', color: 'var(--text-secondary)', lineHeight: '1.8' }}>{t('gbbc.verse')}</p>
+                <p style={{ fontWeight: 'bold', color: 'var(--primary-color)' }}>{t('gbbc.verseRef')}</p>
+              </div>
+              <a href={`https://${t('gbbc.website')}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary hover-glow" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
+                {t('gbbc.visitCta')} →
+              </a>
+            </div>
+          </section>
+        </main>
+
+      </div>
 
       {viewingPdf && <PDFViewer pdfUrl={viewingPdf.pdf} title={viewingPdf.title} onClose={() => setViewingPdf(null)} />}
-      {/* GBBC Advanced Studies Section */}
-      <section className="gbbc-section reveal" style={{ marginTop: '4rem', padding: '4rem 0', background: 'var(--bg-secondary)', borderRadius: '16px', position: 'relative', overflow: 'hidden', border: '1px solid var(--glass-border)' }}>
-        <div style={{ position: 'absolute', top: '15px', right: '15px' }}>
-          <span style={{ background: 'var(--primary-color)', color: 'white', padding: '0.4rem 1rem', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('resourcesPage.gbbcAdvanced')}</span>
-        </div>
-        <div className="container" style={{ textAlign: 'center', maxWidth: '900px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{t('gbbc.title')}</h2>
-          <h4 style={{ fontSize: '1.2rem', color: 'var(--primary-color)', marginBottom: '3rem', letterSpacing: '2px', textTransform: 'uppercase' }}>{t('gbbc.subtitle')}</h4>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
-            {['feature1', 'feature2', 'feature3', 'feature4'].map((ft, idx) => (
-              <div key={idx} className="hover-lift hover-shine" style={{ background: 'var(--bg-primary)', padding: '1.5rem', borderRadius: '12px', borderTop: '3px solid var(--primary-color)', boxShadow: 'var(--shadow-sm)' }}>
-                <p style={{ fontWeight: '500', color: 'var(--text-secondary)', margin: 0 }}>{t(`gbbc.${ft}`)}</p>
-              </div>
-            ))}
-          </div>
-          
-          <div style={{ background: 'rgba(239, 68, 68, 0.05)', borderLeft: '4px solid #ef4444', padding: '1.5rem', borderRadius: '0 8px 8px 0', marginBottom: '3rem', textAlign: 'left' }}>
-            <p style={{ color: '#b91c1c', fontStyle: 'italic', margin: 0, fontSize: '0.95rem', lineHeight: '1.6' }}>{t('gbbc.notice')}</p>
-          </div>
-          
-          <div className="home-verse-card" style={{ padding: '2rem', background: 'var(--bg-primary)', borderRadius: '15px', marginBottom: '3rem', border: '1px solid var(--glass-border)', textAlign: 'left', boxShadow: 'var(--shadow-sm)' }}>
-            <p style={{ fontStyle: 'italic', marginBottom: '1.5rem', color: 'var(--text-secondary)', lineHeight: '1.8' }}>{t('gbbc.verse')}</p>
-            <p style={{ fontWeight: 'bold', color: 'var(--primary-color)' }}>{t('gbbc.verseRef')}</p>
-          </div>
-          
-          <a href={`https://${t('gbbc.website')}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary hover-glow" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>
-            {t('gbbc.visitCta')} →
-          </a>
-        </div>
-      </section>
     </div>
   );
 };
