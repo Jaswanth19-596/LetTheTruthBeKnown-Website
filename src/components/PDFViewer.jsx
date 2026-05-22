@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 import './PDFViewer.css';
 
 const PDFViewer = ({ pdfUrl, title, onClose }) => {
-  const [isLoading, setIsLoading] = useState(true);
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -61,17 +60,10 @@ const PDFViewer = ({ pdfUrl, title, onClose }) => {
 
         {/* PDF iframe */}
         <div className="pdf-viewer-content">
-          {isLoading && (
-            <div className="pdf-loading">
-              <div className="pdf-spinner"></div>
-              <p>Loading PDF...</p>
-            </div>
-          )}
           <iframe
             src={pdfUrl}
             title={title}
             className="pdf-iframe"
-            onLoad={() => setIsLoading(false)}
           />
         </div>
       </div>
