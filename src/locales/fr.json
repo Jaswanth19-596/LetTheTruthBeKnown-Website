@@ -2,7 +2,7 @@
   "meta": {
     "name": "French",
     "nativeName": "Français",
-    "flag": "🇫🇷",
+    "flag": "FR",
     "direction": "ltr"
   },
   "nav": {
@@ -327,7 +327,7 @@
     "needHelp": "Besoin d'Aide?"
   },
   "prayerRequest": {
-    "badge": "🙏 Nous Sommes Là Pour Vous",
+    "badge": "Nous Sommes Là Pour Vous",
     "title": "Demande de",
     "titleHighlight": "Prière",
     "subtitle": "Partagez votre demande de prière avec nous.",

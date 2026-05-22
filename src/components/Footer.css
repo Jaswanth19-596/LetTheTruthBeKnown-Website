@@ -29,7 +29,7 @@
 
 /* Olive branch decorations */
 .footer::after {
-  content: '🌿 ✝ 🌿';
+  content: '✦ ✦ ✦';
   position: absolute;
   top: -10px;
   left: 50%;
@@ -184,7 +184,7 @@
 }
 
 .footer-bottom::before {
-  content: '❧';
+  content: '✦';
   position: absolute;
   top: -15px;
   left: 50%;

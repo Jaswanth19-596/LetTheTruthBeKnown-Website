@@ -2,7 +2,7 @@
   "meta": {
     "name": "Swahili",
     "nativeName": "Kiswahili",
-    "flag": "🇰🇪",
+    "flag": "SW",
     "direction": "ltr"
   },
   "nav": {
@@ -327,7 +327,7 @@
     "needHelp": "Unahitaji Msaada?"
   },
   "prayerRequest": {
-    "badge": "🙏 Tuko Hapa Kwa Ajili Yako",
+    "badge": "Tuko Hapa Kwa Ajili Yako",
     "title": "Ombi la",
     "titleHighlight": "Sala",
     "subtitle": "Shiriki ombi lako la sala nasi.",

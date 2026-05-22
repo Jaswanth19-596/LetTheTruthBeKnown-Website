@@ -1,125 +1,225 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
-  const { t } = useLanguage();
+  const [isScrolled, setIsScrolled]           = useState(false);
+  const [isMobileOpen, setIsMobileOpen]       = useState(false);
+  const [openDropdown, setOpenDropdown]       = useState(null); // 'growing' | 'pastor' | null
+  const location  = useLocation();
+  const { t }     = useLanguage();
+  const navRef    = useRef(null);
 
-  // Navigation links with icon names
-  const navLinks = [
-    { to: '/', labelKey: 'nav.home', icon: 'home' },
-    { to: '/gospel-tracts', labelKey: 'nav.gospelTracts', icon: 'book' },
-    { to: '/stop-tracts', labelKey: 'nav.stopTracts', icon: 'octagon' },
-    { to: '/discipleship', labelKey: 'nav.discipleship', icon: 'users' },
-    { to: '/resources', labelKey: 'nav.resources', icon: 'folder' },
-    { to: '/salvation-quiz', labelKey: 'nav.salvationQuiz', icon: 'clipboard' },
-  ];
-
-  // Icon SVG components
-  const icons = {
-    home: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
-    ),
-    book: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-      </svg>
-    ),
-    octagon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/>
-      </svg>
-    ),
-    users: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-        <circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-      </svg>
-    ),
-    folder: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-      </svg>
-    ),
-    clipboard: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-      </svg>
-    ),
-    contact: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-      </svg>
-    )
-  };
-
+  /* ── Scroll listener ── */
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  /* ── Close mobile menu on route change ── */
   useEffect(() => {
-    setIsMobileMenuOpen(false);
+    setIsMobileOpen(false);
+    setOpenDropdown(null);
   }, [location]);
 
+  /* ── Close dropdowns on outside click ── */
+  useEffect(() => {
+    const handler = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  const toggleDropdown = (key) =>
+    setOpenDropdown((prev) => (prev === key ? null : key));
+
+  const isActive = (paths) =>
+    paths.some((p) => location.pathname === p || location.pathname.startsWith(p));
+
+  /* ── Dropdown data ── */
+  const growingLinks = [
+    { to: '/discipleship',   label: 'Foundations of My Faith' },
+    { to: '/resources',      label: 'Understanding More' },
+    { to: '/next-steps',     label: 'New Believer — Next Steps' },
+  ];
+
+  const pastorLinks = [
+    { to: '/resources',       label: 'Further Study' },
+    { to: '/gospel-tracts',   label: 'Gospel Tracts' },
+    { to: '/stop-tracts',     label: 'STOP! Tracts' },
+    { to: '/faqs',            label: 'Frequently Asked Questions' },
+    { to: '/prayer-request',  label: 'Prayer Request' },
+  ];
+
+  /* ── Chevron icon ── */
+  const Chevron = ({ open }) => (
+    <svg
+      className={`nav-chevron ${open ? 'open' : ''}`}
+      width="12" height="12" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" strokeWidth="2.5"
+      strokeLinecap="round" strokeLinejoin="round"
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  );
+
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+    <nav
+      ref={navRef}
+      className={`navbar ${isScrolled ? 'scrolled' : ''} ${isMobileOpen ? 'mobile-open' : ''}`}
+    >
       <div className="navbar-container">
+
+        {/* Logo */}
         <Link to="/" className="navbar-logo">
+          <span className="logo-cross">✝</span>
           <span className="logo-text">Let the Truth be Known</span>
         </Link>
 
-        <div className={`navbar-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-          {navLinks.map(({ to, labelKey, icon }) => (
-            <Link 
-              key={to} 
-              to={to} 
-              className={`nav-link ${location.pathname === to ? 'active' : ''}`}
+        {/* Desktop nav links */}
+        <div className="navbar-links">
+
+          {/* Seeking Truth — primary link */}
+          <Link
+            to="/seeking-truth"
+            className={`nav-link nav-link-primary ${isActive(['/seeking-truth']) ? 'active' : ''}`}
+          >
+            Seeking Truth
+          </Link>
+
+          {/* Growing in Faith — dropdown */}
+          <div className={`nav-dropdown-wrap ${openDropdown === 'growing' ? 'open' : ''}`}>
+            <button
+              className={`nav-link nav-dropdown-trigger ${
+                isActive(['/discipleship', '/resources', '/next-steps']) ? 'active' : ''
+              }`}
+              onClick={() => toggleDropdown('growing')}
+              aria-expanded={openDropdown === 'growing'}
+              aria-haspopup="true"
             >
-              <span className="nav-icon">{icons[icon]}</span>
-              <span className="nav-label">{t(labelKey)}</span>
-            </Link>
-          ))}
-          
-          {/* Mobile Only Contact Button */}
-          <Link to="/contact" className="navbar-cta mobile-only">
-            <span className="nav-icon">{icons.contact}</span>
-            {t('nav.contactUs')}
+              Growing in Faith <Chevron open={openDropdown === 'growing'} />
+            </button>
+            <div className="nav-dropdown">
+              <div className="nav-dropdown-header">For New & Growing Christians</div>
+              {growingLinks.map(({ to, label }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className={`nav-dropdown-item ${location.pathname === to ? 'active' : ''}`}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Pastor / Further Study — dropdown */}
+          <div className={`nav-dropdown-wrap ${openDropdown === 'pastor' ? 'open' : ''}`}>
+            <button
+              className={`nav-link nav-dropdown-trigger ${
+                isActive(['/gospel-tracts', '/stop-tracts', '/faqs', '/prayer-request']) ? 'active' : ''
+              }`}
+              onClick={() => toggleDropdown('pastor')}
+              aria-expanded={openDropdown === 'pastor'}
+              aria-haspopup="true"
+            >
+              Pastor <Chevron open={openDropdown === 'pastor'} />
+            </button>
+            <div className="nav-dropdown">
+              <div className="nav-dropdown-header">For Pastors & Teachers</div>
+              {pastorLinks.map(({ to, label }) => (
+                <Link
+                  key={to + label}
+                  to={to}
+                  className={`nav-dropdown-item ${location.pathname === to ? 'active' : ''}`}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <Link
+            to="/about"
+            className={`nav-link ${isActive(['/about']) ? 'active' : ''}`}
+          >
+            About
+          </Link>
+
+          <Link
+            to="/give"
+            className={`nav-link ${isActive(['/give']) ? 'active' : ''}`}
+          >
+            Give
           </Link>
         </div>
 
+        {/* Right-side actions */}
         <div className="navbar-actions">
           <LanguageToggle />
-          <Link to="/contact" className="btn btn-primary navbar-cta">
-            <span className="nav-icon">{icons.contact}</span>
-            {t('nav.contactUs')}
+          <Link to="/contact" className="navbar-contact-btn">
+            Contact Us
           </Link>
-          
-          <button 
-            className={`mobile-menu-btn hamburger ${isMobileMenuOpen ? 'active' : ''}`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+
+          {/* Hamburger */}
+          <button
+            className={`hamburger ${isMobileOpen ? 'open' : ''}`}
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
             aria-label="Toggle menu"
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <span /><span /><span />
           </button>
         </div>
+      </div>
+
+      {/* ── Mobile menu ── */}
+      <div className={`navbar-mobile ${isMobileOpen ? 'open' : ''}`}>
+        <Link to="/seeking-truth" className="mob-link mob-link-primary">Seeking Truth</Link>
+
+        <div className="mob-group">
+          <button
+            className="mob-group-trigger"
+            onClick={() => toggleDropdown('m-growing')}
+          >
+            Growing in Faith
+            <Chevron open={openDropdown === 'm-growing'} />
+          </button>
+          {openDropdown === 'm-growing' && (
+            <div className="mob-group-items">
+              {growingLinks.map(({ to, label }) => (
+                <Link key={to} to={to} className="mob-sub-link">{label}</Link>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="mob-group">
+          <button
+            className="mob-group-trigger"
+            onClick={() => toggleDropdown('m-pastor')}
+          >
+            Pastor / Further Study
+            <Chevron open={openDropdown === 'm-pastor'} />
+          </button>
+          {openDropdown === 'm-pastor' && (
+            <div className="mob-group-items">
+              {pastorLinks.map(({ to, label }) => (
+                <Link key={to + label} to={to} className="mob-sub-link">{label}</Link>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <Link to="/about"          className="mob-link">About</Link>
+        <Link to="/give"           className="mob-link">Give</Link>
+        <Link to="/contact"        className="mob-link">Contact Us</Link>
+        <Link to="/salvation-quiz" className="mob-link mob-link-quiz">Take the Salvation Quiz →</Link>
       </div>
     </nav>
   );

@@ -20,22 +20,22 @@ const StopTracts = () => {
   }, [activeLanguage]);
 
   const languages = [
-    { id: 'all',      name: t('common.allLanguages'), flag: '🌐' },
-    { id: 'english',  name: 'English',  flag: '🇬🇧' },
-    { id: 'swahili',  name: 'Swahili',  flag: '🇰🇪' },
-    { id: 'luo',      name: 'Luo',      flag: '🇰🇪' },
-    { id: 'kalenjin', name: 'Kalenjin', flag: '🇰🇪' },
-    { id: 'kisii',    name: 'Kisii',    flag: '🇰🇪' },
-    { id: 'maasai',   name: 'Maasai',   flag: '🇰🇪' },
+    { id: 'all',      name: t('common.allLanguages'), code: 'ALL' },
+    { id: 'english',  name: 'English',  code: 'EN' },
+    { id: 'swahili',  name: 'Swahili',  code: 'SW' },
+    { id: 'luo',      name: 'Luo',      code: 'LU' },
+    { id: 'kalenjin', name: 'Kalenjin', code: 'KA' },
+    { id: 'kisii',    name: 'Kisii',    code: 'KI' },
+    { id: 'maasai',   name: 'Maasai',   code: 'MA' },
   ];
 
   const tracts = [
-    { id: 1, language: 'english',  title: 'STOP! Tract - English',  description: 'Eye-catching STOP tract to grab attention.',  pdf: getAssetUrl('downloads/stop_tracks/stop_tract_en.pdf') },
-    { id: 2, language: 'swahili',  title: 'STOP! Tract - Swahili',  description: 'Kiswahili version.',                          pdf: getAssetUrl('downloads/stop_tracks/KiswahiliiStop.pdf') },
-    { id: 3, language: 'luo',      title: 'STOP! Tract - Luo',      description: 'Luo language version.',                      pdf: getAssetUrl('downloads/stop_tracks/LuoStop.pdf') },
-    { id: 4, language: 'kalenjin', title: 'STOP! Tract - Kalenjin', description: 'Kalenjin version.',                          pdf: getAssetUrl('downloads/stop_tracks/KenyaKalinjinStop.pdf') },
-    { id: 5, language: 'kisii',    title: 'STOP! Tract - Kisii',    description: 'Kisii version.',                             pdf: getAssetUrl('downloads/stop_tracks/KisiiStop.pdf') },
-    { id: 6, language: 'maasai',   title: 'STOP! Tract - Maasai',   description: 'Maasai version.',                            pdf: getAssetUrl('downloads/stop_tracks/MasaiStop.pdf') },
+    { id: 1, language: 'english',  title: 'STOP! Tract - English',  description: 'Eye-catching STOP tract to grab attention.',  pdf: getAssetUrl('downloads/stop_tracts/english.pdf') },
+    { id: 2, language: 'swahili',  title: 'STOP! Tract - Swahili',  description: 'Kiswahili version.',                          pdf: getAssetUrl('downloads/stop_tracts/swahili.pdf') },
+    { id: 3, language: 'luo',      title: 'STOP! Tract - Luo',      description: 'Luo language version.',                      pdf: getAssetUrl('downloads/stop_tracts/luo.pdf') },
+    { id: 4, language: 'kalenjin', title: 'STOP! Tract - Kalenjin', description: 'Kalenjin version.',                          pdf: getAssetUrl('downloads/stop_tracts/kalenjin.pdf') },
+    { id: 5, language: 'kisii',    title: 'STOP! Tract - Kisii',    description: 'Kisii version.',                             pdf: getAssetUrl('downloads/stop_tracts/kisii.pdf') },
+    { id: 6, language: 'maasai',   title: 'STOP! Tract - Maasai',   description: 'Maasai version.',                            pdf: getAssetUrl('downloads/stop_tracts/maasai.pdf') },
   ];
 
   const filteredTracts = activeLanguage === 'all' ? tracts : tracts.filter(t => t.language === activeLanguage);
@@ -65,7 +65,7 @@ const StopTracts = () => {
               className={`sidebar-tab ${activeLanguage === lang.id ? 'active' : ''}`}
               onClick={() => setActiveLanguage(lang.id)}
             >
-              <span className="sidebar-tab-flag">{lang.flag}</span>
+              <span className="sidebar-tab-code">{lang.code}</span>
               <span className="sidebar-tab-name">{lang.name}</span>
             </button>
           ))}

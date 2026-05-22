@@ -115,10 +115,29 @@
   font-weight: 600;
 }
 
-.sidebar-tab-flag {
-  font-size: 18px;
-  line-height: 1;
+.sidebar-tab-code {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  border: 1px solid rgba(200, 146, 42, 0.35);
+  background: rgba(200, 146, 42, 0.08);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.sidebar-tab:hover .sidebar-tab-code,
+.sidebar-tab.active .sidebar-tab-code {
+  background: var(--gold);
+  color: var(--bg-primary);
+  border-color: var(--gold);
 }
 
 .sidebar-tab-name {
@@ -153,7 +172,7 @@
 
 /* Decorative divider */
 .tracts-grid::before {
-  content: '🌿 ✦ 🌿';
+  content: '✦ ✦ ✦';
   display: block;
   text-align: center;
   font-size: 1.5rem;

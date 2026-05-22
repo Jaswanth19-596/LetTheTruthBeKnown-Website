@@ -20,30 +20,30 @@ const GospelTracts = () => {
   }, [activeLanguage]);
 
   const languages = [
-    { id: 'all',      name: t('common.allLanguages'), flag: '🌐' },
-    { id: 'english',  name: 'English',   flag: '🇬🇧' },
-    { id: 'swahili',  name: 'Swahili',   flag: '🇰🇪' },
-    { id: 'luo',      name: 'Luo',       flag: '🇰🇪' },
-    { id: 'kikuyu',   name: 'Kikuyu',    flag: '🇰🇪' },
-    { id: 'kalenjin', name: 'Kalenjin',  flag: '🇰🇪' },
-    { id: 'arabic',   name: 'Arabic',    flag: '🇸🇦' },
-    { id: 'amharic',  name: 'Amharic',   flag: '🇪🇹' },
-    { id: 'maasai',   name: 'Maasai',    flag: '🇰🇪' },
-    { id: 'kamba',    name: 'Kamba',     flag: '🇰🇪' },
-    { id: 'french',   name: 'French',    flag: '🇫🇷' },
+    { id: 'all',      name: t('common.allLanguages'), code: 'ALL' },
+    { id: 'english',  name: 'English',   code: 'EN' },
+    { id: 'swahili',  name: 'Swahili',   code: 'SW' },
+    { id: 'luo',      name: 'Luo',       code: 'LU' },
+    { id: 'kikuyu',   name: 'Kikuyu',    code: 'KI' },
+    { id: 'kalenjin', name: 'Kalenjin',  code: 'KA' },
+    { id: 'arabic',   name: 'Arabic',    code: 'AR' },
+    { id: 'amharic',  name: 'Amharic',   code: 'AM' },
+    { id: 'maasai',   name: 'Maasai',    code: 'MA' },
+    { id: 'kamba',    name: 'Kamba',     code: 'KM' },
+    { id: 'french',   name: 'French',    code: 'FR' },
   ];
 
   const tracts = [
-    { id: 1,  language: t('gospelTractsPage.tracts.english'),  flag: '🇬🇧', title: "God's Simple Plan of Salvation", description: 'The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract.pdf") },
-    { id: 2,  language: t('gospelTractsPage.tracts.swahili'),  flag: '🇰🇪', title: 'Mpango Rahisi wa Mungu wa Wokovu', description: 'Biblia inasema kuna njia moja tu ya kwenda Mbinguni. Yesu alisema: "Mimi ndimi njia, na kweli, na uzima; mtu haji kwa Baba, ila kwa njia ya mimi."', pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract -Kiswahili.pdf") },
-    { id: 3,  language: t('gospelTractsPage.tracts.french'),   flag: '🇫🇷', title: 'Le Plan Simple de Dieu pour le Salut', description: 'La Bible dit qu\'il n\'y a qu\'un seul chemin vers le Ciel. Jésus a dit: "Je suis le chemin, la vérité, et la vie. Nul ne vient au Père que par moi."', pdf: '/tracts/Gods_Simple_Plan_of_Salvation_French.pdf' },
-    { id: 4,  language: t('gospelTractsPage.tracts.luo'),      flag: '🇰🇪', title: "God's Simple Plan - Luo",      description: 'Luo language version for Kenya.',      pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Luo.pdf") },
-    { id: 5,  language: t('gospelTractsPage.tracts.kikuyu'),   flag: '🇰🇪', title: "God's Simple Plan - Kikuyu",   description: 'Kikuyu language version for Kenya.',   pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Kikuyu.pdf") },
-    { id: 6,  language: t('gospelTractsPage.tracts.kalenjin'), flag: '🇰🇪', title: "God's Simple Plan - Kalenjin", description: 'Kalenjin language version for Kenya.', pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Kalenjin.pdf") },
-    { id: 7,  language: t('gospelTractsPage.tracts.arabic'),   flag: '🇸🇦', title: "God's Simple Plan - Arabic",   description: 'Arabic language version.',             pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Arabic.pdf") },
-    { id: 8,  language: t('gospelTractsPage.tracts.amharic'),  flag: '🇪🇹', title: "God's Simple Plan - Amharic",  description: 'Amharic language version for Ethiopia.',pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Amharic.pdf") },
-    { id: 9,  language: t('gospelTractsPage.tracts.maasai'),   flag: '🇰🇪', title: "God's Simple Plan - Maasai",   description: 'Maasai language version for Kenya/Tanzania.', pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Maasai.pdf") },
-    { id: 10, language: t('gospelTractsPage.tracts.kamba'),    flag: '🇰🇪', title: "God's Simple Plan - Kamba",    description: 'Kamba language version for Kenya.',   pdf: getAssetUrl("downloads/gospel_tracks_new/God's Simple Plan Tract - Kamba.pdf") },
+    { id: 1,  language: t('gospelTractsPage.tracts.english'),  title: "God's Simple Plan of Salvation", description: 'The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl("downloads/gospel_tracts/english.pdf") },
+    { id: 2,  language: t('gospelTractsPage.tracts.swahili'),  title: 'Mpango Rahisi wa Mungu wa Wokovu', description: 'Biblia inasema kuna njia moja tu ya kwenda Mbinguni. Yesu alisema: "Mimi ndimi njia, na kweli, na uzima; mtu haji kwa Baba, ila kwa njia ya mimi."', pdf: getAssetUrl("downloads/gospel_tracts/swahili.pdf") },
+    { id: 3,  language: t('gospelTractsPage.tracts.french'),   title: 'Le Plan Simple de Dieu pour le Salut', description: 'La Bible dit qu\'il n\'y a qu\'un seul chemin vers le Ciel. Jésus a dit: "Je suis le chemin, la vérité, et la vie. Nul ne vient au Père que par moi."', pdf: getAssetUrl("downloads/gospel_tracts/french.pdf") },
+    { id: 4,  language: t('gospelTractsPage.tracts.luo'),      title: "God's Simple Plan - Luo",      description: 'Luo language version for Kenya.',      pdf: getAssetUrl("downloads/gospel_tracts/luo.pdf") },
+    { id: 5,  language: t('gospelTractsPage.tracts.kikuyu'),   title: "God's Simple Plan - Kikuyu",   description: 'Kikuyu language version for Kenya.',   pdf: getAssetUrl("downloads/gospel_tracts/kikuyu.pdf") },
+    { id: 6,  language: t('gospelTractsPage.tracts.kalenjin'), title: "God's Simple Plan - Kalenjin", description: 'Kalenjin language version for Kenya.', pdf: getAssetUrl("downloads/gospel_tracts/kalenjin.pdf") },
+    { id: 7,  language: t('gospelTractsPage.tracts.arabic'),   title: "God's Simple Plan - Arabic",   description: 'Arabic language version.',             pdf: getAssetUrl("downloads/gospel_tracts/arabic.pdf") },
+    { id: 8,  language: t('gospelTractsPage.tracts.amharic'),  title: "God's Simple Plan - Amharic",  description: 'Amharic language version for Ethiopia.',pdf: getAssetUrl("downloads/gospel_tracts/amharic.pdf") },
+    { id: 9,  language: t('gospelTractsPage.tracts.maasai'),   title: "God's Simple Plan - Maasai",   description: 'Maasai language version for Kenya/Tanzania.', pdf: getAssetUrl("downloads/gospel_tracts/maasai.pdf") },
+    { id: 10, language: t('gospelTractsPage.tracts.kamba'),    title: "God's Simple Plan - Kamba",    description: 'Kamba language version for Kenya.',   pdf: getAssetUrl("downloads/gospel_tracts/kamba.pdf") },
   ];
 
   const filteredTracts = activeLanguage === 'all'
@@ -75,7 +75,7 @@ const GospelTracts = () => {
               className={`sidebar-tab ${activeLanguage === lang.id ? 'active' : ''}`}
               onClick={() => setActiveLanguage(lang.id)}
             >
-              <span className="sidebar-tab-flag">{lang.flag}</span>
+              <span className="sidebar-tab-code">{lang.code}</span>
               <span className="sidebar-tab-name">{lang.name}</span>
             </button>
           ))}

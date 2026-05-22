@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 import IntroScreen from './components/IntroScreen';
 import TextToSpeech from './components/TextToSpeech';
 import Home from './pages/Home';
+import SeekingTruth from './pages/SeekingTruth';
 import GospelTracts from './pages/GospelTracts';
 import StopTracts from './pages/StopTracts';
 import Discipleship from './pages/Discipleship';
@@ -17,13 +18,14 @@ import FAQs from './pages/FAQs';
 import Contact from './pages/Contact';
 import NextSteps from './pages/NextSteps';
 import PrayerRequest from './pages/PrayerRequest';
+import Give from './pages/Give';
 import './styles/index.css';
 
 function App() {
   // Check if intro has already been shown this session
   const [showIntro, setShowIntro] = useState(() => {
     const introShown = sessionStorage.getItem('introShown');
-    return !introShown; // Show intro only if not already shown
+    return !introShown;
   });
 
   const handleIntroComplete = () => {
@@ -44,21 +46,22 @@ function App() {
           <Navbar />
           <main id="main-content" className="main-content" role="main">
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/gospel-tracts" element={<GospelTracts />} />
-              <Route path="/stop-tracts" element={<StopTracts />} />
-              <Route path="/discipleship" element={<Discipleship />} />
-              <Route path="/salvation-quiz" element={<SalvationQuiz />} />
-              <Route path="/resources" element={<Resources />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/faqs" element={<FAQs />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/next-steps" element={<NextSteps />} />
-              <Route path="/prayer-request" element={<PrayerRequest />} />
+              <Route path="/"                element={<Home />} />
+              <Route path="/seeking-truth"   element={<SeekingTruth />} />
+              <Route path="/gospel-tracts"   element={<GospelTracts />} />
+              <Route path="/stop-tracts"     element={<StopTracts />} />
+              <Route path="/discipleship"    element={<Discipleship />} />
+              <Route path="/salvation-quiz"  element={<SalvationQuiz />} />
+              <Route path="/resources"       element={<Resources />} />
+              <Route path="/about"           element={<About />} />
+              <Route path="/faqs"            element={<FAQs />} />
+              <Route path="/contact"         element={<Contact />} />
+              <Route path="/next-steps"      element={<NextSteps />} />
+              <Route path="/prayer-request"  element={<PrayerRequest />} />
+              <Route path="/give"            element={<Give />} />
             </Routes>
           </main>
           <Footer />
-          {/* Text-to-Speech Button for Illiterate Users */}
           <TextToSpeech />
         </div>
       </Router>

@@ -1,0 +1,295 @@
+/* ═══════════════════════════════════════════════════
+   GIVE PAGE
+   ═══════════════════════════════════════════════════ */
+
+.give-page {
+  background: #0d1117;
+  color: #e8e8e8;
+  min-height: 100vh;
+}
+
+/* ════════════════════
+   HERO
+════════════════════ */
+.give-hero {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 7rem 2rem 4rem;
+  text-align: center;
+}
+
+.give-tag {
+  display: inline-block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c8922a;
+  background: rgba(200, 146, 42, 0.1);
+  border: 1px solid rgba(200, 146, 42, 0.3);
+  padding: 0.3rem 0.9rem;
+  border-radius: 100px;
+  margin-bottom: 1.2rem;
+}
+
+.give-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.give-gold {
+  background: linear-gradient(135deg, #c8922a, #e8b44a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.give-subtitle {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+  max-width: 540px;
+  margin: 0 auto 2rem;
+}
+
+.give-verse {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.55);
+  border-left: 3px solid #c8922a;
+  padding-left: 1.1rem;
+  text-align: left;
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.give-verse cite {
+  display: block;
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 600;
+  color: #c8922a;
+  margin-top: 0.4rem;
+  letter-spacing: 0.05em;
+}
+
+/* ════════════════════
+   WHY GIVE
+════════════════════ */
+.give-why {
+  padding: 3rem 2rem 5rem;
+}
+
+.give-why-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.give-why-card {
+  background: #161b27;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.give-why-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(200,146,42,0.3);
+}
+
+.give-why-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(200, 146, 42, 0.1);
+  border: 1px solid rgba(200, 146, 42, 0.3);
+  border-radius: 50%;
+  color: #c8922a;
+  margin: 0 auto 1.25rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.give-why-card:hover .give-why-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: rgba(200, 146, 42, 0.18);
+}
+
+.give-svg-icon {
+  width: 22px;
+  height: 22px;
+  stroke: #c8922a;
+}
+
+.give-why-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.6rem;
+}
+
+.give-why-card p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ════════════════════
+   COMING SOON
+════════════════════ */
+.give-coming-soon {
+  padding: 3rem 2rem 5rem;
+}
+
+.give-coming-inner {
+  max-width: 580px;
+  margin: 0 auto;
+  text-align: center;
+  background: #161b27;
+  border: 1px solid rgba(200,146,42,0.2);
+  border-radius: 24px;
+  padding: 3.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.give-coming-inner::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(200,146,42,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.give-coming-badge {
+  display: inline-block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c8922a;
+  background: rgba(200,146,42,0.12);
+  border: 1px solid rgba(200,146,42,0.3);
+  padding: 0.28rem 0.85rem;
+  border-radius: 100px;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.give-coming-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.give-coming-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.give-contact-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #c8922a, #e8b44a);
+  color: #0a0c14;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(200,146,42,0.35);
+  transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+  z-index: 1;
+}
+
+.give-contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 50px rgba(200,146,42,0.5);
+  color: #0a0c14;
+  text-decoration: none;
+}
+
+.give-coming-note {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+  margin-top: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ════════════════════
+   VERSE FOOTER
+════════════════════ */
+.give-verse-section {
+  padding: 3rem 2rem 5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  text-align: center;
+}
+
+.give-verse-big {
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: rgba(255,255,255,0.45);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+.give-verse-big cite {
+  display: block;
+  font-size: 0.82rem;
+  font-style: normal;
+  font-weight: 600;
+  color: #c8922a;
+  margin-top: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .give-why-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .give-why-inner {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  .give-coming-inner {
+    padding: 2.5rem 1.75rem;
+  }
+}

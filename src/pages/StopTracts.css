@@ -16,9 +16,9 @@
 }
 
 .stop-badge {
-  background: #c0141480 !important;
-  color: #ff4444 !important;
-  border-color: #ff2222 !important;
+  background: #ff000020 !important;
+  color: #ff0000 !important;
+  border: 2px solid #ff0000 !important;
   font-weight: 700 !important;
   letter-spacing: 2px !important;
 }

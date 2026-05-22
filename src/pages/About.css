@@ -10,9 +10,9 @@
     radial-gradient(circle at 70% 50%, rgba(30, 58, 95, 0.05) 0%, transparent 40%);
 }
 
-/* Decorative olive branches */
+/* Decorative stars */
 .about-hero::after {
-  content: '🌿 ✝ 🌿';
+  content: '✦ ✦ ✦';
   position: absolute;
   top: 20%;
   left: 50%;

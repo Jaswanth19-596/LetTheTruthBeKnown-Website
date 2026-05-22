@@ -155,6 +155,31 @@
   margin-bottom: var(--spacing-md);
 }
 
+.step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(200, 146, 42, 0.1);
+  border: 1px solid rgba(200, 146, 42, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--gold);
+  margin-right: auto;
+}
+
+.step-svg-icon {
+  width: 24px;
+  height: 24px;
+  stroke: var(--gold);
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover .step-svg-icon {
+  transform: scale(1.1) rotate(3deg);
+}
+
+
 .step-checkbox {
   width: 48px;
   height: 48px;

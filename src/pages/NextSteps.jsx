@@ -16,13 +16,72 @@ const NextSteps = () => {
   };
 
   const steps = [
-    { titleKey: 'nextSteps.step1Title', descKey: 'nextSteps.step1Desc', icon: '📖', actionUrl: 'https://www.biblegateway.com/', isExternal: true },
-    { titleKey: 'nextSteps.step2Title', descKey: 'nextSteps.step2Desc', icon: '📚', actionUrl: 'https://www.biblegateway.com/passage/?search=John%201&version=KJV', isExternal: true },
-    { titleKey: 'nextSteps.step3Title', descKey: 'nextSteps.step3Desc', icon: '🙏' },
-    { titleKey: 'nextSteps.step4Title', descKey: 'nextSteps.step4Desc', icon: '⛪' },
-    { titleKey: 'nextSteps.step5Title', descKey: 'nextSteps.step5Desc', icon: '💧' },
-    { titleKey: 'nextSteps.step6Title', descKey: 'nextSteps.step6Desc', icon: '🌍', actionUrl: '/gospel-tracts' }
+    { 
+      titleKey: 'nextSteps.step1Title', 
+      descKey: 'nextSteps.step1Desc', 
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="step-svg-icon">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      ), 
+      actionUrl: 'https://www.biblegateway.com/', 
+      isExternal: true 
+    },
+    { 
+      titleKey: 'nextSteps.step2Title', 
+      descKey: 'nextSteps.step2Desc', 
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="step-svg-icon">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+      ), 
+      actionUrl: 'https://www.biblegateway.com/passage/?search=John%201&version=KJV', 
+      isExternal: true 
+    },
+    { 
+      titleKey: 'nextSteps.step3Title', 
+      descKey: 'nextSteps.step3Desc', 
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="step-svg-icon">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 7v10M9 10h6"></path>
+        </svg>
+      ) 
+    },
+    { 
+      titleKey: 'nextSteps.step4Title', 
+      descKey: 'nextSteps.step4Desc', 
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="step-svg-icon">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <path d="M12 11v6M10 13h4"></path>
+        </svg>
+      ) 
+    },
+    { 
+      titleKey: 'nextSteps.step5Title', 
+      descKey: 'nextSteps.step5Desc', 
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="step-svg-icon">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+        </svg>
+      ) 
+    },
+    { 
+      titleKey: 'nextSteps.step6Title', 
+      descKey: 'nextSteps.step6Desc', 
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="step-svg-icon">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+      ), 
+      actionUrl: '/gospel-tracts' 
+    }
   ];
+
 
   const progress = Math.round((completedSteps.length / steps.length) * 100);
 

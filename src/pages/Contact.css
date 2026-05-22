@@ -12,9 +12,9 @@
     radial-gradient(circle at 70% 50%, rgba(30, 58, 95, 0.05) 0%, transparent 40%);
 }
 
-/* Decorative grape vine */
+/* Decorative stars */
 .contact-hero::after {
-  content: '🍇 ✝ 🍇';
+  content: '✦ ✦ ✦';
   position: absolute;
   top: 15%;
   right: 5%;
