@@ -215,8 +215,10 @@
    STREAMS
 ══════════════ */
 .home-streams {
-  background: #0d1117;
+  background: var(--bg-primary);
   padding: 6rem 1.5rem 7rem;
+  border-top: 1px solid var(--glass-border);
+  position: relative;
 }
 
 .home-streams-inner {
@@ -226,7 +228,7 @@
 }
 
 .streams-label {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Cinzel', serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -239,7 +241,7 @@
   font-family: 'Cinzel', serif;
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 700;
-  color: #e8e8e8;
+  color: var(--text-primary);
   margin-bottom: 3.5rem;
   letter-spacing: -0.02em;
 }
@@ -253,8 +255,8 @@
 /* Stream card */
 .stream-card {
   position: relative;
-  background: #161b27;
-  border: 1px solid rgba(255,255,255,0.07);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 20px;
   padding: 2.5rem 2rem;
   text-decoration: none;
@@ -280,13 +282,13 @@
 }
 
 .stream-card:hover .stream-card-glow {
-  opacity: 0.18;
+  opacity: 0.1;
 }
 
 .stream-card:hover {
   transform: translateY(-8px);
   border-color: var(--accent);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px var(--accent);
+  box-shadow: var(--shadow-xl), 0 0 25px rgba(184, 134, 11, 0.1);
   text-decoration: none;
 }
 
@@ -297,15 +299,15 @@
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(44, 24, 16, 0.03);
+  border: 1px solid rgba(44, 24, 16, 0.08);
   color: var(--accent);
   margin-bottom: 0.5rem;
   transition: background 0.3s, transform 0.3s;
 }
 
 .stream-card:hover .stream-icon-container {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(44, 24, 16, 0.06);
   transform: scale(1.05);
 }
 
@@ -315,13 +317,13 @@
 }
 
 .stream-badge {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Cinzel', serif;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
-  background: rgba(255,255,255,0.05);
+  background: rgba(44, 24, 16, 0.04);
   display: inline-block;
   padding: 0.25rem 0.7rem;
   border-radius: 100px;
@@ -332,21 +334,22 @@
   font-family: 'Cinzel', serif;
   font-size: 1.4rem;
   font-weight: 700;
-  color: #e8e8e8;
+  color: var(--text-primary);
   margin: 0;
   line-height: 1.2;
 }
 
 .stream-card-desc {
-  font-size: 0.9rem;
-  color: #aaa;
+  font-family: var(--font-family); /* Lora */
+  font-size: 0.95rem;
+  color: var(--text-secondary);
   line-height: 1.65;
   margin: 0;
   flex: 1;
 }
 
 .stream-cta {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Cinzel', serif;
   font-size: 0.88rem;
   font-weight: 700;
   color: var(--accent);

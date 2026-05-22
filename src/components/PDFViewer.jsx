@@ -19,9 +19,6 @@ const PDFViewer = ({ pdfUrl, title, onClose }) => {
     return () => document.removeEventListener('keydown', onKey);
   }, [onClose]);
 
-  const getViewerUrl = (url) =>
-    `https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`;
-
   const handleDownload = () => {
     const a = document.createElement('a');
     a.href = pdfUrl;
@@ -71,7 +68,7 @@ const PDFViewer = ({ pdfUrl, title, onClose }) => {
             </div>
           )}
           <iframe
-            src={getViewerUrl(pdfUrl)}
+            src={pdfUrl}
             title={title}
             className="pdf-iframe"
             onLoad={() => setIsLoading(false)}

@@ -3,7 +3,7 @@
 ## 1. Project Overview
 **Name:** LetTheTruthBeKnown-Website
 **Type:** React Single Page Application (SPA)
-**Theme:** Ancient Israel (Galilean simplicity, Temple grandeur, parchment manuscript aesthetics) — dark cinematic with gold (#c8922a) accents
+**Theme:** Ancient Israel (Galilean simplicity, Temple grandeur, parchment manuscript aesthetics) — unified parchment paper theme with gold (#B8860B) and temple-blue (#1e3a5f) accents
 **Goal:** Spreading the Gospel of Jesus Christ with multi-language support, gospel tracts, discipleship materials, and interactive features.
 **Architecture Paradigm:** Stream-First — visitors self-select into one of 3 audience streams from the homepage hero.
 
@@ -63,7 +63,7 @@ The site is structured around audience segments. The hero immediately routes vis
 
 #### 📁 `pages/` (Route Views)
 - `Home.jsx` *(redesigned 2026-05-22)* — Hook hero ("Seeking the Truth?") + 3-stream selector cards. No heavy text. Minimal, cinematic.
-- `SeekingTruth.jsx` *(NEW/REDESIGNED — 2026-05-22)* — Core unsaved-stream page: Cinematic search-for-truth header → 2 video teaser cards with play buttons (Pastor Wilkerson & Peter Morris) → Salvation Quiz CTA → Gospel Tracts by language with professional circular two-letter badges (no emojis).
+- `SeekingTruth.jsx` *(NEW/REDESIGNED — 2026-05-22)* — Unsaved-stream entry page containing the interactive "Worldview Explorer" questionnaire (3-step cosmos, morality, and revelation inquiry) that dynamically analyzes worldview profiles (Naturalist, Design Intuitive, Seeker, Inquiring Mind) and unlocks customized video recommendations (Wilkerson & Peter Morris) alongside gospel tracts and a salvation quiz CTA.
 - `About.jsx`: Ministry history and mission.
 - `Contact.jsx`: Contact information and forms.
 - `Discipleship.jsx`: Structured Bible study paths and materials (Foundations of My Faith — Levels 1, 2, 3).
@@ -123,10 +123,11 @@ The site is structured around audience segments. The hero immediately routes vis
   - `--stream-gold: #c8922a` (Unsaved stream)
   - `--stream-blue: #1e6fa8` (Growing/Discipleship stream)
   - `--stream-scarlet: #8B1538` (Pastor/Stop tracts stream)
-- **IMPORTANT — Dual Theme Pattern (2026-05-22):** The site has two visual modes:
-  - **Light/Parchment pages** (About, Contact, FAQs, Discipleship, NextSteps, GospelTracts, StopTracts, PrayerRequest, Resources): Use global CSS vars (`--bg-primary: #FAF5EE`, `--text-primary: #2C1810`). Dark sepia text on cream backgrounds.
-  - **Dark/Cinematic pages** (Home hero+streams, SeekingTruth, SalvationQuiz, Give): Use **hardcoded** dark hex values (`#0d1117`, `#161b27`) for backgrounds and explicit white/light text. Do NOT use `var(--bg-primary)` on dark pages since it resolves to the global parchment `#FAF5EE`, causing invisible white-on-cream text.
-- **Navbar transparent-state fix (2026-05-22):** When navbar is not scrolled (transparent over dark hero), `.navbar:not(.scrolled):not(.mobile-open)` overrides apply white/light text colors and a frosted glass-style language toggle.
+- **IMPORTANT — Unified Parchment Theme (2026-05-22):** The entire site is visually consistent under a single parchment manuscript theme:
+  - **Parchment Backgrounds:** All pages utilize the global CSS variables (`--bg-primary: #FAF5EE`, `--text-primary: #2C1810`, `--text-secondary: #5C4033`). All cards are styled with frosted cream glassmorphism (`var(--glass-bg)`, `var(--glass-border)`) and dark sepia ink text.
+  - **Cinematic Photographic Heroes:** Dark background styling and overlays are restricted strictly to top hero sections that utilize photographic backgrounds (e.g. Home, SeekingTruth) where light/white text is required for high readability over the image.
+  - **Royal Typography:** The typography is strictly unified to use 'Cinzel' for headers, titles, stream badges, and buttons, and 'Lora' (the Royal font) for all body text, descriptions, questions, and scripture quotes.
+- **Navbar transparent-state fix (2026-05-22):** When navbar is not scrolled (transparent over dark hero), `.navbar:not(.scrolled):not(.mobile-open)` overrides apply white/light text colors. On scroll, it seamlessly reverts to the parchment background with dark-ink text.
 
 ### State Management
 - **Context API:** `LanguageContext.jsx` for i18n. No Redux.

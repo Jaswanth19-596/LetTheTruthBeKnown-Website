@@ -20,13 +20,7 @@ const Home = () => {
   const streams = [
     {
       id: 'seeking-truth',
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="stream-icon">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-      ),
-      label: 'Unsaved / Curious',
+      label: 'Curious',
       title: 'Seeking the Truth?',
       desc: 'Start here. Understand the Gospel and God\'s plan for your life.',
       cta: 'Show Me →',
@@ -52,7 +46,7 @@ const Home = () => {
       id: 'pastor',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="stream-icon">
-          <path d="M12 2v20M8 8h8"/>
+          <path d="M12 2v20M8 8h8" />
         </svg>
       ),
       label: 'Pastor / Teacher',
@@ -88,7 +82,7 @@ const Home = () => {
           <Link to="/seeking-truth" className="home-hero-cta">
             Yes, show me
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </Link>
         </div>
@@ -109,7 +103,6 @@ const Home = () => {
             {streams.map((s) => (
               <Link key={s.id} to={s.link} className="stream-card" style={{ '--accent': s.accent }}>
                 <div className="stream-card-glow"></div>
-                <span className="stream-icon-container">{s.icon}</span>
                 <span className="stream-badge">{s.label}</span>
                 <h3 className="stream-card-title">{s.title}</h3>
                 <p className="stream-card-desc">{s.desc}</p>

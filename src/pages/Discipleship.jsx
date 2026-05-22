@@ -32,9 +32,9 @@ const Discipleship = () => {
       subtitleKey: 'discipleship.level1Subtitle',
       color: 'var(--temple-blue)',
       books: [
-        { title: 'Assurance of Salvation', cover: getAssetUrl('downloads/discipleship/level1/thumbnails/01-assurance-of-salvation-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1/books/01-assurance-of-salvation.pdf') },
-        { title: 'Prayer', cover: getAssetUrl('downloads/discipleship/level1/thumbnails/02-prayer-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1/books/02-prayer.pdf') },
-        { title: 'The Church', cover: getAssetUrl('downloads/discipleship/level1/thumbnails/03-the-church-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1/books/03-the-church.pdf') },
+        { title: 'Understanding Salvation', cover: getAssetUrl('downloads/discipleship/level1/thumbnails/01-assurance-of-salvation-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1/books/01-understanding-salvation.pdf') },
+        { title: 'Eternal Security', cover: getAssetUrl('downloads/discipleship/level1/thumbnails/02-prayer-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1/books/02-eternal-security.pdf') },
+        { title: 'Baptism', cover: getAssetUrl('downloads/discipleship/level1/thumbnails/03-the-church-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1/books/03-baptism.pdf') },
         { title: 'The Word of God', cover: getAssetUrl('downloads/discipleship/level1/thumbnails/04-the-word-of-god-cover.png'), pdf: getAssetUrl('downloads/discipleship/level1/books/04-the-word-of-god.pdf') },
       ]
     },
@@ -44,14 +44,14 @@ const Discipleship = () => {
       subtitleKey: 'discipleship.level2Subtitle',
       color: 'var(--gold)',
       books: [
-        { title: 'Christian Growth', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/01-christian-growth-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/01-christian-growth.pdf') },
-        { title: 'Christian Maturity', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/02-christian-maturity-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/02-christian-maturity.pdf') },
-        { title: 'The Bible', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/03-the-bible-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/03-the-bible.pdf') },
+        { title: 'Prayer', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/01-christian-growth-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/01-prayer.pdf') },
+        { title: 'The Holy Spirit', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/02-christian-maturity-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/02-the-holy-spirit.pdf') },
+        { title: 'Witnessing for Christ', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/03-the-bible-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/03-witnessing-for-christ.pdf') },
         { title: 'The New Testament Church', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/04-the-new-testament-church-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/04-the-new-testament-church.pdf') },
         { title: 'Forgiveness', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/05-forgiveness-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/05-forgiveness.pdf') },
         { title: 'Financial Stewardship', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/06-financial-stewardship-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/06-financial-stewardship.pdf') },
         { title: 'Judgment Seat of Christ', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/07-judgment-seat-of-christ-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/07-judgment-seat-of-christ.pdf') },
-        { title: 'God\'s Will for Your Life', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/08-gods-will-for-your-life-cover.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/08-gods-will-for-your-life.pdf') },
+        { title: 'God\'s Will for Your Life', cover: getAssetUrl('downloads/discipleship/level2/thumbnails/08-gods-will-for-your-life.png'), pdf: getAssetUrl('downloads/discipleship/level2/books/08-gods-will-for-your-life.pdf') },
       ]
     },
     {
@@ -62,10 +62,10 @@ const Discipleship = () => {
       books: [
         { title: 'Grace', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/01-grace-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/01-grace.pdf') },
         { title: 'Practical Christian Living', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/02-practical-christian-living-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/02-practical-christian-living.pdf') },
-        { title: 'Hermeneutics', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/03-hermeneutics-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/03-hermeneutics.pdf') },
-        { title: 'Homiletics', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/04-homiletics-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/04-homiletics.pdf') },
+        { title: 'Sanctification', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/03-hermeneutics-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/03-sanctification.pdf') },
+        { title: 'Victory Over Sin', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/04-homiletics-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/04-victory-over-sin.pdf') },
         { title: 'Jesus Christ', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/05-jesus-christ-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/05-jesus-christ.pdf') },
-        { title: 'Missions', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/06-missions-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/06-missions.pdf') },
+        { title: 'Creation', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/06-missions-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/06-creation.pdf') },
         { title: 'Spiritual Gifts', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/07-spiritual-gifts-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/07-spiritual-gifts.pdf') },
         { title: 'Our Spiritual Armor', cover: getAssetUrl('downloads/discipleship/level3/thumbnails/08-our-spiritual-armor-cover.png'), pdf: getAssetUrl('downloads/discipleship/level3/books/08-our-spiritual-armor.pdf') },
       ]
@@ -126,11 +126,11 @@ const Discipleship = () => {
                   <div className="book-shine"></div>
                   <div className="book-overlay">
                     <button className="book-btn view-btn" onClick={() => handleView(book)}>
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
                       {t('common.view')}
                     </button>
                     <button className="book-btn download-btn" onClick={() => handleDownload(book.pdf)}>
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7,10 12,15 17,10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
                       {t('common.download')}
                     </button>
                   </div>
@@ -162,9 +162,7 @@ const Discipleship = () => {
                 </div>
               ))}
             </div>
-            <div style={{ background: 'rgba(239, 68, 68, 0.05)', borderLeft: '4px solid #ef4444', padding: '1.5rem', borderRadius: '0 8px 8px 0', marginBottom: '2.5rem', textAlign: 'left' }}>
-              <p style={{ color: '#b91c1c', fontStyle: 'italic', margin: 0, fontSize: '0.95rem', lineHeight: '1.6' }}>{t('gbbc.notice')}</p>
-            </div>
+
             <div className="home-verse-card" style={{ padding: '1.5rem', background: 'var(--bg-primary)', borderRadius: '15px', marginBottom: '2.5rem', border: '1px solid var(--glass-border)', textAlign: 'left' }}>
               <p style={{ fontStyle: 'italic', marginBottom: '1rem', color: 'var(--text-secondary)', lineHeight: '1.8' }}>{t('gbbc.verse')}</p>
               <p style={{ fontWeight: 'bold', color: 'var(--primary-color)' }}>{t('gbbc.verseRef')}</p>
