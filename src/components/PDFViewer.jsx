@@ -60,11 +60,16 @@ const PDFViewer = ({ pdfUrl, title, onClose }) => {
 
         {/* PDF iframe */}
         <div className="pdf-viewer-content">
-          <iframe
-            src={pdfUrl}
-            title={title}
+          <object
+            data={pdfUrl}
+            type="application/pdf"
             className="pdf-iframe"
-          />
+          >
+            <div className="pdf-fallback">
+              <p>Your browser does not support viewing PDFs directly.</p>
+              <a href={pdfUrl} download>Download the PDF</a>
+            </div>
+          </object>
         </div>
       </div>
     </div>,
