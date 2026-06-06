@@ -12,9 +12,10 @@
   justify-content: center;
   padding: 20px;
   animation: pdfFadeIn 0.2s ease;
-  /* Prevent any touch/scroll from leaking to underlying page */
+  /* Prevent scroll from leaking to underlying page, but still allow
+     pan gestures so the PDF iframe can be scrolled on touch devices */
   overflow: hidden;
-  touch-action: none;
+  touch-action: pan-x pan-y;
 }
 
 @keyframes pdfFadeIn {
@@ -120,6 +121,9 @@
   position: relative;
   overflow: hidden;             /* iframe handles its own internal scroll */
   background: #fff;
+  /* Prevent scroll-chaining: when PDF hits top/bottom, don't scroll the page */
+  overscroll-behavior: contain;
+  touch-action: pan-x pan-y;
 }
 
 /* Loading spinner */
@@ -158,6 +162,8 @@
   height: 100%;
   border: none;
   display: block;
+  /* Allow touch-scroll inside the iframe on mobile */
+  touch-action: pan-x pan-y;
 }
 
 /* ===== Mobile ===== */

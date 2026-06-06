@@ -45,9 +45,10 @@
 }
 
 .logo-cross {
-  font-size: 1.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: #c8922a;
-  line-height: 1;
 }
 
 .logo-text {

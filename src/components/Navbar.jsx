@@ -73,9 +73,12 @@ const Navbar = () => {
     >
       <div className="navbar-container">
 
-        {/* Logo */}
         <Link to="/" className="navbar-logo">
-          <span className="logo-cross">✝</span>
+          <span className="logo-cross">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11,2 h2 v5 h5 v2 h-5 v13 h-2 v-13 h-5 v-2 h5 z" />
+            </svg>
+          </span>
           <span className="logo-text">Let the Truth be Known</span>
         </Link>
 
