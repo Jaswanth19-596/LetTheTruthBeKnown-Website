@@ -1,7 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useLanguage } from '../context/LanguageContext';
-import LanguageToggle from './LanguageToggle';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -9,7 +7,6 @@ const Navbar = () => {
   const [isMobileOpen, setIsMobileOpen]       = useState(false);
   const [openDropdown, setOpenDropdown]       = useState(null); // 'growing' | 'pastor' | null
   const location  = useLocation();
-  const { t }     = useLanguage();
   const navRef    = useRef(null);
 
   /* ── Scroll listener ── */
@@ -162,7 +159,6 @@ const Navbar = () => {
 
         {/* Right-side actions */}
         <div className="navbar-actions">
-          <LanguageToggle />
           <Link to="/contact" className="navbar-contact-btn">
             Contact Us
           </Link>

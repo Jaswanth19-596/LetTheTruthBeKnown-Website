@@ -51,7 +51,6 @@ The site is structured around audience segments. The hero immediately routes vis
 #### 📁 `components/` (Reusable UI Elements)
 - **Navigation:** `Navbar.jsx` *(stream-based dropdown nav — redesigned 2026-05-22)*, `Footer.jsx`
 - **Utility / Interactive:**
-  - `LanguageToggle.jsx`: Switch between supported languages.
   - `PDFViewer.jsx`: In-browser PDF viewing for tracts.
   - `TextToSpeech.jsx`: Audio playback for scripture (Verse of the Day).
   - `WhatsAppShare.jsx`: Social sharing integration.
@@ -76,17 +75,8 @@ The site is structured around audience segments. The hero immediately routes vis
 - `FAQs.jsx`: Frequently Asked Questions.
 - `Give.jsx` *(NEW — 2026-05-22)* — Frontend placeholder for donations: 4 impact cards + "Coming Soon" online giving panel + Contact CTA.
 
-#### 📁 `context/` (State Management)
-- `LanguageContext.jsx`: Global state for the current selected language and translation functions.
-
 #### 📁 `hooks/` (Custom React Hooks)
 - `useAnimations.js`: Custom hook for managing UI micro-animations and transitions.
-
-#### 📁 `locales/` (Internationalization)
-- `en.json`: English translations (primary, most complete).
-- `sw.json`: Swahili translations.
-- `fr.json`: French translations.
-- `index.js`: Locale loader and exports.
 
 #### 📁 `styles/` (Global Styling)
 - `index.css`: Global CSS, design tokens (CSS variables). Key colors: Temple Blue `#1e3a5f`, Scarlet `#8B1538`, Gold `#c8922a`, Dark BG `#0d1117`.
@@ -130,7 +120,7 @@ The site is structured around audience segments. The hero immediately routes vis
 - **Navbar transparent-state fix (2026-05-22):** When navbar is not scrolled (transparent over dark hero), `.navbar:not(.scrolled):not(.mobile-open)` overrides apply white/light text colors. On scroll, it seamlessly reverts to the parchment background with dark-ink text.
 
 ### State Management
-- **Context API:** `LanguageContext.jsx` for i18n. No Redux.
+- No Redux or global contexts used anymore. Local state is preferred.
 
 ### PDF Handling
 - All PDFs served directly from `/public/downloads/`. No server needed — static file serving via Vite.
@@ -139,7 +129,7 @@ The site is structured around audience segments. The hero immediately routes vis
 
 ### Emoji Elimination & Professional SVG/Badge Theming (2026-05-22)
 - **Zero-Emoji Rule:** All colorful/system emojis are strictly banned and eliminated across the application.
-- **2-Letter Badges:** Flag emojis in translation files (`en.json`, `sw.json`, `fr.json`) and tract lists have been replaced with elegant gold-bordered circular 2-letter code badges (e.g. `EN`, `SW`, `LU`, `FR`).
+- **2-Letter Badges:** Flag emojis in tract lists have been replaced with elegant gold-bordered circular 2-letter code badges (e.g. `EN`, `SW`, `LU`, `FR`).
 - **Inline SVGs:** All feature/utility/step icons (including those on pages like `NextSteps`, `Give`, and components like `TextToSpeech`, `WhatsAppShare`) use custom, premium inline SVGs styled with CSS transitions and subtle golden hover micro-animations.
 
 ---
@@ -151,7 +141,6 @@ The site is structured around audience segments. The hero immediately routes vis
 - `SeekingTruth.jsx` **links to** `/salvation-quiz`, `/next-steps`, `/downloads/stop_tracts/*`, `/downloads/gospel_tracts/*`
 - `SalvationQuiz.jsx` **links to** `/seeking-truth` (unsaved result) and `/next-steps` (saved result)
 - `Give.jsx` **links to** `/contact`
-- `Navbar.jsx` **links to** all stream entry points; **imports** `LanguageToggle.jsx`
-- `pages/*` **consume** `LanguageContext.jsx` for localization (except SeekingTruth, Give — static English only)
+- `Navbar.jsx` **links to** all stream entry points
 - `GospelTracts.jsx` **depends on** `components/PDFViewer.jsx` and `config/assets.js`
 - `components/*` & `pages/*` **import** local `.css` files for styling

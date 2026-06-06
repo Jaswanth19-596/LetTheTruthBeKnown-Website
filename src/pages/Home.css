@@ -26,9 +26,7 @@
 .home-hero-bg {
   position: absolute;
   inset: -20%;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(30, 47, 90, 0.9) 0%, transparent 70%),
-    url('/intro_image.jpeg') center/cover no-repeat;
+  background: url('/intro_image.jpeg') center/cover no-repeat;
   will-change: transform;
   z-index: 0;
 }
@@ -38,9 +36,9 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(8, 10, 20, 0.55) 0%,
-    rgba(8, 10, 20, 0.75) 50%,
-    rgba(8, 10, 20, 0.95) 100%
+    rgba(250, 245, 238, 0.85) 0%,
+    rgba(250, 245, 238, 0.95) 50%,
+    var(--bg-primary) 100%
   );
   z-index: 1;
 }
@@ -63,7 +61,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Inter', 'Outfit', sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -89,18 +87,18 @@
 
 /* Main title */
 .home-hero-title {
-  font-family: 'Cinzel', 'Palatino Linotype', serif;
+  font-family: var(--font-family-heading);
   font-size: clamp(3rem, 9vw, 7rem);
   font-weight: 700;
   line-height: 1.05;
-  color: #ffffff;
+  color: var(--text-primary);
   margin: 0 0 1.5rem;
   letter-spacing: -0.02em;
   animation: heroFadeUp 1.1s 0.2s both;
 }
 
 .home-hero-title-highlight {
-  background: linear-gradient(135deg, #e8b44a 0%, #f5d78e 50%, #c8922a 100%);
+  background: var(--gradient-gold);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -109,10 +107,10 @@
 
 /* Verse */
 .home-hero-verse {
-  font-family: 'Lora', 'Georgia', serif;
+  font-family: var(--font-family);
   font-size: clamp(1rem, 2.5vw, 1.3rem);
   font-style: italic;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-secondary);
   line-height: 1.7;
   margin: 0 auto 2.5rem;
   max-width: 560px;
@@ -138,23 +136,24 @@
   align-items: center;
   gap: 0.6rem;
   padding: 1.1rem 2.6rem;
-  background: linear-gradient(135deg, #c8922a 0%, #e8b44a 100%);
-  color: #0a0c14;
-  font-family: 'Outfit', 'Inter', sans-serif;
+  background: var(--gradient-gold);
+  color: var(--text-primary);
+  font-family: var(--font-family-heading);
   font-size: 1.1rem;
   font-weight: 700;
   border-radius: 100px;
   text-decoration: none;
-  letter-spacing: 0.02em;
-  box-shadow: 0 8px 40px rgba(200, 146, 42, 0.45);
-  transition: transform 0.25s, box-shadow 0.25s;
+  letter-spacing: 0.05em;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
   animation: heroFadeUp 1.1s 0.4s both;
 }
 
 .home-hero-cta:hover {
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 16px 60px rgba(200, 146, 42, 0.6);
-  color: #0a0c14;
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(184, 134, 11, 0.3);
+  background: var(--gold-light);
+  color: var(--text-primary);
   text-decoration: none;
 }
 
@@ -169,7 +168,7 @@
 /* Sub-text */
 .home-hero-sub {
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.4);
+  color: var(--text-muted);
   margin-top: 1rem;
   letter-spacing: 0.05em;
   animation: heroFadeUp 1.1s 0.5s both;
@@ -186,7 +185,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
-  color: rgba(255,255,255,0.3);
+  color: var(--text-muted);
   font-size: 0.65rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -201,7 +200,7 @@
 .home-hero-scroll-line {
   width: 1px;
   height: 40px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+  background: linear-gradient(to bottom, var(--text-muted), transparent);
   animation: scrollPulse 2s infinite;
 }
 
@@ -228,7 +227,7 @@
 }
 
 .streams-label {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -238,7 +237,7 @@
 }
 
 .streams-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 700;
   color: var(--text-primary);
@@ -317,7 +316,7 @@
 }
 
 .stream-badge {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -331,7 +330,7 @@
 }
 
 .stream-card-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -349,7 +348,7 @@
 }
 
 .stream-cta {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.88rem;
   font-weight: 700;
   color: var(--accent);

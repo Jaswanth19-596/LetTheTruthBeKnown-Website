@@ -223,7 +223,7 @@
   position: absolute;
   top: -10px;
   left: 10px;
-  font-family: 'Times New Roman', serif;
+  font-family: var(--font-family);
   font-size: 3rem;
   color: var(--gold);
   opacity: 0.3;
@@ -304,7 +304,7 @@
   position: absolute;
   top: -8px;
   left: 10px;
-  font-family: 'Times New Roman', serif;
+  font-family: var(--font-family);
   font-size: 2.5rem;
   color: var(--olive);
   opacity: 0.3;

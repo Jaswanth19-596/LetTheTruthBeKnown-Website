@@ -40,7 +40,7 @@ const Home = () => {
       desc: 'Foundations, discipleship levels, and understanding more of God\'s Word.',
       cta: 'Start Growing →',
       link: '/discipleship',
-      accent: 'var(--stream-blue)',
+      accent: 'var(--stream-gold)',
     },
     {
       id: 'pastor',
@@ -54,7 +54,7 @@ const Home = () => {
       desc: 'Advanced resources, soul winning tools, and teaching materials.',
       cta: 'Explore →',
       link: '/resources',
-      accent: 'var(--stream-scarlet)',
+      accent: 'var(--stream-gold)',
     },
   ];
 

@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useLanguage } from '../context/LanguageContext';
 import Card from '../components/Card';
 import { getAssetUrl } from '../config/assets';
 import './StopTracts.css';
 
 const StopTracts = () => {
-  const { t } = useLanguage();
   const [activeLanguage, setActiveLanguage] = useState('all');
 
   useEffect(() => {
@@ -20,7 +18,7 @@ const StopTracts = () => {
   }, [activeLanguage]);
 
   const languages = [
-    { id: 'all',      name: t('common.allLanguages'), code: 'ALL' },
+    { id: 'all',      name: 'All Languages', code: 'ALL' },
     { id: 'english',  name: 'English',  code: 'EN' },
     { id: 'swahili',  name: 'Swahili',  code: 'SW' },
     { id: 'luo',      name: 'Luo',      code: 'LU' },
@@ -46,9 +44,9 @@ const StopTracts = () => {
       <section className="page-hero stop-hero">
         <div className="container">
           <div className="page-hero-content">
-            <span className="section-badge stop-badge">{t('stopTractsPage.badge')}</span>
-            <h1>{t('stopTractsPage.title')} <span className="gradient-text">{t('stopTractsPage.titleHighlight')}</span></h1>
-            <p>{t('stopTractsPage.subtitle')}</p>
+            <span className="section-badge stop-badge">Street Evangelism</span>
+            <h1>STOP! <span className="gradient-text">Tracts</span></h1>
+            <p>Eye-catching tracts designed to grab attention and share the Gospel quickly.</p>
           </div>
         </div>
       </section>
@@ -75,16 +73,16 @@ const StopTracts = () => {
         <main className="sidebar-content">
           <div className="grid grid-auto">
             {filteredTracts.map(tract => (
-              <Card key={tract.id} title={tract.title} description={tract.description} link={tract.pdf} linkText={t('common.downloadPdf')} />
+              <Card key={tract.id} title={tract.title} description={tract.description} link={tract.pdf} linkText="Download PDF" />
             ))}
           </div>
 
           {/* Why section */}
           <div className="why-grid" style={{ marginTop: '3rem' }}>
-            <div className="why-card"><h4>{t('stopTractsPage.why1Title')}</h4><p>{t('stopTractsPage.why1Desc')}</p></div>
-            <div className="why-card"><h4>{t('stopTractsPage.why2Title')}</h4><p>{t('stopTractsPage.why2Desc')}</p></div>
-            <div className="why-card"><h4>{t('stopTractsPage.why3Title')}</h4><p>{t('stopTractsPage.why3Desc')}</p></div>
-            <div className="why-card"><h4>{t('stopTractsPage.why4Title')}</h4><p>{t('stopTractsPage.why4Desc')}</p></div>
+            <div className="why-card"><h4>Eye-Catching</h4><p>The red STOP sign design instantly grabs people's attention as they walk by.</p></div>
+            <div className="why-card"><h4>Direct Message</h4><p>Gets straight to the point about sin, judgment, and the need for a Saviour.</p></div>
+            <div className="why-card"><h4>Easy to Read</h4><p>Clear, bold text that can be read quickly.</p></div>
+            <div className="why-card"><h4>Perfect for Street Ministry</h4><p>Ideal size for handing out at busy intersections or markets.</p></div>
           </div>
         </main>
 

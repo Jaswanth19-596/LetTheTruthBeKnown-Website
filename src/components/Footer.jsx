@@ -1,23 +1,21 @@
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../context/LanguageContext';
 import './Footer.css';
 
 const Footer = () => {
-  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { to: '/gospel-tracts', labelKey: 'nav.gospelTracts' },
-    { to: '/stop-tracts', labelKey: 'nav.stopTracts' },
-    { to: '/discipleship', labelKey: 'nav.discipleship' },
-    { to: '/salvation-quiz', labelKey: 'nav.salvationQuiz' },
+    { to: '/gospel-tracts', label: 'Gospel Tracts' },
+    { to: '/stop-tracts', label: 'Stop Tracts' },
+    { to: '/discipleship', label: 'Discipleship' },
+    { to: '/salvation-quiz', label: 'Salvation Quiz' },
   ];
 
   const resourceLinks = [
-    { to: '/resources', labelKey: 'footer.otherResources' },
-    { to: '/about', labelKey: 'footer.aboutUs' },
-    { to: '/faqs', labelKey: 'nav.faqs' },
-    { to: '/contact', labelKey: 'nav.contactUs' },
+    { to: '/resources', label: 'Other Resources' },
+    { to: '/about', label: 'About Us' },
+    { to: '/faqs', label: 'FAQs' },
+    { to: '/contact', label: 'Contact Us' },
   ];
 
   return (
@@ -29,50 +27,50 @@ const Footer = () => {
               <span className="logo-text">Let the Truth be Known</span>
             </Link>
             <p className="footer-description">
-              {t('footer.description')}
+              Spreading the Gospel of Jesus Christ through tracts, resources, and discipleship materials in multiple languages.
             </p>
           </div>
 
           <div className="footer-links">
-            <h4 className="footer-heading">{t('footer.quickLinks')}</h4>
+            <h4 className="footer-heading">Quick Links</h4>
             <ul>
-              {quickLinks.map(({ to, labelKey }) => (
+              {quickLinks.map(({ to, label }) => (
                 <li key={to}>
-                  <Link to={to}>{t(labelKey)}</Link>
+                  <Link to={to}>{label}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div className="footer-links">
-            <h4 className="footer-heading">{t('footer.resources')}</h4>
+            <h4 className="footer-heading">Resources</h4>
             <ul>
-              {resourceLinks.map(({ to, labelKey }) => (
+              {resourceLinks.map(({ to, label }) => (
                 <li key={to}>
-                  <Link to={to}>{t(labelKey)}</Link>
+                  <Link to={to}>{label}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div className="footer-newsletter">
-            <h4 className="footer-heading">{t('footer.stayConnected')}</h4>
-            <p>{t('footer.getTheBible')}</p>
+            <h4 className="footer-heading">Stay Connected</h4>
+            <p>Get the Free Holy Bible KJV App</p>
             <a 
               href="https://play.google.com/store/apps/details?id=com.sirma.mobile.bible.android" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn btn-outline"
             >
-              {t('footer.downloadApp')}
+              Download App
             </a>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {currentYear} Let the Truth be Known. {t('footer.allRightsReserved')}.</p>
+          <p>&copy; {currentYear} Let the Truth be Known. All rights reserved.</p>
           <p className="footer-verse">
-            {t('footer.footerVerse')}
+            "Jesus saith unto him, I am the way, the TRUTH, and the life: no man cometh unto the Father, but by me" - John 14:6
           </p>
         </div>
       </div>

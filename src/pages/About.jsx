@@ -1,8 +1,6 @@
-import { useLanguage } from '../context/LanguageContext';
 import './About.css';
 
 const About = () => {
-  const { t } = useLanguage();
   
   return (
     <div className="about-page">
@@ -10,9 +8,9 @@ const About = () => {
       <section className="page-hero about-hero">
         <div className="container">
           <div className="page-hero-content">
-            <span className="section-badge">{t('about.badge')}</span>
-            <h1>{t('about.title')} <span className="gradient-text">{t('about.titleHighlight')}</span></h1>
-            <p>{t('about.subtitle')}</p>
+            <span className="section-badge">Our Mission</span>
+            <h1>About <span className="gradient-text">Our Ministry</span></h1>
+            <p>Dedicated to spreading the Gospel of Jesus Christ through free resources and materials.</p>
           </div>
         </div>
       </section>
@@ -22,16 +20,16 @@ const About = () => {
         <div className="container">
           <div className="mission-grid">
             <div className="mission-content">
-              <h2>{t('about.missionTitle')} <span className="gradient-text">{t('about.missionHighlight')}</span></h2>
-              <p>{t('about.missionText1')}</p>
-              <p>{t('about.missionText2')}</p>
+              <h2>Our <span className="gradient-text">Mission</span></h2>
+              <p>"Let the Truth be Known" is a ministry dedicated to spreading the Gospel of Jesus Christ across Africa and beyond. We believe that everyone deserves to hear the Good News in their own language.</p>
+              <p>Our mission is to help people know the truth.</p>
               <div className="mission-verse">
-                <p>"{t('about.missionVerse')}"</p>
-                <span>— {t('about.missionVerseRef')}</span>
+                <p>"Go ye into all the world, and preach the gospel to every creature."</p>
+                <span>— Mark 16:15</span>
               </div>
             </div>
             <div className="mission-image">
-              <div className="mission-icon-text">{t('about.faith')}</div>
+              <div className="mission-icon-text">Faith</div>
             </div>
           </div>
         </div>
@@ -41,24 +39,24 @@ const About = () => {
       <section className="values-section section">
         <div className="container">
           <div className="section-header text-center">
-            <h2>{t('about.valuesTitle')} <span className="gradient-text">{t('about.valuesHighlight')}</span></h2>
+            <h2>Our <span className="gradient-text">Values</span></h2>
           </div>
           <div className="values-grid">
             <div className="value-card">
-              <h4>{t('about.value1Title')}</h4>
-              <p>{t('about.value1Desc')}</p>
+              <h4>Bible-Centered</h4>
+              <p>All our materials are based solely on the Word of God, using clear Scripture references.</p>
             </div>
             <div className="value-card">
-              <h4>{t('about.value2Title')}</h4>
-              <p>{t('about.value2Desc')}</p>
+              <h4>Freely Given</h4>
+              <p>All resources are completely free to download, print, and distribute.</p>
             </div>
             <div className="value-card">
-              <h4>{t('about.value3Title')}</h4>
-              <p>{t('about.value3Desc')}</p>
+              <h4>Multi-Language</h4>
+              <p>We translate materials into multiple African languages to reach more people.</p>
             </div>
             <div className="value-card">
-              <h4>{t('about.value4Title')}</h4>
-              <p>{t('about.value4Desc')}</p>
+              <h4>Partnership</h4>
+              <p>We work with local churches and missionaries for effective gospel distribution.</p>
             </div>
           </div>
         </div>
@@ -68,38 +66,38 @@ const About = () => {
       <section className="offer-section section">
         <div className="container">
           <div className="section-header text-center">
-            <h2>{t('about.offerTitle')} <span className="gradient-text">{t('about.offerHighlight')}</span></h2>
+            <h2>What We <span className="gradient-text">Offer</span></h2>
           </div>
           <div className="offer-grid">
             <div className="offer-item">
               <span className="offer-number">01</span>
-              <h4>{t('about.offer1Title')}</h4>
-              <p>{t('about.offer1Desc')}</p>
+              <h4>Gospel Tracts</h4>
+              <p>God's Simple Plan of Salvation in 9+ languages</p>
             </div>
             <div className="offer-item">
               <span className="offer-number">02</span>
-              <h4>{t('about.offer2Title')}</h4>
-              <p>{t('about.offer2Desc')}</p>
+              <h4>Stop! Tracts</h4>
+              <p>Eye-catching tracts for street evangelism</p>
             </div>
             <div className="offer-item">
               <span className="offer-number">03</span>
-              <h4>{t('about.offer3Title')}</h4>
-              <p>{t('about.offer3Desc')}</p>
+              <h4>Discipleship Materials</h4>
+              <p>3-level program with 20+ study books</p>
             </div>
             <div className="offer-item">
               <span className="offer-number">04</span>
-              <h4>{t('about.offer4Title')}</h4>
-              <p>{t('about.offer4Desc')}</p>
+              <h4>Answer Books</h4>
+              <p>7-volume series answering common questions</p>
             </div>
             <div className="offer-item">
               <span className="offer-number">05</span>
-              <h4>{t('about.offer5Title')}</h4>
-              <p>{t('about.offer5Desc')}</p>
+              <h4>Study Guides</h4>
+              <p>Additional resources for deeper Bible study</p>
             </div>
             <div className="offer-item">
               <span className="offer-number">06</span>
-              <h4>{t('about.offer6Title')}</h4>
-              <p>{t('about.offer6Desc')}</p>
+              <h4>Teaching Materials</h4>
+              <p>Resources for pastors and teachers</p>
             </div>
           </div>
         </div>
@@ -109,11 +107,11 @@ const About = () => {
       <section className="about-cta section">
         <div className="container">
           <div className="cta-card">
-            <h2>{t('about.ctaTitle')} <span className="gradient-text">{t('about.ctaHighlight')}</span></h2>
-            <p>{t('about.ctaDesc')}</p>
+            <h2>Ready to <span className="gradient-text">Get Involved?</span></h2>
+            <p>Download our materials and start sharing the Gospel in your community today.</p>
             <div className="cta-actions">
-              <a href="/gospel-tracts" className="btn btn-primary">{t('about.ctaBrowse')}</a>
-              <a href="/contact" className="btn btn-secondary">{t('about.ctaContact')}</a>
+              <a href="/gospel-tracts" className="btn btn-primary">Browse Resources</a>
+              <a href="/contact" className="btn btn-secondary">Contact Us</a>
             </div>
           </div>
         </div>

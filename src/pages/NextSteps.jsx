@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../context/LanguageContext';
 import './NextSteps.css';
 
 const NextSteps = () => {
-  const { t } = useLanguage();
   const [completedSteps, setCompletedSteps] = useState([]);
 
   const toggleStep = (stepIndex) => {
@@ -17,8 +15,8 @@ const NextSteps = () => {
 
   const steps = [
     { 
-      titleKey: 'nextSteps.step1Title', 
-      descKey: 'nextSteps.step1Desc', 
+      title: 'Get a Bible', 
+      desc: 'The Bible is God\'s Word and your guide for life. Start with a translation you can understand easily.', 
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="step-svg-icon">
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
@@ -29,8 +27,8 @@ const NextSteps = () => {
       isExternal: true 
     },
     { 
-      titleKey: 'nextSteps.step2Title', 
-      descKey: 'nextSteps.step2Desc', 
+      title: 'Start Reading', 
+      desc: 'Begin reading God\'s Word daily. Start with the Gospel of John to learn about Jesus, then Romans to understand salvation.', 
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="step-svg-icon">
           <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
@@ -41,8 +39,8 @@ const NextSteps = () => {
       isExternal: true 
     },
     { 
-      titleKey: 'nextSteps.step3Title', 
-      descKey: 'nextSteps.step3Desc', 
+      title: 'Pray Daily', 
+      desc: 'Prayer is simply talking to God. Thank Him, confess sins, ask for help, and pray for others.', 
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="step-svg-icon">
           <circle cx="12" cy="12" r="10"></circle>
@@ -51,8 +49,8 @@ const NextSteps = () => {
       ) 
     },
     { 
-      titleKey: 'nextSteps.step4Title', 
-      descKey: 'nextSteps.step4Desc', 
+      title: 'Find a Church', 
+      desc: 'Join a Bible-believing church where you can grow, learn, and fellowship with other Christians.', 
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="step-svg-icon">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -61,8 +59,8 @@ const NextSteps = () => {
       ) 
     },
     { 
-      titleKey: 'nextSteps.step5Title', 
-      descKey: 'nextSteps.step5Desc', 
+      title: 'Get Baptized', 
+      desc: 'Baptism is your public declaration of faith in Jesus Christ. It symbolizes your old life dying and new life beginning.', 
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="step-svg-icon">
           <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
@@ -70,8 +68,8 @@ const NextSteps = () => {
       ) 
     },
     { 
-      titleKey: 'nextSteps.step6Title', 
-      descKey: 'nextSteps.step6Desc', 
+      title: 'Share Your Faith', 
+      desc: 'Tell others what Jesus has done for you! Your testimony is powerful and can lead others to Christ.', 
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="step-svg-icon">
           <circle cx="12" cy="12" r="10"></circle>
@@ -90,9 +88,9 @@ const NextSteps = () => {
       <section className="page-hero next-steps-hero">
         <div className="container">
           <div className="page-hero-content">
-            <span className="section-badge">{t('nextSteps.badge')}</span>
-            <h1>{t('nextSteps.title')} <span className="gradient-text">{t('nextSteps.titleHighlight')}</span></h1>
-            <p>{t('nextSteps.subtitle')}</p>
+            <span className="section-badge">Your Journey Begins</span>
+            <h1>What Happens <span className="gradient-text">Next?</span></h1>
+            <p>Congratulations on your decision to follow Jesus! Here are 6 important steps to grow in your new faith.</p>
           </div>
         </div>
       </section>
@@ -100,11 +98,11 @@ const NextSteps = () => {
       <section className="progress-section section">
         <div className="container">
           <div className="progress-card">
-            <h3>{t('nextSteps.progressTitle')}</h3>
+            <h3>Your Progress</h3>
             <div className="progress-bar-large">
               <div className="progress-fill" style={{ width: `${progress}%` }}></div>
             </div>
-            <p>{completedSteps.length} {t('common.of')} {steps.length} {t('common.completed')}</p>
+            <p>{completedSteps.length} of {steps.length} completed</p>
           </div>
         </div>
       </section>
@@ -129,18 +127,18 @@ const NextSteps = () => {
                   </button>
                 </div>
                 <div className="step-content">
-                  <h3>{t(step.titleKey)}</h3>
-                  <p>{t(step.descKey)}</p>
+                  <h3>{step.title}</h3>
+                  <p>{step.desc}</p>
                 </div>
                 {step.actionUrl && (
                   <div className="step-action">
                     {step.isExternal ? (
                       <a href={step.actionUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline-small">
-                        {t('common.learnMore')} →
+                        Learn More →
                       </a>
                     ) : (
                       <Link to={step.actionUrl} className="btn btn-outline-small">
-                        {t('common.explore')} →
+                        Explore →
                       </Link>
                     )}
                   </div>
@@ -154,11 +152,11 @@ const NextSteps = () => {
       <section className="encouragement-section section">
         <div className="container">
           <div className="encouragement-card">
-            <h3>{t('nextSteps.encouragementTitle')}</h3>
-            <p>{t('nextSteps.encouragementDesc')}</p>
+            <h3>Remember, You're Not Alone!</h3>
+            <p>God is with you every step of the way. The Holy Spirit lives within you to guide, comfort, and strengthen you.</p>
             <div className="encouragement-actions">
-              <Link to="/discipleship" className="btn btn-primary">{t('nextSteps.exploreDiscipleship')}</Link>
-              <Link to="/contact" className="btn btn-secondary">{t('nextSteps.needHelp')}</Link>
+              <Link to="/discipleship" className="btn btn-primary">Explore Discipleship Materials</Link>
+              <Link to="/contact" className="btn btn-secondary">Need Help? Contact Us</Link>
             </div>
           </div>
         </div>

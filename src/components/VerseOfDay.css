@@ -33,7 +33,7 @@
   position: absolute;
   top: -30px;
   left: 30px;
-  font-family: 'Times New Roman', Georgia, serif;
+  font-family: var(--font-family);
   font-size: 280px;
   color: var(--gold);
   line-height: 1;

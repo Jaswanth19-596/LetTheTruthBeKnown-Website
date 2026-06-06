@@ -39,10 +39,7 @@
 .st-hero-bg {
   position: absolute;
   inset: 0;
-  background: 
-    radial-gradient(ellipse 65% 55% at 50% 50%, rgba(30, 47, 90, 0.6) 0%, transparent 80%),
-    url('/intro_image.jpeg') center/cover no-repeat;
-  filter: brightness(0.35) saturate(0.85);
+  background: url('/intro_image.jpeg') center/cover no-repeat;
   will-change: transform;
   z-index: 0;
 }
@@ -52,8 +49,8 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(8, 10, 20, 0.4) 0%,
-    rgba(8, 10, 20, 0.7) 60%,
+    rgba(250, 245, 238, 0.85) 0%,
+    rgba(250, 245, 238, 0.95) 50%,
     var(--bg-primary) 100%
   );
   z-index: 1;
@@ -68,7 +65,7 @@
 
 .st-tag {
   display: inline-block;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -82,10 +79,10 @@
 }
 
 .st-hero-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   line-height: 1.2;
   margin: 0 0 1.5rem;
   letter-spacing: -0.01em;
@@ -94,7 +91,7 @@
 .st-hero-subtitle {
   font-family: var(--font-family); /* Lora */
   font-size: clamp(1.05rem, 2.2vw, 1.25rem);
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
   line-height: 1.75;
   max-width: 720px;
   margin: 0 auto 3rem;
@@ -108,7 +105,7 @@
   font-family: var(--font-family); /* Lora */
   font-style: italic;
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-secondary);
   border-left: 3px solid #c8922a;
   padding-left: 1.5rem;
   text-align: left;
@@ -127,243 +124,6 @@
   letter-spacing: 0.05em;
 }
 
-/* ════════════════════════
-   WORLDVIEW EXPLORER WIZARD
-   ════════════════════════ */
-.st-explorer-section {
-  padding: 4rem 2rem;
-  position: relative;
-  z-index: 2;
-  margin-top: -6rem; /* overlaps hero elegantly */
-}
-
-.st-explorer-inner {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.st-explorer-card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  padding: 2.5rem;
-  box-shadow: var(--shadow-lg), 0 10px 40px rgba(44, 24, 16, 0.06);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.st-explorer-card-header {
-  margin-bottom: 2rem;
-}
-
-.st-explorer-step-label {
-  font-family: 'Cinzel', serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.st-explorer-progress-track {
-  width: 100%;
-  height: 4px;
-  background: rgba(44, 24, 16, 0.06);
-  border-radius: 100px;
-  margin-top: 0.5rem;
-  overflow: hidden;
-}
-
-.st-explorer-progress-fill {
-  height: 100%;
-  background: var(--gradient-gold);
-  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border-radius: 100px;
-}
-
-.st-explorer-question {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(1.25rem, 3.5vw, 1.6rem);
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 2rem;
-  line-height: 1.35;
-}
-
-.st-explorer-options-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.st-explorer-option {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  padding: 1.2rem 1.6rem;
-  background: var(--bg-card);
-  border: 1px solid var(--glass-border);
-  border-radius: 14px;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.st-explorer-option:hover {
-  border-color: var(--gold);
-  background: rgba(184, 134, 11, 0.03);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-
-.st-explorer-option:active {
-  transform: translateY(0);
-}
-
-.st-option-title {
-  font-family: 'Cinzel', serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.st-option-sub {
-  font-family: var(--font-family); /* Lora */
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  margin-top: 0.25rem;
-}
-
-.st-explorer-card-footer {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.st-explorer-skip-btn {
-  font-family: 'Cinzel', serif;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.2s;
-}
-
-.st-explorer-skip-btn:hover {
-  color: var(--gold-dark);
-}
-
-/* ── Analysis Result display ── */
-.st-analysis-card {
-  background: var(--glass-bg);
-  border: 2px solid var(--gold);
-  border-radius: 24px;
-  padding: 3rem;
-  box-shadow: var(--shadow-xl);
-  animation: analysisReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes analysisReveal {
-  from { opacity: 0; transform: scale(0.97) translateY(20px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-.st-analysis-badge {
-  display: inline-block;
-  font-family: 'Cinzel', serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gold-dark);
-  background: rgba(184, 134, 11, 0.08);
-  padding: 0.3rem 0.85rem;
-  border-radius: 100px;
-  margin-bottom: 1.5rem;
-}
-
-.st-analysis-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0 0 1.25rem;
-  letter-spacing: -0.01em;
-}
-
-.st-analysis-desc {
-  font-family: var(--font-family); /* Lora */
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 2.2rem;
-  text-align: left;
-}
-
-.st-analysis-recommendation {
-  background: rgba(30, 58, 95, 0.04);
-  border-left: 4px solid var(--temple-blue);
-  border-radius: 0 12px 12px 0;
-  padding: 1.25rem 1.6rem;
-  margin-bottom: 2.5rem;
-  text-align: left;
-}
-
-.st-recommend-label {
-  font-family: 'Cinzel', serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--temple-blue);
-  letter-spacing: 0.08em;
-  display: block;
-  margin-bottom: 0.3rem;
-}
-
-.st-recommend-text {
-  font-family: var(--font-family); /* Lora */
-  font-size: 0.98rem;
-  color: var(--text-primary);
-  line-height: 1.6;
-  margin: 0;
-}
-
-.st-analysis-actions {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.st-reset-quiz-btn {
-  font-family: 'Cinzel', serif;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--gold-dark);
-  border: 1px dashed var(--gold);
-  background: transparent;
-  padding: 0.6rem 1.4rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.st-reset-quiz-btn:hover {
-  background: rgba(184, 134, 11, 0.05);
-  border-style: solid;
-  color: var(--gold-dark);
-}
-
-/* ── Revealed Wrapper Animation ── */
-.st-revealed-wrapper {
-  animation: revealedContentFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes revealedContentFadeIn {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: none; }
-}
 
 /* ════════════════════════
    VIDEOS SECTION
@@ -381,7 +141,7 @@
 }
 
 .st-videos-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 700;
   color: var(--text-primary);
@@ -400,20 +160,22 @@
 
 .st-videos-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 3.5rem;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
 .st-video-card {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 24px;
-  padding: 2.2rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   box-shadow: var(--shadow-md);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+  overflow: hidden;
 }
 
 .st-video-card:hover {
@@ -422,27 +184,19 @@
   box-shadow: var(--shadow-xl), 0 0 25px rgba(184, 134, 11, 0.08);
 }
 
-.st-video-card-recommended {
-  border-color: var(--gold);
-  box-shadow: var(--shadow-lg), 0 0 30px rgba(184, 134, 11, 0.12);
-  transform: scale(1.015);
-}
 
-.st-video-card-recommended:hover {
-  transform: translateY(-6px) scale(1.015);
-  box-shadow: var(--shadow-xl), 0 0 35px rgba(184, 134, 11, 0.15);
-}
 
 .st-video-header-info {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  padding: 2.2rem 2.2rem 1.5rem;
 }
 
 .st-video-badge {
   display: inline-block;
   width: fit-content;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -457,7 +211,7 @@
 .st-video-badge-gold {
   display: inline-block;
   width: fit-content;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -474,7 +228,7 @@
 }
 
 .st-video-card-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -496,14 +250,16 @@
   padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  border-radius: 16px;
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-sm);
+  border-radius: 0;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: none;
   transition: border-color 0.3s;
 }
 
 .st-video-card:hover .st-video-wrapper {
-  border-color: rgba(184, 134, 11, 0.3);
+  border-top-color: rgba(184, 134, 11, 0.3);
+  border-bottom-color: rgba(184, 134, 11, 0.3);
 }
 
 .st-video-wrapper iframe {
@@ -518,6 +274,7 @@
   flex: 1;
   display: flex;
   align-items: flex-start;
+  padding: 1.5rem 2.2rem 2.2rem;
 }
 
 .st-video-desc {
@@ -545,7 +302,7 @@
 }
 
 .st-quiz-eyebrow {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -555,7 +312,7 @@
 }
 
 .st-quiz-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: clamp(1.6rem, 3.5vw, 2.4rem);
   font-weight: 700;
   color: var(--text-primary);
@@ -577,7 +334,7 @@
   padding: 1rem 2.4rem;
   background: var(--gradient-temple);
   color: var(--parchment-light);
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 1rem;
   font-weight: 700;
   border-radius: 100px;
@@ -607,7 +364,7 @@
 }
 
 .st-tracts-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: clamp(1.6rem, 3.5vw, 2.4rem);
   font-weight: 700;
   color: var(--text-primary);
@@ -627,7 +384,7 @@
 }
 
 .st-tract-group-label {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -661,7 +418,7 @@
 }
 
 .st-tract-code {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.05em;
@@ -696,7 +453,7 @@
   gap: 0.4rem;
   padding: 0.45rem 1.1rem;
   border-radius: 8px;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.8rem;
   font-weight: 700;
   text-decoration: none;
@@ -744,7 +501,7 @@
 }
 
 .st-next-label {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -754,7 +511,7 @@
 }
 
 .st-next-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 700;
   color: var(--text-primary);
@@ -773,7 +530,7 @@
   padding: 0.9rem 2.2rem;
   background: transparent;
   color: var(--gold-dark);
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 1rem;
   font-weight: 700;
   border: 2px solid rgba(184, 134, 11, 0.5);
@@ -798,12 +555,7 @@
     margin: 0 auto;
     gap: 3rem;
   }
-  .st-video-card-recommended {
-    transform: none;
-  }
-  .st-video-card-recommended:hover {
-    transform: translateY(-6px);
-  }
+
 }
 
 @media (max-width: 520px) {
@@ -814,10 +566,12 @@
   .st-tract-lang {
     min-width: 120px;
   }
-  .st-explorer-card {
-    padding: 1.5rem;
+  
+  .st-video-header-info {
+    padding: 1.5rem 1.5rem 1rem;
   }
-  .st-analysis-card {
-    padding: 1.75rem;
+  
+  .st-video-desc-wrap {
+    padding: 1rem 1.5rem 1.5rem;
   }
 }

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -34,7 +33,7 @@ function App() {
   };
 
   return (
-    <LanguageProvider>
+    <>
       {showIntro && <IntroScreen onComplete={handleIntroComplete} />}
       <Router>
         <ScrollToTop />
@@ -65,7 +64,7 @@ function App() {
           <TextToSpeech />
         </div>
       </Router>
-    </LanguageProvider>
+    </>
   );
 }
 

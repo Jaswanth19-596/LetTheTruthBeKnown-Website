@@ -62,7 +62,7 @@ npm run preview
 
 ### Core Features
 - **Multi-language Support** - Available in English, Swahili, Amharic, Kinyarwanda, and more
-- **Gospel Tracts** - Free downloadable PDF tracts in multiple languages
+- **Truth Resources** - Helping people know the truth
 - **Discipleship Materials** - Structured learning paths with multiple levels
 - **Verse of the Day** - Daily scripture with text-to-speech functionality
 - **Prayer Request System** - Submit prayer requests to the ministry

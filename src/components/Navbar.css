@@ -14,50 +14,7 @@
   background: transparent;
 }
 
-/* ── Transparent-state overrides: white text over dark hero ── */
-.navbar:not(.scrolled):not(.mobile-open) .logo-text {
-  color: rgba(255, 255, 255, 0.92);
-}
 
-.navbar:not(.scrolled):not(.mobile-open) .logo-cross {
-  color: #e8b44a;
-}
-
-.navbar:not(.scrolled):not(.mobile-open) .nav-link {
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.navbar:not(.scrolled):not(.mobile-open) .nav-link:hover,
-.navbar:not(.scrolled):not(.mobile-open) .nav-link.active {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.navbar:not(.scrolled):not(.mobile-open) .nav-link-primary {
-  color: #e8b44a !important;
-}
-
-.navbar:not(.scrolled):not(.mobile-open) .nav-link-primary:hover,
-.navbar:not(.scrolled):not(.mobile-open) .nav-link-primary.active {
-  background: rgba(232, 180, 74, 0.18) !important;
-  color: #f5c96a !important;
-}
-
-.navbar:not(.scrolled):not(.mobile-open) .hamburger span {
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.navbar:not(.scrolled):not(.mobile-open) .language-btn {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.navbar:not(.scrolled):not(.mobile-open) .language-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
-  color: #fff;
-}
 
 .navbar.scrolled,
 .navbar.mobile-open {
@@ -94,7 +51,7 @@
 }
 
 .logo-text {
-  font-family: 'Cinzel', 'Palatino Linotype', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-primary, #2C1810);
@@ -117,7 +74,7 @@
 
 /* Base nav link */
 .nav-link {
-  font-family: 'Outfit', 'Inter', sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 0.88rem;
   font-weight: 500;
   color: var(--text-secondary, #5C4033);
@@ -193,7 +150,7 @@
 }
 
 .nav-dropdown-header {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -206,7 +163,7 @@
 
 .nav-dropdown-item {
   display: block;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 0.87rem;
   font-weight: 500;
   color: var(--text-secondary, #5C4033);
@@ -238,7 +195,7 @@
   padding: 0.5rem 1.2rem;
   background: linear-gradient(135deg, #c8922a, #e8b44a);
   color: #0a0c14;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 0.84rem;
   font-weight: 700;
   border-radius: 100px;
@@ -257,8 +214,6 @@
 /* ── Hamburger ── */
 .hamburger {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
   width: 26px;
   height: 18px;
   background: none;
@@ -266,20 +221,28 @@
   cursor: pointer;
   padding: 0;
   flex-shrink: 0;
+  position: relative;
 }
 
 .hamburger span {
   display: block;
+  position: absolute;
+  left: 0;
   width: 100%;
   height: 2px;
   background: var(--text-primary, #2C1810);
   border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease;
+  transform-origin: center;
 }
 
-.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 8px; }
+.hamburger span:nth-child(3) { top: 16px; }
+
+.hamburger.open span:nth-child(1) { top: 8px; transform: rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.hamburger.open span:nth-child(3) { top: 8px; transform: rotate(-45deg); }
 
 /* ════════════════════════
    MOBILE MENU
@@ -300,7 +263,7 @@
 
 .mob-link {
   display: block;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 1rem;
   font-weight: 500;
   color: var(--text-secondary, #5C4033);
@@ -340,7 +303,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 2rem;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 1rem;
   font-weight: 500;
   color: var(--text-secondary, #5C4033);
@@ -356,7 +319,7 @@
 
 .mob-sub-link {
   display: block;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-family-heading);
   font-size: 0.9rem;
   color: var(--text-muted, #8B7355);
   text-decoration: none;
@@ -377,7 +340,7 @@
     display: none;
   }
   .hamburger {
-    display: flex;
+    display: block;
   }
   .navbar-mobile {
     display: flex;

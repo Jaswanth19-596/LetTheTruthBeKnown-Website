@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useLanguage } from '../context/LanguageContext';
 import Card from '../components/Card';
 import PDFViewer from '../components/PDFViewer';
 import { getAssetUrl } from '../config/assets';
 import './Resources.css';
 
 const Resources = () => {
-  const { t } = useLanguage();
   const [viewingPdf, setViewingPdf] = useState(null);
 
   useEffect(() => {
@@ -49,9 +47,9 @@ const Resources = () => {
       <section className="page-hero resources-hero">
         <div className="container">
           <div className="page-hero-content">
-            <span className="section-badge">{t('resourcesPage.badge')}</span>
-            <h1>{t('resourcesPage.title')} <span className="gradient-text">{t('resourcesPage.titleHighlight')}</span></h1>
-            <p>{t('resourcesPage.subtitle')}</p>
+            <span className="section-badge">Library</span>
+            <h1>Free <span className="gradient-text">Resources</span></h1>
+            <p>Download our free biblical materials, answer books, and study guides.</p>
           </div>
         </div>
       </section>
@@ -59,8 +57,8 @@ const Resources = () => {
       <section className="resources-section section">
         <div className="container">
           <div className="section-header">
-            <h2>{t('resourcesPage.answerBooksTitle')} <span className="gradient-text">{t('resourcesPage.answerBooksHighlight')}</span></h2>
-            <p>{t('resourcesPage.answerBooksSubtitle')}</p>
+            <h2>The Answer Book <span className="gradient-text">Series</span></h2>
+            <p>A comprehensive 7-volume collection answering common questions about faith, doctrine, and Christian living.</p>
           </div>
           <div className="answer-books-grid">
             {answerBooks.map((book, index) => (
@@ -72,11 +70,11 @@ const Resources = () => {
                   <div className="book-actions">
                     <button className="btn btn-outline-small" onClick={() => handleView(book)}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                      {t('common.view')}
+                      View
                     </button>
                     <button className="btn btn-primary-small" onClick={() => handleDownload(book.pdf)}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                      {t('common.download')}
+                      Download
                     </button>
                   </div>
                 </div>
@@ -93,17 +91,17 @@ const Resources = () => {
           {/* Bible Hero Card */}
           <div className="bible-hero hover-glow reveal" style={{ 
             background: 'var(--bg-secondary)', 
-            borderRadius: '16px', border: '1px solid var(--glass-border)', padding: '3rem', 
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem', flexWrap: 'wrap',
+            borderRadius: '16px', border: '1px solid var(--glass-border)', padding: 'clamp(1.5rem, 5vw, 3rem)', 
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 'clamp(1.5rem, 5vw, 3rem)', flexWrap: 'wrap',
             boxShadow: 'var(--shadow-md)'
           }}>
-            <div style={{ flex: '1 1 300px' }}>
-              <span className="section-badge" style={{ marginBottom: '1rem', display: 'inline-block' }}>{t('resourcesPage.bibleHighlight')}</span>
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{t('resourcesPage.bibleTitle')}</h2>
-              <h4 style={{ color: 'var(--primary-color)', marginBottom: '1.5rem', fontSize: '1.2rem' }}>{t('resourcesPage.bibleSubtitle')}</h4>
-              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--text-secondary)', marginBottom: '2rem' }}>{t('resourcesPage.bibleDesc')}</p>
+            <div style={{ flex: '1 1 300px', minWidth: 0 }}>
+              <span className="section-badge" style={{ marginBottom: '1rem', display: 'inline-block' }}>Essential Resource</span>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', marginBottom: '0.5rem', color: 'var(--text-primary)', fontFamily: 'var(--font-family-heading)', wordWrap: 'break-word' }}>The Holy Bible (KJV)</h2>
+              <h4 style={{ color: 'var(--primary-color)', marginBottom: '1.5rem', fontSize: 'clamp(1rem, 4vw, 1.2rem)', wordWrap: 'break-word' }}>The foundation of truth.</h4>
+              <p style={{ fontSize: 'clamp(1rem, 3vw, 1.1rem)', lineHeight: '1.8', color: 'var(--text-secondary)', marginBottom: '2rem' }}>We believe the King James Version (KJV) is the preserved Word of God for English-speaking people. It is the final authority in all matters of faith and practice.</p>
               <a href="https://www.bible.com/versions/1-kjv-king-james-version" target="_blank" rel="noopener noreferrer" className="btn btn-primary hover-shine" style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
-                {t('resourcesPage.bibleReadButton')} →
+                Read Online →
               </a>
             </div>
           </div>
@@ -111,21 +109,21 @@ const Resources = () => {
           {/* GBBC Card */}
           <div className="gbbc-hero hover-glow reveal" style={{ 
             background: 'var(--bg-primary)', 
-            borderRadius: '16px', border: '1px solid var(--glass-border)', padding: '3rem', 
-            display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem', flexWrap: 'wrap',
+            borderRadius: '16px', border: '1px solid var(--glass-border)', padding: 'clamp(1.5rem, 5vw, 3rem)', 
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 'clamp(1.5rem, 5vw, 3rem)', flexWrap: 'wrap',
             boxShadow: 'var(--shadow-md)'
           }}>
-            <div style={{ flex: '1 1 300px' }}>
-              <span className="section-badge" style={{ marginBottom: '1rem', display: 'inline-block', background: 'rgba(15, 61, 89, 0.1)', color: 'var(--primary-color)', border: 'none' }}>{t('resourcesPage.gbbcAdvanced')}</span>
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>{t('gbbc.title')}</h2>
-              <h4 style={{ color: 'var(--primary-color)', marginBottom: '1.5rem', fontSize: '1.2rem' }}>{t('resourcesPage.gbbcAdvancedSubtitle')}</h4>
-              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'grid', gridTemplateColumns: 'minmax(200px, 1fr) minmax(200px, 1fr)', gap: '1rem', color: 'var(--text-secondary)' }}>
-                <li>✓ {t('gbbc.feature1')}</li>
-                <li>✓ {t('gbbc.feature3')}</li>
-                <li>✓ {t('gbbc.feature4')}</li>
+            <div style={{ flex: '1 1 300px', minWidth: 0 }}>
+              <span className="section-badge" style={{ marginBottom: '1rem', display: 'inline-block', background: 'rgba(15, 61, 89, 0.1)', color: 'var(--primary-color)', border: 'none' }}>Advanced Studies</span>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', marginBottom: '0.5rem', color: 'var(--text-primary)', fontFamily: 'var(--font-family-heading)', wordWrap: 'break-word' }}>Global Bible Baptist College</h2>
+              <h4 style={{ color: 'var(--primary-color)', marginBottom: '1.5rem', fontSize: 'clamp(1rem, 4vw, 1.2rem)', wordWrap: 'break-word' }}>Take your biblical education further</h4>
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '1rem', color: 'var(--text-secondary)' }}>
+                <li>✓ Pre-recorded video lectures</li>
+                <li>✓ Study on any device</li>
+                <li>✓ Earn a 3-year "Bachelor of Biblical Studies" degree</li>
               </ul>
-              <a href={`https://${t('gbbc.website')}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary hover-glow" style={{ background: 'var(--primary-color)', padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
-                {t('gbbc.visitCta')} →
+              <a href="https://gbbc.net" target="_blank" rel="noopener noreferrer" className="btn btn-primary hover-glow" style={{ background: 'var(--primary-color)', padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
+                Visit Website →
               </a>
             </div>
           </div>
@@ -136,12 +134,12 @@ const Resources = () => {
       <section className="resources-section section">
         <div className="container">
           <div className="section-header">
-            <h2>{t('resourcesPage.additionalTitle')} <span className="gradient-text">{t('resourcesPage.additionalHighlight')}</span></h2>
-            <p>{t('resourcesPage.additionalSubtitle')}</p>
+            <h2>Additional <span className="gradient-text">Study Guides</span></h2>
+            <p>More materials for personal growth and ministry.</p>
           </div>
           <div className="grid grid-auto">
             {otherResources.map((resource, index) => (
-              <Card key={index} image={resource.image} title={resource.title} description={resource.description} link={resource.pdf} linkText={t('common.downloadPdf')} />
+              <Card key={index} image={resource.image} title={resource.title} description={resource.description} link={resource.pdf} linkText="Download PDF" />
             ))}
           </div>
         </div>

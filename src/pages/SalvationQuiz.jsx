@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../context/LanguageContext';
 import './SalvationQuiz.css';
 
 const questions = [
@@ -67,7 +66,6 @@ const questions = [
 ];
 
 const SalvationQuiz = () => {
-  const { t } = useLanguage();
   const [answers, setAnswers]         = useState({});   // { [id]: true|false }
   const [submitted, setSubmitted]     = useState(false);
   const [showVerses, setShowVerses]   = useState({});   // { [id]: bool }

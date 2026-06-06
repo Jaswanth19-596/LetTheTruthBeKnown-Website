@@ -7,7 +7,7 @@ React SPA themed around Ancient Israel (Galilean/Temple aesthetics) for spreadin
 - Vite: Bundler and static server for `/public` PDFs.
 
 ## 3. Architecture
-Stream-First architecture where users are routed into three streams (Unsaved, New Christian, Pastor). Data flow is client-side, global state (i18n) is owned by `LanguageContext` at the root, and navigation is handled by React Router v7.
+Stream-First architecture where users are routed into three streams (Unsaved, New Christian, Pastor). Data flow is client-side, and navigation is handled by React Router v7.
 
 ## 4. Hard Rules
 - Never use colorful/system emojis: Violates the ancient aesthetic; use SVGs or 2-letter badges instead.

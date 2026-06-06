@@ -13,8 +13,8 @@
   min-height: 56px;
   min-width: 56px;
 
-  background: var(--gradient-temple);
-  color: var(--parchment-light);
+  background: var(--gradient-gold);
+  color: var(--text-primary);
   border: 2px solid var(--gold);
   border-radius: var(--radius-md);
 
@@ -27,7 +27,7 @@
 
   box-shadow:
     var(--shadow-lg),
-    0 0 20px rgba(30, 58, 95, 0.3);
+    0 0 20px rgba(184, 134, 11, 0.3);
 
   transition: all 0.3s ease;
 }
@@ -36,9 +36,9 @@
   transform: translateY(-3px) scale(1.05);
   box-shadow:
     var(--shadow-xl),
-    0 0 30px rgba(30, 58, 95, 0.4),
+    0 0 30px rgba(184, 134, 11, 0.4),
     0 0 15px rgba(184, 134, 11, 0.2);
-  background: var(--temple-blue);
+  background: var(--gold-light);
 }
 
 .tts-button:focus {
@@ -72,11 +72,11 @@
 
 .tts-button svg {
   flex-shrink: 0;
-  stroke: var(--parchment-light);
+  stroke: var(--text-primary);
 }
 
 .tts-button.speaking svg {
-  stroke: var(--parchment-light);
+  stroke: var(--text-primary);
 }
 
 .tts-label {

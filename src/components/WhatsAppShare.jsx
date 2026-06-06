@@ -1,10 +1,8 @@
 import { useRef, useState } from 'react';
 import html2canvas from 'html2canvas'; // You need to install this: npm install html2canvas
 import './WhatsAppShare.css';
-import { useLanguage } from '../context/LanguageContext';
 
 const WhatsAppShare = ({ verse, reference }) => {
-  const { t } = useLanguage();
   const cardRef = useRef(null);
   const [isGenerating, setIsGenerating] = useState(false);
 
@@ -102,7 +100,7 @@ const WhatsAppShare = ({ verse, reference }) => {
 
   return (
     <div className="whatsapp-share-container">
-      <h4>{t('common.shareToWhatsApp') || 'Share to WhatsApp'}</h4>
+      <h4>Share to WhatsApp</h4>
       <div className="whatsapp-buttons">
         <button 
           className="btn-status" 

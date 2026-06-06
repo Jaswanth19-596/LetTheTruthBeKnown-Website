@@ -21,7 +21,7 @@
 
 .give-tag {
   display: inline-block;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -35,7 +35,7 @@
 }
 
 .give-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 700;
   color: var(--text-primary);
@@ -141,7 +141,7 @@
 }
 
 .give-why-card h3 {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -190,7 +190,7 @@
 
 .give-coming-badge {
   display: inline-block;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -206,7 +206,7 @@
 }
 
 .give-coming-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 700;
   color: var(--text-primary);
@@ -230,7 +230,7 @@
   padding: 1rem 2.5rem;
   background: var(--gradient-gold);
   color: var(--text-primary);
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-family-heading);
   font-size: 1rem;
   font-weight: 700;
   border-radius: 100px;
