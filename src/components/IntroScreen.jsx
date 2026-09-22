@@ -2,55 +2,56 @@ import { useState, useEffect, useRef } from 'react';
 import './IntroScreen.css';
 
 function IntroScreen({ onComplete }) {
-  const [timeLeft, setTimeLeft] = useState(60);
+  const [timeLeft, setTimeLeft] = useState(70);
   const [isFading, setIsFading] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
-  const timerRef = useRef(null);
+  const audioRef = useRef(null);
+  const finishingRef = useRef(false);
+  const fadeTimerRef = useRef(null);
+  const completeTimerRef = useRef(null);
 
-  useEffect(() => {
-    // Start countdown timer immediately
-    timerRef.current = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timerRef.current);
-          handleTransition();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-    };
+  useEffect(() => () => {
+    clearInterval(fadeTimerRef.current);
+    clearTimeout(completeTimerRef.current);
   }, []);
 
-  const handleScreenClick = () => {
-    if (isMuted && videoRef.current) {
-      videoRef.current.muted = false;
-      setIsMuted(false);
-    }
-  };
-
   const handleTransition = () => {
+    if (finishingRef.current) return;
+    finishingRef.current = true;
     setIsFading(true);
-    // Fade out video audio
-    if (videoRef.current && !videoRef.current.muted) {
-      const fadeAudio = setInterval(() => {
-        if (videoRef.current && videoRef.current.volume > 0.1) {
-          videoRef.current.volume -= 0.1;
-        } else {
-          clearInterval(fadeAudio);
-        }
-      }, 100);
-    }
-    // Wait for fade animation then complete
-    setTimeout(() => {
+    fadeTimerRef.current = setInterval(() => {
+      if (audioRef.current) audioRef.current.volume = Math.max(0, audioRef.current.volume - 0.1);
+    }, 100);
+    completeTimerRef.current = setTimeout(() => {
+      clearInterval(fadeTimerRef.current);
+      audioRef.current?.pause();
+      videoRef.current?.pause();
       onComplete();
     }, 1500);
+  };
+
+  const updateProgress = () => {
+    const video = videoRef.current;
+    if (!video || !Number.isFinite(video.duration)) return;
+    const elapsed = video.currentTime / video.duration * 70;
+    setTimeLeft(Math.max(0, Math.ceil(70 - elapsed)));
+    if (audioRef.current && !finishingRef.current) {
+      audioRef.current.volume = Math.min(1, Math.max(0, (70 - elapsed) / 5));
+    }
+    if (elapsed >= 68.5) handleTransition();
+  };
+
+  const handleScreenClick = async () => {
+    if (!isMuted || !audioRef.current || finishingRef.current) return;
+    try {
+      const video = videoRef.current;
+      audioRef.current.currentTime = video?.duration ? video.currentTime / video.duration * 70 : 0;
+      await audioRef.current.play();
+      setIsMuted(false);
+    } catch {
+      // Keep the sound control available if the browser refuses playback.
+    }
   };
 
   const handleSkip = (e) => {
@@ -75,13 +76,17 @@ function IntroScreen({ onComplete }) {
           className="intro-video"
           autoPlay
           muted
-          loop
+          onLoadedMetadata={() => { videoRef.current.playbackRate = videoRef.current.duration / 70; }}
+          onTimeUpdate={updateProgress}
+          onEnded={handleTransition}
+          onError={handleTransition}
           playsInline
         >
           <source src="/final_video.mp4" type="video/mp4" />
         </video>
       </div>
 
+      <audio ref={audioRef} src="/In Christ Alone - piano instrumental cover.mp3" preload="none" />
       <div className="intro-text-overlay">
         <h1 className="intro-title">
           Let the <span className="highlight">Truth</span> be Known
@@ -89,13 +94,13 @@ function IntroScreen({ onComplete }) {
       </div>
 
       {isMuted && (
-        <div className="audio-hint">
+        <button type="button" className="audio-hint" onClick={(e) => { e.stopPropagation(); handleScreenClick(); }}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="audio-hint-icon" style={{ marginRight: '8px', verticalAlign: 'middle' }}>
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
           </svg>
-          Tap anywhere for sound
-        </div>
+          Enable music
+        </button>
       )}
 
       <div className="intro-controls">

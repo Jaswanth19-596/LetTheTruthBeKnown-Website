@@ -2,11 +2,24 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
+const Chevron = ({ open }) => (
+    <svg
+      className={`nav-chevron ${open ? 'open' : ''}`}
+      width="12" height="12" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" strokeWidth="2.5"
+      strokeLinecap="round" strokeLinejoin="round"
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  );
+
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled]           = useState(false);
   const [isMobileOpen, setIsMobileOpen]       = useState(false);
   const [openDropdown, setOpenDropdown]       = useState(null); // 'growing' | 'pastor' | null
   const location  = useLocation();
+  const [previousLocation, setPreviousLocation] = useState(location);
   const navRef    = useRef(null);
 
   /* ── Scroll listener ── */
@@ -17,10 +30,11 @@ const Navbar = () => {
   }, []);
 
   /* ── Close mobile menu on route change ── */
-  useEffect(() => {
+  if (location !== previousLocation) {
+    setPreviousLocation(location);
     setIsMobileOpen(false);
     setOpenDropdown(null);
-  }, [location]);
+  }
 
   /* ── Close dropdowns on outside click ── */
   useEffect(() => {
@@ -41,7 +55,7 @@ const Navbar = () => {
 
   /* ── Dropdown data ── */
   const growingLinks = [
-    { to: '/discipleship',   label: 'Foundations of My Faith' },
+    { to: '/discipleship',   label: 'Foundations of Our Faith' },
     { to: '/resources',      label: 'Understanding More' },
     { to: '/next-steps',     label: 'New Believer — Next Steps' },
   ];
@@ -54,17 +68,6 @@ const Navbar = () => {
     { to: '/prayer-request',  label: 'Prayer Request' },
   ];
 
-  /* ── Chevron icon ── */
-  const Chevron = ({ open }) => (
-    <svg
-      className={`nav-chevron ${open ? 'open' : ''}`}
-      width="12" height="12" viewBox="0 0 24 24"
-      fill="none" stroke="currentColor" strokeWidth="2.5"
-      strokeLinecap="round" strokeLinejoin="round"
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  );
 
   return (
     <nav
@@ -171,6 +174,7 @@ const Navbar = () => {
             className={`hamburger ${isMobileOpen ? 'open' : ''}`}
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMobileOpen}
           >
             <span /><span /><span />
           </button>

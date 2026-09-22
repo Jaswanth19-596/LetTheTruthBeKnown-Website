@@ -1,21 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import Card from '../components/Card';
+import { useScrollReveal } from '../hooks/useAnimations';
 import { getAssetUrl } from '../config/assets';
 import './GospelTracts.css';
 
 const GospelTracts = () => {
-  const [activeLanguage, setActiveLanguage] = useState('all');
+  const [searchParams] = useSearchParams();
+  const [activeLanguage, setActiveLanguage] = useState(() => searchParams.get('language') === 'english' ? 'english' : 'all');
 
-  useEffect(() => {
-    const revealOnScroll = () => {
-      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((el) => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 150) el.classList.add('active');
-      });
-    };
-    const timeout = setTimeout(revealOnScroll, 100);
-    window.addEventListener('scroll', revealOnScroll);
-    return () => { clearTimeout(timeout); window.removeEventListener('scroll', revealOnScroll); };
-  }, [activeLanguage]);
+  useScrollReveal(activeLanguage);
 
   const languages = [
     { id: 'all',      name: 'All Languages', code: 'ALL' },
@@ -34,11 +28,11 @@ const GospelTracts = () => {
   const tracts = [
     { id: 1,  language: 'english',  title: "God's Simple Plan of Salvation", description: 'The Bible says there is only one way to Heaven. Jesus said: "I am the way, the truth, and the life: no man cometh unto the Father, but by me."', pdf: getAssetUrl("downloads/gospel_tracts/english.pdf") },
     { id: 2,  language: 'swahili',  title: 'Mpango Rahisi wa Mungu wa Wokovu', description: 'Biblia inasema kuna njia moja tu ya kwenda Mbinguni. Yesu alisema: "Mimi ndimi njia, na kweli, na uzima; mtu haji kwa Baba, ila kwa njia ya mimi."', pdf: getAssetUrl("downloads/gospel_tracts/swahili.pdf") },
-    { id: 3,  language: 'french',   title: 'Le Plan Simple de Dieu pour le Salut', description: 'La Bible dit qu\'il n\'y a qu\'un seul chemin vers le Ciel. Jésus a dit: "Je suis le chemin, la vérité, et la vie. Nul ne vient au Père que par moi."', pdf: getAssetUrl("downloads/gospel_tracts/french.pdf") },
+    { id: 3,  language: 'french',   title: 'Le Plan Simple de Dieu pour le Salut', description: 'La Bible dit qu\'il n\'y a qu\'un seul chemin vers le Ciel. Jésus a dit: "Je suis le chemin, la vérité, et la vie. Nul ne vient au Père que par moi."', pdf: null },
     { id: 4,  language: 'luo',      title: "God's Simple Plan - Luo",      description: 'Luo language version for Kenya.',      pdf: getAssetUrl("downloads/gospel_tracts/luo.pdf") },
     { id: 5,  language: 'kikuyu',   title: "God's Simple Plan - Kikuyu",   description: 'Kikuyu language version for Kenya.',   pdf: getAssetUrl("downloads/gospel_tracts/kikuyu.pdf") },
     { id: 6,  language: 'kalenjin', title: "God's Simple Plan - Kalenjin", description: 'Kalenjin language version for Kenya.', pdf: getAssetUrl("downloads/gospel_tracts/kalenjin.pdf") },
-    { id: 7,  language: 'arabic',   title: "God's Simple Plan - Arabic",   description: 'Arabic language version.',             pdf: getAssetUrl("downloads/gospel_tracts/arabic.pdf") },
+    { id: 7,  language: 'arabic',   title: "God's Simple Plan - Arabic",   description: 'Arabic language version.',             pdf: null },
     { id: 8,  language: 'amharic',  title: "God's Simple Plan - Amharic",  description: 'Amharic language version for Ethiopia.',pdf: getAssetUrl("downloads/gospel_tracts/amharic.pdf") },
     { id: 9,  language: 'maasai',   title: "God's Simple Plan - Maasai",   description: 'Maasai language version for Kenya/Tanzania.', pdf: getAssetUrl("downloads/gospel_tracts/maasai.pdf") },
     { id: 10, language: 'kamba',    title: "God's Simple Plan - Kamba",    description: 'Kamba language version for Kenya.',   pdf: getAssetUrl("downloads/gospel_tracts/kamba.pdf") },
@@ -56,7 +50,7 @@ const GospelTracts = () => {
           <div className="page-hero-content">
             <span className="section-badge">Share the Good News</span>
             <h1>Gospel <span className="gradient-text">Tracts</span></h1>
-            <p>Download and print "God's Simple Plan of Salvation" in multiple languages.</p>
+            <p>God’s Simple Plan of Salvation explains the Gospel of Jesus Christ and how to be saved. Read directly from your phone in your language, or download an A4 copy.</p>
           </div>
         </div>
       </section>
@@ -86,7 +80,7 @@ const GospelTracts = () => {
               <Card
                 key={tract.id}
                 title={tract.title}
-                description={tract.description}
+                description={tract.pdf ? tract.description : `${tract.language === 'arabic' ? 'Arabic' : 'French'} translation awaiting the correct source file.`}
                 link={tract.pdf}
                 linkText="Download PDF"
               />
@@ -97,13 +91,15 @@ const GospelTracts = () => {
           <div className="info-card" style={{ marginTop: '3rem' }}>
             <div className="info-content">
               <h3>How to Use These Tracts</h3>
-              <p>These tracts are designed to be printed on standard A4 paper and folded into a trifold brochure.</p>
+              <p>Most readers can use these materials directly from their phone; there is no need to print. Choose your language and select Read PDF to read each page in order.</p>
               <ul className="info-list">
-                <li>Download the PDF file for your desired language.</li>
-                <li>Print double-sided (flip on short edge).</li>
-                <li>Fold along the dotted lines.</li>
-                <li>Share with your community, church, or leave in public places.</li>
+                <li>Invite the interested person to read each Scripture passage for themselves.</li>
+                <li>Ask what they think it means, listen to their answer, and explain where necessary using the Bible.</li>
+                <li>Work through the Gospel message and the tract’s questions together, allowing time to understand.</li>
+                <li>If they wish to receive Christ, use the tract’s explanation and Scripture to guide them.</li>
+                <li>For a paper copy, download the A4 reading edition and print pages in order using “Fit to printable area”.</li>
               </ul>
+              <p>For permission and a booklet printing layout, <Link to="/contact">contact us</Link>. Ask your printer to prepare the booklet and a proof copy; folding and duplex settings depend on the approved layout.</p>
             </div>
           </div>
         </main>

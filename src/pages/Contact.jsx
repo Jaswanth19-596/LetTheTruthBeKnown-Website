@@ -1,8 +1,63 @@
+import { useState } from 'react';
 import { useScrollReveal } from '../hooks/useAnimations';
+import { useRateLimit } from '../context/RateLimitContext';
 import './Contact.css';
 
 const Contact = () => {
   useScrollReveal();
+  const { checkAndRegister } = useRateLimit();
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [status, setStatus] = useState({ submitting: false, submitted: false, error: null });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Enforce rate limiting for form submissions
+    if (!checkAndRegister('form_submission')) {
+      setStatus({ submitting: false, submitted: false, error: "Too many submissions. Please wait before trying again." });
+      return;
+    }
+
+    setStatus({ submitting: true, submitted: false, error: null });
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/penpapershare@gmail.com", {
+
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _subject: `New Gospel Site Contact Message: ${formData.subject}`
+        })
+      });
+
+      if (response.ok) {
+        setStatus({ submitting: false, submitted: true, error: null });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error("Failed to send message. Please try again.");
+      }
+    } catch (err) {
+      setStatus({ submitting: false, submitted: false, error: err.message });
+    }
+  };
   
   return (
     <div className="contact-page">
@@ -58,41 +113,57 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="contact-form-card">
               <h3>Send us a Message</h3>
-              <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-                <div className="form-group">
-                  <label htmlFor="name">Name</label>
-                  <input type="text" id="name" placeholder="Your name" />
+              
+              {status.submitted ? (
+                <div className="form-success-alert">
+                  <div className="success-icon" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', background: 'rgba(30, 111, 168, 0.1)', color: 'var(--primary-color)', borderRadius: '50%', fontSize: '1.5rem', marginBottom: '1rem' }}>✓</div>
+                  <h4>Thank You!</h4>
+                  <p>Your message has been sent successfully. We will get back to you soon.</p>
+                  <button className="btn btn-outline-small" style={{ marginTop: '1rem' }} onClick={() => setStatus(prev => ({ ...prev, submitted: false }))}>
+                    Send Another Message
+                  </button>
                 </div>
-                
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input type="email" id="email" placeholder="your@email.com" />
-                </div>
-                
-                <div className="form-group">
-                  <label htmlFor="subject">Subject</label>
-                  <select id="subject">
-                    <option value="">Select a topic</option>
-                    <option value="question">General Question</option>
-                    <option value="materials">Materials Request</option>
-                    <option value="translation">Translation Inquiry</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="prayer">Prayer Request</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                
-                <div className="form-group">
-                  <label htmlFor="message">Message</label>
-                  <textarea id="message" rows="5" placeholder="Your message..."></textarea>
-                </div>
-                
-                <button type="submit" className="btn btn-primary btn-full">
-                  Send Message
-                </button>
-                
-                <p className="form-note">Note: This is a static form. For actual submissions, please email us directly.</p>
-              </form>
+              ) : (
+                <form className="contact-form" onSubmit={handleSubmit}>
+                  {status.error && (
+                    <div className="form-error-message" style={{ color: 'var(--scarlet)', marginBottom: '1rem', fontSize: '0.9rem' }}>
+                      {status.error}
+                    </div>
+                  )}
+                  
+                  <div className="form-group">
+                    <label htmlFor="name">Name</label>
+                    <input type="text" id="name" placeholder="Your name" value={formData.name} onChange={handleChange} required />
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" placeholder="your@email.com" value={formData.email} onChange={handleChange} required />
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="subject">Subject</label>
+                    <select id="subject" value={formData.subject} onChange={handleChange} required>
+                      <option value="">Select a topic</option>
+                      <option value="question">General Question</option>
+                      <option value="materials">Materials Request</option>
+                      <option value="translation">Translation Inquiry</option>
+                      <option value="partnership">Partnership</option>
+                      <option value="prayer">Prayer Request</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Your message..." value={formData.message} onChange={handleChange} required></textarea>
+                  </div>
+                  
+                  <button type="submit" className="btn btn-primary btn-full" disabled={status.submitting}>
+                    {status.submitting ? 'Sending...' : 'Send Message'}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>

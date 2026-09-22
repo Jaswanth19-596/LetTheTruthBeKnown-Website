@@ -6,8 +6,8 @@ const FAQs = () => {
 
   const faqs = [
     { question: "Are these materials really free?", answer: "Yes! All materials on this website are completely free to download, print, and distribute. We believe the Gospel should be freely shared with everyone." },
-    { question: "Can I print and distribute these tracts?", answer: "Absolutely! We encourage you to print and distribute these tracts freely. They are designed to be printed and shared with others. For best results, print on both sides and fold as indicated." },
-    { question: "What languages are available?", answer: "We currently offer materials in English, Swahili, Luo, Kikuyu, Kalenjin, Kisii, Arabic, Amharic, Maasai, and Kamba. We are continuously working on adding more languages." },
+    { question: "Can I print and distribute these tracts?", answer: "Read on your phone or use the A4 reading edition. Contact us for permission and the correct booklet printing layout." },
+    { question: "What languages are available?", answer: "Available Gospel tract translations include English, Swahili, Luo, Kikuyu, Kalenjin, Amharic, Maasai, and Kamba. STOP tracts also include Kisii. Arabic and French Gospel tracts are awaiting corrected source files. We are continuously working on adding more languages." },
     { question: "How do I use the Discipleship materials?", answer: "The discipleship program is designed to be completed in order. Start with Level 1 (Foundations) and work through each book. Each level builds on the previous one. You can use these for personal study or to disciple new believers." },
     { question: "Can I use these materials in my church?", answer: "Yes! Churches are welcome to use all materials for evangelism, Sunday school, Bible studies, and discipleship programs. We only ask that you don't sell them." },
     { question: "How do I take the Salvation Quiz?", answer: "Simply visit our Salvation Quiz page and answer each question honestly. The quiz is based on Bible verses and will help you examine your understanding of salvation according to Scripture." },

@@ -18,13 +18,13 @@ const questions = [
   {
     id: 3,
     question: 'Do you believe Jesus died on the cross for your sins?',
-    verse: '1 Peter 2:24 — "Who his own self bare our sins in his own body on the tree."',
+    verse: '1 Peter 2:24 — "Who his own self bare our sins in his own body on the tree, that we, being dead to sins, should live unto righteousness: by whose stripes ye were healed."',
     correctAnswer: true,
   },
   {
     id: 4,
     question: 'Do you believe Jesus rose from the dead?',
-    verse: 'Romans 10:9 — "If thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved."',
+    verse: 'Romans 10:9 — "That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved."',
     correctAnswer: true,
   },
   {
@@ -48,7 +48,7 @@ const questions = [
   {
     id: 8,
     question: 'If you died today, do you KNOW for certain you would go to Heaven?',
-    verse: '1 John 5:13 — "These things have I written unto you that believe on the name of the Son of God; that ye may KNOW that ye have eternal life."',
+    verse: '1 John 5:13 — "These things have I written unto you that believe on the name of the Son of God; that ye may know that ye have eternal life, and that ye may believe on the name of the Son of God."',
     correctAnswer: true,
   },
   {
@@ -60,7 +60,7 @@ const questions = [
   {
     id: 10,
     question: 'Have you placed your complete trust in Jesus Christ as your personal Saviour?',
-    verse: 'John 1:12 — "But as many as received him, to them gave he power to become the sons of God, even to them that believe on his name."',
+    verse: 'John 1:12 — "But as many as received him, to them gave he power to become the sons of God, even to them that believe on his name:"',
     correctAnswer: true,
   },
 ];
@@ -116,6 +116,12 @@ const SalvationQuiz = () => {
         </blockquote>
       </section>
 
+      <section className="sq-progress-bar-wrap">
+        <h2>Bible-Based</h2>
+        <p>Each question is supported by Scripture from the King James Bible.</p>
+        <p>Answers to the various lessons are found in the KJV Bible according to the Scripture referenced or from the lesson material itself.</p>
+        <blockquote className="sq-verse-header">“Knowing this first, that no prophecy of the scripture is of any private interpretation.”<cite>2 Peter 1:20</cite></blockquote>
+      </section>
       {/* ── Result banner (after submit) ── */}
       {submitted && (
         <section className={`sq-result ${isSaved ? 'sq-result-saved' : 'sq-result-unsaved'}`}>
@@ -130,6 +136,7 @@ const SalvationQuiz = () => {
                   ? 'You understand God\'s plan of salvation. Continue to grow through prayer, Bible study, and fellowship.'
                   : 'Salvation is by grace through faith in Jesus Christ alone — not by works. Review the verses below and consider reading our Gospel tracts.'}
               </p>
+              <p className="sq-result-score">{correctCount} out of {questions.length} answers align with Scripture.</p>
               <div className="sq-result-actions">
                 {!isSaved && (
                   <Link to="/seeking-truth" className="sq-btn sq-btn-primary">
@@ -144,6 +151,7 @@ const SalvationQuiz = () => {
                 <button className="sq-btn sq-btn-ghost" onClick={handleReset}>
                   Take Again
                 </button>
+                <Link to="/gospel-tracts?language=english" className="sq-btn sq-btn-primary sq-tract-link">Refer Gospel Tracts →</Link>
               </div>
             </div>
           </div>

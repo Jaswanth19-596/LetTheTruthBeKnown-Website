@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
+import WelcomeMessage from '../components/WelcomeMessage';
 import './Home.css';
 
 const Home = () => {
@@ -22,22 +23,32 @@ const Home = () => {
       id: 'seeking-truth',
       label: 'Curious',
       title: 'Seeking the Truth?',
-      desc: 'Start here. Understand the Gospel and God\'s plan for your life.',
-      cta: 'Show Me →',
+      desc: "Start here. Understand the Gospel and God's plan for your life.",
+      cta: 'Read the Gospel →',
       link: '/seeking-truth',
       accent: 'var(--stream-gold)',
     },
     {
       id: 'growing',
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="stream-icon">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="stream-icon"
+        >
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
         </svg>
       ),
       label: 'New Christian',
       title: 'Growing in Faith',
-      desc: 'Foundations, discipleship levels, and understanding more of God\'s Word.',
+      desc: "Foundations, discipleship levels, and understanding more of God's Word.",
       cta: 'Start Growing →',
       link: '/discipleship',
       accent: 'var(--stream-gold)',
@@ -45,7 +56,17 @@ const Home = () => {
     {
       id: 'pastor',
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="stream-icon">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="stream-icon"
+        >
           <path d="M12 2v20M8 8h8" />
         </svg>
       ),
@@ -79,12 +100,21 @@ const Home = () => {
           </blockquote>
 
           {/* Primary CTA */}
-          <Link to="/seeking-truth" className="home-hero-cta">
+          <a href="#gospel-message" className="home-hero-cta">
             Yes, show me
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </Link>
+          </a>
         </div>
 
         {/* Scroll hint */}
@@ -94,14 +124,44 @@ const Home = () => {
         </div>
       </section>
 
+      <section
+        className="gospel-feature"
+        id="gospel-message"
+        aria-labelledby="gospel-title"
+      >
+        <h2 id="gospel-title">The Gospel Message</h2>
+        <p>Pastor John Wilkerson explains from Scripture how to be saved.</p>
+        <div className="gospel-player">
+          <iframe
+            src="https://www.youtube.com/embed/Trw5FVDQmiA"
+            title="The Gospel Message — Pastor John Wilkerson"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+        {/* <p><a href="https://www.youtube.com/watch?v=Trw5FVDQmiA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>. For a transcript, open the video description and choose “Show transcript” if available.</p>
+        <Link to="/seeking-truth" className="btn btn-primary">Read and Understand the Gospel</Link> */}
+      </section>
+
+      <WelcomeMessage />
+
       {/* ── STREAMS ── */}
       <section className="home-streams">
         <div className="home-streams-inner">
-          <p className="streams-label">Who are you?</p>
-          <h2 className="streams-title">Choose Your Path</h2>
+          <h2 className="streams-title">Our Resources</h2>
+          <p className="streams-label">
+            Everything you need to know to understand Salvation and the Word of
+            God
+          </p>
           <div className="streams-grid">
             {streams.map((s) => (
-              <Link key={s.id} to={s.link} className="stream-card" style={{ '--accent': s.accent }}>
+              <Link
+                key={s.id}
+                to={s.link}
+                className="stream-card"
+                style={{ '--accent': s.accent }}
+              >
                 <div className="stream-card-glow"></div>
                 <span className="stream-badge">{s.label}</span>
                 <h3 className="stream-card-title">{s.title}</h3>

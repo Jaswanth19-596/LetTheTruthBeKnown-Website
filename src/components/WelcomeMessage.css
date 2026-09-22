@@ -1,0 +1,19 @@
+.welcome-copy { max-width: 850px; }
+.welcome-copy p { line-height: 1.9; margin: 1.25rem 0; }
+.welcome-copy h2 { margin-top: 2.5rem; }
+.welcome-copy blockquote { margin: 1.5rem 0; padding: 1rem 1.5rem; border-left: 3px solid var(--gold); background: var(--bg-secondary); line-height: 1.9; }
+.welcome-copy cite { display: inline-block; white-space: nowrap; font-style: normal; font-weight: 700; }
+.welcome-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+.gospel-feature { max-width: 900px; margin: auto; padding: 3rem 1.5rem; }
+.gospel-feature iframe, .ministry-film iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 12px; margin: 1.5rem 0; }
+.gospel-feature p, .ministry-film p { line-height: 1.8; margin: 1rem 0; }
+.ministry-film { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+.welcome-copy > h2:first-of-type { margin-top: 0; }
+.welcome-summary { font-size: 1.1rem; }
+.welcome-details { margin: 1.25rem 0; }
+.welcome-details > summary { cursor: pointer; padding: .75rem 0; color: var(--temple-blue); text-decoration: underline; text-underline-offset: 4px; }
+.welcome-details > summary:hover { color: var(--scarlet); }
+.welcome-promise { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); }
+.welcome-promise h3 { font-size: clamp(1.15rem, 2.5vw, 1.5rem); margin-top: 2rem; }
+.welcome-promise cite { display: block; margin-top: .5rem; }

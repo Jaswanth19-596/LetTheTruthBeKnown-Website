@@ -48,7 +48,7 @@ const Give = () => {
               </svg>
             </span>
             <h3>Gospel Videos</h3>
-            <p>Producing and distributing video resources that present the Gospel clearly.</p>
+            <p>Maintaining this website and producing video resources that present the Gospel clearly.</p>
           </div>
           <div className="give-why-card">
             <span className="give-why-icon">
@@ -76,7 +76,7 @@ const Give = () => {
             Contact Us to Give →
           </a>
           <p className="give-coming-note">
-            100% of donations go directly toward ministry outreach.
+            Gifts help support the ministry, maintain this site, and fund ministry projects.
           </p>
         </div>
       </section>

@@ -1,5 +1,6 @@
+import resourceEditions from './resourceEditions.json';
 // Configuration for asset URLs
-// All environments (dev and production) use AWS S3 as the single source of truth
+// Verified A4 editions are bundled locally; other assets use the CloudFront source.
 
 export const ASSETS_BASE_URL = 'https://d28muf2t6x3jzl.cloudfront.net';
 
@@ -7,5 +8,8 @@ export const ASSETS_BASE_URL = 'https://d28muf2t6x3jzl.cloudfront.net';
 export const getAssetUrl = (path) => {
   // Remove leading slash if present
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `${ASSETS_BASE_URL}/${cleanPath}`;
+  return resourceEditions[cleanPath] || `${ASSETS_BASE_URL}/${cleanPath}`;
 };
+
+// Original print layouts are kept separately from sequential A4 reading editions.
+export const getOriginalAssetUrl = (path) => `${ASSETS_BASE_URL}/${path.replace(/^\//, "")}`;

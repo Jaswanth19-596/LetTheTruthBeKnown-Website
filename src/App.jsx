@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import IntroScreen from './components/IntroScreen';
 import TextToSpeech from './components/TextToSpeech';
+import { RateLimitProvider } from './context/RateLimitContext';
 import Home from './pages/Home';
 import SeekingTruth from './pages/SeekingTruth';
 import GospelTracts from './pages/GospelTracts';
@@ -33,7 +34,7 @@ function App() {
   };
 
   return (
-    <>
+    <RateLimitProvider>
       {showIntro && <IntroScreen onComplete={handleIntroComplete} />}
       <Router>
         <ScrollToTop />
@@ -64,8 +65,9 @@ function App() {
           <TextToSpeech />
         </div>
       </Router>
-    </>
+    </RateLimitProvider>
   );
 }
 
 export default App;
+

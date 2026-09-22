@@ -454,3 +454,5 @@
     flex-direction: column;
   }
 }
+.sq-tract-link { flex-basis: 100%; text-align: center; }
+.sq-result-score { margin: 1rem 0; font-weight: 700; }

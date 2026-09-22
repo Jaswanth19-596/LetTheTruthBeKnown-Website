@@ -16,6 +16,8 @@ const Footer = () => {
     { to: '/about', label: 'About Us' },
     { to: '/faqs', label: 'FAQs' },
     { to: '/contact', label: 'Contact Us' },
+    { to: '/give', label: 'Give to the Ministry' },
+    { to: '/about#acknowledgements', label: 'Acknowledgements' },
   ];
 
   return (

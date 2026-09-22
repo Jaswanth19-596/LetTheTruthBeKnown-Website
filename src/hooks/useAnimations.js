@@ -1,10 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
-export const useScrollReveal = () => {
+export const useScrollReveal = (dependency) => {
   useEffect(() => {
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-    
     const revealOnScroll = () => {
+      const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
       revealElements.forEach((element) => {
         const elementTop = element.getBoundingClientRect().top;
         const elementVisible = 150;
@@ -15,12 +14,14 @@ export const useScrollReveal = () => {
       });
     };
 
-    // Initial check
-    revealOnScroll();
+    const timeout = setTimeout(() => revealOnScroll(), 100);
     
     window.addEventListener('scroll', revealOnScroll);
-    return () => window.removeEventListener('scroll', revealOnScroll);
-  }, []);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener('scroll', revealOnScroll);
+    };
+  }, [dependency]);
 };
 
 export const useParallax = (ref, speed = 0.5) => {

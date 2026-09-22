@@ -1,17 +1,17 @@
 import { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './TextToSpeech.css';
 
-const TextToSpeech = ({ text, language = 'en-US' }) => {
+const TextToSpeech = ({ text, language = 'en-US', inline = false }) => {
+  const { pathname } = useLocation();
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [isSupported, setIsSupported] = useState(true);
+  const [isSupported] = useState(() => 'speechSynthesis' in window);
+  const [rate, setRate] = useState(0.8);
   const utteranceRef = useRef(null);
 
   useEffect(() => {
-    if (!('speechSynthesis' in window)) {
-      setIsSupported(false);
-    }
     return () => {
-      cancelSpeech();
+      window.speechSynthesis?.cancel();
     };
   }, []);
 
@@ -25,7 +25,7 @@ const TextToSpeech = ({ text, language = 'en-US' }) => {
   const getVoiceForLanguage = (langCode) => {
     const voices = window.speechSynthesis.getVoices();
     // Try exact match first
-    let voice = voices.find(v => v.lang === langCode);
+    let voice = voices.find(v => v.lang === langCode && /Daniel|David|James|George|Guy|Aaron/i.test(v.name)) || voices.find(v => v.lang === langCode);
     // Try base language match (e.g., 'sw' matches 'sw-KE')
     if (!voice) {
       const baseLang = langCode.split('-')[0];
@@ -50,7 +50,7 @@ const TextToSpeech = ({ text, language = 'en-US' }) => {
     const textToRead = text || getPageContent();
     const utterance = new SpeechSynthesisUtterance(textToRead);
     
-    utterance.rate = 0.9;
+    utterance.rate = rate;
     utterance.pitch = 1;
     utterance.volume = 1;
     
@@ -77,9 +77,15 @@ const TextToSpeech = ({ text, language = 'en-US' }) => {
     return mainContent.innerText || 'No text found to read.';
   };
 
-  if (!isSupported) return null;
+  if (!isSupported || (pathname === '/discipleship' && !inline)) return null;
 
   return (
+    <div className={`tts-controls${inline ? ' tts-controls-inline' : ''}`}>
+    <label className="tts-speed">Reading speed
+      <select value={rate} onChange={(e) => { cancelSpeech(); setRate(Number(e.target.value)); }}>
+        <option value="0.65">Slower</option><option value="0.8">Gentle</option><option value="1">Normal</option>
+      </select>
+    </label>
     <button
       className={`tts-button ${isSpeaking ? 'speaking' : ''}`}
       onClick={handleSpeak}
@@ -107,6 +113,7 @@ const TextToSpeech = ({ text, language = 'en-US' }) => {
         </>
       )}
     </button>
+    </div>
   );
 };
 

@@ -114,3 +114,4 @@
     border-radius: 0;
   }
 }
+.stop-sign { display: grid; place-items: center; width: 150px; height: 150px; margin: 0 auto 1.5rem; background: var(--scarlet); color: white; font-size: 2rem; font-weight: 800; clip-path: polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%); }

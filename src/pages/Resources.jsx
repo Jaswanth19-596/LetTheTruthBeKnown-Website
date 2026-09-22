@@ -1,28 +1,19 @@
-import { useState, useEffect } from 'react';
 import Card from '../components/Card';
-import PDFViewer from '../components/PDFViewer';
+import { useScrollReveal } from '../hooks/useAnimations';
 import { getAssetUrl } from '../config/assets';
+import { useRateLimit } from '../context/RateLimitContext';
 import './Resources.css';
 
 const Resources = () => {
-  const [viewingPdf, setViewingPdf] = useState(null);
+  useScrollReveal();
+  const { checkAndRegister } = useRateLimit();
 
-  useEffect(() => {
-    const revealOnScroll = () => {
-      const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-      revealElements.forEach((element) => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        if (elementTop < window.innerHeight - elementVisible) element.classList.add('active');
-      });
-    };
-    const timeout = setTimeout(() => revealOnScroll(), 100);
-    window.addEventListener('scroll', revealOnScroll);
-    return () => { clearTimeout(timeout); window.removeEventListener('scroll', revealOnScroll); };
-  }, []);
+  const openPdf = (pdfUrl) => {
+    if (checkAndRegister('pdf_download')) {
+      window.open(pdfUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
 
-  const handleView = (book) => setViewingPdf(book);
-  const handleDownload = (pdfUrl) => window.open(pdfUrl, '_blank');
 
   const answerBooks = [
     { title: 'Answer Book 1: Soul Winning & Discipleship', description: 'Comprehensive guide to evangelism.', pdf: getAssetUrl('downloads/answers/01-soul-winning-discipleship.pdf') },
@@ -35,11 +26,11 @@ const Resources = () => {
   ];
 
   const otherResources = [
-    { title: 'Lessons on Tongues', description: 'Biblical study on tongues. (Content pending delivery from Peter)', image: getAssetUrl('downloads/resources/thumbnails/lessons-on-tongues.png'), pdf: getAssetUrl('downloads/resources/books/lessons-on-tongues.pdf') },
-    { title: 'ABCs of Christian Growth', description: 'Foundational principles.', image: getAssetUrl('downloads/resources/thumbnails/abcs-of-christian-growth.png'), pdf: getAssetUrl('downloads/resources/books/abcs-of-christian-growth.pdf') },
-    { title: 'ABCs of Christian Maturity', description: 'Advanced principles.', image: getAssetUrl('downloads/resources/thumbnails/abcs-of-christian-maturity.png'), pdf: getAssetUrl('downloads/resources/books/abcs-of-christian-maturity.pdf') },
-    { title: 'Know Your Bible Better', description: 'Study guide to Scripture.', image: getAssetUrl('downloads/resources/thumbnails/know-your-bible-better.png'), pdf: getAssetUrl('downloads/resources/books/know-your-bible-better.pdf') },
-    { title: 'Raising Prince', description: 'Biblical parenting.', image: getAssetUrl('downloads/resources/thumbnails/raising-prince.png'), pdf: getAssetUrl('downloads/resources/books/raising-prince.pdf') },
+    { title: 'Lessons on Tongues', description: 'Eleven Bible-based lessons on tongues by Pastor Ted Speer.', image: '/covers/resources/books/lessons-on-tongues.png', pdf: getAssetUrl('downloads/resources/books/lessons-on-tongues.pdf') },
+    { title: 'ABCs of Christian Growth', description: 'Foundational principles.', image: '/covers/resources/books/abcs-of-christian-growth.png', pdf: getAssetUrl('downloads/resources/books/abcs-of-christian-growth.pdf') },
+    { title: 'ABCs of Christian Maturity', description: 'Advanced principles.', image: '/covers/resources/books/abcs-of-christian-maturity.png', pdf: getAssetUrl('downloads/resources/books/abcs-of-christian-maturity.pdf') },
+    { title: 'Know Your Bible Better', description: 'Study guide to Scripture.', image: '/covers/resources/books/know-your-bible-better.png', pdf: getAssetUrl('downloads/resources/books/know-your-bible-better.pdf') },
+    { title: 'Raising Prince', description: 'Biblical parenting.', image: '/covers/resources/books/raising-prince.png', pdf: getAssetUrl('downloads/resources/books/raising-prince.pdf') },
   ];
 
   return (
@@ -48,8 +39,8 @@ const Resources = () => {
         <div className="container">
           <div className="page-hero-content">
             <span className="section-badge">Library</span>
-            <h1>Free <span className="gradient-text">Resources</span></h1>
-            <p>Download our free biblical materials, answer books, and study guides.</p>
+            <h1>Our <span className="gradient-text">Resources</span></h1>
+            <p>Everything you need to know to understand Salvation and the Word of God</p>
           </div>
         </div>
       </section>
@@ -68,14 +59,14 @@ const Resources = () => {
                   <h4>{book.title}</h4>
                   <p>{book.description}</p>
                   <div className="book-actions">
-                    <button className="btn btn-outline-small" onClick={() => handleView(book)}>
+                    <button className="btn btn-outline-small" onClick={() => openPdf(book.pdf)}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                       View
                     </button>
-                    <button className="btn btn-primary-small" onClick={() => handleDownload(book.pdf)}>
+                    <a className="btn btn-primary-small" href={book.pdf} download onClick={(e) => { if (!checkAndRegister('pdf_download')) e.preventDefault(); }}>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                      Download
-                    </button>
+                      Download A4
+                    </a>
                   </div>
                 </div>
               </div>
@@ -149,15 +140,15 @@ const Resources = () => {
       <section className="resources-section section" style={{ background: 'var(--bg-secondary)', borderTop: '1px solid var(--glass-border)' }}>
         <div className="container">
           <div className="section-header">
-            <span className="section-badge" style={{ background: 'var(--temple-blue-light)', color: 'var(--temple-blue)' }}>Coming Soon</span>
+            <span className="section-badge" style={{ background: 'var(--temple-blue-light)', color: 'var(--temple-blue)' }}>Awaiting Materials</span>
             <h2>Brandon Heselschwerdt <span className="gradient-text">Series</span></h2>
             <p>A new series of lessons on Salvation, Tongues, Soul Winning, and Discipleship.</p>
           </div>
           <div className="grid grid-auto">
-            <Card title="Salvation Series" description="Lessons on Salvation by Brandon Heselschwerdt. (Pending Upload)" />
-            <Card title="Lessons on Tongues" description="Biblical teaching on Tongues. (Pending Upload)" />
-            <Card title="Soul Winning" description="Practical guide to sharing your faith. (Pending Upload)" />
-            <Card title="TAN Series & Discipleship" description="Advanced discipleship materials. (Pending Upload)" />
+            <Card title="Salvation Series" description="Lessons on Salvation by Brandon Heselschwerdt. Available after permission and materials are received" />
+            <Card title="Lessons on Tongues" description="Biblical teaching on Tongues. Available after permission and materials are received" />
+            <Card title="Soul Winning" description="Practical guide to sharing your faith. Available after permission and materials are received" />
+            <Card title="TAN Series & Discipleship" description="Advanced discipleship materials. Available after permission and materials are received" />
           </div>
         </div>
       </section>
@@ -184,7 +175,7 @@ const Resources = () => {
         </div>
       </section>
 
-      {viewingPdf && <PDFViewer pdfUrl={viewingPdf.pdf} title={viewingPdf.title} onClose={() => setViewingPdf(null)} />}
+
     </div>
   );
 };

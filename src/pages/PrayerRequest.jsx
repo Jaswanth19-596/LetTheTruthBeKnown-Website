@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useRateLimit } from '../context/RateLimitContext';
 import './PrayerRequest.css';
 
 const PrayerRequest = () => {
+  const { checkAndRegister } = useRateLimit();
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -11,6 +13,7 @@ const PrayerRequest = () => {
     request: '',
     anonymous: false
   });
+  const [status, setStatus] = useState({ submitting: false, error: null });
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -20,9 +23,43 @@ const PrayerRequest = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    // Enforce rate limiting for form submissions
+    if (!checkAndRegister('form_submission')) {
+      setStatus({ submitting: false, error: "Too many submissions. Please wait before trying again." });
+      return;
+    }
+
+    setStatus({ submitting: true, error: null });
+
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/penpapershare@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.anonymous ? 'Anonymous' : (formData.name || 'Not provided'),
+          email: formData.email || 'Not provided',
+          category: formData.category,
+          request: formData.request,
+          _subject: `New Prayer Request: ${formData.category}`
+        })
+      });
+
+      if (response.ok) {
+        setStatus({ submitting: false, error: null });
+        setSubmitted(true);
+      } else {
+        throw new Error("Failed to send prayer request. Please try again.");
+      }
+    } catch (err) {
+      setStatus({ submitting: false, error: err.message });
+    }
   };
 
   const categories = [
@@ -109,8 +146,14 @@ const PrayerRequest = () => {
                   <input type="checkbox" id="anonymous" name="anonymous" checked={formData.anonymous} onChange={handleChange} />
                   <label htmlFor="anonymous">Submit anonymously</label>
                 </div>
-                <button type="submit" className="btn btn-primary btn-full">Submit Prayer Request</button>
-                <p className="form-note">Note: This form is for demonstration. For actual prayer requests, please email us at info@letthetruthbeknown.org</p>
+                {status.error && (
+                  <div className="form-error-message" style={{ color: 'var(--scarlet)', marginBottom: '1rem', fontSize: '0.9rem' }}>
+                    {status.error}
+                  </div>
+                )}
+                <button type="submit" className="btn btn-primary btn-full" disabled={status.submitting}>
+                  {status.submitting ? 'Submitting...' : 'Submit Prayer Request'}
+                </button>
               </form>
             </div>
 

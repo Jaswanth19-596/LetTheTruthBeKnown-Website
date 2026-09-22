@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from '../components/Card';
-import { getAssetUrl } from '../config/assets';
+import { getAssetUrl, getOriginalAssetUrl } from '../config/assets';
 import './StopTracts.css';
 
 const StopTracts = () => {
@@ -45,7 +45,7 @@ const StopTracts = () => {
         <div className="container">
           <div className="page-hero-content">
             <span className="section-badge stop-badge">Street Evangelism</span>
-            <h1>STOP! <span className="gradient-text">Tracts</span></h1>
+            <div className="stop-sign" aria-hidden="true">STOP!</div><h1>STOP! Tracts</h1>
             <p>Eye-catching tracts designed to grab attention and share the Gospel quickly.</p>
           </div>
         </div>
@@ -73,10 +73,11 @@ const StopTracts = () => {
         <main className="sidebar-content">
           <div className="grid grid-auto">
             {filteredTracts.map(tract => (
-              <Card key={tract.id} title={tract.title} description={tract.description} link={tract.pdf} linkText="Download PDF" />
+              <Card key={tract.id} title={tract.title} description={tract.description} link={tract.pdf} printLink={getOriginalAssetUrl(`downloads/stop_tracts/${tract.language}.pdf`)} linkText="Download A4" />
             ))}
           </div>
 
+          <div className="info-card" style={{ marginTop: '2rem' }}><div className="info-content"><h3>Read on Your Phone or Print</h3><p>Read PDF opens four pages in order: front cover, pages 2 and 3, then the back. Download A4 saves the same reading edition. The original print layout has two landscape A4 sheets: print double-sided, flip on the short edge, and fold in half. Test one copy before printing a batch.</p><p>For printing permission or help, <a href="/contact">contact us</a>.</p></div></div>
           {/* Why section */}
           <div className="why-grid" style={{ marginTop: '3rem' }}>
             <div className="why-card"><h4>Eye-Catching</h4><p>The red STOP sign design instantly grabs people's attention as they walk by.</p></div>

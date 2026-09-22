@@ -10,7 +10,7 @@ const About = () => {
           <div className="page-hero-content">
             <span className="section-badge">Our Mission</span>
             <h1>About <span className="gradient-text">Our Ministry</span></h1>
-            <p>Dedicated to spreading the Gospel of Jesus Christ through free resources and materials.</p>
+            <p>Helping you find the truth in the Word of God and the Gospel of Jesus Christ.</p>
           </div>
         </div>
       </section>
@@ -72,7 +72,7 @@ const About = () => {
             <div className="offer-item">
               <span className="offer-number">01</span>
               <h4>Gospel Tracts</h4>
-              <p>God's Simple Plan of Salvation in 9+ languages</p>
+              <p>God's Simple Plan of Salvation in multiple languages</p>
             </div>
             <div className="offer-item">
               <span className="offer-number">02</span>
@@ -82,7 +82,7 @@ const About = () => {
             <div className="offer-item">
               <span className="offer-number">03</span>
               <h4>Discipleship Materials</h4>
-              <p>3-level program with 20+ study books</p>
+              <p>3-level program with 20 study books</p>
             </div>
             <div className="offer-item">
               <span className="offer-number">04</span>
@@ -103,6 +103,15 @@ const About = () => {
         </div>
       </section>
 
+      <section className="ministry-film" id="peter-morris">
+        <h2>Who Is Peter Morris?</h2>
+        <p>A missionary documentary about Peter Morris and his ministry.</p>
+        <iframe src="https://www.youtube.com/embed/ATmIOERW--c" title="Peter Morris missionary documentary" loading="lazy" allow="encrypted-media; picture-in-picture" allowFullScreen />
+        <a href="https://www.youtube.com/watch?v=ATmIOERW--c" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </section>
+      <section className="section" id="acknowledgements">
+        <div className="container"><h2>Acknowledgements</h2><p>Thank you to everyone who helps make the truth of God’s Word accessible through this ministry.</p></div>
+      </section>
       {/* CTA */}
       <section className="about-cta section">
         <div className="container">

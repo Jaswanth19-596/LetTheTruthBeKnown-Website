@@ -35,3 +35,23 @@
 - **Why it was made:** To secure the application against Clickjacking, MIME sniffing, and Cross-Site Scripting (XSS), while allowing specific external resources (Google Fonts, CloudFront CDN assets, YouTube embeds).
 - **What breaks if violated:** Malicious actors could embed the site in iframes, execute unauthorized scripts, or new external asset integrations might fail if they are not explicitly allowed in the CSP.
 
+### 8. Form Submissions via Formsubmit.co AJAX API
+- **What it is:** The Contact and Prayer Request forms utilize fetch POST requests to the `https://formsubmit.co/ajax/penpapershare@gmail.com` endpoint to forward user messages to the ministry's mailbox, managing loading state, disabling submit buttons, and showing success/error messages.
+- **Why it was made:** To keep the frontend architecture purely static (React SPA) while allowing real, functional email submissions without requiring a separate server, databases, or API keys, ensuring that user messages and prayer requests are actually received and processed.
+- **What breaks if violated:** Form submissions will either fail silently or fail to send real emails, and users will see static form components that do not capture their messages or show appropriate status feedback.
+
+### 9. Client-Side Rate Limiting
+- **What it is:** Enforcing request limits on form submissions (max 3 submissions per 30 minutes) and PDF views/downloads (max 15 downloads per 15 minutes) on the client side, tracked dynamically via `localStorage` with in-memory fallback. When limits are exceeded, forms show inline warnings and PDF buttons trigger an elegant, themed popup with a countdown timer.
+- **Why it was made:** To prevent malicious bot spammers and scrapers from generating excessive form submissions (which spam the mailbox) or initiating rapid, automated PDF downloads that inflate AWS CloudFront and S3 bandwidth egress costs.
+- **What breaks if violated:** The site would be vulnerable to basic automated attacks or scripts that consume resources rapidly, resulting in elevated AWS bills and filled mailboxes.
+
+
+
+## September 13, 2026 — April correction implementation
+
+- Truth-focused introduction precedes the Gospel video on Home; missionary biography and acknowledgements live near the end of About.
+- Asset delivery now supports verified local A4 editions through `src/config/resourceEditions.json`, falling back to the existing CloudFront source for other assets. Separate original STOP printing URLs preserve booklet layouts.
+- Covers are rendered from actual source PDFs; no lesson is renamed to content it does not contain. Unavailable translations are disclosed instead of linking incorrect files.
+- See [the correction checklist](corrections-april-10-2026.md) for full implementation, verification, source audit, and outstanding source material.
+
+- September 14 final checks: full lint/build pass; navigation closes on route changes without effect-driven cascading updates, and scroll reveal uses a stable explicit dependency.
