@@ -1,0 +1,38 @@
+/* Shared reading layout for tract libraries. */
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-intro,
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-library { width: min(1040px, calc(100% - 48px)); margin-inline: auto; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-intro { padding: 128px 0 36px; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-intro h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.25; margin: 0 0 16px; letter-spacing: 0; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-intro p { max-width: 680px; margin: 0; font-size: 1.05rem; line-height: 1.75; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-library { padding-bottom: 48px; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-toolbar { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-toolbar h2,
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-guidance h2 { font-family: var(--font-family); font-size: 1.5rem; line-height: 1.4; margin: 0 0 8px; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-toolbar p { margin: 0; font-family: var(--font-family-body); font-size: .85rem; color: #5c554b; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-filter { display: flex; flex-direction: column; gap: 6px; min-width: 180px; font-family: var(--font-family-body); font-size: .85rem; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-filter select { min-height: 44px; padding: 10px 12px; border: 1px solid #cfc6b8; border-radius: 4px; background: var(--bg-primary); color: var(--temple-blue); font: inherit; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-list { list-style: none; padding: 0; margin: 0; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 32px; padding: 24px 0; border-top: 1px solid #d8cfc1; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-row:last-child { border-bottom: 1px solid #d8cfc1; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-language { font-family: var(--font-family-body); font-size: .85rem; color: #665c4d; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-details h3 { font-family: var(--font-family); font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.45; margin: 5px 0 0; overflow-wrap: anywhere; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-details p { max-width: 680px; margin: 6px 0 0; font-size: .95rem; line-height: 1.65; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-actions { display: flex; flex-direction: column; align-items: center; gap: 4px; font-family: var(--font-family-body); font-size: .85rem; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-read { display: inline-flex; align-items: center; justify-content: center; gap: 16px; min-height: 44px; padding: 10px 20px; border-radius: 4px; background: var(--temple-blue); color: white; text-decoration: none; font-weight: 600; white-space: nowrap; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-read:hover { background: var(--temple-blue-dark); }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-download { display: inline-flex; align-items: center; min-height: 44px; color: var(--temple-blue); text-decoration: underline; text-underline-offset: 4px; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-unavailable { font-family: var(--font-family-body); font-size: .85rem; color: #665c4d; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-guidance { max-width: 680px; padding-top: 36px; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-guidance h3 { font-family: var(--font-family); font-size: 1.1rem; margin: 24px 0 8px; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-guidance p { font-size: .95rem; line-height: 1.75; margin: 0 0 12px; }
+:is(.gospel-tracts-page, .stop-tracts-page) .tract-guidance a { text-decoration: underline; text-underline-offset: 4px; }
+:is(.gospel-tracts-page, .stop-tracts-page) :is(a, select):focus-visible { outline: 3px solid #8d641c; outline-offset: 4px; }
+@media (max-width: 600px) {
+  :is(.gospel-tracts-page, .stop-tracts-page) .tract-intro,
+  :is(.gospel-tracts-page, .stop-tracts-page) .tract-library { width: calc(100% - 32px); }
+  :is(.gospel-tracts-page, .stop-tracts-page) .tract-intro { padding: 104px 0 24px; }
+  :is(.gospel-tracts-page, .stop-tracts-page) .tract-toolbar { flex-direction: column; align-items: stretch; gap: 16px; }
+  :is(.gospel-tracts-page, .stop-tracts-page) .tract-row { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 18px 0; }
+  :is(.gospel-tracts-page, .stop-tracts-page) .tract-actions { flex-direction: row; justify-content: space-between; gap: 12px; }
+  :is(.gospel-tracts-page, .stop-tracts-page) .tract-read { padding-inline: 14px; }
+}

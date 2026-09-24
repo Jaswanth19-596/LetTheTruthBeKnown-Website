@@ -61,7 +61,7 @@ const Navbar = () => {
   ];
 
   const pastorLinks = [
-    { to: '/resources',       label: 'Further Study' },
+    { to: '/further-study',   label: 'Further Study' },
     { to: '/gospel-tracts',   label: 'Gospel Tracts' },
     { to: '/stop-tracts',     label: 'STOP! Tracts' },
     { to: '/faqs',            label: 'Frequently Asked Questions' },
@@ -126,7 +126,7 @@ const Navbar = () => {
           <div className={`nav-dropdown-wrap ${openDropdown === 'pastor' ? 'open' : ''}`}>
             <button
               className={`nav-link nav-dropdown-trigger ${
-                isActive(['/gospel-tracts', '/stop-tracts', '/faqs', '/prayer-request']) ? 'active' : ''
+                isActive(['/further-study', '/gospel-tracts', '/stop-tracts', '/faqs', '/prayer-request']) ? 'active' : ''
               }`}
               onClick={() => toggleDropdown('pastor')}
               aria-expanded={openDropdown === 'pastor'}

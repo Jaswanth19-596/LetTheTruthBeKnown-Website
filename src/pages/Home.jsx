@@ -74,7 +74,7 @@ const Home = () => {
       title: 'Further Study',
       desc: 'Advanced resources, soul winning tools, and teaching materials.',
       cta: 'Explore →',
-      link: '/resources',
+      link: '/further-study',
       accent: 'var(--stream-gold)',
     },
   ];

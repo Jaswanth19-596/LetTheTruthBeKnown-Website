@@ -1,15 +1,12 @@
-import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import Card from '../components/Card';
-import { useScrollReveal } from '../hooks/useAnimations';
+import { useRateLimit } from '../context/RateLimitContext';
 import { getAssetUrl } from '../config/assets';
 import './GospelTracts.css';
+import './TractLibrary.css';
 
 const GospelTracts = () => {
-  const [searchParams] = useSearchParams();
-  const [activeLanguage, setActiveLanguage] = useState(() => searchParams.get('language') === 'english' ? 'english' : 'all');
-
-  useScrollReveal(activeLanguage);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { checkAndRegister } = useRateLimit();
 
   const languages = [
     { id: 'all',      name: 'All Languages', code: 'ALL' },
@@ -38,73 +35,76 @@ const GospelTracts = () => {
     { id: 10, language: 'kamba',    title: "God's Simple Plan - Kamba",    description: 'Kamba language version for Kenya.',   pdf: getAssetUrl("downloads/gospel_tracts/kamba.pdf") },
   ];
 
+  const activeLanguage = languages.some(({ id }) => id === searchParams.get('language'))
+    ? searchParams.get('language') : 'all';
   const filteredTracts = activeLanguage === 'all'
     ? tracts
     : tracts.filter(tract => tract.language === activeLanguage);
 
+  const selectLanguage = (event) => {
+    const language = event.target.value;
+    setSearchParams((params) => {
+      if (language === 'all') params.delete('language');
+      else params.set('language', language);
+      return params;
+    }, { preventScrollReset: true });
+  };
+  const checkPdfAccess = (event) => {
+    if (!checkAndRegister('pdf_download')) event.preventDefault();
+  };
+
   return (
     <div className="gospel-tracts-page">
-      {/* Hero */}
-      <section className="page-hero">
-        <div className="container">
-          <div className="page-hero-content">
-            <span className="section-badge">Share the Good News</span>
-            <h1>Gospel <span className="gradient-text">Tracts</span></h1>
-            <p>God’s Simple Plan of Salvation explains the Gospel of Jesus Christ and how to be saved. Read directly from your phone in your language, or download an A4 copy.</p>
+      <header className="tract-intro">
+        <h1>Gospel Tracts</h1>
+        <p>God’s Simple Plan of Salvation explains the Gospel of Jesus Christ and how to be saved. Choose a language to read on your phone or download a copy to share.</p>
+      </header>
+
+      <section className="tract-library" aria-label="Gospel tracts by language">
+        <div className="tract-toolbar">
+          <div>
+            <h2>God’s Simple Plan of Salvation</h2>
+            <p id="tract-results" role="status">{filteredTracts.length} {filteredTracts.length === 1 ? 'translation' : 'translations'} · PDFs open in a new tab</p>
+          </div>
+          <div className="tract-filter">
+            <label htmlFor="tract-language">Language</label>
+            <select id="tract-language" value={activeLanguage} onChange={selectLanguage} aria-controls="tract-list">
+              {languages.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
+            </select>
           </div>
         </div>
+
+        <ul className="tract-list" id="tract-list">
+          {filteredTracts.map(tract => {
+            const language = languages.find(({ id }) => id === tract.language).name;
+            return (
+              <li className="tract-row" key={tract.id}>
+                <div className="tract-details">
+                  <span className="tract-language">{language}</span>
+                  <h3>{tract.title}</h3>
+                  <p>{tract.pdf ? tract.description : 'This translation is not yet available.'}</p>
+                </div>
+                {tract.pdf ? (
+                  <div className="tract-actions">
+                    <a className="tract-read" href={tract.pdf} target="_blank" rel="noopener noreferrer"
+                      onClick={checkPdfAccess} aria-label={`Read ${language} tract (PDF, opens in a new tab)`}>Read PDF <span aria-hidden="true">↗</span></a>
+                    <a className="tract-download" href={tract.pdf} download onClick={checkPdfAccess}
+                      aria-label={`Download ${language} tract (PDF)`}>Download PDF</a>
+                  </div>
+                ) : <span className="tract-unavailable">Not yet available</span>}
+              </li>
+            );
+          })}
+        </ul>
+
+        <section className="tract-guidance" aria-labelledby="tract-guidance-title">
+          <h2 id="tract-guidance-title">Sharing these tracts</h2>
+          <p>Read together on a phone or use a printed copy. Invite the person to read each Scripture passage, listen to their understanding, and talk through their questions using the Bible.</p>
+          <p>Allow time to work through the Gospel message. If they wish to receive Christ, use the tract’s explanation and Scripture to guide them.</p>
+          <h3>Printing a copy</h3>
+          <p>Download the A4 reading edition and print pages in order using “Fit to printable area”. For permission and a booklet printing layout, <Link to="/contact">contact us</Link>. Ask your printer to prepare a proof copy before printing booklets.</p>
+        </section>
       </section>
-
-      {/* Sidebar + Content layout */}
-      <div className="page-with-sidebar">
-
-        {/* ── Left sidebar filter ── */}
-        <aside className="filter-sidebar">
-          <p className="sidebar-label">Language</p>
-          {languages.map(lang => (
-            <button
-              key={lang.id}
-              className={`sidebar-tab ${activeLanguage === lang.id ? 'active' : ''}`}
-              onClick={() => setActiveLanguage(lang.id)}
-            >
-              <span className="sidebar-tab-code">{lang.code}</span>
-              <span className="sidebar-tab-name">{lang.name}</span>
-            </button>
-          ))}
-        </aside>
-
-        {/* ── Main content ── */}
-        <main className="sidebar-content">
-          <div className="grid grid-auto">
-            {filteredTracts.map(tract => (
-              <Card
-                key={tract.id}
-                title={tract.title}
-                description={tract.pdf ? tract.description : `${tract.language === 'arabic' ? 'Arabic' : 'French'} translation awaiting the correct source file.`}
-                link={tract.pdf}
-                linkText="Download PDF"
-              />
-            ))}
-          </div>
-
-          {/* Info card */}
-          <div className="info-card" style={{ marginTop: '3rem' }}>
-            <div className="info-content">
-              <h3>How to Use These Tracts</h3>
-              <p>Most readers can use these materials directly from their phone; there is no need to print. Choose your language and select Read PDF to read each page in order.</p>
-              <ul className="info-list">
-                <li>Invite the interested person to read each Scripture passage for themselves.</li>
-                <li>Ask what they think it means, listen to their answer, and explain where necessary using the Bible.</li>
-                <li>Work through the Gospel message and the tract’s questions together, allowing time to understand.</li>
-                <li>If they wish to receive Christ, use the tract’s explanation and Scripture to guide them.</li>
-                <li>For a paper copy, download the A4 reading edition and print pages in order using “Fit to printable area”.</li>
-              </ul>
-              <p>For permission and a booklet printing layout, <Link to="/contact">contact us</Link>. Ask your printer to prepare the booklet and a proof copy; folding and duplex settings depend on the approved layout.</p>
-            </div>
-          </div>
-        </main>
-
-      </div>
     </div>
   );
 };

@@ -53,6 +53,7 @@ function App() {
               <Route path="/discipleship"    element={<Discipleship />} />
               <Route path="/salvation-quiz"  element={<SalvationQuiz />} />
               <Route path="/resources"       element={<Resources />} />
+              <Route path="/further-study"   element={<Resources furtherStudy />} />
               <Route path="/about"           element={<About />} />
               <Route path="/faqs"            element={<FAQs />} />
               <Route path="/contact"         element={<Contact />} />

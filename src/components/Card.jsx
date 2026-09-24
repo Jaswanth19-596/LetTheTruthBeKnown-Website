@@ -58,7 +58,7 @@ const Card = ({
                   <polyline points="7,10 12,15 17,10"/>
                   <line x1="12" y1="15" x2="12" y2="3"/>
                 </svg>
-                Download A4
+                Download PDF
               </a>
               {printLink && <a className="pdf-btn" href={printLink} target="_blank" rel="noopener noreferrer">Original print layout</a>}
             </div>

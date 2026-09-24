@@ -294,3 +294,85 @@
     display: none;
   }
 }
+
+/* A quiet, continuous letter, with space to read. */
+.thank-you-section {
+  background: var(--bg-primary);
+}
+
+.thank-you-letter {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) 0;
+  border-top: 1px solid var(--glass-border);
+  color: var(--text-primary);
+}
+
+.thank-you-letter-header {
+  margin-bottom: 2.5rem;
+}
+
+.thank-you-letter-header h2 {
+  font-family: var(--font-family-heading);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  letter-spacing: normal;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.thank-you-letter-header > p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.thank-you-letter-body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.0625rem, 2vw, 1.1875rem);
+  line-height: 1.85;
+}
+
+.thank-you-letter-body > p {
+  margin: 0 0 1.4em;
+}
+
+.thank-you-letter-body blockquote {
+  margin: 1.8em 0;
+  padding-left: clamp(1rem, 3vw, 1.5rem);
+  border-left: 2px solid var(--glass-border);
+}
+
+.thank-you-letter-body blockquote p {
+  margin: 0 0 0.65em;
+}
+
+.thank-you-letter-body cite {
+  display: block;
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  font-style: normal;
+  color: var(--text-secondary);
+}
+
+.thank-you-letter-signature {
+  margin-top: 2.5rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.thank-you-letter-signature p {
+  margin: 0;
+}
+
+.thank-you-letter-signature .thank-you-letter-name {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.thank-you-letter-signature .thank-you-letter-role {
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}

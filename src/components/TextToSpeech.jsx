@@ -77,7 +77,7 @@ const TextToSpeech = ({ text, language = 'en-US', inline = false }) => {
     return mainContent.innerText || 'No text found to read.';
   };
 
-  if (!isSupported || (pathname === '/discipleship' && !inline)) return null;
+  if (!isSupported || (['/discipleship', '/resources'].includes(pathname) && !inline)) return null;
 
   return (
     <div className={`tts-controls${inline ? ' tts-controls-inline' : ''}`}>

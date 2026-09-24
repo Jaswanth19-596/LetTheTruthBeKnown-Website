@@ -1,388 +1,109 @@
-/* ===== Next Steps Page - Ancient Israel Theme ===== */
-.next-steps-page {
-  min-height: 100vh;
+/* Follow the reading layout and typography of Foundations of Our Faith. */
+.next-steps-page { min-height: 100vh; }
+.next-steps-intro,
+.next-steps-guide,
+.next-steps-support {
+  width: min(1040px, calc(100% - 48px));
+  margin-inline: auto;
 }
-
-/* Hero */
-.next-steps-hero {
-  padding: 160px 0 80px;
-  background:
-    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-light) 50%, var(--bg-primary) 100%);
-  position: relative;
+.next-steps-intro { padding: 128px 0 36px; }
+.next-steps-intro h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.25;
+  margin: 0 0 16px;
+  letter-spacing: 0;
 }
-
-/* Decorative temple glow */
-.next-steps-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(184, 134, 11, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(30, 58, 95, 0.05) 0%, transparent 40%);
+.next-steps-intro p {
+  max-width: 680px;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
 }
-
-.page-hero-content {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.page-hero-content h1 {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-5xl);
-  margin-bottom: var(--spacing-md);
-  color: var(--text-primary);
-  letter-spacing: 0.02em;
-}
-
-.page-hero-content p {
-  font-family: var(--font-family);
-  font-size: var(--font-size-lg);
-  color: var(--text-secondary);
-  font-style: italic;
-  line-height: 1.8;
-}
-
-/* Progress Section */
-.progress-section {
-  padding: var(--spacing-xl) 0;
-}
-
-.progress-card {
-  background:
-    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 100%);
-  border: 2px solid var(--gold);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  box-shadow: var(--shadow-md);
-}
-
-.progress-header {
+.next-steps-heading {
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--spacing-md);
+  gap: 16px;
+  padding-bottom: 24px;
 }
-
-.progress-header h3 {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-lg);
-  margin: 0;
-  color: var(--text-primary);
-}
-
-.progress-count {
+.next-steps-page h2 {
   font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  color: var(--gold);
-  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 0 0 8px;
 }
-
-.progress-bar-container {
-  height: 8px;
-  background: var(--bg-stone);
-  border-radius: var(--radius-full);
-  overflow: hidden;
-  border: 1px solid var(--sand);
+.next-steps-heading p { margin: 0; }
+.next-steps-page .next-steps-count,
+.next-steps-number,
+.next-steps-check,
+.next-steps-link,
+.next-steps-primary {
+  font-family: var(--font-family-body);
+  font-size: .85rem;
+  line-height: 1.5;
 }
-
-.progress-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--temple-blue), var(--gold), var(--scarlet));
-  border-radius: var(--radius-full);
-  transition: width 0.5s ease;
-}
-
-/* Steps Grid */
-.steps-grid {
+.next-steps-page .next-steps-count { color: #665c4d; white-space: nowrap; }
+.next-steps-list { list-style: none; padding: 0; margin: 0; }
+.next-steps-item {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-xl);
-}
-
-/* Step Card - Parchment scroll style */
-.step-card {
-  background: var(--glass-bg);
-  border: 2px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-xl);
-  transition: all 0.3s ease;
-  position: relative;
-  box-shadow: var(--shadow-md);
-}
-
-/* Gold top accent */
-.step-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--temple-blue), var(--gold), var(--scarlet));
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.step-card:hover::before {
-  transform: scaleX(1);
-}
-
-.step-card:hover {
-  border-color: var(--gold);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg), 0 0 20px rgba(184, 134, 11, 0.1);
-}
-
-.step-card.completed {
-  border-color: var(--olive);
-  background: linear-gradient(135deg, rgba(107, 123, 60, 0.08), var(--glass-bg));
-}
-
-.step-card.completed .step-checkbox {
-  background: var(--gradient-olive);
-  border-color: var(--olive-dark);
-  color: var(--parchment-light);
-}
-
-.step-header {
-  display: flex;
+  grid-template-columns: minmax(0, 1fr) 160px;
   align-items: center;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
+  gap: 32px;
+  padding: 24px 0;
+  border-top: 1px solid #d8cfc1;
 }
-
-.step-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  background: rgba(200, 146, 42, 0.1);
-  border: 1px solid rgba(200, 146, 42, 0.3);
-  border-radius: var(--radius-md);
-  color: var(--gold);
-  margin-right: auto;
-}
-
-.step-svg-icon {
-  width: 24px;
-  height: 24px;
-  stroke: var(--gold);
-  transition: transform 0.3s ease;
-}
-
-.step-card:hover .step-svg-icon {
-  transform: scale(1.1) rotate(3deg);
-}
-
-
-.step-checkbox {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 2px solid var(--gold);
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.step-checkbox:hover {
-  background: rgba(184, 134, 11, 0.1);
-  transform: scale(1.1);
-}
-
-.step-number {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-lg);
-  font-weight: 700;
-  color: var(--gold);
-}
-
-.step-header h3 {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-xl);
-  margin: 0;
-  color: var(--text-primary);
-}
-
-.step-description {
+.next-steps-item:last-child { border-bottom: 1px solid #d8cfc1; }
+.next-steps-number { color: #665c4d; }
+.next-steps-details h3 {
   font-family: var(--font-family);
-  color: var(--text-secondary);
-  margin-bottom: var(--spacing-md);
-  line-height: 1.7;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.45;
+  margin: 5px 0 8px;
 }
-
-.step-verse {
-  font-family: var(--font-family);
-  font-style: italic;
-  color: var(--gold);
-  font-size: var(--font-size-sm);
-  border-left: 3px solid var(--gold);
-  padding-left: var(--spacing-md);
-  margin: var(--spacing-md) 0;
-  background: rgba(184, 134, 11, 0.05);
-  padding: var(--spacing-sm) var(--spacing-md);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-}
-
-.step-tips {
-  list-style: none;
-  padding: 0;
-  margin: var(--spacing-md) 0;
-}
-
-.step-tips li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-xs) 0;
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-}
-
-.step-tips li svg {
-  flex-shrink: 0;
-  margin-top: 2px;
-  stroke: var(--gold);
-}
-
-.step-action {
+.next-steps-details p { max-width: 680px; margin: 0; line-height: 1.75; }
+.next-steps-link {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-md);
-  font-family: var(--font-family-heading);
+  gap: 8px;
+  min-height: 44px;
   color: var(--temple-blue);
-  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
-
-.step-action:hover {
-  color: var(--gold);
-}
-
-/* Encouragement Section */
-.encouragement-section {
-  padding-bottom: var(--spacing-3xl);
-}
-
-.encouragement-card {
-  background:
-    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 100%);
-  border: 3px solid var(--gold);
-  border-radius: var(--radius-2xl);
-  padding: var(--spacing-3xl);
-  text-align: center;
-  box-shadow: var(--shadow-lg);
-  position: relative;
-}
-
-/* Decorative corners */
-.encouragement-card::before,
-.encouragement-card::after {
-  content: '✧';
-  position: absolute;
-  font-size: 2rem;
-  color: var(--gold);
-  opacity: 0.3;
-}
-
-.encouragement-card::before {
-  top: 20px;
-  left: 20px;
-}
-
-.encouragement-card::after {
-  bottom: 20px;
-  right: 20px;
-}
-
-.encouragement-card h2 {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-3xl);
-  margin-bottom: var(--spacing-md);
-  color: var(--text-primary);
-  letter-spacing: 0.02em;
-}
-
-.encouragement-card > p {
-  font-family: var(--font-family);
-  font-size: var(--font-size-lg);
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto var(--spacing-xl);
-  line-height: 1.8;
-}
-
-.encouragement-card blockquote {
-  font-family: var(--font-family);
-  font-style: italic;
-  font-size: var(--font-size-lg);
-  color: var(--text-primary);
-  max-width: 700px;
-  margin: 0 auto var(--spacing-xl);
-  line-height: 1.8;
-}
-
-.encouragement-card cite {
-  display: block;
-  margin-top: var(--spacing-sm);
-  font-style: normal;
-  font-family: var(--font-family-heading);
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 0.05em;
-}
-
-.encouragement-actions {
+.next-steps-details .next-steps-link { margin-top: 4px; }
+.next-steps-check {
   display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  color: var(--temple-blue);
+  cursor: pointer;
+}
+.next-steps-check input { width: 20px; height: 20px; margin: 0; accent-color: var(--temple-blue); cursor: pointer; flex-shrink: 0; }
+.next-steps-support { padding: 32px 0 48px; }
+.next-steps-support p { max-width: 680px; margin: 0 0 16px; line-height: 1.75; }
+.next-steps-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 24px; }
+.next-steps-primary {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
+  min-height: 44px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: var(--temple-blue);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
 }
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .steps-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .next-steps-hero {
-    padding: 120px 0 60px;
-  }
-
-  .page-hero-content h1 {
-    font-size: var(--font-size-3xl);
-  }
-
-  .step-card {
-    padding: var(--spacing-lg);
-  }
-
-  .encouragement-card {
-    padding: var(--spacing-xl);
-  }
-
-  .encouragement-card::before,
-  .encouragement-card::after {
-    display: none;
-  }
-
-  .encouragement-actions {
-    flex-direction: column;
-  }
-
-  .encouragement-actions .btn {
-    width: 100%;
-  }
+.next-steps-primary:hover { background: var(--temple-blue-dark); color: white; }
+.next-steps-link:hover { color: var(--temple-blue-dark); }
+.next-steps-page :is(a, input):focus-visible { outline: 3px solid #8d641c; outline-offset: 4px; }
+@media (max-width: 600px) {
+  .next-steps-intro,
+  .next-steps-guide,
+  .next-steps-support { width: calc(100% - 32px); }
+  .next-steps-intro { padding: 104px 0 24px; }
+  .next-steps-heading { flex-direction: column; gap: 12px; }
+  .next-steps-item { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 18px 0; }
+  .next-steps-actions { align-items: flex-start; flex-direction: column; gap: 8px; }
 }

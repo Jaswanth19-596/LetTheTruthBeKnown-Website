@@ -78,6 +78,4 @@ for path in sorted(source.rglob('*.pdf')):
         im.thumbnail((480,700)); im.save(coverpath,optimize=True)
 
 (public/'resource-editions.json').write_text(json.dumps(manifest,indent=2)+'\n')
-config=public.parent/'src/config/resourceEditions.json'
-config.write_text(json.dumps(manifest,indent=2)+'\n')
 print(f'Prepared {len(manifest)} A4 editions and source-based covers.')
