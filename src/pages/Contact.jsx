@@ -7,6 +7,8 @@ const Contact = () => {
   useScrollReveal();
   const { checkAndRegister } = useRateLimit();
 
+  const [letterOpen, setLetterOpen] = useState(false);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -113,10 +115,10 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="contact-form-card">
               <h3>Send us a Message</h3>
-              
+
               {status.submitted ? (
                 <div className="form-success-alert">
-                  <div className="success-icon" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', background: 'rgba(30, 111, 168, 0.1)', color: 'var(--primary-color)', borderRadius: '50%', fontSize: '1.5rem', marginBottom: '1rem' }}>✓</div>
+                  <div className="success-icon" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', background: 'rgba(74, 86, 41, 0.1)', color: 'var(--olive-dark)', borderRadius: '50%', fontSize: '1.5rem', marginBottom: '1rem' }}>✓</div>
                   <h4>Thank You!</h4>
                   <p>Your message has been sent successfully. We will get back to you soon.</p>
                   <button className="btn btn-outline-small" style={{ marginTop: '1rem' }} onClick={() => setStatus(prev => ({ ...prev, submitted: false }))}>
@@ -173,12 +175,33 @@ const Contact = () => {
       {/* A personal letter from Peter */}
       <section className="thank-you-section section" aria-labelledby="thank-you-heading">
         <div className="container">
-          <article className="thank-you-letter">
+          <article
+            className={`thank-you-letter${letterOpen ? ' is-open' : ''}`}
+          >
             <header className="thank-you-letter-header">
-              <h2 id="thank-you-heading">Thank you for visiting</h2>
-              <p>A personal note from Peter Morris</p>
+              <h2 id="thank-you-heading">
+                <button
+                  type="button"
+                  className="thank-you-letter-trigger"
+                  aria-expanded={letterOpen}
+                  aria-controls="thank-you-letter-content"
+                  onClick={() => setLetterOpen(open => !open)}
+                >
+                  Thank you for visiting
+                  <span className="thank-you-letter-hint">
+                    {letterOpen ? 'A personal note from Peter Morris' : 'Open a personal note from Peter Morris'}
+                  </span>
+                </button>
+              </h2>
             </header>
-
+            <div
+              id="thank-you-letter-content"
+              className="thank-you-letter-content"
+              inert={!letterOpen}
+              aria-hidden={!letterOpen}
+            >
+              <div className="thank-you-letter-sheet">
+                <div className="thank-you-letter-inner">
             <div className="thank-you-letter-body">
               <p>I hope you enjoy our site.</p>
               <p>Our simple purpose is to help you understand the truth of God's Word amid the confusion and deception in Christianity today. There is a spiritual battle going on, and each of us is part of it. Your eternal destiny matters.</p>
@@ -206,6 +229,19 @@ const Contact = () => {
               <p className="thank-you-letter-name">Peter Morris</p>
               <p className="thank-you-letter-role">Missionary</p>
             </footer>
+                  <button
+                    type="button"
+                    className="thank-you-letter-close"
+                    onClick={() => {
+                      setLetterOpen(false);
+                      document.querySelector('.thank-you-letter-trigger')?.focus({ preventScroll: true });
+                    }}
+                  >
+                    Roll up letter
+                  </button>
+                </div>
+              </div>
+            </div>
           </article>
         </div>
       </section>

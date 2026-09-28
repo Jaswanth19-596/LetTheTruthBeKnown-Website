@@ -3,24 +3,28 @@ import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Chevron = ({ open }) => (
-    <svg
-      className={`nav-chevron ${open ? 'open' : ''}`}
-      width="12" height="12" viewBox="0 0 24 24"
-      fill="none" stroke="currentColor" strokeWidth="2.5"
-      strokeLinecap="round" strokeLinejoin="round"
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  );
-
+  <svg
+    className={`nav-chevron ${open ? 'open' : ''}`}
+    width="12"
+    height="12"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polyline points="6 9 12 15 18 9" />
+  </svg>
+);
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled]           = useState(false);
-  const [isMobileOpen, setIsMobileOpen]       = useState(false);
-  const [openDropdown, setOpenDropdown]       = useState(null); // 'growing' | 'pastor' | null
-  const location  = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null); // 'growing' | 'pastor' | null
+  const location = useLocation();
   const [previousLocation, setPreviousLocation] = useState(location);
-  const navRef    = useRef(null);
+  const navRef = useRef(null);
 
   /* ── Scroll listener ── */
   useEffect(() => {
@@ -51,23 +55,24 @@ const Navbar = () => {
     setOpenDropdown((prev) => (prev === key ? null : key));
 
   const isActive = (paths) =>
-    paths.some((p) => location.pathname === p || location.pathname.startsWith(p));
+    paths.some(
+      (p) => location.pathname === p || location.pathname.startsWith(p),
+    );
 
   /* ── Dropdown data ── */
   const growingLinks = [
-    { to: '/discipleship',   label: 'Foundations of Our Faith' },
-    { to: '/resources',      label: 'Understanding More' },
-    { to: '/next-steps',     label: 'New Believer — Next Steps' },
+    { to: '/discipleship', label: 'Foundations of Our Faith' },
+    { to: '/resources', label: 'Understanding More' },
+    { to: '/next-steps', label: 'New Believer — Next Steps' },
   ];
 
   const pastorLinks = [
-    { to: '/further-study',   label: 'Further Study' },
-    { to: '/gospel-tracts',   label: 'Gospel Tracts' },
-    { to: '/stop-tracts',     label: 'STOP! Tracts' },
-    { to: '/faqs',            label: 'Frequently Asked Questions' },
-    { to: '/prayer-request',  label: 'Prayer Request' },
+    { to: '/further-study', label: 'Further Study' },
+    { to: '/gospel-tracts', label: 'Gospel Tracts' },
+    { to: '/stop-tracts', label: 'STOP Tracts' },
+    { to: '/faqs', label: 'Frequently Asked Questions' },
+    { to: '/prayer-request', label: 'Prayer Request' },
   ];
-
 
   return (
     <nav
@@ -75,7 +80,6 @@ const Navbar = () => {
       className={`navbar ${isScrolled ? 'scrolled' : ''} ${isMobileOpen ? 'mobile-open' : ''}`}
     >
       <div className="navbar-container">
-
         <Link to="/" className="navbar-logo">
           <span className="logo-cross">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -87,7 +91,6 @@ const Navbar = () => {
 
         {/* Desktop nav links */}
         <div className="navbar-links">
-
           {/* Seeking Truth — primary link */}
           <Link
             to="/seeking-truth"
@@ -97,10 +100,14 @@ const Navbar = () => {
           </Link>
 
           {/* Growing in Faith — dropdown */}
-          <div className={`nav-dropdown-wrap ${openDropdown === 'growing' ? 'open' : ''}`}>
+          <div
+            className={`nav-dropdown-wrap ${openDropdown === 'growing' ? 'open' : ''}`}
+          >
             <button
               className={`nav-link nav-dropdown-trigger ${
-                isActive(['/discipleship', '/resources', '/next-steps']) ? 'active' : ''
+                isActive(['/discipleship', '/resources', '/next-steps'])
+                  ? 'active'
+                  : ''
               }`}
               onClick={() => toggleDropdown('growing')}
               aria-expanded={openDropdown === 'growing'}
@@ -109,7 +116,9 @@ const Navbar = () => {
               Growing in Faith <Chevron open={openDropdown === 'growing'} />
             </button>
             <div className="nav-dropdown">
-              <div className="nav-dropdown-header">For New & Growing Christians</div>
+              <div className="nav-dropdown-header">
+                For New & Growing Christians
+              </div>
               {growingLinks.map(({ to, label }) => (
                 <Link
                   key={to}
@@ -123,10 +132,20 @@ const Navbar = () => {
           </div>
 
           {/* Pastor / Further Study — dropdown */}
-          <div className={`nav-dropdown-wrap ${openDropdown === 'pastor' ? 'open' : ''}`}>
+          <div
+            className={`nav-dropdown-wrap ${openDropdown === 'pastor' ? 'open' : ''}`}
+          >
             <button
               className={`nav-link nav-dropdown-trigger ${
-                isActive(['/further-study', '/gospel-tracts', '/stop-tracts', '/faqs', '/prayer-request']) ? 'active' : ''
+                isActive([
+                  '/further-study',
+                  '/gospel-tracts',
+                  '/stop-tracts',
+                  '/faqs',
+                  '/prayer-request',
+                ])
+                  ? 'active'
+                  : ''
               }`}
               onClick={() => toggleDropdown('pastor')}
               aria-expanded={openDropdown === 'pastor'}
@@ -176,14 +195,18 @@ const Navbar = () => {
             aria-label="Toggle menu"
             aria-expanded={isMobileOpen}
           >
-            <span /><span /><span />
+            <span />
+            <span />
+            <span />
           </button>
         </div>
       </div>
 
       {/* ── Mobile menu ── */}
       <div className={`navbar-mobile ${isMobileOpen ? 'open' : ''}`}>
-        <Link to="/seeking-truth" className="mob-link mob-link-primary">Seeking Truth</Link>
+        <Link to="/seeking-truth" className="mob-link mob-link-primary">
+          Seeking Truth
+        </Link>
 
         <div className="mob-group">
           <button
@@ -196,7 +219,9 @@ const Navbar = () => {
           {openDropdown === 'm-growing' && (
             <div className="mob-group-items">
               {growingLinks.map(({ to, label }) => (
-                <Link key={to} to={to} className="mob-sub-link">{label}</Link>
+                <Link key={to} to={to} className="mob-sub-link">
+                  {label}
+                </Link>
               ))}
             </div>
           )}
@@ -213,16 +238,26 @@ const Navbar = () => {
           {openDropdown === 'm-pastor' && (
             <div className="mob-group-items">
               {pastorLinks.map(({ to, label }) => (
-                <Link key={to + label} to={to} className="mob-sub-link">{label}</Link>
+                <Link key={to + label} to={to} className="mob-sub-link">
+                  {label}
+                </Link>
               ))}
             </div>
           )}
         </div>
 
-        <Link to="/about"          className="mob-link">About</Link>
-        <Link to="/give"           className="mob-link">Give</Link>
-        <Link to="/contact"        className="mob-link">Contact Us</Link>
-        <Link to="/salvation-quiz" className="mob-link mob-link-quiz">Take the Salvation Quiz →</Link>
+        <Link to="/about" className="mob-link">
+          About
+        </Link>
+        <Link to="/give" className="mob-link">
+          Give
+        </Link>
+        <Link to="/contact" className="mob-link">
+          Contact Us
+        </Link>
+        <Link to="/salvation-quiz" className="mob-link mob-link-quiz">
+          Take the Salvation Quiz →
+        </Link>
       </div>
     </nav>
   );

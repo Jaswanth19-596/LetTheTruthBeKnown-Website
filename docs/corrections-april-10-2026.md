@@ -13,7 +13,7 @@ Implemented September 13, 2026 against the supplied correction document. Existin
 - Eight verified Gospel translations use their existing 16 sequential A4 reading pages: English, Swahili, Luo, Kikuyu, Kalenjin, Amharic, Maasai, Kamba. Local copies make download links work directly.
 - Arabic and French remain listed with an honest unavailable message and no misleading download button. Arabic's hosted PDF is entirely English; French returned HTTP 403.
 - Phone-first instructions explain reading passages together, asking what they mean, allowing time, and requesting print permission/layouts. Removed unverified universal trifold instructions.
-- Six STOP tracts now have four sequential A4 reading pages (front, inside left, inside right, back). Original landscape A4 printing files remain separate. STOP sign contains only STOP! in scarlet; Tracts appears below.
+- Six STOP tracts now have four sequential A4 reading pages (front, inside left, inside right, back). Original landscape A4 printing files remain separate. STOP sign contains only STOP in scarlet; Tracts appears below.
 - All 20 discipleship lesson cards have locally rendered covers from their actual PDFs. For Level 3 folded covers, the front half is used. Lesson names match source contents, including Sanctification, Victory Over Sin, Practical Christian Living, and Jesus Christ. Counts are 4/8/8. Reading and download actions are visible without hover.
 - Converted 38 non-A4 or imposed resources to A4 reading editions, preserving content and source page orientation. Eight Gospel files were already A4 and are copied unchanged. All 46 available reading/download PDFs now resolve through `src/config/resourceEditions.json`.
 - Answer Books open the complete PDFs directly, avoiding the former viewer/expand route. All seven source PDFs returned HTTP 200.
@@ -26,20 +26,20 @@ Implemented September 13, 2026 against the supplied correction document. Existin
 
 ## Still dependent on supplied material or account setup
 
-| Request | What is needed |
-|---|---|
-| Approximately 35 Scripture-based FAQs | “Questions and Answers by topic – 2” was not present in the project or available text attachments. Existing FAQs remain; the requested theological answers were not invented. |
-| Brandon Heselschwerdt Salvation, Tongues, Soul Winning, TAN, Discipleship | Publication permission and actual files. |
-| Missions instead of Creation | The hosted Level 3 Book 6 is Creation on its cover, interior lesson, and catalogue. Supply the intended Missions PDF; renaming this file would misrepresent its contents. |
-| Arabic/French and any additional Gospel languages | Correct source translations. The current Arabic PDF contains English; French is inaccessible. |
-| Colored Raising Prince cover | The available PDF starts with a monochrome title page; the requested colored artwork is absent. |
-| Full Gospel transcript | YouTube transcript export reports no transcript available for Trw5FVDQmiA. The site links to YouTube with conditional transcript instructions. Supply an approved transcript or recording suitable for transcription. |
-| Second Gospel video | YouTube oEmbed returns “Not Found” for 2GqTEl3zSx4. That does not establish whether it is private or deleted. Supply a working replacement or original. |
-| Professional introduction and narration | Existing media now has correct duration/playback behavior. A new professionally produced earth/sun film and recorded compassionate male narration require production assets/vendor choice; no subscription was purchased. |
-| Short Peter Morris biography | The original documentary is retained on About; a 3–4 minute approved edit is needed. |
-| Final acknowledgements | A short general thank-you is in place; named credits need the promised acknowledgement file. |
-| Online donation checkout | Ministry-approved payment provider/account and destination are needed. Existing Contact Us to Give remains active. |
-| Notice board content | Section exists; articles, photos, events, and ministry recognition need actual content. |
+| Request                                                                   | What is needed                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Approximately 35 Scripture-based FAQs                                     | “Questions and Answers by topic – 2” was not present in the project or available text attachments. Existing FAQs remain; the requested theological answers were not invented.                                             |
+| Brandon Heselschwerdt Salvation, Tongues, Soul Winning, TAN, Discipleship | Publication permission and actual files.                                                                                                                                                                                  |
+| Missions instead of Creation                                              | The hosted Level 3 Book 6 is Creation on its cover, interior lesson, and catalogue. Supply the intended Missions PDF; renaming this file would misrepresent its contents.                                                 |
+| Arabic/French and any additional Gospel languages                         | Correct source translations. The current Arabic PDF contains English; French is inaccessible.                                                                                                                             |
+| Colored Raising Prince cover                                              | The available PDF starts with a monochrome title page; the requested colored artwork is absent.                                                                                                                           |
+| Full Gospel transcript                                                    | YouTube transcript export reports no transcript available for Trw5FVDQmiA. The site links to YouTube with conditional transcript instructions. Supply an approved transcript or recording suitable for transcription.     |
+| Second Gospel video                                                       | YouTube oEmbed returns “Not Found” for 2GqTEl3zSx4. That does not establish whether it is private or deleted. Supply a working replacement or original.                                                                   |
+| Professional introduction and narration                                   | Existing media now has correct duration/playback behavior. A new professionally produced earth/sun film and recorded compassionate male narration require production assets/vendor choice; no subscription was purchased. |
+| Short Peter Morris biography                                              | The original documentary is retained on About; a 3–4 minute approved edit is needed.                                                                                                                                      |
+| Final acknowledgements                                                    | A short general thank-you is in place; named credits need the promised acknowledgement file.                                                                                                                              |
+| Online donation checkout                                                  | Ministry-approved payment provider/account and destination are needed. Existing Contact Us to Give remains active.                                                                                                        |
+| Notice board content                                                      | Section exists; articles, photos, events, and ministry recognition need actual content.                                                                                                                                   |
 
 ## Questions in the correction document
 

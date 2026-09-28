@@ -55,3 +55,16 @@
 - See [the correction checklist](corrections-april-10-2026.md) for full implementation, verification, source audit, and outstanding source material.
 
 - September 14 final checks: full lint/build pass; navigation closes on route changes without effect-driven cascading updates, and scroll reveal uses a stable explicit dependency.
+
+## September 27, 2026 — About page simplification
+
+- Replaced repeated mission/values sections and the six-item offering list with a concise ministry introduction and three working resource links: Gospel tracts, discipleship, and further study.
+- Uses the existing parchment, sepia, olive, Cinzel, and Lora tokens. A quiet arched scripture panel replaces the animated Faith medallion; About styles are scoped with `about-` classes.
+- Retains the Peter Morris documentary and `#peter-morris` anchor near the end, with a responsive 16:9 player and a YouTube fallback link. Preserves the prior removal of acknowledgements and the extra CTA section.
+- Mobile layout stacks content, with visible keyboard focus and no added animation. No routing, persistence, or API changes.
+
+### About visual alignment follow-up
+
+- Replaced the initial split hero and arched scripture panel after feedback that they felt inconsistent with the rest of the site.
+- About now reuses the shared `page-hero` / `page-hero-content` layout used by other interior pages, including centered Cinzel heading, italic subtitle, and fading parchment background. Mission copy sits below the hero beside the familiar gold-edged scripture treatment.
+- Resource links use the existing ivory panel, border, radius, and shadow tokens; the documentary has a light parchment panel. Concise copy and existing destinations remain intact.

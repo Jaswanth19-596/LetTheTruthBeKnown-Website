@@ -1,3 +1,13 @@
+/* Contact palette follows the site’s parchment, sepia, and olive tones. */
+.contact-page {
+  --contact-ink: #44382b;
+  --contact-muted: #746653;
+  --contact-surface: #fffdf8;
+  --contact-border: #d6cbb6;
+  --letter-paper: #fffdf7;
+  --letter-edge: #d6cbb6;
+}
+
 /* ===== Contact Page - Ancient Israel Theme ===== */
 .contact-hero {
   background:
@@ -9,7 +19,7 @@
 .contact-hero::before {
   background:
     radial-gradient(circle at 30% 50%, rgba(184, 134, 11, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 70% 50%, rgba(30, 58, 95, 0.05) 0%, transparent 40%);
+    radial-gradient(circle at 70% 50%, rgba(107, 123, 60, 0.05) 0%, transparent 40%);
 }
 
 /* Decorative stars */
@@ -135,30 +145,16 @@
   letter-spacing: 0.05em;
 }
 
-/* Contact Form - Parchment scroll style */
+/* Ivory keeps the form light within the parchment page. */
 .contact-form-card {
-  background:
-    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 100%);
-  border: 3px solid var(--gold);
-  border-radius: var(--radius-xl);
-  padding: var(--spacing-2xl);
-  box-shadow:
-    var(--shadow-xl),
-    inset 0 0 40px rgba(184, 134, 11, 0.03);
+  background: var(--contact-surface);
+  border: 1px solid var(--contact-border);
+  border-top: 3px solid var(--contact-ink);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 4vw, 3rem);
+  box-shadow: 0 10px 30px rgba(68, 56, 43, 0.07);
   position: relative;
-}
-
-/* Scroll roll top */
-.contact-form-card::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 20%;
-  right: 20%;
-  height: 12px;
-  background: linear-gradient(90deg, var(--sand), var(--parchment), var(--sand));
-  border-radius: 6px;
-  box-shadow: inset 0 2px 4px rgba(44, 24, 16, 0.1);
+  color: var(--contact-ink);
 }
 
 .contact-form-card h3 {
@@ -375,4 +371,190 @@
   font-family: var(--font-family);
   font-size: 0.9rem;
   color: var(--text-secondary);
+}
+
+
+/* The thank-you note unrolls from a closed parchment letter. */
+.thank-you-letter {
+  position: relative;
+  background: var(--letter-paper);
+  min-width: 0;
+  padding: 0;
+  border: 1px solid var(--letter-edge);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(44, 24, 16, 0.1);
+}
+
+.thank-you-letter::before,
+.thank-you-letter::after {
+  content: '';
+  position: absolute;
+  left: -7px;
+  right: -7px;
+  height: 16px;
+  border: 1px solid var(--letter-edge);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fffefb, #eee7d8 55%, var(--letter-edge));
+  box-shadow: 0 3px 5px rgba(44, 24, 16, 0.12);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.thank-you-letter::before {
+  top: -7px;
+}
+
+.thank-you-letter::after {
+  bottom: -7px;
+}
+
+.thank-you-letter-header,
+.thank-you-letter-header h2 {
+  margin: 0;
+}
+
+.thank-you-letter-trigger {
+  display: block;
+  width: 100%;
+  padding: 2.5rem 1.25rem;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font: inherit;
+  cursor: pointer;
+}
+
+.thank-you-letter-hint {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  color: var(--text-secondary);
+}
+
+.thank-you-letter-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  /* Keep the ink visible as the lower roll gradually covers the page. */
+  transition: grid-template-rows 2400ms cubic-bezier(0.45, 0, 0.55, 1),
+    visibility 0s linear 2400ms;
+}
+
+.thank-you-letter.is-open .thank-you-letter-content {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.thank-you-letter-sheet {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.thank-you-letter-inner {
+  padding: 0 clamp(1.25rem, 3vw, 2.5rem) 2rem;
+}
+
+.thank-you-letter-close {
+  display: block;
+  margin: 1.25rem auto 0;
+  padding: 0.5rem;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.thank-you-letter-trigger:focus-visible,
+.thank-you-letter-close:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 4px;
+}
+
+.thank-you-letter-close:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thank-you-letter-content {
+    transition: none;
+  }
+}
+
+
+/* Keep form controls and surrounding details in the page palette. */
+.contact-page .contact-form-card h3,
+.contact-page .contact-form-card label {
+  color: var(--contact-ink);
+}
+
+.contact-page .contact-form-card input,
+.contact-page .contact-form-card select,
+.contact-page .contact-form-card textarea {
+  background-color: #ffffff;
+  border: 1px solid var(--contact-border);
+  color: var(--contact-ink);
+}
+
+.contact-page .contact-form-card input::placeholder,
+.contact-page .contact-form-card textarea::placeholder {
+  color: var(--contact-muted);
+}
+
+.contact-page .contact-form-card input:focus,
+.contact-page .contact-form-card select:focus,
+.contact-page .contact-form-card textarea:focus {
+  border-color: var(--contact-ink);
+  box-shadow: 0 0 0 3px rgba(68, 56, 43, 0.12);
+}
+
+.contact-page .contact-form-card select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2344382b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+}
+
+.contact-page .contact-form-card .btn-primary {
+  background: #4a5629;
+  border-color: #4a5629;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(68, 56, 43, 0.12);
+}
+
+.contact-page .contact-form-card .btn-primary:hover {
+  background: #394321;
+  border-color: #394321;
+}
+
+.contact-page .contact-method {
+  border: 1px solid var(--contact-border);
+  box-shadow: none;
+}
+
+.contact-page .contact-method:hover {
+  border-color: var(--contact-ink);
+}
+
+.contact-page .contact-verse {
+  background: #f0f3ef;
+  border-left-color: #697763;
+  box-shadow: none;
+}
+
+.contact-page .contact-verse span,
+.contact-page .contact-verse::before {
+  color: #52634d;
+}
+
+.contact-page .gradient-text {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--contact-ink);
 }

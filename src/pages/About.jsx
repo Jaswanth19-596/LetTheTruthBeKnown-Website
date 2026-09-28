@@ -1,128 +1,79 @@
+import { Link } from 'react-router-dom';
 import './About.css';
 
 const About = () => {
-  
   return (
     <div className="about-page">
-      {/* Hero */}
-      <section className="page-hero about-hero">
+      <header className="page-hero about-intro">
         <div className="container">
           <div className="page-hero-content">
-            <span className="section-badge">Our Mission</span>
-            <h1>About <span className="gradient-text">Our Ministry</span></h1>
-            <p>Helping you find the truth in the Word of God and the Gospel of Jesus Christ.</p>
+            <h1>About Our Ministry</h1>
+            <p>Sharing the Gospel of Jesus Christ across Africa and beyond.</p>
           </div>
+        </div>
+      </header>
+
+      <section className="about-mission about-shell" aria-labelledby="about-mission-title">
+        <div>
+          <h2 id="about-mission-title">Let the Truth be Known</h2>
+          <p>
+            We work with local churches and missionaries to help people hear
+            the Gospel and grow in their faith, through Bible-based materials
+            in English and African languages.
+          </p>
+        </div>
+        <blockquote className="about-scripture">
+          <p>“Go ye into all the world, and preach the gospel to every creature.”</p>
+          <cite>Mark 16:15</cite>
+        </blockquote>
+      </section>
+
+      <section className="about-resources about-shell" aria-labelledby="about-resources-title">
+        <div className="about-section-heading">
+          <h2 id="about-resources-title">Freely Given</h2>
+          <p>Download, print, and distribute our materials freely.</p>
+        </div>
+        <div className="about-resource-links">
+          <Link to="/gospel-tracts" className="about-resource-link">
+            <h3>Share the Gospel</h3>
+            <p>Gospel tracts in English and African languages.</p>
+            <span className="about-link-label">Browse tracts</span>
+          </Link>
+          <Link to="/discipleship" className="about-resource-link">
+            <h3>Grow in faith</h3>
+            <p>Guided Bible studies for new and growing Christians.</p>
+            <span className="about-link-label">Explore discipleship</span>
+          </Link>
+          <Link to="/further-study" className="about-resource-link">
+            <h3>Study and teach</h3>
+            <p>Answer books and resources for deeper Bible study.</p>
+            <span className="about-link-label">Find study materials</span>
+          </Link>
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="mission-section section">
-        <div className="container">
-          <div className="mission-grid">
-            <div className="mission-content">
-              <h2>Our <span className="gradient-text">Mission</span></h2>
-              <p>"Let the Truth be Known" is a ministry dedicated to spreading the Gospel of Jesus Christ across Africa and beyond. We believe that everyone deserves to hear the Good News in their own language.</p>
-              <p>Our mission is to help people know the truth.</p>
-              <div className="mission-verse">
-                <p>"Go ye into all the world, and preach the gospel to every creature."</p>
-                <span>— Mark 16:15</span>
-              </div>
-            </div>
-            <div className="mission-image">
-              <div className="mission-icon-text">Faith</div>
-            </div>
-          </div>
+      <section className="about-film about-shell" id="peter-morris" aria-labelledby="about-film-title">
+        <div className="about-film-copy">
+          <h2 id="about-film-title">Who is Peter Morris?</h2>
+          <p>Meet the missionary and learn about his ministry in this documentary.</p>
+          <a
+            href="https://www.youtube.com/watch?v=ATmIOERW--c"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="about-text-link"
+          >
+            Watch on YouTube<span className="sr-only"> (opens in a new tab)</span>
+          </a>
         </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="values-section section">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2>Our <span className="gradient-text">Values</span></h2>
-          </div>
-          <div className="values-grid">
-            <div className="value-card">
-              <h4>Bible-Centered</h4>
-              <p>All our materials are based solely on the Word of God, using clear Scripture references.</p>
-            </div>
-            <div className="value-card">
-              <h4>Freely Given</h4>
-              <p>All resources are completely free to download, print, and distribute.</p>
-            </div>
-            <div className="value-card">
-              <h4>Multi-Language</h4>
-              <p>We translate materials into multiple African languages to reach more people.</p>
-            </div>
-            <div className="value-card">
-              <h4>Partnership</h4>
-              <p>We work with local churches and missionaries for effective gospel distribution.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What We Offer */}
-      <section className="offer-section section">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2>What We <span className="gradient-text">Offer</span></h2>
-          </div>
-          <div className="offer-grid">
-            <div className="offer-item">
-              <span className="offer-number">01</span>
-              <h4>Gospel Tracts</h4>
-              <p>God's Simple Plan of Salvation in multiple languages</p>
-            </div>
-            <div className="offer-item">
-              <span className="offer-number">02</span>
-              <h4>Stop! Tracts</h4>
-              <p>Eye-catching tracts for street evangelism</p>
-            </div>
-            <div className="offer-item">
-              <span className="offer-number">03</span>
-              <h4>Discipleship Materials</h4>
-              <p>3-level program with 20 study books</p>
-            </div>
-            <div className="offer-item">
-              <span className="offer-number">04</span>
-              <h4>Answer Books</h4>
-              <p>7-volume series answering common questions</p>
-            </div>
-            <div className="offer-item">
-              <span className="offer-number">05</span>
-              <h4>Study Guides</h4>
-              <p>Additional resources for deeper Bible study</p>
-            </div>
-            <div className="offer-item">
-              <span className="offer-number">06</span>
-              <h4>Teaching Materials</h4>
-              <p>Resources for pastors and teachers</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="ministry-film" id="peter-morris">
-        <h2>Who Is Peter Morris?</h2>
-        <p>A missionary documentary about Peter Morris and his ministry.</p>
-        <iframe src="https://www.youtube.com/embed/ATmIOERW--c" title="Peter Morris missionary documentary" loading="lazy" allow="encrypted-media; picture-in-picture" allowFullScreen />
-        <a href="https://www.youtube.com/watch?v=ATmIOERW--c" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </section>
-      <section className="section" id="acknowledgements">
-        <div className="container"><h2>Acknowledgements</h2><p>Thank you to everyone who helps make the truth of God’s Word accessible through this ministry.</p></div>
-      </section>
-      {/* CTA */}
-      <section className="about-cta section">
-        <div className="container">
-          <div className="cta-card">
-            <h2>Ready to <span className="gradient-text">Get Involved?</span></h2>
-            <p>Download our materials and start sharing the Gospel in your community today.</p>
-            <div className="cta-actions">
-              <a href="/gospel-tracts" className="btn btn-primary">Browse Resources</a>
-              <a href="/contact" className="btn btn-secondary">Contact Us</a>
-            </div>
-          </div>
+        <div className="about-video">
+          <iframe
+            src="https://www.youtube.com/embed/ATmIOERW--c"
+            title="Peter Morris missionary documentary"
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allow="encrypted-media; picture-in-picture"
+            allowFullScreen
+          />
         </div>
       </section>
     </div>
