@@ -68,3 +68,8 @@
 - Replaced the initial split hero and arched scripture panel after feedback that they felt inconsistent with the rest of the site.
 - About now reuses the shared `page-hero` / `page-hero-content` layout used by other interior pages, including centered Cinzel heading, italic subtitle, and fading parchment background. Mission copy sits below the hero beside the familiar gold-edged scripture treatment.
 - Resource links use the existing ivory panel, border, radius, and shadow tokens; the documentary has a light parchment panel. Concise copy and existing destinations remain intact.
+
+## September 27, 2026 — Asset delivery and Git push
+
+- The current `src/config/assets.js` sends PDF links to CloudFront. The local A4 PDFs added earlier remain in `public/downloads/a4`, but the former `src/config/resourceEditions.json` routing was removed in the UI redesign. The September 13 local-fallback note above records that earlier implementation, not the current link behavior.
+- The commit introducing those PDFs made the first push about 213 MiB. Two attempts ended with `curl 55 Send failure: Broken pipe`; GitHub's `main` branch had not advanced despite Git printing “Everything up-to-date.” A one-time `git -c http.version=HTTP/1.1 -c http.postBuffer=524288000 push origin main` completed the upload. Verify an interrupted push against the remote branch before assuming it succeeded.
