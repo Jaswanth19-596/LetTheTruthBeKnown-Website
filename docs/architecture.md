@@ -35,3 +35,8 @@ graph TD
 ## Key State Ownership
 - **Quiz State (`SeekingTruth.jsx` / `SalvationQuiz.jsx`)**: Owned locally within the specific page components. Uses `useState` to track current step, answers, and analysis. This lives locally because the state is ephemeral and only relevant to the active user session within that specific component flow.
 - **Intro Screen State (`App.jsx`)**: Owned in the root `App` component and persisted via `sessionStorage` (`introShown`). It ensures the introductory cinematic animation only plays once per session.
+
+## Topic-based Bible FAQs (October 15, 2026)
+- `/faqs` renders `src/data/faqs.json`: 36 canonical topics and 47 distinct questions from the supplied FAQ manuscript. Two additional index aliases cover false religions/churches and spiritual battle, bringing the index to all 38 source headings.
+- `src/pages/FAQs.jsx` owns transient search state. Search includes topic names, aliases, answers, Scripture references, and fuller explanations. Native `details`/`summary` controls provide keyboard-accessible disclosure without fixed-height clipping.
+- Topic and question IDs are stable fragment destinations. The contents clears a search before navigating. No backend, persistence, or endpoint changes were introduced.

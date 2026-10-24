@@ -15,6 +15,8 @@ Stream-First architecture where users are routed into three streams (Unsaved, Ne
 - Never use non-approved fonts: 'Cinzel' (headers) and 'Lora' (body) are strictly required for the theme.
 - Never close a task without updating the necessary file in the docs folder : Causes the single source of truth graph to desync.
 
+- Never cap FAQ answer height: long manuscript answers and Scripture references must remain fully readable on mobile and desktop. Use native disclosures or content-sized panels.
+
 ## 5. Conventions
 - Naming: `PascalCase.jsx` with co-located `PascalCase.css`.
 - Component Style: Functional components using Hooks, with explicit semantic HTML.

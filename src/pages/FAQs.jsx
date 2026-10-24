@@ -1,122 +1,86 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import topics from '../data/faqs.json';
 import './FAQs.css';
 
+const aliases = [
+  { title: 'False Religions & Churches (Only Two Religions in the World)', target: 'salvation-2' },
+  { title: 'Spiritual Battle', target: 'what-is-spiritual-warfare-and-how-does-it-affect-me' },
+];
+
 const FAQs = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const faqs = [
-    {
-      question: 'Are these materials really free?',
-      answer:
-        'Yes! All materials on this website are completely free to download, print, and distribute. We believe the Gospel should be freely shared with everyone.',
-    },
-    {
-      question: 'Can I print and distribute these tracts?',
-      answer:
-        'Read on your phone or use the A4 reading edition. Contact us for permission and the correct booklet printing layout.',
-    },
-    {
-      question: 'What languages are available?',
-      answer:
-        'Available Gospel tract translations include English, Swahili, Luo, Kikuyu, Kalenjin, Amharic, Maasai, and Kamba. STOP tracts also include Kisii. Arabic and French Gospel tracts are awaiting corrected source files. We are continuously working on adding more languages.',
-    },
-    {
-      question: 'How do I use the Discipleship materials?',
-      answer:
-        'The discipleship program is designed to be completed in order. Start with Level 1 (Foundations) and work through each book. Each level builds on the previous one. You can use these for personal study or to disciple new believers.',
-    },
-    {
-      question: 'Can I use these materials in my church?',
-      answer:
-        "Yes! Churches are welcome to use all materials for evangelism, Sunday school, Bible studies, and discipleship programs. We only ask that you don't sell them.",
-    },
-    {
-      question: 'How do I take the Salvation Quiz?',
-      answer:
-        'Simply visit our Salvation Quiz page and answer each question honestly. The quiz is based on Bible verses and will help you examine your understanding of salvation according to Scripture.',
-    },
-    {
-      question: "What is the 'Answer Book' series?",
-      answer:
-        'The Answer Book series is a 7-volume collection that answers common questions about Christianity, including topics like soul-winning, church issues, Christian living, false doctrines, and false religions.',
-    },
-    {
-      question: 'Can I request materials in a new language?',
-      answer:
-        'Yes! If you would like to see materials translated into a specific language, please contact us. We are always looking for opportunities to reach more people with the Gospel.',
-    },
-    {
-      question: 'How can I support this ministry?',
-      answer:
-        "The best way to support us is by sharing these materials with others and praying for the ministry. If you'd like to help with translations or distribution, please reach out through our contact page.",
-    },
-    {
-      question: 'Are the videos on this site original content?',
-      answer:
-        'We feature various gospel-related videos and worship content. Some are original productions, while others are curated from trusted sources to edify and encourage believers.',
-    },
-  ];
-
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const [search, setSearch] = useState('');
+  const query = search.trim().toLocaleLowerCase();
+  const matches = topics.map(topic => ({
+    ...topic,
+    questions: topic.questions.filter(question =>
+      [topic.title, ...aliases.filter(alias => alias.target.startsWith(topic.id)).map(alias => alias.title),
+        question.question, ...question.answer, ...question.references, ...(question.detail || [])]
+        .join(' ').toLocaleLowerCase().includes(query)),
+  })).filter(topic => topic.questions.length);
+  const count = matches.reduce((total, topic) => total + topic.questions.length, 0);
 
   return (
     <div className="faqs-page">
-      {/* Hero */}
       <section className="page-hero faqs-hero">
-        <div className="container">
-          <div className="page-hero-content">
-            <h1>
-              Frequently Asked <span className="gradient-text">Questions</span>
-            </h1>
-            <p>
-              Find answers to common questions about our ministry and resources.
-            </p>
-          </div>
+        <div className="container page-hero-content">
+          <h1>Frequently Asked <span className="gradient-text">Questions</span></h1>
+          <p>Questions and answers by topic, grounded in the Word of God.</p>
         </div>
       </section>
-
-      {/* FAQs Section */}
-      <section className="faqs-section section">
+      <section className="section">
+        <div className="container faq-reading">
+          <h2>Introduction</h2>
+          <p>Having understood the Gospel of Jesus Christ by reading <Link to="/gospel-tracts">God’s Simple Plan of Salvation</Link> and completed the series of lessons <Link to="/discipleship">Foundations of My Faith</Link>, you will have a basic understanding of correct doctrine from the Bible. To further assist you to understand clearly, we also have lessons on the ABC’s for Christians and the <Link to="/further-study">Answers books on Life’s Key Questions</Link>. These lessons will take you to a deeper understanding of the Scriptures and help protect you from false teaching.</p>
+          <p>In this Frequently Asked Questions section we have endeavored to answer many commonly asked questions as succinctly and clearly as possible.</p>
+          <p>We are not all at the same spiritual level and do not all have the same questions at the same time. To assist with the development of this service, please <Link to="/contact">send us your questions</Link> through our email.</p>
+          <p>We will answer them as promptly and as simply as we can, using the Bible to explain our answers and placing them in a logical and easily referenced list of contents. Our final authority is the Word of God, which is the Foundation of our Faith and the basis of all Truth. May you be blessed and a blessing to others as your understanding grows.</p>
+          <blockquote><p>“And ye shall know the truth, and the truth shall make you free.”</p><cite>John 8:32</cite></blockquote>
+          <blockquote><p>“Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.”</p><cite>John 14:6</cite></blockquote>
+          <blockquote><p>“And we know that the Son of God is come, and hath given us an understanding, that we may know him that is true, and we are in him that is true, even in his Son Jesus Christ. This is the true God, and eternal life.”</p><cite>1 John 5:20</cite></blockquote>
+        </div>
+      </section>
+      <section className="section faqs-section">
         <div className="container">
-          <div className="faqs-grid">
-            {faqs.map((faq, index) => (
-              <div
-                className={`faq-item ${openIndex === index ? 'open' : ''}`}
-                key={index}
-                onClick={() => toggleFAQ(index)}
-              >
-                <div className="faq-question">
-                  <h4>{faq.question}</h4>
-                  <span className="faq-icon">
-                    {openIndex === index ? '−' : '+'}
-                  </span>
-                </div>
-                <div className="faq-answer">
-                  <p>{faq.answer}</p>
-                </div>
-              </div>
+          <nav className="faq-contents" aria-labelledby="faq-contents-heading" id="faq-contents">
+            <h2 id="faq-contents-heading">Questions &amp; Answers by Topic</h2>
+            <ul>{topics.map(topic => <li key={topic.id}><a href={`#${topic.id}`} onClick={() => setSearch('')}>{topic.title}</a></li>)}
+              {aliases.map(alias => <li key={alias.target}><a href={`#${alias.target}`} onClick={() => setSearch('')}>{alias.title}</a></li>)}
+            </ul>
+          </nav>
+          <div className="faq-search faq-reading">
+            <label htmlFor="faq-search">Search questions, answers, or Scripture references</label>
+            <input id="faq-search" type="search" value={search} onChange={event => setSearch(event.target.value)} placeholder="Try salvation, prayer, or John 3" />
+            <p role="status">{count} {count === 1 ? 'answer' : 'answers'}{query ? ' found' : ' across 36 topics'}.</p>
+            {query && <button type="button" className="btn btn-secondary" onClick={() => setSearch('')}>Clear search</button>}
+          </div>
+          <div className="faq-reading">
+            {count === 0 && <p>No answers match your search. Try another word or Scripture reference, or <Link to="/contact">send us your question</Link>.</p>}
+            {matches.map(topic => (
+              <section className="faq-topic" id={topic.id} key={topic.id} aria-labelledby={`${topic.id}-heading`}>
+                <h2 id={`${topic.id}-heading`}>{topic.title}</h2>
+                {topic.questions.map(question => (
+                  <details className="faq-item" id={question.id} key={`${question.id}-${query}`} open={query ? true : undefined}>
+                    <summary>{question.question}</summary>
+                    <div className="faq-answer">
+                      {question.answer.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+                      <h3>KJB References</h3>
+                      {question.references.map((reference, index) => <p key={index}>{reference}</p>)}
+                      {question.detail && <details className="faq-detail"><summary>Read the fuller explanation</summary>{question.detail.map((paragraph, index) => <p key={index}>{paragraph}</p>)}</details>}
+                    </div>
+                  </details>
+                ))}
+                <a className="faq-back" href="#faq-contents">Back to topics</a>
+              </section>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Still Have Questions */}
       <section className="questions-cta section">
-        <div className="container">
-          <div className="cta-card">
-            <h2>
-              Still Have <span className="gradient-text">Questions?</span>
-            </h2>
-            <p>
-              We'd love to hear from you. Reach out and we'll get back to you as
-              soon as possible.
-            </p>
-            <a href="/contact" className="btn btn-primary">
-              Contact Us
-            </a>
-          </div>
+        <div className="container faq-reading">
+          <h2>Still Have Questions?</h2>
+          <p>Send us your questions. We will answer as promptly and simply as we can, using the Bible to explain our answers.</p>
+          <Link to="/contact" className="btn btn-primary">Send a Question</Link>
         </div>
       </section>
     </div>

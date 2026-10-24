@@ -1,152 +1,35 @@
-/* ===== FAQs Page - Ancient Israel Theme ===== */
-.faqs-hero {
-  background:
-    linear-gradient(180deg, var(--parchment) 0%, var(--parchment-light) 50%, var(--bg-primary) 100%);
-  position: relative;
-}
-
-/* Pillar decorations */
-.faqs-hero::before {
-  background:
-    radial-gradient(circle at 50% 50%, rgba(184, 134, 11, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 20% 30%, rgba(30, 58, 95, 0.05) 0%, transparent 40%);
-}
-
-.faqs-hero::after {
-  content: '✦';
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 4rem;
-  color: var(--gold);
-  opacity: 0.1;
-}
-
-/* FAQs Grid */
-.faqs-grid {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.faq-item {
-  background: var(--glass-bg);
-  border: 2px solid var(--glass-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  box-shadow: var(--shadow-sm);
-}
-
-.faq-item:hover {
-  border-color: var(--gold);
-  box-shadow: var(--shadow-md);
-}
-
-.faq-item.open {
-  border-color: var(--gold);
-  box-shadow: var(--shadow-lg), 0 0 20px rgba(184, 134, 11, 0.1);
-}
-
-.faq-question {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--spacing-lg) var(--spacing-xl);
-  gap: var(--spacing-md);
-}
-
-.faq-question h4 {
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  margin: 0;
-  color: var(--text-primary);
-  letter-spacing: 0.01em;
-}
-
-.faq-icon {
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--parchment);
-  border-radius: 50%;
-  color: var(--gold);
-  font-size: var(--font-size-lg);
-  flex-shrink: 0;
-  transition: all 0.4s ease;
-  border: 1px solid var(--sand);
-}
-
-.faq-item.open .faq-icon {
-  background: var(--gradient-gold);
-  color: var(--text-primary);
-  border-color: var(--gold-dark);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-}
-
-.faq-item.open .faq-answer {
-  max-height: 300px;
-  padding: 0 var(--spacing-xl) var(--spacing-lg);
-}
-
-.faq-answer p {
-  font-family: var(--font-family);
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-/* Questions CTA */
-.questions-cta .cta-card {
-  text-align: center;
-  padding: var(--spacing-3xl);
-  background:
-    linear-gradient(135deg, var(--parchment-light) 0%, var(--parchment) 100%);
-  border: 3px solid var(--gold);
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-lg);
-}
-
-.questions-cta .cta-icon {
-  font-size: 3rem;
-  margin-bottom: var(--spacing-lg);
-}
-
-.questions-cta h2 {
-  font-family: var(--font-family-heading);
-  margin-bottom: var(--spacing-md);
-  color: var(--text-primary);
-}
-
-.questions-cta p {
-  font-family: var(--font-family);
-  max-width: 500px;
-  margin: 0 auto var(--spacing-xl);
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-@media (max-width: 768px) {
-  .faq-question {
-    padding: var(--spacing-md) var(--spacing-lg);
-  }
-
-  .faq-item.open .faq-answer {
-    padding: 0 var(--spacing-lg) var(--spacing-md);
-  }
-
-  .faqs-hero::after {
-    display: none;
-  }
+/* Bible FAQ: parchment, Cinzel headings, and Lora body text. */
+.faqs-hero { background: var(--parchment-light); }
+.faqs-page { font-family: var(--font-family); }
+.faq-reading { max-width: 850px; }
+.faqs-page p { line-height: 1.8; margin-bottom: var(--spacing-md); }
+.faqs-page blockquote { border-left: 3px solid var(--gold); padding: var(--spacing-lg); margin-block: var(--spacing-lg); background: var(--parchment-light); }
+.faqs-page a:not(.btn) { color: var(--text-primary); text-decoration: underline; text-underline-offset: 3px; }
+.faq-contents { padding: var(--spacing-xl); border: 1px solid var(--gold); border-radius: var(--radius-lg); background: var(--parchment-light); }
+.faq-contents ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--spacing-md) var(--spacing-xl); padding-left: var(--spacing-lg); margin-top: var(--spacing-lg); }
+.faq-contents li { line-height: 1.6; overflow-wrap: anywhere; }
+.faq-search { margin: var(--spacing-2xl) auto; }
+.faq-search label { display: block; margin-bottom: var(--spacing-sm); }
+.faq-search input { width: 100%; padding: var(--spacing-md); border: 1px solid var(--gold); border-radius: var(--radius-md); background: var(--parchment-light); color: var(--text-primary); font: inherit; }
+.faq-search p { margin-top: var(--spacing-sm); }
+.faq-topic { margin-bottom: var(--spacing-2xl); }
+.faq-topic h2 { margin-bottom: var(--spacing-lg); }
+.faq-topic, .faq-item, .faq-contents { scroll-margin-top: 120px; }
+.faq-item { border: 1px solid var(--sand); border-radius: var(--radius-lg); background: var(--parchment-light); margin-bottom: var(--spacing-md); overflow-wrap: anywhere; }
+.faq-item[open], .faq-item:target { border-color: var(--gold); }
+.faq-item summary { padding: var(--spacing-lg); cursor: pointer; font-family: var(--font-family); font-weight: 600; line-height: 1.6; }
+.faq-item summary::marker { color: var(--gold-dark); }
+.faqs-page :is(a, button, input, summary):focus-visible { outline: 3px solid var(--gold-dark); outline-offset: 4px; }
+.faq-answer { padding: 0 var(--spacing-lg) var(--spacing-lg); }
+.faq-answer h3 { font-size: var(--font-size-base); margin-block: var(--spacing-lg) var(--spacing-sm); }
+.faq-detail { border-top: 1px solid var(--sand); margin-top: var(--spacing-lg); }
+.faq-detail summary { padding-inline: 0; }
+.faq-detail p { white-space: pre-line; }
+.faq-back { display: inline-block; margin-top: var(--spacing-sm); }
+.questions-cta { background: var(--parchment); text-align: center; }
+@media (max-width: 900px) { .faq-contents ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+  .faq-contents ul { grid-template-columns: minmax(0, 1fr); }
+  .faq-contents { padding: var(--spacing-lg); }
+  .faq-topic h2 { font-size: var(--font-size-xl); }
 }
